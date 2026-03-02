@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark"); // Ahora oscuro por defecto
 
   useEffect(() => {
     if (theme === "dark") {
@@ -15,7 +15,6 @@ function App() {
 
   return (
     <div className="container">
-      {/* Hero con botones de tema */}
       <header className="hero">
         <div className="hero-text">
           <h1>Arturo Juárez Monroy</h1>
@@ -41,12 +40,9 @@ function App() {
         </div>
       </header>
 
-      {/* Left column */}
       <div className="left-column">
-        {/* Foto de perfil */}
         <div className="profile-photo">
-          <div className="photo-placeholder">
-          </div>
+          <div className="photo-placeholder"></div>
         </div>
 
         <section className="contact">
@@ -96,7 +92,6 @@ function App() {
         </section>
       </div>
 
-      {/* Right column */}
       <div className="right-column">
         <section className="about" id="about">
           <h3>Acerca de mí</h3>
