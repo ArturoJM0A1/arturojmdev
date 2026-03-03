@@ -13,8 +13,10 @@ body {
   color: #2c2c2c;
   font-family: 'Cormorant Garamond', serif;
   line-height: 1.6;
-  font-size: 1.2rem; /* ligero aumento */
+  font-size: 1.2rem;
   transition: background-color 0.3s, color 0.3s;
+  position: relative;
+  min-height: 100vh;
 }
 
 /* Dark mode */
@@ -87,7 +89,18 @@ body.dark-mode footer {
   scrollbar-color: #b08d57 #1e1e1e;
 }
 
-/* Container ocupa todo el ancho */
+/* Canvas de partículas */
+.particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Permite hacer clic a través del canvas */
+  z-index: 0;
+}
+
+/* Container ocupa todo el ancho y se sitúa sobre las partículas */
 .container {
   width: 100%;
   padding: 40px 5%;
@@ -96,6 +109,8 @@ body.dark-mode footer {
   grid-template-columns: 1fr 2fr;
   gap: 40px;
   transition: background-color 0.3s;
+  position: relative;
+  z-index: 1;
 }
 
 /* Hero section - spans both columns */
@@ -113,10 +128,10 @@ body.dark-mode footer {
 
 .hero-text h1 {
   font-family: 'Cinzel', serif;
-  font-size: 3.4rem; /* ligeramente mayor */
+  font-size: 3.4rem;
   font-weight: 600;
   margin-bottom: 5px;
-  letter-spacing: 2px; /* más espaciado */
+  letter-spacing: 2px;
   color: #1a1a1a;
 }
 
