@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import "./App.css";
 import profileImg from './assets/arurophoto.jpg';
-import { db } from "./firebase";
+import { db } from "./firebase.js";
 import { collection, addDoc, serverTimestamp, query, orderBy, onSnapshot } from "firebase/firestore";
 
 // Componente de partículas (se mantiene igual)
