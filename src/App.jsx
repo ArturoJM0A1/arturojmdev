@@ -1,6 +1,9 @@
 // App.jsx
 import { useState, useEffect } from "react";
 import "./App.css";
+import profileImg from './assets/arurophoto.jpg';
+
+// Luego en el JSX:
 
 function App() {
   const [theme, setTheme] = useState("dark"); // Ahora oscuro por defecto
@@ -42,7 +45,8 @@ function App() {
 
       <div className="left-column">
         <div className="profile-photo">
-          <div className="photo-placeholder"></div>
+          <div className="photo-placeholder" style={{ backgroundImage: `url(${profileImg})` }}></div>
+
         </div>
 
         <section className="contact">
