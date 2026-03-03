@@ -16,7 +16,7 @@ function Particles({ theme }) {
     const ctx = canvas.getContext('2d');
     let animationFrameId;
     let particles = [];
-    const PARTICLE_COUNT = 97; 
+    const PARTICLE_COUNT = 97;
     const TRAIL_LENGTH = 4;
 
     const BASE_COLOR = theme === 'dark' ? '#b08d57' : '#d4c4a8';
@@ -269,7 +269,7 @@ function App() {
             <h1>Arturo Juárez Monroy</h1>
             <h2>{displayText}</h2> {/* El cursor se añade con CSS pseudo-elemento */}
             <div className="divider"></div>
-            <a href="#about" className="btn">Ver mi trayectoria</a>
+            <a href="#about" className="btn vermitrayectoria">Ver mi trayectoria</a>
           </div>
           <div className="theme-buttons">
             <button
@@ -334,6 +334,8 @@ function App() {
                   <li>Tailwind CSS</li>
                   <li>Bootstrap</li>
                   <li>MySQL</li>
+                  <li>WordPress </li>
+                  <li>Excel </li>
                 </ul>
               </div>
             </div>

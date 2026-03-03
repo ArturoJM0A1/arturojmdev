@@ -300,6 +300,10 @@ body.dark-mode .hero-text h1 {
   border-radius: 2px;
 }
 
+.vermitrayectoria{
+  margin-bottom: 23px;
+}
+
 /* Botón principal */
 .btn {
   display: inline-block;
