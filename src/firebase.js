@@ -1,17 +1,23 @@
-// src/firebase.js
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
 
-// Tu configuración de Firebase (reemplázala con la tuya)
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSy...",
-  authDomain: "tu-proyecto.firebaseapp.com",
-  projectId: "tu-proyecto",
-  storageBucket: "tu-proyecto.appspot.com",
-  messagingSenderId: "1234567890",
-  appId: "1:1234567890:web:abcdef..."
+  apiKey: "AIzaSyCoo5aLu9fqW2-Cwz8i_JbWCFtbTvAmeAc",
+  authDomain: "comentarioscv-fc57e.firebaseapp.com",
+  projectId: "comentarioscv-fc57e",
+  storageBucket: "comentarioscv-fc57e.firebasestorage.app",
+  messagingSenderId: "59407502615",
+  appId: "1:59407502615:web:9ab4239163c65ddf723b52",
+  measurementId: "G-F92Z7E5G37"
 };
 
-// Inicializar Firebase
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+const analytics = getAnalytics(app);
