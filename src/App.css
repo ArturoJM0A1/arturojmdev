@@ -698,6 +698,12 @@ body.dark-mode footer {
   transition: transform 0.3s ease;
 }
 
+
+.rocket{
+  scale: 0.87;
+      transition: transform 0.3s ease;
+
+}
 .rocket-button:hover .rocket {
   transform: scale(1.01) rotate(-44deg);
     transition: transform 0.3s ease;
