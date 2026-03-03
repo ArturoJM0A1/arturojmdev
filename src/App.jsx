@@ -3,7 +3,7 @@ import "./App.css";
 import profileImg from './assets/arurophoto.jpg';
 
 // Componente de partículas (integrado directamente)
-function Particles() {
+function Particles({ theme }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -14,24 +14,34 @@ function Particles() {
     const PARTICLE_COUNT = 60;
     const TRAIL_LENGTH = 5; // longitud de la estela
 
-    // Colores dorados
-    const GOLDEN = '#b08d57';
-    const GOLDEN_LIGHT = '#c9a86b';
+    // Colores según el tema
+    const BASE_COLOR = theme === 'dark' ? '#b08d57' : '#FFF7DB'; 
+    const TRAIL_COLOR = theme === 'dark' ? '176, 141, 87' : '192, 192, 192'; // valores RGB para la estela
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
 
-    const createParticle = () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4 + 0.1, // ligera tendencia hacia abajo
-      size: Math.random() * 3 + 1,
-      trail: [],
-      color: `hsl(${42 + Math.random() * 10}, 10%, 55%)`, // tonos dorados variables
-    });
+    const createParticle = () => {
+      let color;
+      if (theme === 'dark') {
+        // Tonos dorados para modo oscuro
+        color = `hsl(${42 + Math.random() * 10}, 50%, 55%)`;
+      } else {
+        // Tonos grises claros para modo claro (luminosidad entre 70% y 85%)
+        color = `hsl(0, 0%, ${70 + Math.random() * 15}%)`;
+      }
+      return {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4 + 0.1, // ligera tendencia hacia abajo
+        size: Math.random() * 3 + 1,
+        trail: [],
+        color,
+      };
+    };
 
     const initParticles = () => {
       particles = [];
@@ -77,15 +87,15 @@ function Particles() {
           const opacity = (i / p.trail.length) * 0.5; // opacidad creciente hacia la cabeza
           ctx.beginPath();
           ctx.arc(trailPoint.x, trailPoint.y, p.size * 0.7, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(176, 141, 87, ${opacity})`;
+          ctx.fillStyle = `rgba(${TRAIL_COLOR}, ${opacity})`;
           ctx.fill();
         }
 
         // Dibujar cabeza de la partícula (más brillante)
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        // Pequeño resplandor
-        ctx.shadowColor = GOLDEN_LIGHT;
+        // Pequeño resplandor del color base
+        ctx.shadowColor = BASE_COLOR;
         ctx.shadowBlur = 10;
         ctx.fillStyle = p.color;
         ctx.fill();
@@ -106,17 +116,13 @@ function Particles() {
     animate();
 
     // Manejar resize
-    window.addEventListener('resize', () => {
-      resizeCanvas();
-      // Opcional: reiniciar partículas para adaptarse al nuevo tamaño
-      // pero no es necesario; simplemente continuan.
-    });
+    window.addEventListener('resize', resizeCanvas);
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [theme]); // Recrear las partículas cuando cambia el tema
 
   return <canvas ref={canvasRef} className="particles-canvas" />;
 }
@@ -134,7 +140,7 @@ function App() {
 
   return (
     <>
-      <Particles />
+      <Particles theme={theme} />
       <div className="container">
         <header className="hero">
           <div className="hero-text">
