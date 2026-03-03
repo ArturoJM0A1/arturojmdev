@@ -328,6 +328,7 @@ function App() {
                   <h4>Otros</h4>
                   <ul>
                     <li>WordPress</li>
+                    <li>Canvas</li>
                     <li>3ds Max</li>
                     <li>AutoCAD</li>
                     <li>Excel</li>
