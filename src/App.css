@@ -655,6 +655,42 @@ body.dark-mode footer {
   animation: slideInRight 0.7s ease-out;
 }
 
+/* ===== Botón cohete (solo escritorio) ===== */
+.rocket-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: var(--gradient-1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-glow);
+  transition: var(--transition);
+  z-index: 1000;
+  border: none;
+  color: white;
+  animation: float 3s infinite alternate;
+  backdrop-filter: blur(4px);
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+.rocket-button:hover {
+  transform: scale(1.1) rotate(-10deg);
+  box-shadow: var(--shadow-glow-strong);
+  background: var(--gradient-2);
+}
+
+@media (max-width: 768px) {
+  .rocket-button {
+    display: none;
+  }
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .container {

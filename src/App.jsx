@@ -1,5 +1,5 @@
 // ===== App.jsx =====
-// Mejoras: partículas con nueva colorimetría
+// Mejoras: partículas con nueva colorimetría + botón cohete para scroll
 
 import { useState, useEffect, useRef } from "react";
 import "./App.css";
@@ -231,6 +231,26 @@ function App() {
   const [displayText, setDisplayText] = useState("");
   const fullText = "Ingeniería en Software";
 
+  // Estado para el botón cohete
+  const [showRocket, setShowRocket] = useState(false);
+
+  // Escuchar scroll para mostrar/ocultar el cohete
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowRocket(true);
+      } else {
+        setShowRocket(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   useEffect(() => {
     if (theme === "dark") {
       document.body.classList.add("dark-mode");
@@ -420,6 +440,13 @@ function App() {
           <b>© Arturo Juárez Monroy · Hecho con React y Firebase ♡ </b>
         </footer>
       </div>
+
+      {/* Botón cohete para volver arriba (solo visible en escritorio y tras hacer scroll) */}
+      {showRocket && (
+        <div className="rocket-button" onClick={scrollToTop} role="button" tabIndex={0} aria-label="Volver arriba">
+          🚀
+        </div>
+      )}
     </>
   );
 }
