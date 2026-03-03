@@ -254,6 +254,11 @@ function App() {
   return (
     <>
       <Particles theme={theme} />
+      {/* AÑADIDO: Icono de sol o luna según el tema */}
+      <div className={`theme-icon ${theme}`}>
+        {theme === 'dark' ? '🌙' : '☀️'}
+      </div>
+
       <title>Arturo Juárez Monroy</title>
 
       <div className="container">
@@ -385,7 +390,7 @@ function App() {
             <h3>Educación</h3>
             <div className="education-item">
               <h4>Ingeniería en Software</h4>
-              <p>Universidad Autónoma del Estado de Hidalgo – Escuela Superior de Tlahuelilpan (2021 - 2024)</p>
+              <p>Universidad Autónoma del Estado de Hidalgo (2020 - 2024)</p>
             </div>
           </section>
         </div>
