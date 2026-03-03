@@ -375,7 +375,7 @@ function App() {
 
             <div className="card">
               <h4>Portal Turístico de Hidalgo</h4>
-              <div className="date">Servicio social · 2024</div>
+              <div className="date">Gobierno del Estado de Hidalgo · 2024</div>
               <p>Desarrollé un sitio web para la Secretaría de Turismo en Hidalgo para ofrecer a los visitantes una experiencia completa. El sitio incluye noticias, eventos y actividades turísticas, un calendario de eventos, mapas interactivos de lugares interesantes y filtros de navegación.</p>
             </div>
 
