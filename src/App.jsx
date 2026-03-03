@@ -1,5 +1,5 @@
 // ===== App.jsx =====
-// Mejoras: partículas más suaves, cursor typewriter, transiciones, sin alterar contenido
+// Mejoras: partículas con nueva colorimetría
 
 import { useState, useEffect, useRef } from "react";
 import "./App.css";
@@ -7,7 +7,7 @@ import profileImg from './assets/arurophoto.jpg';
 import { db } from "./firebase.js";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
-// Componente de partículas mejorado (colores más integrados, menor cantidad para rendimiento)
+// Componente de partículas con colores de la nueva paleta
 function Particles({ theme }) {
   const canvasRef = useRef(null);
 
@@ -19,8 +19,9 @@ function Particles({ theme }) {
     const PARTICLE_COUNT = 97;
     const TRAIL_LENGTH = 4;
 
-    const BASE_COLOR = theme === 'dark' ? '#b08d57' : '#d4c4a8';
-    const TRAIL_COLOR = theme === 'dark' ? '176, 141, 87' : '180, 160, 120';
+    // Nuevos colores basados en la paleta técnica
+    const BASE_COLOR = theme === 'dark' ? '#00ff88' : '#00d4ff';
+    const TRAIL_COLOR = theme === 'dark' ? '0, 255, 136' : '0, 212, 255';
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -30,9 +31,10 @@ function Particles({ theme }) {
     const createParticle = () => {
       let color;
       if (theme === 'dark') {
-        color = `hsl(${42 + Math.random() * 15}, 55%, 55%)`;
+        // Tonos verdes/azules neón
+        color = `hsl(${120 + Math.random() * 60}, 100%, 60%)`;
       } else {
-        color = `hsl(40, 20%, ${70 + Math.random() * 15}%)`;
+        color = `hsl(${180 + Math.random() * 60}, 80%, 70%)`;
       }
       return {
         x: Math.random() * canvas.width,
@@ -237,7 +239,7 @@ function App() {
     }
   }, [theme]);
 
-  // Efecto typewriter (mismo contenido, velocidad ligeramente aumentada)
+  // Efecto typewriter
   useEffect(() => {
     let i = 0;
     setDisplayText("");
@@ -248,7 +250,7 @@ function App() {
       } else {
         clearInterval(interval);
       }
-    }, 119); // velocidad
+    }, 119);
 
     return () => clearInterval(interval);
   }, []);
@@ -266,7 +268,7 @@ function App() {
         <header className="hero">
           <div className="hero-text">
             <h1>Arturo Juárez Monroy</h1>
-            <h2>{displayText}</h2> {/* El cursor se añade con CSS pseudo-elemento */}
+            <h2>{displayText}</h2>
             <div className="divider"></div>
             <a href="#about" className="btn vermitrayectoria">Ver mi trayectoria</a>
           </div>
