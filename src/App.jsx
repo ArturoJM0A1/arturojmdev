@@ -401,7 +401,7 @@ function App() {
         </div>
 
         <footer>
-          <b>© Arturo Juárez Monroy · Hecho con React y Firebase</b>
+          <b>© Arturo Juárez Monroy · Hecho con React y Firebase ♡ </b>
         </footer>
       </div>
     </>
