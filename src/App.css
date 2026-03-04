@@ -717,6 +717,24 @@ body.dark-mode footer {
   transition: transform 0.3s ease;
 }
 
+.rocket *{
+  display: flex;
+  /* elimina baseline inline */
+  align-items: center;
+  /* centra contenido interno */
+  justify-content: center;
+
+  background-color: red;
+  position: absolute;
+
+    position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
 @media (max-width: 768px) {
   .rocket-button {
     display: flex;
