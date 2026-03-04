@@ -708,7 +708,7 @@ body.dark-mode footer {
   transition: transform 0.3s ease;
   align-items: center;
   justify-content: center;
-  background-color: red;
+  background-color: transparent;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -730,7 +730,7 @@ body.dark-mode footer {
 @media (max-width: 768px) {
   .rocket-button {
     display: flex;
-    scale: 0.87;
+    scale: 0.81;
     right: 2px;
   }
 }
