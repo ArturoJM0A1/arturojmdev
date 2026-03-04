@@ -689,6 +689,8 @@ body.dark-mode footer {
   backdrop-filter: blur(4px);
   border: 2px solid rgba(255, 255, 255, 0.2);
   scale: 0.92;
+  position: fixed;
+
 }
 
 .rocket-button:hover {
@@ -699,21 +701,23 @@ body.dark-mode footer {
 }
 
 
-.rocket{
+.rocket {
   scale: 0.87;
-      transition: transform 0.3s ease;
-
+  transition: transform 0.3s ease;
+  top: 50%;
+  left: 50%;
 }
+
 .rocket-button:hover .rocket {
   transform: scale(1.01) rotate(-44deg);
-    transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 @media (max-width: 768px) {
   .rocket-button {
     display: flex;
     scale: 0.87;
-      right: 2px;
+    right: 2px;
   }
 }
 

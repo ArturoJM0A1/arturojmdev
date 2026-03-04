@@ -421,6 +421,12 @@ function App() {
               <div className="date">Trabajo para titulación · 2025</div>
               <p>Desarrollé una aplicación SIG de mapas personalizados del estado de Hidalgo utilizando React Native, JSON y GeoJSON para visualizar datos específicos sobre población y vivienda (INEGI). Este proyecto permite a los usuarios acceder de manera detallada a información relevante sobre la región.</p>
             </div>
+
+            <div className="card">
+              <h4>Chat con IA Local (Ollama + Next.js)</h4>
+              <div className="date">Aplicación Web Full Stack · 2026</div>
+              <p>Desarrollo de chat local con Next.js, integrada con Ollama para ejecutar el modelo llama3.2:1b en entorno local, implementando API propia, manejo de estado en React y diseño responsive con Tailwind CSS, permitiendo interacción en tiempo real sin dependencia de servicios en la nube.</p>
+            </div>
           </section>
 
           <section className="education">
@@ -444,7 +450,7 @@ function App() {
       {/* Botón cohete para volver arriba (solo visible en escritorio y tras hacer scroll) */}
       {showRocket && (
         <div className="rocket-button" onClick={scrollToTop} role="button" tabIndex={0} aria-label="Volver arriba">
-            <span class="rocket">🚀</span>
+          <span class="rocket">🚀</span>
         </div>
       )}
     </>
