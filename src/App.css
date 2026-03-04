@@ -733,6 +733,10 @@ body.dark-mode footer {
     scale: 0.81;
     right: 2px;
   }
+
+  .rocket{
+    margin-top: 9px;
+  }
 }
 
 /* Responsive */
