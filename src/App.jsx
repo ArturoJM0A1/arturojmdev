@@ -131,6 +131,7 @@ function App() {
                 <div className="skill-category">
                   <h4>Otros</h4>
                   <ul>
+                    <li>MySQL Workbench</li>
                     <li>WordPress</li>
                     <li>Canvas</li>
                     <li>3ds Max</li>
@@ -150,7 +151,6 @@ function App() {
                     <li>Vue</li>
                     <li>Tailwind CSS</li>
                     <li>Bootstrap</li>
-                    <li>MySQL</li>
                   </ul>
                 </div>
               </div>
@@ -196,6 +196,7 @@ function App() {
               <p>Desarrollé un sitio web utilizando PHP y Bootstrap para el bar "El Mezcalito" en Tula de Allende. El sitio permitía a los usuarios explorar el establecimiento, visualizar la variedad de bebidas y comidas disponibles y realizar reservaciones de manera conveniente y eficiente.</p>
               <div className="project-links">
                 <a href="https://github.com/ArturoJM0A1/El-Mezcalito" className="project-link" target="_blank" rel="noreferrer" title="Ver repositorio"><i className="fab fa-github"></i> Repo</a>
+                <a href="https://youtu.be/f9y2C5g_qdI" className="project-link" target="_blank" rel="noreferrer" title="Ver video"><i className="fas fa-video"></i> Video</a>
               </div>
             </div>
 
@@ -205,6 +206,16 @@ function App() {
               <p>Desarrollé un sitio web para la Secretaría de Turismo en Hidalgo para ofrecer a los visitantes una experiencia completa. El sitio incluye noticias, eventos y actividades turísticas, un calendario de eventos, mapas interactivos de lugares interesantes y filtros de navegación.</p>
               <div className="project-links">
                 <a href="https://github.com/ArturoJM0A1/sitioturismo" className="project-link" target="_blank" rel="noreferrer" title="Ver repositorio"><i className="fab fa-github"></i> Repo</a>
+              </div>
+            </div>
+
+            <div className="card">
+              <h4>Recetario</h4>
+              <div className="date">Proyecto independiente · 2024</div>
+              <p>Desarrollo de un sitio web interactivo de recetas, centrado en el frontend. La página ofrece una experiencia de usuario intuitiva para explorar y guardar recetas y bebidas.</p>
+              <div className="project-links">
+                <a href="https://github.com/ArturoJM0A1/recetarioCreativeKitchen" className="project-link" target="_blank" rel="noreferrer" title="Ver repositorio"><i className="fab fa-github"></i> Repo</a>
+                <a href="https://www.youtube.com/watch?v=mogJaqrFaL8" className="project-link" target="_blank" rel="noreferrer" title="Ver video"><i className="fas fa-video"></i> Video</a>
               </div>
             </div>
 
