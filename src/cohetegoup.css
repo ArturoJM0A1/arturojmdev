@@ -19,7 +19,7 @@
   color: white;
   animation: float 3s infinite alternate;
   backdrop-filter: blur(4px);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(126, 132, 184, 0.3);
   scale: 0.92;
 
   overflow: visible;
