@@ -221,7 +221,7 @@ function App() {
 
             <div className="card">
               <h4>Aplicación de Mapas Personalizados (SIG Hidalgo)</h4>
-              <div className="date">Trabajo para titulación · 2025</div>
+              <div className="date">Articulo y App · 2025</div>
               <p>Desarrollé una aplicación SIG de mapas personalizados del estado de Hidalgo utilizando React Native, JSON y GeoJSON para visualizar datos específicos sobre población y vivienda (INEGI). Este proyecto permite a los usuarios acceder de manera detallada a información relevante sobre la región.</p>
               <div className="project-links">
                 <a href="https://ciencialatina.org/index.php/cienciala/article/view/19604/28102" className="project-link" target="_blank" rel="noreferrer" title="Ver articulo"><i className="fas fa-book"></i> Articulo</a>
