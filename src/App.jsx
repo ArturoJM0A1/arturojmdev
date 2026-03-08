@@ -120,7 +120,6 @@ function App() {
                   <h4>Lenguajes</h4>
                   <ul>
                     <li>JavaScript</li>
-                    <li>HTML</li>
                     <li>Python</li>
                     <li>PHP</li>
                     <li>Java</li>
@@ -133,6 +132,7 @@ function App() {
                   <ul>
                     <li>MySQL Workbench</li>
                     <li>WordPress</li>
+                    <li>Power Bi</li>
                     <li>Canvas</li>
                     <li>3ds Max</li>
                     <li>AutoCAD</li>
@@ -145,8 +145,9 @@ function App() {
                   <h4>Frameworks / Librerías</h4>
                   <ul>
                     <li>React</li>
-                    <li>Next.js</li>
                     <li>React Native</li>
+                    <li>Astro</li>
+                    <li>Next.js</li>
                     <li>Firebase</li>
                     <li>Vue</li>
                     <li>Tailwind CSS</li>
@@ -183,7 +184,7 @@ function App() {
             <div className="card">
               <h4>Pirámides de Tula con A‑Frame</h4>
               <div className="date">Trabajo escolar · 2023</div>
-              <p>Usando la etiqueta A‑Frame para mostrar el lugar. El resultado fue un proyecto atractivo y detallado, destacando por su cuidado en la presentación.</p>
+              <p>Usando la etiqueta A‑Frame para mostrar el sitio arqueológico. El resultado fue un proyecto atractivo y detallado, destacando por su cuidado en la presentación.</p>
               <div className="project-links">
                 <a href="https://github.com/ArturoJM0A1/tollan-a-frame" className="project-link" target="_blank" rel="noreferrer" title="Ver repositorio"><i className="fab fa-github"></i> Repo</a>
                 <a href="https://youtu.be/TGilgQixh2I?si=LMujicSgD7mOZh7y" className="project-link" target="_blank" rel="noreferrer" title="Ver video"><i className="fas fa-video"></i> Video</a>
