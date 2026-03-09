@@ -1,7 +1,7 @@
 ﻿// ===== App.jsx =====
 // Mejoras: partículas con nueva colorimetría + botón cohete para scroll + botones de proyecto con Font Awesome
 
-import { useState, useEffect, useRef, useLayoutEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import "./App.css";
 import "./cohetegoup.css";
 import profileImg from './assets/arurophoto.jpg';
@@ -11,6 +11,7 @@ import CommentSection from "./CommentSection.jsx";
 function App() {
   const [theme, setTheme] = useState("dark"); // Tema inicial oscuro
   const [showWelcome, setShowWelcome] = useState(true);
+  const [isWelcomeClosing, setIsWelcomeClosing] = useState(false);
   const [displayText, setDisplayText] = useState("");
   const fullText = "Ingeniería en Software";
 
@@ -32,6 +33,14 @@ function App() {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleWelcomeClose = () => {
+    setIsWelcomeClosing(true);
+    setTimeout(() => {
+      setShowWelcome(false);
+      setIsWelcomeClosing(false);
+    }, 650);
   };
 
   // Aplicar la clase del tema de forma síncrona para evitar parpadeos
@@ -75,6 +84,7 @@ function App() {
         {theme === 'dark' ? '\u{1F319}' : '\u2600\uFE0F'}
       </div>
 
+      <meta charSet="UTF-8" />
       <title>Arturo Juárez Monroy</title>
 
       <div className="container">
@@ -112,7 +122,7 @@ function App() {
             <h3>Contacto</h3>
             <p>✉️ juarezmonroyarturo574@gmail.com</p>
             <p>
-              🔗 <a href="https://www.linkedin.com/in/arturo-juárez-monroy-259a28171/" target="_blank" rel="noreferrer">linkedin.com/in/arturo-juárez</a>
+              🔗 <a href="https://www.linkedin.com/in/arturo-juarez-monroy-259a28171/" target="_blank" rel="noreferrer">linkedin.com/in/arturo-juarez</a>
             </p>
             <p>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -129,7 +139,7 @@ function App() {
               <div className="skills-left">
                 <div className="skill-category">
                   <h4>Lenguajes</h4>
-                  <ul>
+                  <ul >
                     <li>JavaScript</li>
                     <li>Python</li>
                     <li>PHP</li>
@@ -193,9 +203,9 @@ function App() {
             <h3>Proyectos</h3>
 
             <div className="card">
-              <h4>Pirámides de Tula con A‑Frame</h4>
+              <h4>Pirámides de Tula con A-Frame</h4>
               <div className="date">Trabajo escolar · 2023</div>
-              <p>Usando la etiqueta A‑Frame para mostrar el sitio arqueológico. El resultado fue un proyecto atractivo y detallado, destacando por su cuidado en la presentación.</p>
+              <p>Usando la etiqueta A-Frame para mostrar el sitio arqueológico. El resultado fue un proyecto atractivo y detallado, destacando por su cuidado en la presentación.</p>
               <div className="project-links">
                 <a href="https://github.com/ArturoJM0A1/tollan-a-frame" className="project-link" target="_blank" rel="noreferrer" title="Ver repositorio"><i className="fab fa-github"></i> Repo</a>
                 <a href="https://youtu.be/TGilgQixh2I?si=LMujicSgD7mOZh7y" className="project-link" target="_blank" rel="noreferrer" title="Ver video"><i className="fas fa-video"></i> Video</a>
@@ -234,10 +244,10 @@ function App() {
 
             <div className="card">
               <h4>Aplicación de Mapas Personalizados (SIG Hidalgo)</h4>
-              <div className="date">Articulo y App · 2025</div>
-              <p>Desarrollé una aplicación SIG de mapas personalizados del estado de Hidalgo utilizando React Native, JSON y GeoJSON para visualizar datos específicos sobre población y vivienda (INEGI). Este proyecto permite a los usuarios acceder de manera detallada a información relevante sobre la región.</p>
+              <div className="date">Artículo y App · 2025</div>
+              <p>Desarrollé una aplicacion SIG de mapas personalizados del estado de Hidalgo utilizando React Native, JSON y GeoJSON para visualizar datos específicos sobre población y vivienda (INEGI). Este proyecto permite a los usuarios acceder de manera detallada a información relevante sobre la región.</p>
               <div className="project-links">
-                <a href="https://ciencialatina.org/index.php/cienciala/article/view/19604/28102" className="project-link" target="_blank" rel="noreferrer" title="Ver articulo"><i className="fas fa-book"></i> Articulo</a>
+                <a href="https://ciencialatina.org/index.php/cienciala/article/view/19604/28102" className="project-link" target="_blank" rel="noreferrer" title="Ver artículo"><i className="fas fa-book"></i> Artículo</a>
                 <a href="https://github.com/ArturoJM0A1/HidalgoHorizon" className="project-link" target="_blank" rel="noreferrer" title="Ver repositorio"><i className="fab fa-github"></i> Repo</a>
                 <a href="https://youtu.be/avluPyj1kDg?si=-0tT1EwEOKFTSiDX" className="project-link" target="_blank" rel="noreferrer" title="Ver video"><i className="fas fa-video"></i> Video</a>
               </div>
@@ -288,7 +298,7 @@ function App() {
         </div>
 
         <footer>
-          <b>© Arturo Juárez Monroy · Hecho con React, Vue y Firebase ♡ </b>
+          <b>(c) Arturo Juárez Monroy · Hecho con React, Vue y Firebase</b>
         </footer>
       </div>
 
@@ -300,12 +310,18 @@ function App() {
       )}
 
       {showWelcome && (
-        <div className="welcome-overlay">
+        <div className={`welcome-overlay ${isWelcomeClosing ? "is-exiting" : ""}`}>
+          <div className="welcome-ambient" aria-hidden="true">
+            <span className="orb orb-1"></span>
+            <span className="orb orb-2"></span>
+            <span className="orb orb-3"></span>
+          </div>
           <div className="welcome-screen">
+            <p className="welcome-kicker">Curriculum y Portafolio de proyectos</p>
             <h1 className="welcome-title">Bienvenido</h1>
             <p className="welcome-text">Soy Arturo Juárez Monroy</p>
-            <button className="btn" onClick={() => setShowWelcome(false)}>
-              Siguiente
+            <button className="btn welcome-cta" onClick={handleWelcomeClose}>
+              Entrar
             </button>
           </div>
         </div>
@@ -315,3 +331,6 @@ function App() {
 }
 
 export default App;
+
+
+
