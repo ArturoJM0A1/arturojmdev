@@ -1054,7 +1054,7 @@ body.dark-mode .welcome-overlay::before {
   background-size: 36px 36px;
   mask-image: radial-gradient(circle at center, #000 50%, transparent 95%);
   z-index: -1;
-  opacity: 0.45;
+  opacity: 0.86;
 }
 
 body.dark-mode .welcome-overlay::after {
