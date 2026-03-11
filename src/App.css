@@ -87,6 +87,34 @@ body.dark-mode {
   background-image: radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.08) 0%, transparent 35%);
 }
 
+
+/* Alternative mode */
+body.alt-mode {
+  --primary-light: #d73533;
+  --secondary-light: #e7756f;
+  --accent-light: #f24536;
+  --success-light: #fc7e5f;
+  --warning-light: #fecfbe;
+  --danger-light: #b92d2a;
+  --bg-light: #fff6f2;
+  --bg-light-secondary: #ffe7df;
+  --bg-light-card: #fffaf8;
+  --bg-light-hover: #fde1d8;
+  --border-light: #f1b6a6;
+  --text-light-primary: #3a1c1a;
+  --text-light-secondary: #6f3a33;
+  --text-light-muted: #915a52;
+  --gradient-light-1: linear-gradient(135deg, #d73533 0%, #fc7e5f 100%);
+  --gradient-light-2: linear-gradient(135deg, #e7756f 0%, #f24536 100%);
+  --alt-1: #d73533;
+  --alt-2: #e7756f;
+  --alt-3: #f24536;
+  --alt-4: #fc7e5f;
+  --alt-5: #fecfbe;
+  --alt-6: #ff9a6a;
+  --alt-7: #e5533d;
+}
+
 body.dark-mode .container {
   background-color: transparent;
 }
@@ -163,6 +191,7 @@ body.dark-mode ::-webkit-scrollbar-thumb:hover {
 body.dark-mode {
   scrollbar-color: #6b7280 var(--bg-darker);
 }
+
 
 /* Canvas de particulas */
 .particles-canvas {

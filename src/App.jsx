@@ -45,10 +45,12 @@ function App() {
 
   // Aplicar la clase del tema de forma síncrona para evitar parpadeos
   useLayoutEffect(() => {
+    document.body.classList.remove("dark-mode", "alt-mode");
     if (theme === "dark") {
       document.body.classList.add("dark-mode");
-    } else {
-      document.body.classList.remove("dark-mode");
+    }
+    if (theme === "alt") {
+      document.body.classList.add("alt-mode");
     }
   }, [theme]);
 
@@ -81,7 +83,7 @@ function App() {
     <>
       <Particles theme={theme} />
       <div className={`theme-icon ${theme} icon-style-aesthetic-adjustment`}>
-        {theme === 'dark' ? '\u{1F319}' : '\u2600\uFE0F'}
+        {theme === 'dark' ? '\u{1F319}' : theme === 'alt' ? '\u{1F342}' : '\u2600\uFE0F'}
       </div>
 
       <meta charSet="UTF-8" />
@@ -110,6 +112,13 @@ function App() {
             >
               Oscuro
             </button>
+            <button
+              className="theme-btn"
+              onClick={() => setTheme("alt")}
+              disabled={theme === "alt"}
+            >
+              Alternativo
+            </button>
           </div>
         </header>
 
@@ -120,16 +129,21 @@ function App() {
 
           <section className="contact">
             <h3>Contacto</h3>
-            <p>✉️ juarezmonroyarturo574@gmail.com</p>
             <p>
-              🔗 <a href="https://www.linkedin.com/in/arturo-juarez-monroy-259a28171/" target="_blank" rel="noreferrer">linkedin.com/in/arturo-juarez</a>
+              <i className="fas fa-envelope" aria-hidden="true"></i>
+              <a href="mailto:juarezmonroyarturo574@gmail.com">juarezmonroyarturo574@gmail.com</a>
             </p>
             <p>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                <polygon points="10 8 16 12 10 16 10 8"></polygon>
-              </svg>
+              <i className="fab fa-linkedin" aria-hidden="true"></i>
+              <a href="https://www.linkedin.com/in/arturo-juárez-monroy-259a28171" target="_blank" rel="noreferrer">linkedin.com/in/arturo-juarez</a>
+            </p>
+            <p>
+              <i className="fab fa-youtube" aria-hidden="true"></i>
               <a href="https://www.youtube.com/@arturojuarezmonroy3951" target="_blank" rel="noreferrer">Youtube.com/@arturojuarezmonroy3951</a>
+            </p>
+            <p>
+              <i className="fab fa-whatsapp" aria-hidden="true"></i>
+              <a href="https://wa.me/5217736802105" target="_blank" rel="noreferrer">+52 1 773 680 2105</a>
             </p>
           </section>
 
