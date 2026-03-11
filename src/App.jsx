@@ -83,7 +83,7 @@ function App() {
     <>
       <Particles theme={theme} />
       <div className={`theme-icon ${theme} icon-style-aesthetic-adjustment`}>
-        {theme === 'dark' ? '\u{1F319}' : theme === 'alt' ? '\u{1F342}' : '\u2600\uFE0F'}
+        {theme === 'dark' ? '\u{1F319}' : theme === 'alt' ? '\u{1FA90}' : '\u2600\uFE0F'}
       </div>
 
       <meta charSet="UTF-8" />

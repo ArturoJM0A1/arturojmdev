@@ -8,7 +8,7 @@ export default function Particles({ theme }) {
     const ctx = canvas.getContext('2d');
     let animationFrameId;
     let particles = [];
-    const PARTICLE_COUNT = 97;
+    const PARTICLE_COUNT = 116;
     const TRAIL_LENGTH = 4;
 
     const BASE_COLOR = theme === 'dark'
