@@ -278,16 +278,6 @@ function App() {
             </div>
 
             <div className="card">
-              <h4>Chat con IA Local (Ollama + Next.js)</h4>
-              <div className="date">Aplicación Web · 2026</div>
-              <p>Desarrollo de chat local con Next.js, integrada con Ollama para ejecutar el modelo llama3.2:1b en entorno local, implementando API propia, manejo de estado en React y diseño responsive con Tailwind CSS, permitiendo interacción en tiempo real sin dependencia de servicios en la nube.</p>
-              <div className="project-links">
-                <a href="https://github.com/ArturoJM0A1/chatbotollama" className="project-link" target="_blank" rel="noreferrer" title="Ver repositorio"><i className="fab fa-github"></i> Repo</a>
-                <a href="https://youtu.be/xPE52ITnEyg?si=S0bAwIU81MfOBqzl" className="project-link" target="_blank" rel="noreferrer" title="Ver video"><i className="fas fa-video"></i> Video</a>
-              </div>
-            </div>
-
-            <div className="card">
               <h4>Aplicación de Venta de Refrescos</h4>
               <div className="date">Aplicación Web · 2026</div>
               <p>Desarrollé una aplicación web de venta de refrescos con Next.js, React y Prisma (ORM), con vista pública de productos y panel administrativo para actualizar precios mediante una API.</p>
