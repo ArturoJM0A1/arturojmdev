@@ -139,7 +139,7 @@ function App() {
             </p>
             <p>
               <i className="fab fa-youtube" aria-hidden="true"></i>
-              <a href="https://www.youtube.com/@arturojuarezmonroy3951" target="_blank" rel="noreferrer">Youtube.com/@arturojuarezmonroy3951</a>
+              <a href="https://www.youtube.com/@arturojuarezmonroy3951" target="_blank" rel="noreferrer">youtube.com/@arturojuarezmonroy3951</a>
             </p>
             <p>
               <i className="fab fa-whatsapp" aria-hidden="true"></i>
