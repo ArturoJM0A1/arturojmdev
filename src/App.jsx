@@ -1,17 +1,13 @@
 // ===== App.jsx =====
 <html lang="es">
-
-<head>
-  <meta charset="UTF-8" />
+  <head>
+    <meta charset="UTF-8" />
   </head>
-
-
-
-</html>
+</html>;
 import { useState, useEffect, useLayoutEffect } from "react";
 import "./App.css";
 import "./cohetegoup.css";
-import profileImg from '../public/artsearch2.png';
+import profileImg from "../public/artsearch2.png";
 import Particles from "./particulasfondo.jsx";
 import CommentSection from "./CommentSection.jsx";
 
@@ -35,12 +31,12 @@ function App() {
         setShowRocket(false);
       }
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const getYouTubeEmbedUrl = (url) => {
@@ -63,7 +59,7 @@ function App() {
 
       if (!videoId) return null;
       return `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
-    // eslint-disable-next-line no-unused-vars
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
       return null;
     }
@@ -114,7 +110,7 @@ function App() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [activeVideo]);
-  
+
   // Efecto typewriter
   useEffect(() => {
     if (showWelcome) return;
@@ -137,7 +133,11 @@ function App() {
     <>
       <Particles theme={theme} />
       <div className={`theme-icon ${theme} icon-style-aesthetic-adjustment`}>
-        {theme === 'dark' ? '\u{1F319}' : theme === 'alt' ? '\u{1FA90}' : '\u2600\uFE0F'}
+        {theme === "dark"
+          ? "\u{1F319}"
+          : theme === "alt"
+            ? "\u{1FA90}"
+            : "\u2600\uFE0F"}
       </div>
 
       <meta charSet="UTF-8" />
@@ -149,7 +149,17 @@ function App() {
             <h1>Arturo Juárez Monroy</h1>
             <h2>{displayText}</h2>
             <div className="divider"></div>
-            <a href="#about" className="btn vermitrayectoria">Ver mi trayectoria</a>
+            <a href="#about" className="btn botonhero">
+              Ver mi trayectoria
+            </a>
+            <a
+              href="/cv.pdf"
+              download="cv.pdf"
+              className="btn botonhero"
+              style={{ marginBottom: "10px" }}
+            >
+              Descargar CV
+            </a>
           </div>
           <div className="theme-buttons">
             <button
@@ -178,26 +188,49 @@ function App() {
 
         <div className="left-column">
           <div className="profile-photo">
-            <div className="photo-placeholder" style={{ backgroundImage: `url(${profileImg})` }}></div>
+            <div
+              className="photo-placeholder"
+              style={{ backgroundImage: `url(${profileImg})` }}
+            ></div>
           </div>
 
           <section className="contact">
             <h3>Contacto</h3>
             <p>
               <i className="fas fa-envelope" aria-hidden="true"></i>
-              <a href="mailto:juarezmonroyarturo574@gmail.com">juarezmonroyarturo574@gmail.com</a>
+              <a href="mailto:juarezmonroyarturo574@gmail.com">
+                juarezmonroyarturo574@gmail.com
+              </a>
             </p>
             <p>
               <i className="fab fa-linkedin" aria-hidden="true"></i>
-              <a href="https://www.linkedin.com/in/arturo-juárez-monroy-259a28171" target="_blank" rel="noreferrer">linkedin.com/in/arturo-juarez</a>
+              <a
+                href="https://www.linkedin.com/in/arturo-juárez-monroy-259a28171"
+                target="_blank"
+                rel="noreferrer"
+              >
+                linkedin.com/in/arturo-juarez
+              </a>
             </p>
             <p>
               <i className="fab fa-youtube" aria-hidden="true"></i>
-              <a href="https://www.youtube.com/@arturojuarezmonroy3951" target="_blank" rel="noreferrer">youtube.com/@arturojuarezmonroy3951</a>
+              <a
+                href="https://www.youtube.com/@arturojuarezmonroy3951"
+                target="_blank"
+                rel="noreferrer"
+              >
+                youtube.com/@arturojuarezmonroy3951
+              </a>
             </p>
             <p>
               <i className="fab fa-whatsapp" aria-hidden="true"></i>
-              <a href="https://wa.me/5217736802105" target="_blank" rel="noreferrer">+52 1 773 680 2105</a>
+              <a
+                href="https://wa.me/5217736802105"
+                target="_blank"
+                rel="noreferrer"
+              >
+                +52 1 773 680 2105
+              </a>
             </p>
           </section>
 
@@ -207,7 +240,7 @@ function App() {
               <div className="skills-left">
                 <div className="skill-category">
                   <h4>Lenguajes</h4>
-                  <ul >
+                  <ul>
                     <li>JavaScript</li>
                     <li>Python</li>
                     <li>PHP</li>
@@ -263,7 +296,10 @@ function App() {
           <section className="about" id="about">
             <h3>Acerca de mí</h3>
             <p>
-              He trabajado en varios proyectos durante mis estudios, donde adquirí experiencia práctica en desarrollo de software. Me atraen especialmente los proyectos creativos y seguir mejorando mis habilidades mientras colaboro con otros desarrolladores.
+              He trabajado en varios proyectos durante mis estudios, donde
+              adquirí experiencia práctica en desarrollo de software. Me atraen
+              especialmente los proyectos creativos y seguir mejorando mis
+              habilidades mientras colaboro con otros desarrolladores.
             </p>
           </section>
 
@@ -273,71 +309,255 @@ function App() {
             <div className="card">
               <h4>Pirmides de Tula con A-Frame</h4>
               <div className="date">Trabajo escolar 2023</div>
-              <p>Usé A-Frame para mostrar un sitio arqueológico en realidad virtual, creando una experiencia interactiva con presentación clara y cuidada..</p>
+              <p>
+                Usé A-Frame para mostrar un sitio arqueológico en realidad
+                virtual, creando una experiencia interactiva con presentación
+                clara y cuidada..
+              </p>
               <div className="project-links">
-                <a href="https://github.com/ArturoJM0A1/tollan-a-frame" className="project-link" target="_blank" rel="noreferrer" title="Ver repositorio"><i className="fab fa-github"></i> Repo</a>
-                <button type="button" className="project-link project-video" onClick={() => handleOpenVideo("https://youtu.be/TGilgQixh2I?si=LMujicSgD7mOZh7y", "Pir�mides de Tula con A-Frame")} title="Ver video" aria-haspopup="dialog"><i className="fas fa-video"></i> Video</button>
+                <a
+                  href="https://github.com/ArturoJM0A1/tollan-a-frame"
+                  className="project-link"
+                  target="_blank"
+                  rel="noreferrer"
+                  title="Ver repositorio"
+                >
+                  <i className="fab fa-github"></i> Repo
+                </a>
+                <button
+                  type="button"
+                  className="project-link project-video"
+                  onClick={() =>
+                    handleOpenVideo(
+                      "https://youtu.be/TGilgQixh2I?si=LMujicSgD7mOZh7y",
+                      "Pir�mides de Tula con A-Frame",
+                    )
+                  }
+                  title="Ver video"
+                  aria-haspopup="dialog"
+                >
+                  <i className="fas fa-video"></i> Video
+                </button>
               </div>
             </div>
 
             <div className="card">
               <h4>Sitio Web del bar "El Mezcalito"</h4>
               <div className="date">Proyecto independiente 2023</div>
-              <p>Desarrollé un sitio web con PHP y Bootstrap para el bar “El Mezcalito” en Tula de Allende. Permite explorar el lugar, ver el menú de bebidas y comida, y realizar reservaciones.</p>
+              <p>
+                Desarrollé un sitio web con PHP y Bootstrap para el bar “El
+                Mezcalito” en Tula de Allende. Permite explorar el lugar, ver el
+                menú de bebidas y comida, y realizar reservaciones.
+              </p>
               <div className="project-links">
-                <a href="https://github.com/ArturoJM0A1/El-Mezcalito" className="project-link" target="_blank" rel="noreferrer" title="Ver repositorio"><i className="fab fa-github"></i> Repo</a>
-                <button type="button" className="project-link project-video" onClick={() => handleOpenVideo("https://youtu.be/f9y2C5g_qdI?si=SmKCfJytWpgOxDuN", "Sitio Web del bar El Mezcalito")} title="Ver video" aria-haspopup="dialog"><i className="fas fa-video"></i> Video</button>
+                <a
+                  href="https://github.com/ArturoJM0A1/El-Mezcalito"
+                  className="project-link"
+                  target="_blank"
+                  rel="noreferrer"
+                  title="Ver repositorio"
+                >
+                  <i className="fab fa-github"></i> Repo
+                </a>
+                <button
+                  type="button"
+                  className="project-link project-video"
+                  onClick={() =>
+                    handleOpenVideo(
+                      "https://youtu.be/f9y2C5g_qdI?si=SmKCfJytWpgOxDuN",
+                      "Sitio Web del bar El Mezcalito",
+                    )
+                  }
+                  title="Ver video"
+                  aria-haspopup="dialog"
+                >
+                  <i className="fas fa-video"></i> Video
+                </button>
               </div>
             </div>
 
             <div className="card">
               <h4>Portal Turístico de Hidalgo</h4>
               <div className="date">Gobierno del Estado de Hidalgo 2024</div>
-              <p>Desarrollé un sitio web en PHP para la Secretaría de Turismo de Hidalgo con noticias, eventos, calendario, mapas interactivos y filtros de navegación para explorar actividades turísticas.</p>
+              <p>
+                Desarrollé un sitio web en PHP para la Secretaría de Turismo de
+                Hidalgo con noticias, eventos, calendario, mapas interactivos y
+                filtros de navegación para explorar actividades turísticas.
+              </p>
               <div className="project-links">
-                <a href="https://github.com/ArturoJM0A1/sitioturismo" className="project-link" target="_blank" rel="noreferrer" title="Ver repositorio"><i className="fab fa-github"></i> Repo</a>
-                <button type="button" className="project-link project-video" onClick={() => handleOpenVideo("https://youtu.be/m1IHI6Xd6_Q?si=gWAS46RWUquh2xPv", "Portal Tur�stico de Hidalgo")} title="Ver video" aria-haspopup="dialog"><i className="fas fa-video"></i> Video</button>
+                <a
+                  href="https://github.com/ArturoJM0A1/sitioturismo"
+                  className="project-link"
+                  target="_blank"
+                  rel="noreferrer"
+                  title="Ver repositorio"
+                >
+                  <i className="fab fa-github"></i> Repo
+                </a>
+                <button
+                  type="button"
+                  className="project-link project-video"
+                  onClick={() =>
+                    handleOpenVideo(
+                      "https://youtu.be/m1IHI6Xd6_Q?si=gWAS46RWUquh2xPv",
+                      "Portal Tur�stico de Hidalgo",
+                    )
+                  }
+                  title="Ver video"
+                  aria-haspopup="dialog"
+                >
+                  <i className="fas fa-video"></i> Video
+                </button>
               </div>
             </div>
 
             <div className="card">
               <h4>Recetario</h4>
               <div className="date">Proyecto independiente 2024</div>
-              <p>Desarrollo de un sitio web interactivo de recetas, enfocado en frontend, que permite explorar y guardar recetas y bebidas con una experiencia de usuario intuitiva.</p>
+              <p>
+                Desarrollo de un sitio web interactivo de recetas, enfocado en
+                frontend, que permite explorar y guardar recetas y bebidas con
+                una experiencia de usuario intuitiva.
+              </p>
               <div className="project-links">
-                <a href="https://github.com/ArturoJM0A1/recetarioCreativeKitchen" className="project-link" target="_blank" rel="noreferrer" title="Ver repositorio"><i className="fab fa-github"></i> Repo</a>
-                <button type="button" className="project-link project-video" onClick={() => handleOpenVideo("https://www.youtube.com/watch?v=mogJaqrFaL8", "Recetario")} title="Ver video" aria-haspopup="dialog"><i className="fas fa-video"></i> Video</button>
+                <a
+                  href="https://github.com/ArturoJM0A1/recetarioCreativeKitchen"
+                  className="project-link"
+                  target="_blank"
+                  rel="noreferrer"
+                  title="Ver repositorio"
+                >
+                  <i className="fab fa-github"></i> Repo
+                </a>
+                <button
+                  type="button"
+                  className="project-link project-video"
+                  onClick={() =>
+                    handleOpenVideo(
+                      "https://www.youtube.com/watch?v=mogJaqrFaL8",
+                      "Recetario",
+                    )
+                  }
+                  title="Ver video"
+                  aria-haspopup="dialog"
+                >
+                  <i className="fas fa-video"></i> Video
+                </button>
               </div>
             </div>
 
             <div className="card">
               <h4>Aplicación de Mapas Personalizados (SIG Hidalgo)</h4>
               <div className="date">Artículo y App 2025</div>
-              <p>App SIG de mapas del estado de Hidalgo con React Native, usando JSON y GeoJSON para visualizar datos de población y vivienda del INEGI. Permite consultar información regional de forma clara y detallada.</p>
+              <p>
+                App SIG de mapas del estado de Hidalgo con React Native, usando
+                JSON y GeoJSON para visualizar datos de población y vivienda del
+                INEGI. Permite consultar información regional de forma clara y
+                detallada.
+              </p>
               <div className="project-links">
-                <a href="https://ciencialatina.org/index.php/cienciala/article/view/19604/28102" className="project-link" target="_blank" rel="noreferrer" title="Ver artículo"><i className="fas fa-book"></i> Artículo</a>
-                <a href="https://github.com/ArturoJM0A1/HidalgoHorizon" className="project-link" target="_blank" rel="noreferrer" title="Ver repositorio"><i className="fab fa-github"></i> Repo</a>
-                <button type="button" className="project-link project-video" onClick={() => handleOpenVideo("https://youtu.be/avluPyj1kDg?si=-0tT1EwEOKFTSiDX", "Aplicación de Mapas Personalizados (SIG Hidalgo)")} title="Ver video" aria-haspopup="dialog"><i className="fas fa-video"></i> Video</button>
+                <a
+                  href="https://ciencialatina.org/index.php/cienciala/article/view/19604/28102"
+                  className="project-link"
+                  target="_blank"
+                  rel="noreferrer"
+                  title="Ver artículo"
+                >
+                  <i className="fas fa-book"></i> Artículo
+                </a>
+                <a
+                  href="https://github.com/ArturoJM0A1/HidalgoHorizon"
+                  className="project-link"
+                  target="_blank"
+                  rel="noreferrer"
+                  title="Ver repositorio"
+                >
+                  <i className="fab fa-github"></i> Repo
+                </a>
+                <button
+                  type="button"
+                  className="project-link project-video"
+                  onClick={() =>
+                    handleOpenVideo(
+                      "https://youtu.be/avluPyj1kDg?si=-0tT1EwEOKFTSiDX",
+                      "Aplicación de Mapas Personalizados (SIG Hidalgo)",
+                    )
+                  }
+                  title="Ver video"
+                  aria-haspopup="dialog"
+                >
+                  <i className="fas fa-video"></i> Video
+                </button>
               </div>
             </div>
 
             <div className="card">
               <h4>Chat con IA Local (Ollama + Next.js)</h4>
               <div className="date">Aplicación Web Full Stack 2026</div>
-              <p>Chat local de IA con Next.js, integrado con Ollama para ejecutar llama3.2:1b. Incluye API propia, manejo de estado en React y diseño responsive con Tailwind CSS</p>
+              <p>
+                Chat local de IA con Next.js, integrado con Ollama para ejecutar
+                llama3.2:1b. Incluye API propia, manejo de estado en React y
+                diseño responsive con Tailwind CSS
+              </p>
               <div className="project-links">
-                <a href="https://github.com/ArturoJM0A1/chatbotollama" className="project-link" target="_blank" rel="noreferrer" title="Ver repositorio"><i className="fab fa-github"></i> Repo</a>
-                <button type="button" className="project-link project-video" onClick={() => handleOpenVideo("https://youtu.be/xPE52ITnEyg?si=S0bAwIU81MfOBqzl", "Chat con IA Local (Ollama + Next.js)")} title="Ver video" aria-haspopup="dialog"><i className="fas fa-video"></i> Video</button>
+                <a
+                  href="https://github.com/ArturoJM0A1/chatbotollama"
+                  className="project-link"
+                  target="_blank"
+                  rel="noreferrer"
+                  title="Ver repositorio"
+                >
+                  <i className="fab fa-github"></i> Repo
+                </a>
+                <button
+                  type="button"
+                  className="project-link project-video"
+                  onClick={() =>
+                    handleOpenVideo(
+                      "https://youtu.be/xPE52ITnEyg?si=S0bAwIU81MfOBqzl",
+                      "Chat con IA Local (Ollama + Next.js)",
+                    )
+                  }
+                  title="Ver video"
+                  aria-haspopup="dialog"
+                >
+                  <i className="fas fa-video"></i> Video
+                </button>
               </div>
             </div>
 
             <div className="card">
               <h4>Aplicación de Venta de Refrescos</h4>
               <div className="date">Aplicación Web 2026</div>
-              <p>Aplicación web de venta de refrescos con Next.js, React y Prisma (ORM), con vista pública de productos y panel administrativo para actualizar precios mediante una API.</p>
+              <p>
+                Aplicación web de venta de refrescos con Next.js, React y Prisma
+                (ORM), con vista pública de productos y panel administrativo
+                para actualizar precios mediante una API.
+              </p>
               <div className="project-links">
-                <a href="https://github.com/ArturoJM0A1/Refrescos-Coca-Cola" className="project-link" target="_blank" rel="noreferrer" title="Ver repositorio"><i className="fab fa-github"></i> Repo</a>
-                <button type="button" className="project-link project-video" onClick={() => handleOpenVideo("https://youtu.be/1EkZTsWl7dA?si=s317CxD1qWQmy6qU", "Aplicación de Venta de Refrescos")} title="Ver video" aria-haspopup="dialog"><i className="fas fa-video"></i> Video</button>
+                <a
+                  href="https://github.com/ArturoJM0A1/Refrescos-Coca-Cola"
+                  className="project-link"
+                  target="_blank"
+                  rel="noreferrer"
+                  title="Ver repositorio"
+                >
+                  <i className="fab fa-github"></i> Repo
+                </a>
+                <button
+                  type="button"
+                  className="project-link project-video"
+                  onClick={() =>
+                    handleOpenVideo(
+                      "https://youtu.be/1EkZTsWl7dA?si=s317CxD1qWQmy6qU",
+                      "Aplicación de Venta de Refrescos",
+                    )
+                  }
+                  title="Ver video"
+                  aria-haspopup="dialog"
+                >
+                  <i className="fas fa-video"></i> Video
+                </button>
               </div>
             </div>
           </section>
@@ -362,20 +582,30 @@ function App() {
 
       {/*  cohete para volver arriba (solo visible en escritorio y tras hacer scroll) */}
       {showRocket && (
-        <div className="rocket-button" onClick={scrollToTop} role="button" tabIndex={0} aria-label="Volver arriba">
-          <span className="rocket">{'\u{1F680}'}</span>
+        <div
+          className="rocket-button"
+          onClick={scrollToTop}
+          role="button"
+          tabIndex={0}
+          aria-label="Volver arriba"
+        >
+          <span className="rocket">{"\u{1F680}"}</span>
         </div>
       )}
 
       {showWelcome && (
-        <div className={`welcome-overlay ${isWelcomeClosing ? "is-exiting" : ""}`}>
+        <div
+          className={`welcome-overlay ${isWelcomeClosing ? "is-exiting" : ""}`}
+        >
           <div className="welcome-ambient" aria-hidden="true">
             <span className="orb orb-1"></span>
             <span className="orb orb-2"></span>
             <span className="orb orb-3"></span>
           </div>
           <div className="welcome-screen">
-            <p className="welcome-kicker">Currículum y Portafolio de proyectos</p>
+            <p className="welcome-kicker">
+              Currículum y Portafolio de proyectos
+            </p>
             <h1 className="welcome-title">Bienvenido</h1>
             <p className="welcome-text">Soy Arturo Juárez Monroy</p>
             <button className="btn welcome-cta" onClick={handleWelcomeClose}>
@@ -385,9 +615,27 @@ function App() {
         </div>
       )}
       {activeVideo && (
-        <div className="video-modal" role="dialog" aria-modal="true" aria-label={activeVideo.title ? `Video: ${activeVideo.title}` : "Video del proyecto"} onClick={handleCloseVideo}>
-          <div className="video-modal__content" onClick={(event) => event.stopPropagation()}>
-            <button type="button" className="video-modal__close" onClick={handleCloseVideo} aria-label="Cerrar video">
+        <div
+          className="video-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-label={
+            activeVideo.title
+              ? `Video: ${activeVideo.title}`
+              : "Video del proyecto"
+          }
+          onClick={handleCloseVideo}
+        >
+          <div
+            className="video-modal__content"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="video-modal__close"
+              onClick={handleCloseVideo}
+              aria-label="Cerrar video"
+            >
               <span aria-hidden="true">&times;</span>
             </button>
             <div className="video-modal__frame">
@@ -406,6 +654,3 @@ function App() {
 }
 
 export default App;
-
-
-
