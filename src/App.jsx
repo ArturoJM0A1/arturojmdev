@@ -225,7 +225,7 @@ function App() {
             <p>
               <i className="fab fa-youtube" aria-hidden="true"></i>
               <a
-                href="arturojuarezmonroy3951"
+                href="https://www.youtube.com/@arturojuarezmonroy3951"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -338,7 +338,7 @@ function App() {
                   onClick={() =>
                     handleOpenVideo(
                       "https://youtu.be/TGilgQixh2I?si=LMujicSgD7mOZh7y",
-                      "Pir�mides de Tula con A-Frame",
+                      "Pirámides de Tula con A-Frame",
                     )
                   }
                   title="Ver video"
