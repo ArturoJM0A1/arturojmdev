@@ -1445,6 +1445,9 @@ body.dark-mode .welcome-text {
   margin-top: 12px;
   opacity: 0;
   animation: ctaRise 0.64s ease 0.62s forwards, ctaPulse 2.8s ease 1.4s infinite;
+      display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .welcome-overlay.is-exiting .welcome-screen {

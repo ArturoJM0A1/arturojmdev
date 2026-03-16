@@ -604,18 +604,13 @@ function App() {
                   <i className="fas fa-video"></i> Video
                 </button>
               </div>
-     
             </div>
 
             <div className="card">
               <h4>Sistema de gestion de gastos personales</h4>
               <div className="date">Aplicación Web 2026</div>
-              <p>
-                Usando Astro y PostgreSQL, en desarrollo...
-              </p>
-              <div className="project-links">
-
-              </div>
+              <p>Usando Astro y PostgreSQL, en desarrollo...</p>
+              <div className="project-links"></div>
               <div className="contenedorTuerca">
                 <div className="Tuerca"></div>
               </div>
@@ -670,6 +665,11 @@ function App() {
             <p className="welcome-text">Soy Arturo Juárez Monroy</p>
             <button className="btn welcome-cta" onClick={handleWelcomeClose}>
               Entrar
+              <div class="face">
+                <div class="eye left"></div>
+                <div class="eye right"></div>
+                <div class="mouth"></div>
+              </div>
             </button>
           </div>
         </div>
