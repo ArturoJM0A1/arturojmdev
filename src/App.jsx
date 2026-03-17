@@ -205,11 +205,11 @@ function App() {
             <p>
               <i className="fab fa-linkedin" aria-hidden="true"></i>
               <a
-                href="https://www.linkedin.com/in/arturo-juárez-monroy-259a28171"
+                href="https://www.linkedin.com/in/arturojuarezmonroy"
                 target="_blank"
                 rel="noreferrer"
               >
-                linkedin.com/in/arturo-juarez
+                linkedin.com/in/arturojuarezmonroy
               </a>
             </p>
             <p>
