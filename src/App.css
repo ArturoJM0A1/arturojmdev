@@ -1199,6 +1199,7 @@ body.dark-mode .welcome-overlay {
   display: grid;
   gap: 14px;
   text-align: center;
+  overflow: hidden;
 }
 
 .welcome-title {
