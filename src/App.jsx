@@ -307,9 +307,9 @@ function App() {
             <h3>Acerca de mí</h3>
             <p>
               Ingeniero de software con experiencia en desarrollo web de
-              principio a fin. Hecreado aplicaciones usando React, Next.js,
+              principio a fin. He creado aplicaciones usando React, Next.js,
               Astro, PHP y bases de datos SQL.También he trabajado en APIs,
-              paneles administrativos, interfaces dinámicas ysistemas para
+              paneles administrativos, interfaces dinámicas y sistemas para
               mostrar datos. Me gusta el desarrollo frontend, las
               aplicacionesinteractivas y las soluciones basadas en datos.
             </p>
