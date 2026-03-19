@@ -697,18 +697,30 @@ body.dark-mode .skills li::before {
   flex: 1;
 }
 
-.projects-sort-btn {
+.projects-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 12px 20px;
+}
+
+.projects-sort-btn,
+.projects-favorites-btn {
   border: 1.5px solid transparent;
   border-radius: 999px;
   padding: 10px 16px;
-  margin: 16px 12px 20px;
+  margin: 0;
   font-family: var(--font-tech);
   font-size: 0.88rem;
   letter-spacing: 0.4px;
   cursor: pointer;
   transition: var(--transition);
-
   display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: auto;
 }
 
 .projects-sort-btn--claro {
@@ -747,6 +759,48 @@ body.dark-mode .skills li::before {
   box-shadow: 0 8px 18px rgba(215, 53, 51, 0.25);
 }
 
+
+.projects-favorites-btn {
+padding: 5px 9px;
+}
+
+.projects-favorites-btn.is-active {
+  transform: translateY(-2px);
+}
+
+.projects-sort-btn--claro.projects-favorites-btn.is-active {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.3);
+}
+
+.projects-sort-btn--oscuro.projects-favorites-btn.is-active {
+  background: #00ff88;
+  color: #03120c;
+  box-shadow: 0 8px 18px rgba(0, 255, 136, 0.3);
+}
+
+.projects-sort-btn--alternativo.projects-favorites-btn.is-active {
+  background: #d73533;
+  color: #fffaf8;
+  box-shadow: 0 8px 18px rgba(215, 53, 51, 0.3);
+}
+
+
+
+.verFav {
+  width: 23px;
+  height: 23px;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  background-color: #e7c407;
+  margin-left: 4px;
+}
+
+.projects-favorites-btn.is-active .verFav {
+  background-color: rgba(29, 23, 90, 0.5);
+
+}
+
 .projects-list {
   display: flex;
   flex-direction: column;
@@ -755,6 +809,16 @@ body.dark-mode .skills li::before {
 .projects-list--desc {
   flex-direction: column-reverse;
 }
+
+.projects-list--favorites .card {
+  display: none;
+}
+
+.projects-list--favorites .card.card--favorito {
+  display: block;
+}
+
+
 
 /* Tarjetas de proyecto */
 .card {

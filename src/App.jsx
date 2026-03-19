@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
   </head>
 </html>;
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import "./App.css";
 import "./cohetegoup.css";
 import profileImg from "../public/artsearch2-removebg-preview.png";
@@ -26,6 +26,17 @@ function App() {
   const [showRocket, setShowRocket] = useState(false);
   const [activeVideo, setActiveVideo] = useState(null);
   const [projectOrder, setProjectOrder] = useState("asc");
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
+  const projectsListRef = useRef(null);
+
+  useEffect(() => {
+    if (!projectsListRef.current) return;
+    const cards = projectsListRef.current.querySelectorAll(".card");
+    cards.forEach((card) => {
+      const isFavorite = Boolean(card.querySelector(".favoritos"));
+      card.classList.toggle("card--favorito", isFavorite);
+    });
+  }, []);
 
   // Escuchar scroll para mostrar/ocultar el cohete
   useEffect(() => {
@@ -328,20 +339,37 @@ function App() {
 
           <section className="projects">
             <h3>Mis proyectos</h3>
-            <button
-              type="button"
-              className={`projects-sort-btn projects-sort-btn--${projectSortTheme}`}
-              onClick={() =>
-                setProjectOrder((prevOrder) =>
-                  prevOrder === "asc" ? "desc" : "asc",
-                )
-              }
-              title="Ordenar proyectos"
-            >
-              {projectOrder === "asc" ? "Ascendente" : "Descendente"}
-            </button>
+            <div className="projects-controls">
+              <button
+                type="button"
+                className={`projects-sort-btn projects-sort-btn--${projectSortTheme}`}
+                onClick={() =>
+                  setProjectOrder((prevOrder) =>
+                    prevOrder === "asc" ? "desc" : "asc",
+                  )
+                }
+                title="Ordenar proyectos"
+              >
+                {projectOrder === "asc" ? "Ascendente 🡹" : "Descendente 🡻"}
+              </button>
+              <button
+                type="button"
+                className={`projects-favorites-btn projects-sort-btn--${projectSortTheme} ${showFavoritesOnly ? "is-active" : ""}`}
+                onClick={() => setShowFavoritesOnly((prev) => !prev)}
+                title={
+                  showFavoritesOnly
+                    ? "Mostrar todos los proyectos"
+                    : "Mostrar solo favoritos"
+                }
+              >
+                Favoritos <div className="verFav"></div>
+              </button>
+            </div>
 
-            <div className={`projects-list projects-list--${projectOrder}`}>
+            <div
+              ref={projectsListRef}
+              className={`projects-list projects-list--${projectOrder}${showFavoritesOnly ? " projects-list--favorites" : ""}`}
+            >
             <div className="card">
               <h4>Pirámides de Tula con A-Frame</h4>
               <div className="date">Trabajo escolar 2023</div>
