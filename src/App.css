@@ -549,7 +549,7 @@ body.dark-mode .right-column h3::after {
   width: 210px;
   height: 210px;
   border-radius: 81% 19% 86% 14% / 14% 72% 28% 86%;
-  background-color: #e0e0e0;
+  background-color: transparent;
   border: 4px solid var(--primary-light);
   display: flex;
   align-items: center;
