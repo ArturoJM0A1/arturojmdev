@@ -257,6 +257,7 @@ function App() {
                     <li>Java</li>
                     <li>C++ / C</li>
                     <li>SQL</li>
+                    <li>TypeScript</li>
                   </ul>
                 </div>
                 <div className="skill-category">
@@ -267,6 +268,7 @@ function App() {
                     <li>Power Bi</li>
                     <li>Canvas</li>
                     <li>3ds Max</li>
+                    <li>Unity</li>
                     <li>AutoCAD</li>
                     <li>Excel</li>
                   </ul>
@@ -280,6 +282,7 @@ function App() {
                     <li>React Native</li>
                     <li>Astro</li>
                     <li>Next.js</li>
+                    <li>Node.js</li>
                     <li>Firebase</li>
                     <li>Vue</li>
                     <li>Tailwind CSS</li>
