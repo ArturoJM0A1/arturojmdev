@@ -7,7 +7,7 @@
 import { useState, useEffect, useLayoutEffect } from "react";
 import "./App.css";
 import "./cohetegoup.css";
-import profileImg from "../public/artsearch2.png";
+import profileImg from "../public/artsearch2-removebg-preview.png";
 import artavatar1 from "../public/avatar1.png";
 import artavatar3 from "../public/avatar3.png";
 
