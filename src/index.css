@@ -1,5 +1,59 @@
 /* index.css */
 
+.avatar1 {
+  position: absolute;
+  max-width: 148px;
+  min-width: 105px;
+  right: 0;
+  bottom: 0;
+  z-index: -3;
+  /* transición */
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  margin-right: 3px;
+  margin-bottom: 2px;
+}
+
+/* cuando ya esté visible */
+/* Cuando haces hover en el botón */
+.btn.welcome-cta:hover~.avatar1 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Para teléfonos */
+@media (max-width: 768px) {
+  .avatar1 {
+    max-width: 80px;
+    min-width: 70px;
+  }
+}
+
+.footeradios {
+  width: 100%;
+  height: auto;
+  position: relative;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  /* centra en X */
+}
+
+.footeradios .avatar3 {
+  padding: 0;
+  max-width: 148px;
+  min-width: 105px;
+}
+
+/* Para teléfonos */
+@media (max-width: 768px) {
+.footeradios .avatar3 {
+    max-width: 80px;
+    min-width: 70px;
+  }
+}
 
 /* Contenedor principal (cabeza) en píxeles */
 .face {
