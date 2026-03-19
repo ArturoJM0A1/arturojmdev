@@ -25,6 +25,7 @@ function App() {
   // Estado para el botón cohete
   const [showRocket, setShowRocket] = useState(false);
   const [activeVideo, setActiveVideo] = useState(null);
+  const [projectOrder, setProjectOrder] = useState("asc");
 
   // Escuchar scroll para mostrar/ocultar el cohete
   useEffect(() => {
@@ -132,6 +133,9 @@ function App() {
 
     return () => clearInterval(interval);
   }, [showWelcome]);
+
+  const projectSortTheme =
+    theme === "dark" ? "oscuro" : theme === "alt" ? "alternativo" : "claro";
 
   return (
     <>
@@ -324,7 +328,20 @@ function App() {
 
           <section className="projects">
             <h3>Mis proyectos</h3>
+            <button
+              type="button"
+              className={`projects-sort-btn projects-sort-btn--${projectSortTheme}`}
+              onClick={() =>
+                setProjectOrder((prevOrder) =>
+                  prevOrder === "asc" ? "desc" : "asc",
+                )
+              }
+              title="Ordenar proyectos"
+            >
+              {projectOrder === "asc" ? "Ascendente" : "Descendente"}
+            </button>
 
+            <div className={`projects-list projects-list--${projectOrder}`}>
             <div className="card">
               <h4>Pirámides de Tula con A-Frame</h4>
               <div className="date">Trabajo escolar 2023</div>
@@ -621,6 +638,7 @@ function App() {
               <div className="contenedorTuerca">
                 <div className="Tuerca"></div>
               </div>
+            </div>
             </div>
           </section>
 
