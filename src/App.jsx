@@ -635,8 +635,7 @@ function App() {
 
         <div className="comments-wrapper">
           <CommentSection />
-        </div>
-
+   
         <footer>
           <b>(c) Arturo Juárez Monroy - Hecho con React, Vue y Firebase</b>
           <br></br>
