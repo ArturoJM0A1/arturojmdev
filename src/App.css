@@ -758,7 +758,10 @@ body.dark-mode .skills li::before {
   color: #fffaf8;
   box-shadow: 0 8px 18px rgba(215, 53, 51, 0.25);
 }
-
+.projects-sort-btn i{
+  margin-left: 8px;
+  scale: 1.1;
+}
 
 .projects-favorites-btn {
 padding: 5px 9px;

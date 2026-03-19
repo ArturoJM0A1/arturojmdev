@@ -350,7 +350,10 @@ function App() {
                 }
                 title="Ordenar proyectos"
               >
-                {projectOrder === "asc" ? "Ascendente 🡹" : "Descendente 🡻"}
+                {projectOrder === "asc" ? "Ascendente " : "Descendente "}
+                <i
+                  className={`fas fa-arrow-${projectOrder === "asc" ? "up" : "down"}`}
+                ></i>
               </button>
               <button
                 type="button"
@@ -370,303 +373,304 @@ function App() {
               ref={projectsListRef}
               className={`projects-list projects-list--${projectOrder}${showFavoritesOnly ? " projects-list--favorites" : ""}`}
             >
-            <div className="card">
-              <h4>Pirámides de Tula con A-Frame</h4>
-              <div className="date">Trabajo escolar 2023</div>
-              <p>
-                Usé A-Frame para desarrollar una experiencia de realidad virtual
-                que permite explorar un sitio arqueológico en un entorno 3D;
-                todas las composiciones y estructuras del escenario fueron
-                diseñadas por mí.
-              </p>
-              <div className="project-links">
-                <a
-                  href="https://github.com/ArturoJM0A1/tollan-a-frame"
-                  className="project-link"
-                  target="_blank"
-                  rel="noreferrer"
-                  title="Ver repositorio"
-                >
-                  <i className="fab fa-github"></i> Repo
-                </a>
-                <button
-                  type="button"
-                  className="project-link project-video"
-                  onClick={() =>
-                    handleOpenVideo(
-                      "https://youtu.be/TGilgQixh2I?si=LMujicSgD7mOZh7y",
-                      "Pirámides de Tula con A-Frame",
-                    )
-                  }
-                  title="Ver video"
-                  aria-haspopup="dialog"
-                >
-                  <i className="fas fa-video"></i> Video
-                </button>
-              </div>
-            </div>
-
-            <div className="card">
-              <h4>Sitio Web del bar "El Mezcalito"</h4>
-              <div className="date">Proyecto independiente 2023</div>
-              <p>
-                Desarrollé un sitio web con PHP y Bootstrap para el bar “El
-                Mezcalito” en Tula de Allende. Permite explorar el lugar, ver el
-                menú de bebidas y comida, y realizar reservaciones.
-              </p>
-              <div className="project-links">
-                <a
-                  href="https://github.com/ArturoJM0A1/El-Mezcalito"
-                  className="project-link"
-                  target="_blank"
-                  rel="noreferrer"
-                  title="Ver repositorio"
-                >
-                  <i className="fab fa-github"></i> Repo
-                </a>
-                <button
-                  type="button"
-                  className="project-link project-video"
-                  onClick={() =>
-                    handleOpenVideo(
-                      "https://youtu.be/f9y2C5g_qdI?si=SmKCfJytWpgOxDuN",
-                      "Sitio Web del bar El Mezcalito",
-                    )
-                  }
-                  title="Ver video"
-                  aria-haspopup="dialog"
-                >
-                  <i className="fas fa-video"></i> Video
-                </button>
-              </div>
-            </div>
-
-            <div className="card">
-              <h4>Portal Turístico de Hidalgo</h4>
-              <div className="date">Gobierno del Estado de Hidalgo 2024</div>
-              <p>
-                Desarrollé un sitio web en PHP para la Secretaría de Turismo de
-                Hidalgo con noticias, eventos, calendario, mapas interactivos y
-                filtros de navegación para explorar actividades turísticas.
-              </p>
-              <div className="project-links">
-                <a
-                  href="https://github.com/ArturoJM0A1/sitioturismo"
-                  className="project-link"
-                  target="_blank"
-                  rel="noreferrer"
-                  title="Ver repositorio"
-                >
-                  <i className="fab fa-github"></i> Repo
-                </a>
-                <button
-                  type="button"
-                  className="project-link project-video"
-                  onClick={() =>
-                    handleOpenVideo(
-                      "https://youtu.be/m1IHI6Xd6_Q?si=gWAS46RWUquh2xPv",
-                      "Portal Tur�stico de Hidalgo",
-                    )
-                  }
-                  title="Ver video"
-                  aria-haspopup="dialog"
-                >
-                  <i className="fas fa-video"></i> Video
-                </button>
-              </div>
-            </div>
-
-            <div className="card">
-              <h4>Sitio web IEEE Student Web Hub</h4>
-              <div className="date">Proyecto de la universidad 2024</div>
-              <p>
-                Colaboración en portal web para la rama estudiantil. Usando
-                Astro, React, CSS, JavaScript, Tailwind.
-              </p>
-              <div className="project-links">
-                <a
-                  href="https://github.com/IEEE-ESTl/IEEE-ESTl-Student-Web-Hub"
-                  className="project-link"
-                  target="_blank"
-                  rel="noreferrer"
-                  title="Ver repositorio"
-                >
-                  <i className="fab fa-github"></i> Repo
-                </a>
-                <a
-                  href="https://ieee-estl.com/"
-                  className="project-link"
-                  target="_blank"
-                  rel="noreferrer"
-                  title="Ver artículo"
-                >
-                  <i className="fa-solid fa-globe"></i> Visitar
-                </a>
-              </div>
-            </div>
-
-            <div className="card">
-              <h4>Recetario</h4>
-              <div className="date">Proyecto independiente 2024</div>
-              <p>
-                Desarrollo de un sitio web interactivo de recetas utilizando
-                CSS, Bootstrap y Swiper, enfocado en el frontend, que permite
-                explorar y guardar recetas y bebidas mediante una interfaz
-                intuitiva y una experiencia de usuario fluida.
-              </p>
-              <div className="project-links">
-                <a
-                  href="https://github.com/ArturoJM0A1/recetarioCreativeKitchen"
-                  className="project-link"
-                  target="_blank"
-                  rel="noreferrer"
-                  title="Ver repositorio"
-                >
-                  <i className="fab fa-github"></i> Repo
-                </a>
-                <button
-                  type="button"
-                  className="project-link project-video"
-                  onClick={() =>
-                    handleOpenVideo(
-                      "https://www.youtube.com/watch?v=mogJaqrFaL8",
-                      "Recetario",
-                    )
-                  }
-                  title="Ver video"
-                  aria-haspopup="dialog"
-                >
-                  <i className="fas fa-video"></i> Video
-                </button>
-              </div>
-            </div>
-
-            <div className="card">
-              <h4>Aplicación de Mapas Personalizados (SIG Hidalgo)</h4>
-              <div className="date">Artículo y App 2025</div>
-              <p>
-                App SIG de mapas del estado de Hidalgo con React Native, usando
-                JSON y GeoJSON para visualizar datos de población y vivienda del
-                INEGI. Permite consultar información regional de forma clara y
-                detallada.
-              </p>
-              <div className="project-links">
-                <a
-                  href="https://ciencialatina.org/index.php/cienciala/article/view/19604/28102"
-                  className="project-link"
-                  target="_blank"
-                  rel="noreferrer"
-                  title="Ver artículo"
-                >
-                  <i className="fas fa-book"></i> Artículo
-                </a>
-                <a
-                  href="https://github.com/ArturoJM0A1/HidalgoHorizon"
-                  className="project-link"
-                  target="_blank"
-                  rel="noreferrer"
-                  title="Ver repositorio"
-                >
-                  <i className="fab fa-github"></i> Repo
-                </a>
-                <button
-                  type="button"
-                  className="project-link project-video"
-                  onClick={() =>
-                    handleOpenVideo(
-                      "https://youtu.be/avluPyj1kDg?si=-0tT1EwEOKFTSiDX",
-                      "Aplicación de Mapas Personalizados (SIG Hidalgo)",
-                    )
-                  }
-                  title="Ver video"
-                  aria-haspopup="dialog"
-                >
-                  <i className="fas fa-video"></i> Video
-                </button>
+              <div className="card">
+                <h4>Pirámides de Tula con A-Frame</h4>
+                <div className="date">Trabajo escolar 2023</div>
+                <p>
+                  Usé A-Frame para desarrollar una experiencia de realidad
+                  virtual que permite explorar un sitio arqueológico en un
+                  entorno 3D; todas las composiciones y estructuras del
+                  escenario fueron diseñadas por mí.
+                </p>
+                <div className="project-links">
+                  <a
+                    href="https://github.com/ArturoJM0A1/tollan-a-frame"
+                    className="project-link"
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Ver repositorio"
+                  >
+                    <i className="fab fa-github"></i> Repo
+                  </a>
+                  <button
+                    type="button"
+                    className="project-link project-video"
+                    onClick={() =>
+                      handleOpenVideo(
+                        "https://youtu.be/TGilgQixh2I?si=LMujicSgD7mOZh7y",
+                        "Pirámides de Tula con A-Frame",
+                      )
+                    }
+                    title="Ver video"
+                    aria-haspopup="dialog"
+                  >
+                    <i className="fas fa-video"></i> Video
+                  </button>
+                </div>
               </div>
 
-              <div className="favoritos"></div>
-            </div>
-
-            <div className="card">
-              <h4>Chat con IA Local (Ollama + Next.js)</h4>
-              <div className="date">Aplicación Web Full Stack 2026</div>
-              <p>
-                Chat local de IA con Next.js, integrado con Ollama para ejecutar
-                llama3.2:1b. Incluye API propia, manejo de estado en React y
-                diseño responsive con Tailwind CSS
-              </p>
-              <div className="project-links">
-                <a
-                  href="https://github.com/ArturoJM0A1/chatbotollama"
-                  className="project-link"
-                  target="_blank"
-                  rel="noreferrer"
-                  title="Ver repositorio"
-                >
-                  <i className="fab fa-github"></i> Repo
-                </a>
-                <button
-                  type="button"
-                  className="project-link project-video"
-                  onClick={() =>
-                    handleOpenVideo(
-                      "https://youtu.be/xPE52ITnEyg?si=S0bAwIU81MfOBqzl",
-                      "Chat con IA Local (Ollama + Next.js)",
-                    )
-                  }
-                  title="Ver video"
-                  aria-haspopup="dialog"
-                >
-                  <i className="fas fa-video"></i> Video
-                </button>
+              <div className="card">
+                <h4>Sitio Web del bar "El Mezcalito"</h4>
+                <div className="date">Proyecto independiente 2023</div>
+                <p>
+                  Desarrollé un sitio web con PHP y Bootstrap para el bar “El
+                  Mezcalito” en Tula de Allende. Permite explorar el lugar, ver
+                  el menú de bebidas y comida, y realizar reservaciones.
+                </p>
+                <div className="project-links">
+                  <a
+                    href="https://github.com/ArturoJM0A1/El-Mezcalito"
+                    className="project-link"
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Ver repositorio"
+                  >
+                    <i className="fab fa-github"></i> Repo
+                  </a>
+                  <button
+                    type="button"
+                    className="project-link project-video"
+                    onClick={() =>
+                      handleOpenVideo(
+                        "https://youtu.be/f9y2C5g_qdI?si=SmKCfJytWpgOxDuN",
+                        "Sitio Web del bar El Mezcalito",
+                      )
+                    }
+                    title="Ver video"
+                    aria-haspopup="dialog"
+                  >
+                    <i className="fas fa-video"></i> Video
+                  </button>
+                </div>
               </div>
-            </div>
 
-            <div className="card">
-              <h4>Aplicación de Venta de Refrescos</h4>
-              <div className="date">Aplicación Web 2026</div>
-              <p>
-                Aplicación web de venta de refrescos con Next.js, React y Prisma
-                (ORM), con vista pública de productos y panel administrativo
-                para actualizar precios mediante una API.
-              </p>
-              <div className="project-links">
-                <a
-                  href="https://github.com/ArturoJM0A1/Refrescos-Coca-Cola"
-                  className="project-link"
-                  target="_blank"
-                  rel="noreferrer"
-                  title="Ver repositorio"
-                >
-                  <i className="fab fa-github"></i> Repo
-                </a>
-                <button
-                  type="button"
-                  className="project-link project-video"
-                  onClick={() =>
-                    handleOpenVideo(
-                      "https://youtu.be/1EkZTsWl7dA?si=s317CxD1qWQmy6qU",
-                      "Aplicación de Venta de Refrescos",
-                    )
-                  }
-                  title="Ver video"
-                  aria-haspopup="dialog"
-                >
-                  <i className="fas fa-video"></i> Video
-                </button>
+              <div className="card">
+                <h4>Portal Turístico de Hidalgo</h4>
+                <div className="date">Gobierno del Estado de Hidalgo 2024</div>
+                <p>
+                  Desarrollé un sitio web en PHP para la Secretaría de Turismo
+                  de Hidalgo con noticias, eventos, calendario, mapas
+                  interactivos y filtros de navegación para explorar actividades
+                  turísticas.
+                </p>
+                <div className="project-links">
+                  <a
+                    href="https://github.com/ArturoJM0A1/sitioturismo"
+                    className="project-link"
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Ver repositorio"
+                  >
+                    <i className="fab fa-github"></i> Repo
+                  </a>
+                  <button
+                    type="button"
+                    className="project-link project-video"
+                    onClick={() =>
+                      handleOpenVideo(
+                        "https://youtu.be/m1IHI6Xd6_Q?si=gWAS46RWUquh2xPv",
+                        "Portal Tur�stico de Hidalgo",
+                      )
+                    }
+                    title="Ver video"
+                    aria-haspopup="dialog"
+                  >
+                    <i className="fas fa-video"></i> Video
+                  </button>
+                </div>
               </div>
-            </div>
 
-            <div className="card">
-              <h4>Sistema de gestion de gastos personales</h4>
-              <div className="date">Aplicación Web 2026</div>
-              <p>Usando Astro y PostgreSQL, en desarrollo...</p>
-              <div className="project-links"></div>
-              <div className="contenedorTuerca">
-                <div className="Tuerca"></div>
+              <div className="card">
+                <h4>Sitio web IEEE Student Web Hub</h4>
+                <div className="date">Proyecto de la universidad 2024</div>
+                <p>
+                  Colaboración en portal web para la rama estudiantil. Usando
+                  Astro, React, CSS, JavaScript, Tailwind.
+                </p>
+                <div className="project-links">
+                  <a
+                    href="https://github.com/IEEE-ESTl/IEEE-ESTl-Student-Web-Hub"
+                    className="project-link"
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Ver repositorio"
+                  >
+                    <i className="fab fa-github"></i> Repo
+                  </a>
+                  <a
+                    href="https://ieee-estl.com/"
+                    className="project-link"
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Ver artículo"
+                  >
+                    <i className="fa-solid fa-globe"></i> Visitar
+                  </a>
+                </div>
               </div>
-            </div>
+
+              <div className="card">
+                <h4>Recetario</h4>
+                <div className="date">Proyecto independiente 2024</div>
+                <p>
+                  Desarrollo de un sitio web interactivo de recetas utilizando
+                  CSS, Bootstrap y Swiper, enfocado en el frontend, que permite
+                  explorar y guardar recetas y bebidas mediante una interfaz
+                  intuitiva y una experiencia de usuario fluida.
+                </p>
+                <div className="project-links">
+                  <a
+                    href="https://github.com/ArturoJM0A1/recetarioCreativeKitchen"
+                    className="project-link"
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Ver repositorio"
+                  >
+                    <i className="fab fa-github"></i> Repo
+                  </a>
+                  <button
+                    type="button"
+                    className="project-link project-video"
+                    onClick={() =>
+                      handleOpenVideo(
+                        "https://www.youtube.com/watch?v=mogJaqrFaL8",
+                        "Recetario",
+                      )
+                    }
+                    title="Ver video"
+                    aria-haspopup="dialog"
+                  >
+                    <i className="fas fa-video"></i> Video
+                  </button>
+                </div>
+              </div>
+
+              <div className="card">
+                <h4>Aplicación de Mapas Personalizados (SIG Hidalgo)</h4>
+                <div className="date">Artículo y App 2025</div>
+                <p>
+                  App SIG de mapas del estado de Hidalgo con React Native,
+                  usando JSON y GeoJSON para visualizar datos de población y
+                  vivienda del INEGI. Permite consultar información regional de
+                  forma clara y detallada.
+                </p>
+                <div className="project-links">
+                  <a
+                    href="https://ciencialatina.org/index.php/cienciala/article/view/19604/28102"
+                    className="project-link"
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Ver artículo"
+                  >
+                    <i className="fas fa-book"></i> Artículo
+                  </a>
+                  <a
+                    href="https://github.com/ArturoJM0A1/HidalgoHorizon"
+                    className="project-link"
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Ver repositorio"
+                  >
+                    <i className="fab fa-github"></i> Repo
+                  </a>
+                  <button
+                    type="button"
+                    className="project-link project-video"
+                    onClick={() =>
+                      handleOpenVideo(
+                        "https://youtu.be/avluPyj1kDg?si=-0tT1EwEOKFTSiDX",
+                        "Aplicación de Mapas Personalizados (SIG Hidalgo)",
+                      )
+                    }
+                    title="Ver video"
+                    aria-haspopup="dialog"
+                  >
+                    <i className="fas fa-video"></i> Video
+                  </button>
+                </div>
+
+                <div className="favoritos"></div>
+              </div>
+
+              <div className="card">
+                <h4>Chat con IA Local (Ollama + Next.js)</h4>
+                <div className="date">Aplicación Web Full Stack 2026</div>
+                <p>
+                  Chat local de IA con Next.js, integrado con Ollama para
+                  ejecutar llama3.2:1b. Incluye API propia, manejo de estado en
+                  React y diseño responsive con Tailwind CSS
+                </p>
+                <div className="project-links">
+                  <a
+                    href="https://github.com/ArturoJM0A1/chatbotollama"
+                    className="project-link"
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Ver repositorio"
+                  >
+                    <i className="fab fa-github"></i> Repo
+                  </a>
+                  <button
+                    type="button"
+                    className="project-link project-video"
+                    onClick={() =>
+                      handleOpenVideo(
+                        "https://youtu.be/xPE52ITnEyg?si=S0bAwIU81MfOBqzl",
+                        "Chat con IA Local (Ollama + Next.js)",
+                      )
+                    }
+                    title="Ver video"
+                    aria-haspopup="dialog"
+                  >
+                    <i className="fas fa-video"></i> Video
+                  </button>
+                </div>
+              </div>
+
+              <div className="card">
+                <h4>Aplicación de Venta de Refrescos</h4>
+                <div className="date">Aplicación Web 2026</div>
+                <p>
+                  Aplicación web de venta de refrescos con Next.js, React y
+                  Prisma (ORM), con vista pública de productos y panel
+                  administrativo para actualizar precios mediante una API.
+                </p>
+                <div className="project-links">
+                  <a
+                    href="https://github.com/ArturoJM0A1/Refrescos-Coca-Cola"
+                    className="project-link"
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Ver repositorio"
+                  >
+                    <i className="fab fa-github"></i> Repo
+                  </a>
+                  <button
+                    type="button"
+                    className="project-link project-video"
+                    onClick={() =>
+                      handleOpenVideo(
+                        "https://youtu.be/1EkZTsWl7dA?si=s317CxD1qWQmy6qU",
+                        "Aplicación de Venta de Refrescos",
+                      )
+                    }
+                    title="Ver video"
+                    aria-haspopup="dialog"
+                  >
+                    <i className="fas fa-video"></i> Video
+                  </button>
+                </div>
+              </div>
+
+              <div className="card">
+                <h4>Sistema de gestion de gastos personales</h4>
+                <div className="date">Aplicación Web 2026</div>
+                <p>Usando Astro y PostgreSQL, en desarrollo...</p>
+                <div className="project-links"></div>
+                <div className="contenedorTuerca">
+                  <div className="Tuerca"></div>
+                </div>
+              </div>
             </div>
           </section>
 
