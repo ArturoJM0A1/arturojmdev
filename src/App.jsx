@@ -638,7 +638,7 @@ function App() {
         </div>
 
         <footer>
-          <b>(c) Arturo Juárez Monroy -  Hecho con React, Vue y Firebase</b>
+          <b>(c) Arturo Juárez Monroy - Hecho con React, Vue y Firebase</b>
           <br></br>
           <b>¡Gracias por visitarme!</b>
         </footer>
