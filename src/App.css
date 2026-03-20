@@ -52,6 +52,17 @@
   --shadow-glow-light: 0 0 20px rgba(37, 99, 235, 0.2);
   --shadow-glow-dark: 0 0 30px rgba(0, 255, 136, 0.3);
   --shadow-glow-strong-dark: 0 0 50px rgba(0, 255, 136, 0.5);
+  --clock-shell: linear-gradient(145deg, rgba(255, 255, 255, 0.92) 0%, rgba(241, 245, 249, 0.8) 100%);
+  --clock-digit-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.96) 0%, rgba(226, 232, 240, 0.85) 100%);
+  --clock-border: rgba(37, 99, 235, 0.18);
+  --clock-shadow-a: rgba(255, 255, 255, 0.72);
+  --clock-shadow-b: rgba(15, 23, 42, 0.12);
+  --clock-inset: rgba(148, 163, 184, 0.16);
+  --clock-highlight: rgba(255, 255, 255, 0.82);
+  --clock-glow: rgba(37, 99, 235, 0.2);
+  --clock-accent: var(--primary-light);
+  --clock-muted: var(--text-light-muted);
+  --clock-text: var(--text-light-secondary);
 
   /* Typography & Other */
   --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -108,6 +119,17 @@ body.dark-mode {
   background-color: var(--bg-dark);
   color: var(--text-dark-primary);
   background-image: radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.08) 0%, transparent 35%);
+  --clock-shell: linear-gradient(145deg, rgba(15, 20, 25, 0.94) 0%, rgba(5, 8, 16, 0.97) 100%);
+  --clock-digit-bg: linear-gradient(145deg, rgba(26, 31, 46, 0.98) 0%, rgba(10, 14, 26, 0.9) 100%);
+  --clock-border: rgba(0, 255, 136, 0.2);
+  --clock-shadow-a: rgba(18, 24, 36, 0.78);
+  --clock-shadow-b: rgba(0, 0, 0, 0.5);
+  --clock-inset: rgba(0, 255, 136, 0.08);
+  --clock-highlight: rgba(255, 255, 255, 0.05);
+  --clock-glow: rgba(0, 255, 136, 0.28);
+  --clock-accent: var(--primary-dark);
+  --clock-muted: var(--text-dark-muted);
+  --clock-text: var(--text-dark-secondary);
 }
 
 
@@ -137,6 +159,17 @@ body.alt-mode {
   --alt-5: #fecfbe;
   --alt-6: #ff9a6a;
   --alt-7: #e5533d;
+  --clock-shell: linear-gradient(145deg, rgba(255, 250, 248, 0.96) 0%, rgba(255, 231, 223, 0.93) 100%);
+  --clock-digit-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.99) 0%, rgba(253, 225, 216, 0.95) 100%);
+  --clock-border: rgba(215, 53, 51, 0.22);
+  --clock-shadow-a: rgba(255, 255, 255, 0.78);
+  --clock-shadow-b: rgba(183, 101, 83, 0.18);
+  --clock-inset: rgba(215, 53, 51, 0.08);
+  --clock-highlight: rgba(255, 255, 255, 0.88);
+  --clock-glow: rgba(242, 69, 54, 0.24);
+  --clock-accent: var(--primary-light);
+  --clock-muted: var(--text-light-muted);
+  --clock-text: var(--text-light-secondary);
 }
 
 body.dark-mode .container {
@@ -1079,23 +1112,186 @@ footer {
   grid-column: 1 / -1;
   text-align: center;
   margin-top: 60px;
-  padding-top: 30px;
-  border-top: 1px solid rgba(37, 99, 235, 0.3);
+  padding: 32px 0 16px;
+  border-top: 1px solid var(--clock-border);
   font-size: 1.1rem;
-  color: var(--text-light-muted);
+  color: var(--clock-muted);
   animation: fadeIn 1s ease-out;
   font-family: var(--font-tech);
-
-  margin-bottom: 0;
-  padding: 0;
 }
 
-body.dark-mode footer {
-  border-top-color: rgba(0, 255, 136, 0.2);
-  color: var(--text-dark-muted);
+.footer-copy {
+  text-align: center;
+  line-height: 1.8;
+}
+
+.footer-clock {
+  position: fixed;
+  left: max(18px, env(safe-area-inset-left));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  z-index: 60;
+  width: fit-content;
+  max-width: calc(30vw - 36px);
+  min-width: 240px;
+  padding: 16px 18px 14px;
+  border-radius: 24px;
+  border: 5px solid var(--clock-border);
+  background: var(--clock-shell);
+  box-shadow:
+    -10px -10px 24px var(--clock-shadow-a),
+    14px 14px 28px var(--clock-shadow-b),
+    inset 1px 1px 0 var(--clock-highlight),
+    inset -4px -4px 12px var(--clock-inset);
+  overflow: hidden;
+  backdrop-filter: blur(14px);
+
+  scale: 0.67;
+  left: 0;
+  bottom: 0;
+  transform-origin: left bottom;
+
+  margin-left: 4px;
+  margin-bottom: 4vh;
+
+  grid-template-columns: 1fr;
+  /* 👈 una sola columna */
+}
+
+@media (max-width: 600px) {
+  .footer-clock {
+
+    max-width: 360px;
+    min-width: unset;
+
+    padding: 0px 0px;
+    border-radius: 18px;
+    scale: 0.57;
+  }
+}
+
+.footer-clock::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.footer-clock::after {
+  content: "";
+  position: absolute;
+  inset: auto auto -45px -30px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.footer-clock__label,
+.footer-clock__meta {
+  position: relative;
+  z-index: 1;
+}
+
+.footer-clock__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: var(--clock-muted);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.footer-clock__label::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--clock-accent);
+  box-shadow: 0 0 18px var(--clock-glow);
+  animation: footerClockPulse 1.8s ease-in-out infinite;
+}
+
+.footer-clock__display {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 0;
+}
+
+.footer-clock__segment {
+  min-width: 3.1ch;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--clock-border);
+  background: var(--clock-digit-bg);
+  box-shadow:
+    inset 1px 1px 0 var(--clock-highlight),
+    inset -2px -2px 10px var(--clock-inset);
+  color: var(--clock-accent);
+  font-family: var(--font-tech);
+  font-size: clamp(1.1rem, 2vw, 1.55rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-align: center;
+  text-shadow: 0 0 16px var(--clock-glow);
+}
+
+.footer-clock__separator {
+  color: var(--clock-accent);
+  font-family: var(--font-tech);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 0 14px var(--clock-glow);
+  animation: footerClockBlink 1.4s steps(1) infinite;
+}
+
+.footer-clock__meta {
+  display: block;
+  margin-top: 9px;
+  color: var(--clock-text);
+  font-family: var(--font-code);
+  font-size: 1.01rem;
+  letter-spacing: .02em;
+  text-transform: capitalize;
 }
 
 /* Animaciones */
+@keyframes footerClockPulse {
+
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes footerClockBlink {
+
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0.35;
+  }
+}
+
 @keyframes dropIn {
   0% {
     opacity: 0;
@@ -1404,6 +1600,15 @@ body.dark-mode .video-modal__close:hover {
   footer {
     font-size: 1rem;
   }
+
+  .footer-clock {
+    left: max(12px, env(safe-area-inset-left));
+    bottom: max(12px, env(safe-area-inset-bottom));
+    min-width: min(10%, 320px);
+    width: min(50%, 320px);
+    max-width: 360px;
+
+  }
 }
 
 /* Ajuste extra para pantallas muy peque�as (menos de 480px) */
@@ -1428,6 +1633,30 @@ body.dark-mode .video-modal__close:hover {
   .photo-placeholder {
     width: 140px;
     height: 140px;
+  }
+
+  .footer-clock {
+    padding: 3px 3px;
+    border-radius: 20px;
+    max-width: 360px;
+
+  }
+
+  .footer-clock__display {
+    gap: 6px;
+    padding-right: 0;
+    grid-template-columns: 1fr;
+    /* 👈 una sola columna */
+
+  }
+
+  .footer-clock__segment {
+    padding: 8px 10px;
+    font-size: 1rem;
+  }
+
+  .footer-clock__separator {
+    font-size: 1.35rem;
   }
 }
 

@@ -23,6 +23,7 @@ function App() {
   const [showWelcome, setShowWelcome] = useState(true);
   const [isWelcomeClosing, setIsWelcomeClosing] = useState(false);
   const [displayText, setDisplayText] = useState("");
+  const [currentTime, setCurrentTime] = useState(() => new Date());
   const fullText = "Ingeniería en Software";
 
   // Estado para el botón cohete
@@ -148,8 +149,25 @@ function App() {
     return () => clearInterval(interval);
   }, [showWelcome]);
 
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
   const projectSortTheme =
     theme === "dark" ? "oscuro" : theme === "alt" ? "alternativo" : "claro";
+  const hours = String(currentTime.getHours()).padStart(2, "0");
+  const minutes = String(currentTime.getMinutes()).padStart(2, "0");
+  const seconds = String(currentTime.getSeconds()).padStart(2, "0");
+  const footerDate = currentTime.toLocaleDateString(undefined, {
+    weekday: "short",
+    day: "2-digit",
+    month: "short",
+  });
+  const footerClockLabel = `${hours}:${minutes}:${seconds}`;
 
   return (
     <>
@@ -697,13 +715,30 @@ function App() {
         </div>
 
         <footer>
+          <div className="footer-copy">
           <b className="graciasxv">¡Gracias por visitarme!</b>
           <br></br>
           <b>(c) Arturo Juárez Monroy - Hecho con React, Vue y Firebase</b>
+          </div>
         </footer>
         <div className="footeradios">
           <img src={avatarfooter} alt="Bienvenido" className="avatar3" />
         </div>
+      </div>
+
+      <div
+        className="footer-clock"
+        aria-label={`Hora local del usuario: ${footerClockLabel}`}
+      >
+        <span className="footer-clock__label">Hora</span>
+        <div className="footer-clock__display" aria-hidden="true">
+          <span className="footer-clock__segment">{hours}</span>
+          <span className="footer-clock__separator">:</span>
+          <span className="footer-clock__segment">{minutes}</span>
+          <span className="footer-clock__separator">:</span>
+          <span className="footer-clock__segment">{seconds}</span>
+        </div>
+        <span className="footer-clock__meta">{footerDate}</span>
       </div>
 
       {/*  cohete para volver arriba (solo visible en escritorio y tras hacer scroll) */}
