@@ -97,7 +97,7 @@ function App() {
     setTimeout(() => {
       setShowWelcome(false);
       setIsWelcomeClosing(false);
-    }, 3650);
+    }, 150);
   };
 
   useLayoutEffect(() => {
