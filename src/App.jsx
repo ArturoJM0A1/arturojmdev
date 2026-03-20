@@ -14,6 +14,7 @@ import artavatar3 from "../public/avatar3.png";
 import Particles from "./particulasfondo.jsx";
 
 import CommentSection from "./CommentSection.jsx";
+import CertificationsCarousel from "./CertificationsCarousel.jsx";
 
 function App() {
   const [theme, setTheme] = useState("dark"); // Tema inicial oscuro
@@ -682,6 +683,8 @@ function App() {
             </div>
           </section>
         </div>
+
+        <CertificationsCarousel />
 
         <div className="comments-wrapper">
           <CommentSection />
