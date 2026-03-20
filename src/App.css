@@ -593,6 +593,7 @@ body.dark-mode .right-column h3::after {
   background-color: rgba(0, 229, 255, 0.07);
 
   filter: brightness(1.03);
+  transition: text-shadow 0.3s ease;
 
 }
 
@@ -630,8 +631,17 @@ body.dark-mode .photo-placeholder:hover {
   z-index: 100;
   margin-top: 39px;
   margin-right: -36px;
-        transition: text-shadow 0.3s ease;
+  transition: text-shadow 0.3s ease;
 
+}
+
+/* Para teléfonos */
+@media (max-width: 768px) {
+  .photolaptop {
+    font-size: 28px;
+    margin-top: 40px;
+    margin-right: -20px;
+  }
 }
 
 .photolaptop span {

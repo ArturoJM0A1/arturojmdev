@@ -213,7 +213,7 @@ function App() {
               style={{ backgroundImage: `url(${profileImg})` }}
             >
               <div className="photolaptop">
-                <span>👾</span>
+                <span>{"\uD83D\uDCBB"}</span>
               </div>
             </div>
           </div>
