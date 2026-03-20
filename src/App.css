@@ -608,7 +608,7 @@ body.dark-mode .right-column h3::after {
   height: 210px;
   border-radius: 81% 19% 86% 14% / 14% 72% 28% 86%;
 
-  border: 4px solid var(--primary-light);
+  border: 2.34px solid var(--primary-light);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1140,7 +1140,7 @@ footer {
   min-width: 240px;
   padding: 16px 18px 14px;
   border-radius: 33px;
-  border: 6px solid var(--clock-border);
+  border: 3px solid var(--clock-border);
 
   overflow: hidden;
   backdrop-filter: blur(140px);
