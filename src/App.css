@@ -1345,6 +1345,7 @@ body.dark-mode .video-modal__close:hover {
     /* Una sola columna */
     gap: 30px;
     padding: 30px 4%;
+    padding-bottom: 0;
     overflow-x: visible;
     /* Permitir scroll si es necesario */
   }

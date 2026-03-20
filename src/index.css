@@ -8,25 +8,48 @@
   bottom: 0;
   z-index: -3;
   /* transición */
-  opacity: 0;
+  opacity: 1;
   transform: translateY(10px);
   transition: opacity 0.5s ease, transform 0.5s ease;
   margin-right: 1px;
   margin-bottom: 2px;
 }
 
+.avatarwelcomehover {
+  opacity: 0;
+  max-width: 188px;
+  min-width: 155px;
+  filter: brightness(0.8) contrast(1.1) saturate(1.2);
+
+}
+
 /* cuando ya esté visible */
 /* Cuando haces hover en el botón */
 .btn.welcome-cta:hover~.avatar1 {
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+
+}
+
+.btn.welcome-cta:hover~.avatarwelcomehover {
   opacity: 1;
   transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
+
 
 /* Para teléfonos */
 @media (max-width: 768px) {
   .avatar1 {
     max-width: 80px;
     min-width: 70px;
+  }
+
+  .avatarwelcomehover {
+    opacity: 0;
+    max-width: 98px;
+    min-width: 85px;
   }
 }
 
@@ -46,6 +69,7 @@
   max-width: 148px;
   min-width: 105px;
   margin-bottom: 0;
+  filter: brightness(0.8) contrast(1.1) saturate(1.2);
 
 }
 

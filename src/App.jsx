@@ -8,7 +8,9 @@ import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import "./App.css";
 import "./cohetegoup.css";
 import profileImg from "../public/artsearch2-removebg-preview.png";
-import avatarwelcome from "../public/avatar5.png";
+import avatarwelcome from "../public/avatar2.png";
+import avatarwelcomehover from "../public/avatar5.png";
+
 import avatarfooter from "../public/avatar5.png";
 
 import Particles from "./particulasfondo.jsx";
@@ -740,7 +742,9 @@ function App() {
                 <div class="mouth"></div>
               </div>
             </button>
-            <img src={avatarwelcome} alt="Bienvenido" className="avatar1" />
+
+            <img src={avatarwelcome} className="avatar1" />
+            <img src={avatarwelcomehover} className="avatar1 avatarwelcomehover" />
           </div>
         </div>
       )}
