@@ -9,7 +9,7 @@ import "./App.css";
 import "./cohetegoup.css";
 import profileImg from "../public/artsearch2-removebg-preview.png";
 import avatarwelcome from "../public/avatar2.png";
-import avatarwelcomehover from "../public/iampixelimage.png";
+import avatarwelcomehover from "../public/avatar5.png";
 
 import avatarfooter from "../public/avatar5.png";
 
