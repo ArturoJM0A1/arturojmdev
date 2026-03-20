@@ -211,7 +211,11 @@ function App() {
             <div
               className="photo-placeholder"
               style={{ backgroundImage: `url(${profileImg})` }}
-            ></div>
+            >
+              <div className="photolaptop">
+                <span>👾</span>
+              </div>
+            </div>
           </div>
 
           <section className="contact">

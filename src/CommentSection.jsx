@@ -91,7 +91,7 @@ export default function CommentSection() {
       <div className="comment-list">
         {submittedComment ? (
           <>
-            <p className="comment-success">¡Comentario enviado! Gracias 😊</p>
+            <p className="comment-success">¡Comentario enviado! 😊</p>
             <div className="comment-item">
               <div className="comment-header">
                 <strong>{submittedComment.name}</strong>

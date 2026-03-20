@@ -934,7 +934,7 @@ body.dark-mode .comment-email {
 
 /* Mensaje de éxito al enviar comentario */
 .comment-success {
-  background-color: rgba(0, 255, 136, 0.2);
+  background-color: rgba(0, 128, 255, 0.15);
   color: var(--success);
   padding: 12px 15px;
   border-radius: 8px;
@@ -945,6 +945,11 @@ body.dark-mode .comment-email {
 
 body.dark-mode .comment-success {
   background-color: rgba(0, 255, 136, 0.1);
+  color: var(--primary);
+}
+
+body.alt-mode .comment-success {
+  background-color: rgba(255, 0, 0, 0.1);
   color: var(--primary);
 }
 

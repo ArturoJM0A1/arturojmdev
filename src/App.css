@@ -80,12 +80,36 @@ body {
   overflow-x: hidden;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background: radial-gradient(rgba(0, 255, 136, 0.15) 1px, transparent 1px);
+  background-size: 35px 35px;
+
+  animation: moveGrid 10s linear infinite;
+
+  pointer-events: none;
+}
+
+@keyframes moveGrid {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(-40px, -40px);
+  }
+}
+
 /* Dark mode */
 body.dark-mode {
   background-color: var(--bg-dark);
   color: var(--text-dark-primary);
   background-image: radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.08) 0%, transparent 35%);
 }
+
 
 
 /* Alternative mode */
@@ -561,12 +585,14 @@ body.dark-mode .right-column h3::after {
   color: var(--primary-light);
   transition: var(--transition);
   cursor: default;
-  overflow: hidden;
+  overflow: visible;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   box-shadow: var(--shadow-md);
   background-color: rgba(0, 229, 255, 0.07);
+
+  filter: brightness(1.03);
 
 }
 
@@ -593,6 +619,83 @@ body.dark-mode .photo-placeholder:hover {
   box-shadow: var(--shadow-glow-dark);
   border-color: var(--secondary-dark);
 }
+
+.photolaptop {
+  padding: 0;
+  height: 0;
+  top: 0;
+  right: 0;
+  position: absolute;
+  font-size: 40px;
+  z-index: 100;
+  margin-top: 39px;
+  margin-right: -36px;
+        transition: text-shadow 0.3s ease;
+
+}
+
+.photolaptop span {
+  margin: 0 !important;
+  padding: 0 !important;
+  transition: text-shadow 0.3s ease;
+
+
+}
+
+body .photolaptop span {
+  text-shadow:
+    0 0 5px #2563eb,
+    0 0 10px #2563eb,
+    0 0 20px #2563eb;
+  transition: text-shadow 0.3s ease;
+
+}
+
+body .photo-placeholder:hover .photolaptop span {
+  text-shadow:
+    0 0 5px #06b6d4,
+    0 0 10px #06b6d4,
+    0 0 20px #06b6d4;
+  transition: text-shadow 0.3s ease;
+
+}
+
+body.dark-mode .photolaptop span {
+  text-shadow:
+    0 0 5px #00ff88,
+    0 0 10px #00ff88,
+    0 0 20px #00ff88;
+  transition: text-shadow 0.3s ease;
+
+}
+
+body.dark-mode .photo-placeholder:hover .photolaptop span {
+  text-shadow:
+    0 0 5px #06b6d4,
+    0 0 10px #06b6d4,
+    0 0 20px #06b6d4;
+  transition: text-shadow 0.3s ease;
+
+}
+
+body.alt-mode .photolaptop span {
+  text-shadow:
+    0 0 5px #d73533,
+    0 0 10px #d73533,
+    0 0 20px #d73533;
+  transition: text-shadow 0.3s ease;
+
+}
+
+body.alt-mode .photo-placeholder:hover .photolaptop span {
+  text-shadow:
+    0 0 5px #fc7e5f,
+    0 0 10px #fc7e5f,
+    0 0 20px #fc7e5f;
+  transition: text-shadow 0.3s ease;
+
+}
+
 
 /* Contacto */
 .contact p {
@@ -759,13 +862,14 @@ body.dark-mode .skills li::before {
   color: #fffaf8;
   box-shadow: 0 8px 18px rgba(215, 53, 51, 0.25);
 }
-.projects-sort-btn i{
+
+.projects-sort-btn i {
   margin-left: 8px;
   scale: 1.1;
 }
 
 .projects-favorites-btn {
-padding: 5px 9px;
+  padding: 5px 9px;
 }
 
 .projects-favorites-btn.is-active {
