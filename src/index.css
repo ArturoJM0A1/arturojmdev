@@ -13,6 +13,8 @@
   transition: opacity 0.5s ease, transform 0.5s ease;
   margin-right: 1px;
   margin-bottom: 2px;
+    transition: all 0.5s ease;
+
 }
 
 .avatarwelcomehover {
@@ -20,6 +22,7 @@
   max-width: 188px;
   min-width: 155px;
   filter: brightness(0.8) contrast(1.1) saturate(1.2);
+  transition: all 0.5s ease;
 
 }
 
@@ -27,14 +30,14 @@
 /* Cuando haces hover en el botón */
 .btn.welcome-cta:hover~.avatarwelcome {
   opacity: 0;
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: all 0.5s ease;
 
 }
 
 .btn.welcome-cta:hover~.avatarwelcomehover {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 

@@ -52,11 +52,11 @@
   --shadow-glow-light: 0 0 20px rgba(37, 99, 235, 0.2);
   --shadow-glow-dark: 0 0 30px rgba(0, 255, 136, 0.3);
   --shadow-glow-strong-dark: 0 0 50px rgba(0, 255, 136, 0.5);
-  --clock-shell: linear-gradient(145deg, rgba(255, 255, 255, 0.92) 0%, rgba(241, 245, 249, 0.8) 100%);
+  --clock-shell: linear-gradient(145deg, rgba(238, 255, 254, 0.92) 0%, rgba(240, 241, 255, 0.7) 100%);
   --clock-digit-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.96) 0%, rgba(226, 232, 240, 0.85) 100%);
-  --clock-border: rgba(37, 99, 235, 0.18);
+  --clock-border: rgba(0, 81, 255, 0.4);
   --clock-shadow-a: rgba(255, 255, 255, 0.72);
-  --clock-shadow-b: rgba(15, 23, 42, 0.12);
+  --clock-shadow-b: rgba(14, 23, 45, 0.12);
   --clock-inset: rgba(148, 163, 184, 0.16);
   --clock-highlight: rgba(255, 255, 255, 0.82);
   --clock-glow: rgba(37, 99, 235, 0.2);
@@ -119,9 +119,9 @@ body.dark-mode {
   background-color: var(--bg-dark);
   color: var(--text-dark-primary);
   background-image: radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.08) 0%, transparent 35%);
-  --clock-shell: linear-gradient(145deg, rgba(15, 20, 25, 0.94) 0%, rgba(5, 8, 16, 0.97) 100%);
+  --clock-shell: linear-gradient(145deg, rgba(17, 18, 20, 0.7) 0%, rgba(9, 65, 29, 0.2) 100%);
   --clock-digit-bg: linear-gradient(145deg, rgba(26, 31, 46, 0.98) 0%, rgba(10, 14, 26, 0.9) 100%);
-  --clock-border: rgba(0, 255, 136, 0.2);
+  --clock-border: rgba(0, 255, 136, 0.4);
   --clock-shadow-a: rgba(18, 24, 36, 0.78);
   --clock-shadow-b: rgba(0, 0, 0, 0.5);
   --clock-inset: rgba(0, 255, 136, 0.08);
@@ -159,9 +159,9 @@ body.alt-mode {
   --alt-5: #fecfbe;
   --alt-6: #ff9a6a;
   --alt-7: #e5533d;
-  --clock-shell: linear-gradient(145deg, rgba(255, 250, 248, 0.96) 0%, rgba(255, 231, 223, 0.93) 100%);
+  --clock-shell: linear-gradient(145deg, rgba(255, 217, 202, 0.5) 0%, rgba(215, 135, 105, 0.3) 100%);
   --clock-digit-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.99) 0%, rgba(253, 225, 216, 0.95) 100%);
-  --clock-border: rgba(215, 53, 51, 0.22);
+  --clock-border: rgba(215, 53, 51, 0.4);
   --clock-shadow-a: rgba(255, 255, 255, 0.78);
   --clock-shadow-b: rgba(183, 101, 83, 0.18);
   --clock-inset: rgba(215, 53, 51, 0.08);
@@ -626,7 +626,7 @@ body.dark-mode .right-column h3::after {
   background-color: rgba(0, 229, 255, 0.07);
 
   filter: brightness(1.03);
-  transition: text-shadow 0.3s ease;
+  transition: all 0.5s ease;
 
 }
 
@@ -634,6 +634,8 @@ body.dark-mode .photo-placeholder {
   border-color: var(--primary-dark);
   color: var(--primary-dark);
   background-color: rgba(0, 195, 19, 0.07);
+
+
 }
 
 body.alt-mode .photo-placeholder {
@@ -647,6 +649,9 @@ body.alt-mode .photo-placeholder {
   filter: brightness(1.07) contrast(1.05);
   transform: scale(1.08) rotate(-5deg) translate(5px, 1px);
   border-color: var(--secondary-light);
+
+  transition: all 0.5s ease;
+
 }
 
 body.dark-mode .photo-placeholder:hover {
@@ -1134,18 +1139,14 @@ footer {
   max-width: calc(30vw - 36px);
   min-width: 240px;
   padding: 16px 18px 14px;
-  border-radius: 24px;
-  border: 5px solid var(--clock-border);
-  background: var(--clock-shell);
-  box-shadow:
-    -10px -10px 24px var(--clock-shadow-a),
-    14px 14px 28px var(--clock-shadow-b),
-    inset 1px 1px 0 var(--clock-highlight),
-    inset -4px -4px 12px var(--clock-inset);
-  overflow: hidden;
-  backdrop-filter: blur(14px);
+  border-radius: 33px;
+  border: 6px solid var(--clock-border);
 
-  scale: 0.67;
+  overflow: hidden;
+  backdrop-filter: blur(140px);
+
+  --scale: 0.67;
+  transform: scale(var(--scale));
   left: 0;
   bottom: 0;
   transform-origin: left bottom;
@@ -1155,6 +1156,17 @@ footer {
 
   grid-template-columns: 1fr;
   /* 👈 una sola columna */
+
+  transition: transform 0.3s ease, border-radius 0.3s ease;
+
+  background: var(--clock-shell);
+
+}
+
+.footer-clock:hover {
+  transform: scale(calc(var(--scale) + 0.02));
+    border-radius: 38px;
+
 }
 
 @media (max-width: 600px) {
@@ -1165,7 +1177,9 @@ footer {
 
     padding: 0px 0px;
     border-radius: 18px;
-    scale: 0.57;
+
+    --scale: 0.57;
+    transform: scale(var(--scale));
   }
 }
 
@@ -1608,6 +1622,8 @@ body.dark-mode .video-modal__close:hover {
     width: min(50%, 320px);
     max-width: 360px;
 
+    --scale: 0.67;
+    transform: scale(var(--scale));
   }
 }
 
@@ -1639,7 +1655,8 @@ body.dark-mode .video-modal__close:hover {
     padding: 3px 3px;
     border-radius: 20px;
     max-width: 360px;
-
+    --scale: 0.67;
+    transform: scale(var(--scale));
   }
 
   .footer-clock__display {
