@@ -1,6 +1,6 @@
 /* index.css */
 
-.avatar1 {
+.avatarwelcome {
   position: absolute;
   max-width: 138px;
   min-width: 105px;
@@ -25,7 +25,7 @@
 
 /* cuando ya esté visible */
 /* Cuando haces hover en el botón */
-.btn.welcome-cta:hover~.avatar1 {
+.btn.welcome-cta:hover~.avatarwelcome {
   opacity: 0;
   transition: opacity 0.5s ease, transform 0.5s ease;
 
@@ -41,8 +41,8 @@
 
 /* Para teléfonos */
 @media (max-width: 768px) {
-  .avatar1 {
-    max-width: 80px;
+  .avatarwelcome {
+    max-width: 74px;
     min-width: 70px;
   }
 

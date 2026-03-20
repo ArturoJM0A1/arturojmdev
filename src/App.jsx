@@ -778,8 +778,8 @@ function App() {
               </div>
             </button>
 
-            <img src={avatarwelcome} className="avatar1" />
-            <img src={avatarwelcomehover} className="avatar1 avatarwelcomehover" />
+            <img src={avatarwelcome} className="avatarwelcome" />
+            <img src={avatarwelcomehover} className="avatarwelcome avatarwelcomehover" />
           </div>
         </div>
       )}
