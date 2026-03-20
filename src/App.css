@@ -262,7 +262,7 @@ body.dark-mode .theme-icon:hover {
 .container {
   width: 100%;
   max-width: 1440px;
-  padding: 50px 5%;
+  padding: 36px 5%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -271,6 +271,7 @@ body.dark-mode .theme-icon:hover {
   z-index: 2;
   background: transparent;
   overflow-x: hidden;
+  padding-bottom: 0;
 }
 
 /* Hero section */
@@ -970,6 +971,9 @@ footer {
   color: var(--text-light-muted);
   animation: fadeIn 1s ease-out;
   font-family: var(--font-tech);
+
+  margin-bottom: 0;
+  padding: 0;
 }
 
 body.dark-mode footer {

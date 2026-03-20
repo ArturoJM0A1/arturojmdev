@@ -31,25 +31,27 @@
 }
 
 .footeradios {
-  width: 100%;
-  height: auto;
-  position: relative;
-  padding: 0;
-
   display: flex;
   justify-content: center;
-  /* centra en X */
+  background-color: transparent;
+  width: 100%;
+  margin: 0 auto;
+  grid-column: 1 / -1;
+  /* solo una columna */
+  margin-bottom: 0;
 }
 
 .footeradios .avatar3 {
-  padding: 0;
+  display: flex;
   max-width: 148px;
   min-width: 105px;
+  margin-bottom: 0;
+
 }
 
 /* Para teléfonos */
 @media (max-width: 768px) {
-.footeradios .avatar3 {
+  .footeradios .avatar3 {
     max-width: 80px;
     min-width: 70px;
   }
@@ -112,7 +114,7 @@
   position: absolute;
   width: 60%;
   height: 35%;
-  border-bottom: 4px solid rgba(0, 0, 0, 0.7)!important;
+  border-bottom: 4px solid rgba(0, 0, 0, 0.7) !important;
 
   /* grosor de la sonrisa */
   border-radius: 0 0 100px 100px;
@@ -140,7 +142,8 @@
 }
 
 .welcome-cta:hover .mouth {
-  border-bottom: 6px solid rgba(0, 0, 0, 0.7)!important;;
+  border-bottom: 6px solid rgba(0, 0, 0, 0.7) !important;
+  ;
   transform: rotate(-3deg);
 
 }
@@ -399,20 +402,16 @@ body.dark-mode .certifications-section h3 {
   background:
     radial-gradient(circle at top right, rgba(37, 99, 235, 0.12), transparent 42%),
     linear-gradient(155deg, rgba(255, 255, 255, 0.96), rgba(232, 241, 255, 0.8)),
-    repeating-linear-gradient(
-      90deg,
+    repeating-linear-gradient(90deg,
       transparent 0,
       transparent 34px,
       rgba(37, 99, 235, 0.04) 34px,
-      rgba(37, 99, 235, 0.04) 35px
-    ),
-    repeating-linear-gradient(
-      0deg,
+      rgba(37, 99, 235, 0.04) 35px),
+    repeating-linear-gradient(0deg,
       transparent 0,
       transparent 34px,
       rgba(6, 182, 212, 0.045) 34px,
-      rgba(6, 182, 212, 0.045) 35px
-    );
+      rgba(6, 182, 212, 0.045) 35px);
 }
 
 .certifications-media::before,
@@ -530,20 +529,16 @@ body.dark-mode .certifications-media {
   background:
     radial-gradient(circle at top right, rgba(0, 255, 136, 0.12), transparent 42%),
     linear-gradient(155deg, rgba(15, 20, 25, 0.96), rgba(10, 14, 26, 0.94)),
-    repeating-linear-gradient(
-      90deg,
+    repeating-linear-gradient(90deg,
       transparent 0,
       transparent 34px,
       rgba(0, 255, 136, 0.045) 34px,
-      rgba(0, 255, 136, 0.045) 35px
-    ),
-    repeating-linear-gradient(
-      0deg,
+      rgba(0, 255, 136, 0.045) 35px),
+    repeating-linear-gradient(0deg,
       transparent 0,
       transparent 34px,
       rgba(0, 212, 255, 0.045) 34px,
-      rgba(0, 212, 255, 0.045) 35px
-    );
+      rgba(0, 212, 255, 0.045) 35px);
 }
 
 body.dark-mode .certifications-media::before {
@@ -641,20 +636,16 @@ body.alt-mode .certifications-media {
   background:
     radial-gradient(circle at top right, rgba(242, 69, 54, 0.12), transparent 42%),
     linear-gradient(155deg, rgba(255, 252, 250, 0.98), rgba(255, 238, 231, 0.96)),
-    repeating-linear-gradient(
-      90deg,
+    repeating-linear-gradient(90deg,
       transparent 0,
       transparent 34px,
       rgba(215, 53, 51, 0.035) 34px,
-      rgba(215, 53, 51, 0.035) 35px
-    ),
-    repeating-linear-gradient(
-      0deg,
+      rgba(215, 53, 51, 0.035) 35px),
+    repeating-linear-gradient(0deg,
       transparent 0,
       transparent 34px,
       rgba(252, 126, 95, 0.05) 34px,
-      rgba(252, 126, 95, 0.05) 35px
-    );
+      rgba(252, 126, 95, 0.05) 35px);
 }
 
 body.alt-mode .certifications-media::before {
@@ -1182,4 +1173,17 @@ body.dark-mode .comment-success {
     transform: rotate(360deg);
   }
 
+}
+
+
+body .graciasxv {
+  color: var(--primary-light);
+}
+
+body.dark-mode .graciasxv {
+  color: var(--primary-dark);
+}
+
+body.alt-mode .graciasxv {
+  color: var(--alt-1);
 }

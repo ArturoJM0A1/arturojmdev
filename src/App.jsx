@@ -8,8 +8,8 @@ import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import "./App.css";
 import "./cohetegoup.css";
 import profileImg from "../public/artsearch2-removebg-preview.png";
-import artavatar1 from "../public/avatar1.png";
-import artavatar3 from "../public/avatar3.png";
+import avatarwelcome from "../public/avatar5.png";
+import avatarfooter from "../public/avatar5.png";
 
 import Particles from "./particulasfondo.jsx";
 
@@ -691,15 +691,13 @@ function App() {
         </div>
 
         <footer>
-          <b>(c) Arturo Juárez Monroy - Hecho con React, Vue y Firebase</b>
+          <b className="graciasxv">¡Gracias por visitarme!</b>
           <br></br>
-          <b>¡Gracias por visitarme!</b>
+          <b>(c) Arturo Juárez Monroy - Hecho con React, Vue y Firebase</b>
         </footer>
-      </div>
-
-      <div className="footeradios">
-        {" "}
-        <img src={artavatar3} alt="Bienvenido" className="avatar3" />
+        <div className="footeradios">
+          <img src={avatarfooter} alt="Bienvenido" className="avatar3" />
+        </div>
       </div>
 
       {/*  cohete para volver arriba (solo visible en escritorio y tras hacer scroll) */}
@@ -738,7 +736,7 @@ function App() {
                 <div class="mouth"></div>
               </div>
             </button>
-            <img src={artavatar1} alt="Bienvenido" className="avatar1" />
+            <img src={avatarwelcome} alt="Bienvenido" className="avatar1" />
           </div>
         </div>
       )}
