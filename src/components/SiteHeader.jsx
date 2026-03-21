@@ -1,4 +1,5 @@
-import { NavLink } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 
 const navigationItems = [
   { to: "/", label: "Inicio", end: true },
@@ -11,6 +12,40 @@ const navigationItems = [
 ];
 
 export default function SiteHeader({ cvHref, displayText, theme, setTheme }) {
+  const location = useLocation();
+  const menuRef = useRef(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  useEffect(() => {
+    if (!isMenuOpen) {
+      return undefined;
+    }
+
+    const handlePointerDown = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("pointerdown", handlePointerDown);
+    return () => window.removeEventListener("pointerdown", handlePointerDown);
+  }, [isMenuOpen]);
+
   return (
     <header className="hero">
       <div className="hero-content">
@@ -21,9 +56,6 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme }) {
         </div>
 
         <div className="hero-actions">
-          <NavLink to="/sobre-mi" className="btn botonhero">
-            Ver mi trayectoria
-          </NavLink>
           <a
             href={cvHref}
             download="Curriculum Arturo JM.pdf"
@@ -33,20 +65,50 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme }) {
           </a>
         </div>
 
-        <nav className="hero-nav" aria-label="Navegacion principal">
-          {navigationItems.map(({ to, label, end }) => (
-            <NavLink
-              key={to}
-              to={to}
-              end={end}
-              className={({ isActive }) =>
-                `hero-nav__link${isActive ? " is-active" : ""}`
-              }
+        <div className="hero-nav-shell" ref={menuRef}>
+          <button
+            type="button"
+            className={`hero-nav-toggle${isMenuOpen ? " is-open" : ""}`}
+            onClick={() => setIsMenuOpen((previous) => !previous)}
+            aria-expanded={isMenuOpen}
+            aria-haspopup="true"
+            aria-controls="site-navigation"
+            aria-label={
+              isMenuOpen
+                ? "Cerrar menu de navegacion"
+                : "Abrir menu de navegacion"
+            }
+          >
+            <span className="hero-nav-toggle__label">Menu</span>
+            <span className="hero-nav-toggle__chevron" aria-hidden="true"></span>
+          </button>
+
+          <div
+            className={`hero-nav-panel${isMenuOpen ? " is-open" : ""}`}
+            aria-hidden={!isMenuOpen}
+          >
+            <nav
+              className="hero-nav"
+              aria-label="Navegacion principal"
+              id="site-navigation"
             >
-              {label}
-            </NavLink>
-          ))}
-        </nav>
+              {navigationItems.map(({ to, label, end }) => (
+                <NavLink
+                  key={to}
+                  to={to}
+                  end={end}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `hero-nav__link${isActive ? " is-active" : ""}`
+                  }
+                >
+                  <span>{label}</span>
+                  <span className="hero-nav__marker" aria-hidden="true"></span>
+                </NavLink>
+              ))}
+            </nav>
+          </div>
+        </div>
       </div>
 
       <div className="theme-buttons">
