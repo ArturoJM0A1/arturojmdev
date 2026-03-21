@@ -222,11 +222,20 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
     (project) => !showFavoritesOnly || project.favorite,
   );
 
-  const orderedProjects = [...visibleProjects].sort((firstProject, secondProject) =>
-    projectOrder === "asc"
-      ? firstProject.year - secondProject.year
-      : secondProject.year - firstProject.year,
-  );
+  const orderedProjects = [...visibleProjects].sort((firstProject, secondProject) => {
+    const yearDifference =
+      projectOrder === "asc"
+        ? firstProject.year - secondProject.year
+        : secondProject.year - firstProject.year;
+
+    if (yearDifference !== 0) {
+      return yearDifference;
+    }
+
+    return firstProject.title.localeCompare(secondProject.title, "es", {
+      sensitivity: "base",
+    });
+  });
 
   return (
     <section className="projects">
@@ -241,9 +250,9 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
               previousOrder === "asc" ? "desc" : "asc",
             )
           }
-          title="Ordenar proyectos"
+          title="Ordenar proyectos por año"
         >
-          {projectOrder === "asc" ? "Ascendente " : "Descendente "}
+          {projectOrder === "asc" ? "Año ascendente " : "Año descendente "}
           <i
             className={`fas fa-arrow-${projectOrder === "asc" ? "up" : "down"}`}
           ></i>
@@ -263,9 +272,7 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
         </button>
       </div>
 
-      <div
-        className={`projects-list projects-list--${projectOrder}${showFavoritesOnly ? " projects-list--favorites" : ""}`}
-      >
+        <div className="projects-list">
         {orderedProjects.map((project) => (
           <article
             key={project.id}

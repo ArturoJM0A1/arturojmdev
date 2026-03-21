@@ -1142,18 +1142,6 @@ body.dark-mode .skill-chip {
   flex-direction: column;
 }
 
-.projects-list--desc {
-  flex-direction: column-reverse;
-}
-
-.projects-list--favorites .card {
-  display: none;
-}
-
-.projects-list--favorites .card.card--favorito {
-  display: block;
-}
-
 
 
 /* Tarjetas de proyecto */
