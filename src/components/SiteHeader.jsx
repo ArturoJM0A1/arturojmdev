@@ -114,17 +114,27 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme }) {
       <div className="theme-buttons">
         <button
           className="theme-btn"
+          type="button"
           onClick={() => setTheme("light")}
-          disabled={theme === "light"}
+          aria-pressed={theme === "light"}
+          aria-label="Activar modo claro"
+          title="Modo claro"
         >
-          Claro
+          <span className="theme-btn__emoji" aria-hidden="true">
+            ☀️
+          </span>
         </button>
         <button
           className="theme-btn"
+          type="button"
           onClick={() => setTheme("dark")}
-          disabled={theme === "dark"}
+          aria-pressed={theme === "dark"}
+          aria-label="Activar modo oscuro"
+          title="Modo oscuro"
         >
-          Oscuro
+          <span className="theme-btn__emoji" aria-hidden="true">
+            🌙
+          </span>
         </button>
       </div>
     </header>
