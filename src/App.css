@@ -134,44 +134,6 @@ body.dark-mode {
 
 
 
-/* Alternative mode */
-body.alt-mode {
-  --primary-light: #d73533;
-  --secondary-light: #e7756f;
-  --accent-light: #f24536;
-  --success-light: #fc7e5f;
-  --warning-light: #fecfbe;
-  --danger-light: #b92d2a;
-  --bg-light: #fff6f2;
-  --bg-light-secondary: #ffe7df;
-  --bg-light-card: #fffaf8;
-  --bg-light-hover: #fde1d8;
-  --border-light: #f1b6a6;
-  --text-light-primary: #3a1c1a;
-  --text-light-secondary: #6f3a33;
-  --text-light-muted: #915a52;
-  --gradient-light-1: linear-gradient(135deg, #d73533 0%, #fc7e5f 100%);
-  --gradient-light-2: linear-gradient(135deg, #e7756f 0%, #f24536 100%);
-  --alt-1: #d73533;
-  --alt-2: #e7756f;
-  --alt-3: #f24536;
-  --alt-4: #fc7e5f;
-  --alt-5: #fecfbe;
-  --alt-6: #ff9a6a;
-  --alt-7: #e5533d;
-  --clock-shell: linear-gradient(145deg, rgba(255, 217, 202, 0.5) 0%, rgba(215, 135, 105, 0.3) 100%);
-  --clock-digit-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.99) 0%, rgba(253, 225, 216, 0.95) 100%);
-  --clock-border: rgba(215, 53, 51, 0.4);
-  --clock-shadow-a: rgba(255, 255, 255, 0.78);
-  --clock-shadow-b: rgba(183, 101, 83, 0.18);
-  --clock-inset: rgba(215, 53, 51, 0.08);
-  --clock-highlight: rgba(255, 255, 255, 0.88);
-  --clock-glow: rgba(242, 69, 54, 0.24);
-  --clock-accent: var(--primary-light);
-  --clock-muted: var(--text-light-muted);
-  --clock-text: var(--text-light-secondary);
-}
-
 body.dark-mode .container {
   background-color: transparent;
 }
@@ -369,10 +331,6 @@ body.dark-mode .hero::before {
 
 body:not(.dark-mode) .hero::before {
   box-shadow: 0 0 10px rgba(6, 182, 212, 0.35);
-}
-
-body.alt-mode .hero::before {
-  box-shadow: 0 0 12px rgba(242, 69, 54, 0.4);
 }
 
 .hero::after {
@@ -638,11 +596,6 @@ body.dark-mode .photo-placeholder {
 
 }
 
-body.alt-mode .photo-placeholder {
-  background-color: rgba(255, 0, 0, 0.07);
-}
-
-
 .photo-placeholder:hover {
   box-shadow: var(--shadow-glow-light);
   border-radius: 74% 26% 78% 22% / 21% 68% 32% 79%;
@@ -725,25 +678,6 @@ body.dark-mode .photo-placeholder:hover .photolaptop span {
   transition: text-shadow 0.3s ease;
 
 }
-
-body.alt-mode .photolaptop span {
-  text-shadow:
-    0 0 5px #d73533,
-    0 0 10px #d73533,
-    0 0 20px #d73533;
-  transition: text-shadow 0.3s ease;
-
-}
-
-body.alt-mode .photo-placeholder:hover .photolaptop span {
-  text-shadow:
-    0 0 5px #fc7e5f,
-    0 0 10px #fc7e5f,
-    0 0 20px #fc7e5f;
-  transition: text-shadow 0.3s ease;
-
-}
-
 
 /* Contacto */
 .contact p {
@@ -1087,18 +1021,6 @@ body.dark-mode .skill-chip {
   box-shadow: 0 8px 18px rgba(0, 255, 136, 0.25);
 }
 
-.projects-sort-btn--alternativo {
-  background: rgba(215, 53, 51, 0.1);
-  color: #b92d2a;
-  border-color: rgba(215, 53, 51, 0.42);
-}
-
-.projects-sort-btn--alternativo:hover {
-  background: #d73533;
-  color: #fffaf8;
-  box-shadow: 0 8px 18px rgba(215, 53, 51, 0.25);
-}
-
 .projects-sort-btn i {
   margin-left: 8px;
   scale: 1.1;
@@ -1123,14 +1045,6 @@ body.dark-mode .skill-chip {
   color: #03120c;
   box-shadow: 0 8px 18px rgba(0, 255, 136, 0.3);
 }
-
-.projects-sort-btn--alternativo.projects-favorites-btn.is-active {
-  background: #d73533;
-  color: #fffaf8;
-  box-shadow: 0 8px 18px rgba(215, 53, 51, 0.3);
-}
-
-
 
 .verFav {
   width: 23px;
@@ -1220,11 +1134,6 @@ body.dark-mode .card:hover {
 body:not(.dark-mode) .card:hover {
   border-color: var(--secondary-light);
   box-shadow: 0 10px 28px rgba(6, 182, 212, 0.22);
-}
-
-body.alt-mode .card:hover {
-  border-color: var(--accent-light);
-  box-shadow: 0 12px 30px rgba(242, 69, 54, 0.28);
 }
 
 .card h4 {
@@ -2338,19 +2247,6 @@ body.dark-mode .hero-nav__link.is-active {
   border-color: var(--primary-dark);
   color: var(--primary-dark);
   box-shadow: var(--shadow-glow-dark);
-}
-
-body.alt-mode .hero-nav__link {
-  border: 1px solid #ff9a6a !important;
-  box-shadow: 1px solid var(--alt-2) !important;
-
-}
-
-body.alt-mode .hero-nav__link:hover,
-body.alt-mode .hero-nav__link.is-active {
-  border-color: 1px solid var(--primary-light);
-  color: var(--primary-light);
-  box-shadow: var(--alt-2);
 }
 
 .page-stack {

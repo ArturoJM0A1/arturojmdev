@@ -216,8 +216,7 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
   const [projectOrder, setProjectOrder] = useState("asc");
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
 
-  const projectSortTheme =
-    theme === "dark" ? "oscuro" : theme === "alt" ? "alternativo" : "claro";
+  const projectSortTheme = theme === "dark" ? "oscuro" : "claro";
 
   const visibleProjects = projects.filter(
     (project) => !showFavoritesOnly || project.favorite,

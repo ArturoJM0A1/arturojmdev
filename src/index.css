@@ -630,109 +630,6 @@ body.dark-mode .certifications-nav:hover:not(:disabled) {
   background: rgba(10, 14, 26, 0.96);
 }
 
-body.alt-mode .certifications-frame {
-  background:
-    linear-gradient(145deg, rgba(242, 69, 54, 0.16), rgba(252, 126, 95, 0.18)),
-    rgba(255, 250, 248, 0.8);
-  border-color: rgba(215, 53, 51, 0.18);
-  box-shadow:
-    0 20px 44px rgba(215, 53, 51, 0.14),
-    inset 0 1px 0 rgba(255, 255, 255, 0.74);
-}
-
-body.alt-mode .certifications-frame::before {
-  background: linear-gradient(135deg, rgba(215, 53, 51, 0.12), rgba(252, 126, 95, 0.22));
-}
-
-body.alt-mode .certifications-slide:hover .certifications-frame {
-  border-color: rgba(215, 53, 51, 0.34);
-  box-shadow:
-    0 24px 48px rgba(215, 53, 51, 0.2),
-    0 0 0 1px rgba(255, 255, 255, 0.45);
-}
-
-body.alt-mode .certifications-expand {
-  border-color: rgba(215, 53, 51, 0.18);
-  background: rgba(255, 250, 248, 0.92);
-  color: var(--primary-light);
-  box-shadow: 0 16px 30px rgba(215, 53, 51, 0.16);
-}
-
-body.alt-mode .certifications-expand:hover {
-  background: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 18px 34px rgba(215, 53, 51, 0.2);
-}
-
-body.alt-mode .certifications-media {
-  border-color: rgba(215, 53, 51, 0.24);
-  background:
-    radial-gradient(circle at top right, rgba(242, 69, 54, 0.12), transparent 42%),
-    linear-gradient(155deg, rgba(255, 252, 250, 0.98), rgba(255, 238, 231, 0.96)),
-    repeating-linear-gradient(90deg,
-      transparent 0,
-      transparent 34px,
-      rgba(215, 53, 51, 0.035) 34px,
-      rgba(215, 53, 51, 0.035) 35px),
-    repeating-linear-gradient(0deg,
-      transparent 0,
-      transparent 34px,
-      rgba(252, 126, 95, 0.05) 34px,
-      rgba(252, 126, 95, 0.05) 35px);
-}
-
-body.alt-mode .certifications-media::before {
-  border-color: rgba(215, 53, 51, 0.1);
-}
-
-body.alt-mode .certifications-media::after {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.84), rgba(252, 126, 95, 0.22));
-}
-
-body.alt-mode .certifications-modal {
-  background:
-    radial-gradient(circle at 18% 16%, rgba(242, 69, 54, 0.14), transparent 24%),
-    linear-gradient(180deg, rgba(255, 246, 242, 0.94), rgba(255, 231, 223, 0.97));
-}
-
-body.alt-mode .certifications-modal__content {
-  background: rgba(255, 250, 248, 0.94);
-  border-color: rgba(215, 53, 51, 0.14);
-  box-shadow: 0 30px 76px rgba(215, 53, 51, 0.18);
-}
-
-body.alt-mode .certifications-modal__frame {
-  background:
-    linear-gradient(145deg, rgba(242, 69, 54, 0.08), rgba(252, 126, 95, 0.08)),
-    rgba(255, 252, 250, 0.96);
-}
-
-body.alt-mode .certifications-modal__close {
-  border-color: rgba(215, 53, 51, 0.16);
-  background: rgba(255, 250, 248, 0.96);
-  color: var(--primary-light);
-  box-shadow: 0 16px 30px rgba(215, 53, 51, 0.16);
-}
-
-body.alt-mode .certifications-modal__close:hover {
-  box-shadow: 0 18px 34px rgba(215, 53, 51, 0.2);
-}
-
-body.alt-mode .certifications-empty {
-  border-color: rgba(215, 53, 51, 0.26);
-  background: rgba(255, 250, 248, 0.92);
-  color: var(--text-light-secondary);
-}
-
-body.alt-mode .certifications-nav {
-  background: rgba(255, 250, 248, 0.95);
-  box-shadow: 0 14px 30px rgba(215, 53, 51, 0.16);
-}
-
-body.alt-mode .certifications-nav::before {
-  border-top-color: var(--primary-light);
-  border-right-color: var(--primary-light);
-}
-
 @media (max-width: 900px) {
   .certifications-carousel {
     padding-inline: 22px;
@@ -980,11 +877,6 @@ body.dark-mode .comment-success {
   color: var(--primary);
 }
 
-body.alt-mode .comment-success {
-  background-color: rgba(255, 0, 0, 0.1);
-  color: var(--primary);
-}
-
 /* Responsive para comentarios */
 @media (max-width: 768px) {
 
@@ -1219,8 +1111,4 @@ body .graciasxv {
 
 body.dark-mode .graciasxv {
   color: var(--primary-dark);
-}
-
-body.alt-mode .graciasxv {
-  color: var(--alt-1);
 }

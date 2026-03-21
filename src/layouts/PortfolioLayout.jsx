@@ -48,14 +48,10 @@ export default function PortfolioLayout() {
   }, [location.pathname]);
 
   useLayoutEffect(() => {
-    document.body.classList.remove("dark-mode", "alt-mode");
+    document.body.classList.remove("dark-mode");
 
     if (theme === "dark") {
       document.body.classList.add("dark-mode");
-    }
-
-    if (theme === "alt") {
-      document.body.classList.add("alt-mode");
     }
   }, [theme]);
 
@@ -191,7 +187,7 @@ export default function PortfolioLayout() {
       <Particles theme={theme} />
 
       <div className={`theme-icon ${theme} icon-style-aesthetic-adjustment`}>
-        {theme === "dark" ? "\u{1F319}" : theme === "alt" ? "\u{1FA90}" : "\u2600\uFE0F"}
+        {theme === "dark" ? "\u{1F319}" : "\u2600\uFE0F"}
       </div>
 
       <div className="container">
@@ -277,7 +273,7 @@ export default function PortfolioLayout() {
             <img src={avatarwelcome} alt="Avatar de bienvenida" className="avatarwelcome" />
             <img
               src={avatarwelcomehover}
-              alt="Avatar alternativo de bienvenida"
+              alt="Avatar secundario de bienvenida"
               className="avatarwelcome avatarwelcomehover"
             />
           </div>

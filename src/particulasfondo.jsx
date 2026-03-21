@@ -11,16 +11,8 @@ export default function Particles({ theme }) {
     const PARTICLE_COUNT = 116;
     const TRAIL_LENGTH = 4;
 
-    const BASE_COLOR = theme === 'dark'
-      ? '#00ff88'
-      : theme === 'alt'
-      ? '#f24536'
-      : '#00d4ff';
-    const TRAIL_COLOR = theme === 'dark'
-      ? '0, 255, 136'
-      : theme === 'alt'
-      ? '242, 69, 54'
-      : '0, 212, 255';
+    const BASE_COLOR = theme === 'dark' ? '#00ff88' : '#00d4ff';
+    const TRAIL_COLOR = theme === 'dark' ? '0, 255, 136' : '0, 212, 255';
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -31,8 +23,6 @@ export default function Particles({ theme }) {
       let color;
       if (theme === 'dark') {
         color = `hsl(${120 + Math.random() * 60}, 100%, 60%)`;
-      } else if (theme === 'alt') {
-        color = `hsl(${8 + Math.random() * 28}, 90%, 60%)`;
       } else {
         color = `hsl(${180 + Math.random() * 60}, 80%, 70%)`;
       }
