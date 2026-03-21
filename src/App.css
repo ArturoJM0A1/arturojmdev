@@ -1131,7 +1131,7 @@ footer {
 }
 
 .footer-clock {
-  position: fixed;
+  position: absolute;
   left: max(18px, env(safe-area-inset-left));
   bottom: max(18px, env(safe-area-inset-bottom));
   z-index: 60;
@@ -1165,7 +1165,7 @@ footer {
 
 .footer-clock:hover {
   transform: scale(calc(var(--scale) + 0.02));
-    border-radius: 38px;
+  border-radius: 38px;
 
 }
 
@@ -1178,8 +1178,7 @@ footer {
     padding: 0px 0px;
     border-radius: 18px;
 
-    --scale: 0.57;
-    transform: scale(var(--scale));
+    scale: 0.7;
   }
 }
 
@@ -1618,12 +1617,11 @@ body.dark-mode .video-modal__close:hover {
   .footer-clock {
     left: max(12px, env(safe-area-inset-left));
     bottom: max(12px, env(safe-area-inset-bottom));
-    min-width: min(10%, 320px);
-    width: min(50%, 320px);
     max-width: 360px;
 
-    --scale: 0.67;
-    transform: scale(var(--scale));
+
+    scale: 0.8;
+    padding-right: 0;
   }
 }
 
@@ -1655,8 +1653,7 @@ body.dark-mode .video-modal__close:hover {
     padding: 3px 3px;
     border-radius: 20px;
     max-width: 360px;
-    --scale: 0.67;
-    transform: scale(var(--scale));
+    scale: 0.7;
   }
 
   .footer-clock__display {
