@@ -4,6 +4,7 @@ const projects = [
   {
     id: "tollan-a-frame",
     title: "Piramides de Tula con A-Frame",
+    year: 2023,
     date: "Trabajo escolar 2023",
     description:
       "Use A-Frame para desarrollar una experiencia de realidad virtual que permite explorar un sitio arqueologico en un entorno 3D; todas las composiciones y estructuras del escenario fueron disenadas por mi.",
@@ -27,6 +28,7 @@ const projects = [
   {
     id: "mezcalito",
     title: 'Sitio Web del bar "El Mezcalito"',
+    year: 2023,
     date: "Proyecto independiente 2023",
     description:
       "Desarrolle un sitio web con PHP y Bootstrap para el bar El Mezcalito en Tula de Allende. Permite explorar el lugar, ver el menu de bebidas y comida, y realizar reservaciones.",
@@ -50,6 +52,7 @@ const projects = [
   {
     id: "turismo-hidalgo",
     title: "Portal Turistico de Hidalgo",
+    year: 2024,
     date: "Gobierno del Estado de Hidalgo 2024",
     description:
       "Desarrolle un sitio web en PHP para la Secretaria de Turismo de Hidalgo con noticias, eventos, calendario, mapas interactivos y filtros de navegacion para explorar actividades turisticas.",
@@ -73,6 +76,7 @@ const projects = [
   {
     id: "ieee",
     title: "Sitio web IEEE Student Web Hub",
+    year: 2024,
     date: "Proyecto de la universidad 2024",
     description:
       "Colaboracion en portal web para la rama estudiantil usando Astro, React, CSS, JavaScript y Tailwind.",
@@ -96,6 +100,7 @@ const projects = [
   {
     id: "recetario",
     title: "Recetario",
+    year: 2024,
     date: "Proyecto independiente 2024",
     description:
       "Desarrollo de un sitio web interactivo de recetas utilizando CSS, Bootstrap y Swiper, enfocado en el frontend, que permite explorar y guardar recetas y bebidas mediante una interfaz intuitiva y una experiencia de usuario fluida.",
@@ -119,6 +124,7 @@ const projects = [
   {
     id: "sig-hidalgo",
     title: "Aplicacion de Mapas Personalizados (SIG Hidalgo)",
+    year: 2025,
     date: "Articulo y App 2025",
     description:
       "App SIG de mapas del estado de Hidalgo con React Native, usando JSON y GeoJSON para visualizar datos de poblacion y vivienda del INEGI. Permite consultar informacion regional de forma clara y detallada.",
@@ -150,6 +156,7 @@ const projects = [
   {
     id: "chat-ia-local",
     title: "Chat con IA Local (Ollama + Next.js)",
+    year: 2026,
     date: "Aplicacion Web Full Stack 2026",
     description:
       "Chat local de IA con Next.js, integrado con Ollama para ejecutar llama3.2:1b. Incluye API propia, manejo de estado en React y diseno responsive con Tailwind CSS.",
@@ -173,6 +180,7 @@ const projects = [
   {
     id: "refrescos",
     title: "Aplicacion de Venta de Refrescos",
+    year: 2026,
     date: "Aplicacion Web 2026",
     description:
       "Aplicacion web de venta de refrescos con Next.js, React y Prisma (ORM), con vista publica de productos y panel administrativo para actualizar precios mediante una API.",
@@ -196,6 +204,7 @@ const projects = [
   {
     id: "gastos",
     title: "Sistema de gestion de gastos personales",
+    year: 2026,
     date: "Aplicacion Web 2026",
     description: "Usando Astro y PostgreSQL, en desarrollo...",
     inDevelopment: true,
@@ -210,11 +219,15 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
   const projectSortTheme =
     theme === "dark" ? "oscuro" : theme === "alt" ? "alternativo" : "claro";
 
-  const visibleProjects = projects
-    .filter((project) => !showFavoritesOnly || project.favorite);
+  const visibleProjects = projects.filter(
+    (project) => !showFavoritesOnly || project.favorite,
+  );
 
-  const orderedProjects =
-    projectOrder === "asc" ? visibleProjects : [...visibleProjects].reverse();
+  const orderedProjects = [...visibleProjects].sort((firstProject, secondProject) =>
+    projectOrder === "asc"
+      ? firstProject.year - secondProject.year
+      : secondProject.year - firstProject.year,
+  );
 
   return (
     <section className="projects">
