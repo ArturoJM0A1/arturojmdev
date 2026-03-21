@@ -1,4 +1,4 @@
-import profileImg from "../../public/artsearch2-removebg-preview.png";
+import profileImg from "../../public/artsearch2removebgpreview.png";
 import SkillsContent from "./SkillsContent.jsx";
 
 export default function SidebarInfo({ showSkills = true }) {
@@ -10,7 +10,7 @@ export default function SidebarInfo({ showSkills = true }) {
           style={{ backgroundImage: `url(${profileImg})` }}
         >
           <div className="photolaptop">
-            <span>{"\uD83D\uDCBB"}</span>
+            <span>{"\uD83D\uDE09"}</span>
           </div>
         </div>
       </div>

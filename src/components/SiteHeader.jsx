@@ -64,13 +64,6 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme }) {
         >
           Oscuro
         </button>
-        <button
-          className="theme-btn"
-          onClick={() => setTheme("alt")}
-          disabled={theme === "alt"}
-        >
-          Alternativo
-        </button>
       </div>
     </header>
   );

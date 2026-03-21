@@ -43,15 +43,18 @@ const technicalSkillGroups = [
 const personalSkills = [
   {
     title: "Creatividad",
-    description: "Encuentro maneras visuales y funcionales de resolver problemas.",
+    description:
+      "Encuentro maneras visuales y funcionales de resolver problemas.",
   },
   {
     title: "Adaptabilidad",
-    description: "Me ajusto rapido a herramientas, equipos y flujos de trabajo.",
+    description:
+      "Me ajusto rapido a herramientas, equipos y flujos de trabajo.",
   },
   {
     title: "Enfoque en el detalle",
-    description: "Cuido tanto la experiencia visual como el comportamiento del producto.",
+    description:
+      "Cuido tanto la experiencia visual como el comportamiento del producto.",
   },
   {
     title: "Compromiso con la calidad",
@@ -77,9 +80,15 @@ export default function SkillsContent({ variant = "sidebar" }) {
             </p>
           </div>
 
-          <div className="skills-spotlight__stats" aria-label="Resumen de habilidades">
+          <div
+            className="skills-spotlight__stats"
+            aria-label="Resumen de habilidades"
+          >
             <div className="skills-spotlight__stat">
-              <span>Conjunto de tecnologías que forman la base de mi trabajo en el desarrollo de software.</span>
+              <span>
+                Conjunto de tecnologías que forman la base de mi trabajo en el
+                desarrollo de software.
+              </span>
             </div>
           </div>
         </section>
@@ -128,52 +137,4 @@ export default function SkillsContent({ variant = "sidebar" }) {
       </div>
     );
   }
-
-  return (
-    <>
-      <section className="skills">
-        <h3>Habilidades Tecnicas</h3>
-        <div className="skills-row">
-          <div className="skills-left">
-            {technicalSkillGroups
-              .filter((group) => group.title !== "Frameworks / Librerias")
-              .map((group) => (
-                <div key={group.title} className="skill-category">
-                  <h4>{group.title}</h4>
-                  <ul>
-                    {group.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-          </div>
-
-          <div className="skills-right">
-            {technicalSkillGroups
-              .filter((group) => group.title === "Frameworks / Librerias")
-              .map((group) => (
-                <div key={group.title} className="skill-category">
-                  <h4>{group.title}</h4>
-                  <ul>
-                    {group.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="skills">
-        <h3>Habilidades Personales</h3>
-        <ul>
-          {personalSkills.map((skill) => (
-            <li key={skill.title}>{skill.title}</li>
-          ))}
-        </ul>
-      </section>
-    </>
-  );
 }

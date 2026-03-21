@@ -665,7 +665,7 @@ body.dark-mode .photo-placeholder:hover {
   top: 0;
   right: 0;
   position: absolute;
-  font-size: 40px;
+  font-size: 36px;
   z-index: 100;
   margin-top: 39px;
   margin-right: -36px;
@@ -863,6 +863,8 @@ body.dark-mode .skills li::before {
   background: rgba(255, 255, 255, 0.76);
   box-shadow: var(--shadow-md);
 }
+
+
 
 .skills-spotlight,
 .skills-soft-panel {
@@ -2329,11 +2331,26 @@ body.dark-mode .hero-nav__link {
   background: rgba(10, 14, 26, 0.62);
 }
 
+
+
 body.dark-mode .hero-nav__link:hover,
 body.dark-mode .hero-nav__link.is-active {
   border-color: var(--primary-dark);
   color: var(--primary-dark);
   box-shadow: var(--shadow-glow-dark);
+}
+
+body.alt-mode .hero-nav__link {
+  border: 1px solid #ff9a6a !important;
+  box-shadow: 1px solid var(--alt-2) !important;
+
+}
+
+body.alt-mode .hero-nav__link:hover,
+body.alt-mode .hero-nav__link.is-active {
+  border-color: 1px solid var(--primary-light);
+  color: var(--primary-light);
+  box-shadow: var(--alt-2);
 }
 
 .page-stack {
@@ -2440,6 +2457,10 @@ body.dark-mode .contact-card__label {
   line-height: 1.3;
 }
 
+.contact-card strong {
+  word-break: break-all;
+}
+
 .route-card p,
 .contact-page__lead,
 .contact-cta p {
@@ -2497,6 +2518,10 @@ body.dark-mode .contact-card i {
   font-family: var(--font-primary);
   font-size: 1rem;
   transition: var(--transition);
+}
+
+.comment-form .btn {
+  max-width: 303px;
 }
 
 .comment-form input:focus,
