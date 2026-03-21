@@ -430,6 +430,20 @@ body.dark-mode .hero-text h2::after {
   backdrop-filter: blur(14px);
 }
 
+.theme-buttons span {
+  display: inline-block; /* importante */
+
+}
+
+.theme-buttons span::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  filter: brightness(0.85) saturate(0.7);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
 body.dark-mode .theme-buttons {
   border-color: rgba(0, 255, 136, 0.12);
   background:
