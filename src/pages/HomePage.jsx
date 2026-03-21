@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import AboutSection from "../components/AboutSection.jsx";
 import EducationSection from "../components/EducationSection.jsx";
-import PageIntro from "../components/PageIntro.jsx";
 
 const quickLinks = [
+  {
+    to: "/habilidades",
+    title: "Ir a habilidades",
+    description: "Habilidades tecnicas y personales reunidas en una pagina dedicada.",
+  },
   {
     to: "/proyectos",
     title: "Explorar proyectos",
@@ -22,15 +26,13 @@ const quickLinks = [
   {
     to: "/contacto",
     title: "Canales de contacto",
-    description: "Correo, GitHub, LinkedIn y WhatsApp en una sola vista.",
+    description: "Correo, GitHub, LinkedIn y WhatsApp.",
   },
 ];
 
 export default function HomePage() {
   return (
     <div className="page-stack">
-  
-
       <AboutSection />
 
       <section className="route-overview">

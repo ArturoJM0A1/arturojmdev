@@ -1,6 +1,7 @@
 import profileImg from "../../public/artsearch2-removebg-preview.png";
+import SkillsContent from "./SkillsContent.jsx";
 
-export default function SidebarInfo() {
+export default function SidebarInfo({ showSkills = true }) {
   return (
     <div className="left-column">
       <div className="profile-photo">
@@ -56,65 +57,7 @@ export default function SidebarInfo() {
         </p>
       </section>
 
-      <section className="skills">
-        <h3>Habilidades Tecnicas</h3>
-        <div className="skills-row">
-          <div className="skills-left">
-            <div className="skill-category">
-              <h4>Lenguajes</h4>
-              <ul>
-                <li>JavaScript</li>
-                <li>Python</li>
-                <li>PHP</li>
-                <li>Java</li>
-                <li>C++ / C</li>
-                <li>SQL</li>
-                <li>TypeScript</li>
-              </ul>
-            </div>
-            <div className="skill-category">
-              <h4>Otros</h4>
-              <ul>
-                <li>MySQL Workbench</li>
-                <li>WordPress</li>
-                <li>Power BI</li>
-                <li>Canvas</li>
-                <li>3ds Max</li>
-                <li>Unity</li>
-                <li>AutoCAD</li>
-                <li>Excel</li>
-              </ul>
-            </div>
-          </div>
-          <div className="skills-right">
-            <div className="skill-category">
-              <h4>Frameworks / Librerias</h4>
-              <ul>
-                <li>React</li>
-                <li>React Native</li>
-                <li>Astro</li>
-                <li>Next.js</li>
-                <li>Node.js</li>
-                <li>Firebase</li>
-                <li>Vue</li>
-                <li>Tailwind CSS</li>
-                <li>Bootstrap</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="skills">
-        <h3>Habilidades Personales</h3>
-        <ul>
-          <li>Creatividad</li>
-          <li>Adaptabilidad</li>
-          <li>Enfoque en el detalle</li>
-          <li>Compromiso con la calidad</li>
-          <li>Resiliencia</li>
-        </ul>
-      </section>
+      {showSkills ? <SkillsContent /> : null}
     </div>
   );
 }

@@ -12,6 +12,7 @@ import SiteHeader from "../components/SiteHeader.jsx";
 const pageTitles = {
   "/": "Inicio",
   "/sobre-mi": "Sobre mi",
+  "/habilidades": "Habilidades",
   "/proyectos": "Proyectos",
   "/certificaciones": "Certificaciones",
   "/comentarios": "Comentarios",
@@ -183,6 +184,7 @@ export default function PortfolioLayout() {
     month: "short",
   });
   const footerClockLabel = `${hours}:${minutes}:${seconds}`;
+  const showSidebarSkills = location.pathname === "/";
 
   return (
     <>
@@ -200,7 +202,7 @@ export default function PortfolioLayout() {
           setTheme={setTheme}
         />
 
-        <SidebarInfo />
+        <SidebarInfo showSkills={showSidebarSkills} />
 
         <div className="right-column">
           <Outlet context={{ theme, handleOpenVideo }} />

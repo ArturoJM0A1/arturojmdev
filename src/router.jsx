@@ -2,6 +2,7 @@ import { createHashRouter } from "react-router-dom";
 import PortfolioLayout from "./layouts/PortfolioLayout.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
+import SkillsPage from "./pages/SkillsPage.jsx";
 import ProjectsPage from "./pages/ProjectsPage.jsx";
 import CertificationsPage from "./pages/CertificationsPage.jsx";
 import CommentsPage from "./pages/CommentsPage.jsx";
@@ -20,6 +21,10 @@ export const router = createHashRouter([
       {
         path: "sobre-mi",
         element: <AboutPage />,
+      },
+      {
+        path: "habilidades",
+        element: <SkillsPage />,
       },
       {
         path: "proyectos",
