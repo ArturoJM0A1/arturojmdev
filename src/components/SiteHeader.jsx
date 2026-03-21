@@ -48,23 +48,7 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme }) {
 
   return (
     <header className="hero">
-      <div className="hero-content">
-        <div className="hero-text">
-          <h1>Arturo Juarez Monroy</h1>
-          <h2>{displayText}</h2>
-          <div className="divider"></div>
-        </div>
-
-        <div className="hero-actions">
-          <a
-            href={cvHref}
-            download="Curriculum Arturo JM.pdf"
-            className="btn botonhero"
-          >
-            Descargar CV
-          </a>
-        </div>
-
+      <div className="hero-toolbar">
         <div className="hero-nav-shell" ref={menuRef}>
           <button
             type="button"
@@ -109,33 +93,51 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme }) {
             </nav>
           </div>
         </div>
+
+        <div className="theme-buttons">
+          <button
+            className="theme-btn"
+            type="button"
+            onClick={() => setTheme("light")}
+            aria-pressed={theme === "light"}
+            aria-label="Activar modo claro"
+            title="Modo claro"
+          >
+            <span className="theme-btn__emoji" aria-hidden="true">
+              {"\u2600\uFE0F"}
+            </span>
+          </button>
+          <button
+            className="theme-btn"
+            type="button"
+            onClick={() => setTheme("dark")}
+            aria-pressed={theme === "dark"}
+            aria-label="Activar modo oscuro"
+            title="Modo oscuro"
+          >
+            <span className="theme-btn__emoji" aria-hidden="true">
+              {"\u{1F319}"}
+            </span>
+          </button>
+        </div>
       </div>
 
-      <div className="theme-buttons">
-        <button
-          className="theme-btn"
-          type="button"
-          onClick={() => setTheme("light")}
-          aria-pressed={theme === "light"}
-          aria-label="Activar modo claro"
-          title="Modo claro"
-        >
-          <span className="theme-btn__emoji" aria-hidden="true">
-            ☀️
-          </span>
-        </button>
-        <button
-          className="theme-btn"
-          type="button"
-          onClick={() => setTheme("dark")}
-          aria-pressed={theme === "dark"}
-          aria-label="Activar modo oscuro"
-          title="Modo oscuro"
-        >
-          <span className="theme-btn__emoji" aria-hidden="true">
-            🌙
-          </span>
-        </button>
+      <div className="hero-content">
+        <div className="hero-text">
+          <h1>Arturo Juarez Monroy</h1>
+          <h2>{displayText}</h2>
+          <div className="divider"></div>
+        </div>
+
+        <div className="hero-actions">
+          <a
+            href={cvHref}
+            download="Curriculum Arturo JM.pdf"
+            className="btn botonhero"
+          >
+            Descargar CV
+          </a>
+        </div>
       </div>
     </header>
   );

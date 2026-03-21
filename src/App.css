@@ -63,6 +63,7 @@
   --clock-accent: var(--primary-light);
   --clock-muted: var(--text-light-muted);
   --clock-text: var(--text-light-secondary);
+  --hero-toolbar-reserved-width: 368px;
 
   /* Typography & Other */
   --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -223,8 +224,8 @@ body.dark-mode::-webkit-scrollbar-thumb {
 /* �cono de tema (sol/luna) con animaci�n */
 .theme-icon {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 108px;
+  right: 24px;
   font-size: 6rem;
   opacity: 0.15;
   z-index: 1;
@@ -268,8 +269,8 @@ body.dark-mode .theme-icon:hover {
 @media (max-width: 600px) {
   .theme-icon {
     font-size: 4rem;
-    top: 10px;
-    right: 10px;
+    top: 88px;
+    right: 12px;
   }
 }
 
@@ -294,12 +295,13 @@ body.dark-mode .theme-icon:hover {
   grid-column: 1 / -1;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   border-bottom: 2px solid var(--primary-light);
   padding-bottom: 30px;
   margin-bottom: 30px;
   position: relative;
+  padding-top: 14px;
 }
 
 body.dark-mode .hero {
@@ -337,6 +339,17 @@ body:not(.dark-mode) .hero::before {
   width: 30%;
   height: 2px;
   background: var(--gradient-light-1);
+}
+
+.hero-toolbar {
+  position: fixed;
+  top: max(18px, env(safe-area-inset-top));
+  right: max(18px, env(safe-area-inset-right));
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: calc(100vw - 36px);
 }
 
 body.dark-mode .hero::after {
@@ -404,7 +417,7 @@ body.dark-mode .hero-text h2::after {
 .theme-buttons {
   display: flex;
   gap: 8px;
-  margin-top: 23px;
+  margin-top: 0;
   align-items: center;
   padding: 6px;
   border: 1px solid rgba(37, 99, 235, 0.14);
@@ -1712,7 +1725,7 @@ body.dark-mode .video-modal__close:hover {
     grid-template-columns: 1fr;
     /* Una sola columna */
     gap: 30px;
-    padding: 30px 4%;
+    padding: 110px 4% 0;
     padding-bottom: 0;
     overflow-x: visible;
     /* Permitir scroll si es necesario */
@@ -2249,6 +2262,9 @@ body.dark-mode .welcome-cta {
   display: grid;
   gap: 18px;
   flex: 1 1 680px;
+  width: 100%;
+  max-width: calc(100% - var(--hero-toolbar-reserved-width));
+  min-width: 0;
 }
 
 .hero-actions {
@@ -2259,7 +2275,8 @@ body.dark-mode .welcome-cta {
 
 .hero-nav-shell {
   position: relative;
-  width: min(100%, 240px);
+  width: 240px;
+  flex: 0 0 240px;
 }
 
 .hero-nav-toggle {
@@ -2336,8 +2353,9 @@ body.dark-mode .hero-nav-toggle:hover {
 .hero-nav-panel {
   position: absolute;
   top: calc(100% + 10px);
-  left: 0;
-  width: min(calc(100vw - 48px), 260px);
+  right: 0;
+  left: auto;
+  width: 100%;
   padding: 8px;
   border: 1px solid rgba(37, 99, 235, 0.14);
   border-radius: 20px;
@@ -2351,7 +2369,7 @@ body.dark-mode .hero-nav-toggle:hover {
   visibility: hidden;
   pointer-events: none;
   transform: translateY(-8px);
-  transform-origin: top left;
+  transform-origin: top right;
   transition:
     opacity 0.25s ease,
     transform 0.25s ease,
@@ -2438,12 +2456,34 @@ body.dark-mode .hero-nav__link.is-active {
 }
 
 @media (max-width: 960px) {
+  .container {
+    padding-top: 110px;
+  }
+
+  .hero-toolbar {
+    top: max(12px, env(safe-area-inset-top));
+    left: max(12px, env(safe-area-inset-left));
+    right: max(12px, env(safe-area-inset-right));
+    max-width: none;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
   .hero-nav-shell {
-    width: 100%;
+    width: auto;
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .hero-nav-panel {
     width: 100%;
+  }
+
+  .theme-btn {
+    width: 46px;
+    height: 46px;
   }
 }
 
@@ -2714,10 +2754,10 @@ body.dark-mode .no-comments {
 @media (max-width: 960px) {
   .hero-content {
     flex-basis: 100%;
+    max-width: 100%;
   }
 
-  .hero-actions,
-  .hero-nav-shell {
+  .hero-actions {
     width: 100%;
   }
 }
