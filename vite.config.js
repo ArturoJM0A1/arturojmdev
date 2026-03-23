@@ -2,6 +2,7 @@ import { readdirSync } from "node:fs";
 import path from "node:path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 
 const virtualCertificationModuleId = "virtual:certifications";
 const resolvedCertificationModuleId = `\0${virtualCertificationModuleId}`;
@@ -70,6 +71,6 @@ function certificationsPlugin() {
 }
 
 export default defineConfig({
-  plugins: [react(), certificationsPlugin()],
+  plugins: [react(), tailwindcss(), certificationsPlugin()],
   base: "./",
 });
