@@ -203,7 +203,7 @@ const projects = [
   },
   {
     id: "gastos",
-    title: "Sistema de gestion de gastos personales",
+    title: "Sistema de gestion de gastos",
     year: 2026,
     date: "Aplicacion Web 2026",
     description: "Usando Astro y PostgreSQL, en desarrollo...",
