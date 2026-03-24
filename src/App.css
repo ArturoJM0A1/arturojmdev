@@ -686,6 +686,35 @@ body.dark-mode .divider {
   margin-bottom: 0 !important;
 }
 
+
+
+
+body:not(.dark-mode) .botonhero span .animacionDCV1 {
+
+  background-color: rgb(18, 212, 255);
+
+  scale: 1.1;
+}
+
+body:not(.dark-mode) .botonhero span .animacionDCV2 {
+
+  background-color: rgb(46, 151, 203);
+}
+
+
+body.dark-mode .botonhero span .animacionDCV1 {
+
+  background-color: rgba(113, 255, 18, 1);
+
+  scale: 1.1;
+}
+
+body.dark-mode .botonhero span .animacionDCV2 {
+
+  background-color: rgb(49, 176, 49);
+}
+
+
 /* Botï¿½n principal */
 .btn {
   display: inline-block;

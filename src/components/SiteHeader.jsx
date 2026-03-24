@@ -64,7 +64,10 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme }) {
             }
           >
             <span className="hero-nav-toggle__label">Menu</span>
-            <span className="hero-nav-toggle__chevron" aria-hidden="true"></span>
+            <span
+              className="hero-nav-toggle__chevron"
+              aria-hidden="true"
+            ></span>
           </button>
 
           <div
@@ -136,6 +139,10 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme }) {
             className="btn botonhero"
           >
             Descargar CV
+            <span class="absolute flex size-3 top-0 right-0.5">
+              <span class="absolute inline-flex h-full w-full animate-ping rounded-full animacionDCV1 opacity-75"></span>
+              <span class="relative inline-flex size-3 rounded-full animacionDCV2"></span>
+            </span>
           </a>
         </div>
       </div>
