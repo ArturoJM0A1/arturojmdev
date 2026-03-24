@@ -1,4 +1,7 @@
 import skillsSpriteUrl from "../assets/sprite.svg?url";
+import 'tailwindcss';
+import 'tailwind-animations';
+import "./../App.css"; 
 
 const technicalSkillGroups = [
   {
@@ -87,7 +90,7 @@ function TechnicalSkillChip({ skill }) {
   return (
     <li className="group flex flex-col items-center justify-center min-h-[5.5rem] gap-2 rounded-[1.15rem] border border-sky-100/80 bg-white/90 px-3 py-3 text-center shadow-[0_20px_45px_-35px_rgba(14,116,144,0.45)] transition duration-300 hover:-translate-y-0.5 hover:border-sky-200 hover:shadow-[0_28px_60px_-38px_rgba(37,99,235,0.42)] dark:border-emerald-400/15 dark:bg-slate-950/65 dark:hover:border-emerald-300/25 dark:hover:shadow-[0_28px_60px_-38px_rgba(16,185,129,0.35)]">
       {/* ICONOS */}
-      <div className="flex -space-x-2">
+      <div className="flex -space-x-2 ">
         {skill.icons.map((icon) => (
           <span
             key={icon}
@@ -139,10 +142,10 @@ export default function SkillsContent({ variant = "sidebar" }) {
             <article key={group.title} className="skill-card">
               <div className="skill-card__header">
                 <span className="skill-card__label">Area</span>
-                <h4>{group.title}</h4>
+                <h4 className="mb-[20px]">{group.title}</h4>
               </div>
 
-              <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 ">
                 {group.items.map((item) => (
                   <TechnicalSkillChip key={item.label} skill={item} />
                 ))}
