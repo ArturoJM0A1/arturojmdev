@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { db } from "./firebase.js";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import "./App.css"; // Puedes mantener estilos aquí o moverlos a otro CSS específico
+import 'tailwindcss';
+import 'tailwind-animations';
 
 export default function CommentSection() {
   const [submittedComment, setSubmittedComment] = useState(null);
@@ -88,7 +90,7 @@ export default function CommentSection() {
         </button>
       </form>
 
-      <div className="comment-list">
+      <div className="comment-list animate-swing animate-delay-[25ms]">
         {submittedComment ? (
           <>
             <p className="comment-success">¡Comentario enviado! 😊</p>

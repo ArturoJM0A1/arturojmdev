@@ -92,7 +92,7 @@ export default function CertificationsCarousel() {
     >
       <h3 id="certifications-title">Certificaciones y reconocimientos</h3>
 
-      <div className="certifications-carousel">
+      <div className="certifications-carousel ">
         {certificationSlides.length > 0 && (
           <button
             type="button"
