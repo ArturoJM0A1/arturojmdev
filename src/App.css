@@ -1,5 +1,5 @@
-/* ===== App.css ===== */
-/* Versi�n mejorada - Colorimetr�a profesional y moderna */
+﻿/* ===== App.css ===== */
+/* Versiï¿½n mejorada - Colorimetrï¿½a profesional y moderna */
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Tajawal:wght@300;400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap');
@@ -209,7 +209,7 @@ body.dark-mode::-webkit-scrollbar-thumb {
 
 
 
-/* Canvas de part�culas */
+/* Canvas de partï¿½culas */
 .particles-canvas {
   position: fixed;
   top: 0;
@@ -221,21 +221,109 @@ body.dark-mode::-webkit-scrollbar-thumb {
   opacity: 0.76;
 }
 
-/* �cono de tema (sol/luna) con animaci�n */
+/* ï¿½cono de tema (sol/luna) con animaciï¿½n */
 .theme-icon {
   position: fixed;
   top: 108px;
   right: 24px;
-  font-size: 6rem;
+  width: 6rem;
+  height: 6rem;
   opacity: 0.15;
   z-index: 1;
   pointer-events: none;
   transition: opacity 0.5s ease, transform 1s ease, filter 0.3s ease;
-  line-height: 1;
   user-select: none;
   filter: drop-shadow(0 0 10px rgba(37, 99, 235, 0.2));
   animation: float 6s infinite alternate;
 }
+
+.theme-icon.light {
+  color: #f59e0b;
+}
+
+.theme-icon.dark {
+  color: #d9fff0;
+}
+
+.theme-icon__svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+
+body:not(.dark-mode) .theme-icon__svg {
+  width: 240px;
+  height: 240px;
+  margin-left: -157px;
+  top: 0;
+  margin-top: -70px;
+  scale: 0.86;
+
+   display: inline-block;
+
+  /* Animaciones combinadas */
+  animation: sun-rotate 20s linear infinite,
+             sun-pulse 5s ease-in-out infinite;
+
+  filter: drop-shadow(0 0 6px rgba(255, 200, 50, 0.6))
+          drop-shadow(0 0 12px rgba(255, 150, 0, 0.4));
+}
+
+/* Rotación suave */
+@keyframes sun-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pulso de energía */
+@keyframes sun-pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px rgba(255, 200, 50, 0.6))
+            drop-shadow(0 0 12px rgba(255, 150, 0, 0.4));
+  }
+  50% {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 10px rgba(255, 220, 100, 0.9))
+            drop-shadow(0 0 20px rgba(255, 140, 0, 0.7));
+  }
+}
+
+
+body.dark-mode .theme-icon__svg {
+  width: 250px;
+  height: 250px;
+  margin-left: -133px;
+  top: 0;
+  margin-top: -70px;
+
+  /* tono ligeramente amarillo */
+  filter: sepia(40%) saturate(140%) hue-rotate(15deg) brightness(110%);
+
+  /* animación */
+  animation: moonGlow 3s ease-in-out infinite;
+}
+
+@keyframes moonGlow {
+  0% {
+    filter: sepia(20%) saturate(120%) hue-rotate(10deg) brightness(105%) drop-shadow(0 0 5px rgba(255, 220, 120, 0.3));
+  }
+
+  50% {
+    filter: sepia(25%) saturate(130%) hue-rotate(10deg) brightness(115%) drop-shadow(0 0 16px rgba(255, 240, 198, 0.6));
+  }
+
+  100% {
+    filter: sepia(20%) saturate(120%) hue-rotate(10deg) brightness(105%) drop-shadow(0 0 5px rgba(255, 220, 120, 0.3));
+  }
+}
+
 
 .theme-icon:hover {
   opacity: 0.25;
@@ -268,7 +356,8 @@ body.dark-mode .theme-icon:hover {
 
 @media (max-width: 600px) {
   .theme-icon {
-    font-size: 4rem;
+    width: 4rem;
+    height: 4rem;
     top: 88px;
     right: 12px;
   }
@@ -577,7 +666,7 @@ body.dark-mode .divider {
   margin-bottom: 0 !important;
 }
 
-/* Bot�n principal */
+/* Botï¿½n principal */
 .btn {
   display: inline-block;
   text-decoration: none;
@@ -728,7 +817,7 @@ body.dark-mode .photo-placeholder:hover {
 
 }
 
-/* Para teléfonos */
+/* Para telÃ©fonos */
 @media (max-width: 768px) {
   .photolaptop {
     font-size: 28px;
@@ -868,7 +957,7 @@ body.dark-mode .skills li::before {
   color: var(--secondary-dark);
 }
 
-/* Contenedor de habilidades t�cnicas en dos columnas flexibles */
+/* Contenedor de habilidades tï¿½cnicas en dos columnas flexibles */
 .skills-row {
   display: flex;
   gap: 30px;
@@ -1253,7 +1342,7 @@ body.dark-mode .card .date {
   background: rgba(0, 255, 136, 0.15);
 }
 
-/* Educaci�n */
+/* Educaciï¿½n */
 .education-item {
   margin-bottom: 20px;
   padding: 15px 20px;
@@ -1342,7 +1431,7 @@ footer {
   margin-bottom: 4vh;
 
   grid-template-columns: 1fr;
-  /* 👈 una sola columna */
+  /* ðŸ‘ˆ una sola columna */
 
   transition: transform 0.3s ease, border-radius 0.3s ease;
 
@@ -1719,7 +1808,7 @@ body.dark-mode .video-modal__close:hover {
 }
 
 
-/* ===== Responsive para m�viles ===== */
+/* ===== Responsive para mï¿½viles ===== */
 @media (max-width: 768px) {
   .video-modal {
     padding: 12px;
@@ -1748,7 +1837,7 @@ body.dark-mode .video-modal__close:hover {
 
   body {
     font-size: 1rem;
-    /* Reducir tama�o base */
+    /* Reducir tamaï¿½o base */
   }
 
   .hero-text h1 {
@@ -1770,7 +1859,7 @@ body.dark-mode .video-modal__close:hover {
     height: 160px;
   }
 
-  /* Ajustar la fila de habilidades t�cnicas */
+  /* Ajustar la fila de habilidades tï¿½cnicas */
   .skills-row {
     flex-direction: column;
     gap: 20px;
@@ -1823,7 +1912,7 @@ body.dark-mode .video-modal__close:hover {
   }
 }
 
-/* Ajuste extra para pantallas muy peque�as (menos de 480px) */
+/* Ajuste extra para pantallas muy pequeï¿½as (menos de 480px) */
 @media (max-width: 480px) {
   .hero-text h1 {
     font-size: 2rem;
@@ -1858,7 +1947,7 @@ body.dark-mode .video-modal__close:hover {
     gap: 6px;
     padding-right: 0;
     grid-template-columns: 1fr;
-    /* 👈 una sola columna */
+    /* ðŸ‘ˆ una sola columna */
 
   }
 
@@ -2312,7 +2401,7 @@ body.dark-mode .welcome-cta {
   cursor: pointer;
   transition: var(--transition);
   backdrop-filter: blur(14px);
-  
+
 }
 
 .hero-nav-toggle:hover {
@@ -2599,7 +2688,7 @@ body .route-card:hover::before {
 }
 
 
-body.dark-mode  .route-card::before {
+body.dark-mode .route-card::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -2647,7 +2736,7 @@ body.dark-mode .contact-card__label {
 
 .contact-card strong {
   word-break: break-all;
-   font-weight: 500;
+  font-weight: 500;
 }
 
 .route-card p,

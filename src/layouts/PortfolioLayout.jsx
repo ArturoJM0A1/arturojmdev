@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+﻿import { useEffect, useLayoutEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import "../App.css";
 import "../cohetegoup.css";
@@ -25,7 +25,169 @@ const basePath = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
 
-const cvHref = `${basePath}${encodeURIComponent("Currículum Arturo JM.pdf")}`;
+const cvHref = `${basePath}${encodeURIComponent("CurrÃ­culum Arturo JM.pdf")}`;
+
+function ThemeGlyph({ theme }) {
+  if (theme === "dark") {
+    return (
+<svg
+  className="theme-icon__svg"
+  viewBox="0 0 400 400"
+  aria-hidden="true"
+>
+  <defs>
+    {/* Base ligeramente cálida */}
+    <radialGradient id="moon-base" cx="38%" cy="32%" r="65%">
+      <stop offset="0%" stopColor="#fffdf4" />
+      <stop offset="55%" stopColor="#e8e3c8" />
+      <stop offset="100%" stopColor="#9c9a8f" />
+    </radialGradient>
+
+    {/* Sombra */}
+    <radialGradient id="moon-shadow" cx="75%" cy="55%" r="65%">
+      <stop offset="0%" stopColor="rgba(0,0,0,0)" />
+      <stop offset="100%" stopColor="rgba(0,0,0,0.6)" />
+    </radialGradient>
+
+    {/* Textura (ruido) */}
+    <filter id="moon-texture" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence
+        type="fractalNoise"
+        baseFrequency="0.8"
+        numOctaves="2"
+      />
+      <feColorMatrix type="saturate" values="0" />
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.18"/>
+      </feComponentTransfer>
+    </filter>
+
+    {/* CLIP para evitar el cuadro */}
+    <clipPath id="moon-clip">
+      <circle cx="200" cy="200" r="100" />
+    </clipPath>
+  </defs>
+
+  {/* Base */}
+  <circle
+    cx="200"
+    cy="200"
+    r="100"
+    fill="url(#moon-base)"
+  />
+
+  {/* Textura recortada (SIN cuadro) */}
+  <g clipPath="url(#moon-clip)">
+    <rect
+      x="100"
+      y="100"
+      width="200"
+      height="200"
+      filter="url(#moon-texture)"
+    />
+  </g>
+
+  {/* Cráteres con volumen */}
+  <g>
+    <circle cx="265" cy="230" r="24" fill="#6f6e66" />
+    <circle cx="258" cy="223" r="24" fill="#d8d2b5" opacity="0.55" />
+
+    <circle cx="235" cy="175" r="15" fill="#66655e" />
+    <circle cx="230" cy="170" r="15" fill="#e6e0c2" opacity="0.55" />
+
+    <circle cx="285" cy="155" r="9" fill="#5f5e58" />
+    <circle cx="281" cy="151" r="9" fill="#f0ead0" opacity="0.6" />
+
+    <circle cx="215" cy="260" r="18" fill="#6b6a63" />
+    <circle cx="210" cy="255" r="18" fill="#e0dabd" opacity="0.55" />
+  </g>
+
+  {/* Manchas lunares */}
+  <g opacity="0.15" fill="#000">
+    <circle cx="180" cy="210" r="45" />
+    <circle cx="250" cy="260" r="35" />
+    <circle cx="260" cy="190" r="28" />
+  </g>
+
+  {/* Sombra */}
+  <circle
+    cx="200"
+    cy="200"
+    r="100"
+    fill="url(#moon-shadow)"
+  />
+
+  {/* Luz */}
+  <ellipse
+    cx="165"
+    cy="155"
+    rx="35"
+    ry="22"
+    fill="#fff"
+    opacity="0.08"
+  />
+</svg>
+    );
+  }
+
+  return (
+<svg
+  className="theme-icon__svg"
+  viewBox="0 0 200 200"
+  aria-hidden="true"
+>
+  <defs>
+    {/* Núcleo del sol */}
+    <radialGradient id="sun-core" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stopColor="#ffffff" />
+      <stop offset="25%" stopColor="#fff4a3" />
+      <stop offset="55%" stopColor="#ffd54a" />
+      <stop offset="80%" stopColor="#ff9a1f" />
+      <stop offset="100%" stopColor="#ff5a00" />
+    </radialGradient>
+
+    {/* Glow */}
+    <radialGradient id="sun-glow" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stopColor="#ffd54a" stopOpacity="0.5" />
+      <stop offset="100%" stopColor="#ff8c00" stopOpacity="0" />
+    </radialGradient>
+
+    {/* Textura */}
+    <filter id="sun-texture" x="-50%" y="-50%" width="200%" height="200%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" />
+      <feDisplacementMap in="SourceGraphic" scale="6" />
+      <feGaussianBlur stdDeviation="1" />
+    </filter>
+  </defs>
+
+  {/* Glow más grande */}
+  <circle
+    cx="100"
+    cy="100"
+    r="95"
+    fill="url(#sun-glow)"
+  />
+
+  {/* Sol principal (MUCHO más grande) */}
+  <circle
+    cx="100"
+    cy="100"
+    r="85"
+    fill="url(#sun-core)"
+    filter="url(#sun-texture)"
+  />
+
+  {/* Centro brillante */}
+  <circle
+    cx="100"
+    cy="100"
+    r="40"
+    fill="#ffffff"
+    opacity="0.2"
+  />
+</svg>
+  );
+}
 
 export default function PortfolioLayout() {
   const location = useLocation();
@@ -186,8 +348,11 @@ export default function PortfolioLayout() {
     <>
       <Particles theme={theme} />
 
-      <div className={`theme-icon ${theme} icon-style-aesthetic-adjustment`}>
-        {theme === "dark" ? "\u{1F319}" : "\u2600\uFE0F"}
+      <div
+        className={`theme-icon ${theme} icon-style-aesthetic-adjustment`}
+        aria-hidden="true"
+      >
+        <ThemeGlyph theme={theme} />
       </div>
 
       <div className="container">
@@ -341,3 +506,5 @@ export default function PortfolioLayout() {
     </>
   );
 }
+
+
