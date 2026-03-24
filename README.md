@@ -1,6 +1,6 @@
-# Portafolio y CV Web de Arturo Juarez Monroy
+# Portafolio y CV Web de Arturo Juárez Monroy
 
-Aplicacion web desarrollada con React y Vite para presentar de forma visual, navegable y profesional el perfil de Arturo Juarez Monroy como ingeniero de software. El proyecto funciona como curriculum interactivo, portafolio de proyectos, escaparate de certificaciones y punto de contacto, todo dentro de una sola experiencia responsive con modos claro y oscuro.
+Aplicacion web desarrollada con React y Vite para presentar de forma visual, navegable y profesional el perfil de Arturo Juárez Monroy como ingeniero de software. El proyecto funciona como curriculum interactivo, portafolio de proyectos, escaparate de certificaciones y punto de contacto, todo dentro de una sola experiencia responsive con modos claro y oscuro.
 
 Ademas de su version web, el repositorio incluye configuracion para ejecutarse como aplicacion de escritorio con Electron, lo que lo convierte en una base flexible para presentacion personal, demostraciones locales o distribucion empaquetada en Windows.
 
@@ -365,7 +365,7 @@ Estas no son obligatorias para usar el proyecto, pero pueden ser buenas siguient
 
 ## Autor
 
-**Arturo Juarez Monroy**
+**Arturo Juárez Monroy**
 
 - GitHub: [ArturoJM0A1](https://github.com/ArturoJM0A1)
 - LinkedIn: [arturojuarezmonroy](https://www.linkedin.com/in/arturojuarezmonroy)

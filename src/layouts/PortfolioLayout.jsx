@@ -183,7 +183,7 @@ export default function PortfolioLayout() {
 
   useEffect(() => {
     const sectionTitle = pageTitles[location.pathname] ?? "Portafolio";
-    document.title = `Arturo Juarez Monroy | ${sectionTitle}`;
+    document.title = `Arturo Juárez Monroy | ${sectionTitle}`;
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [location.pathname]);
 
@@ -351,7 +351,7 @@ export default function PortfolioLayout() {
           <div className="footer-copy">
             <b className="graciasxv">Gracias por visitarme</b>
             <br />
-            <b>(c) Arturo Juarez Monroy - Hecho con React, Vue y Firebase</b>
+            <b>(c) Arturo Juárez Monroy - Hecho con React, Vue y Firebase</b>
           </div>
         </footer>
 
@@ -421,7 +421,7 @@ export default function PortfolioLayout() {
               Curriculum y portafolio de proyectos
             </p>
             <h1 className="welcome-title">Bienvenido</h1>
-            <p className="welcome-text">Soy Arturo Juarez Monroy</p>
+            <p className="welcome-text">Soy Arturo Juárez Monroy</p>
             <button className="btn welcome-cta" onClick={handleWelcomeClose}>
               Entrar
               <div className="face">
