@@ -25,7 +25,7 @@ const basePath = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
 
-const cvHref = `${basePath}${encodeURIComponent("CurrÃ­culum Arturo JM.pdf")}`;
+const cvHref = `${basePath}${encodeURIComponent("Cv JM Arturo.pdf")}`;
 
 function ThemeGlyph({ theme }) {
   if (theme === "dark") {
