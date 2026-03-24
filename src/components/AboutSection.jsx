@@ -1,6 +1,7 @@
 export default function AboutSection() {
   return (
     <section className="about">
+  
       <h3>Acerca de mi</h3>
       <p>
         Ingeniero de software con experiencia en desarrollo web de principio a

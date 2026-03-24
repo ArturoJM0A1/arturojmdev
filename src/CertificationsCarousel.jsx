@@ -103,7 +103,7 @@ export default function CertificationsCarousel() {
           />
         )}
 
-        <div className="certifications-track" ref={trackRef}>
+        <div className="certifications-track mask-luminance mask-r-from-white mask-r-from-80% mask-r-to-black" ref={trackRef}>
           {certificationSlides.length > 0 ? (
             certificationSlides.map(({ id, image, alt }) => (
               <article className="certifications-slide" key={id}>

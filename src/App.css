@@ -2647,6 +2647,7 @@ body.dark-mode .contact-card__label {
 
 .contact-card strong {
   word-break: break-all;
+   font-weight: 500;
 }
 
 .route-card p,

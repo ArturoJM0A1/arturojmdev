@@ -222,20 +222,22 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
     (project) => !showFavoritesOnly || project.favorite,
   );
 
-  const orderedProjects = [...visibleProjects].sort((firstProject, secondProject) => {
-    const yearDifference =
-      projectOrder === "asc"
-        ? firstProject.year - secondProject.year
-        : secondProject.year - firstProject.year;
+  const orderedProjects = [...visibleProjects].sort(
+    (firstProject, secondProject) => {
+      const yearDifference =
+        projectOrder === "asc"
+          ? firstProject.year - secondProject.year
+          : secondProject.year - firstProject.year;
 
-    if (yearDifference !== 0) {
-      return yearDifference;
-    }
+      if (yearDifference !== 0) {
+        return yearDifference;
+      }
 
-    return firstProject.title.localeCompare(secondProject.title, "es", {
-      sensitivity: "base",
-    });
-  });
+      return firstProject.title.localeCompare(secondProject.title, "es", {
+        sensitivity: "base",
+      });
+    },
+  );
 
   return (
     <section className="projects">
@@ -272,14 +274,23 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
         </button>
       </div>
 
-        <div className="projects-list">
+      <div className="projects-list">
         {orderedProjects.map((project) => (
           <article
             key={project.id}
             className={`card${project.favorite ? " card--favorito" : ""}`}
           >
             <h4>{project.title}</h4>
-            <div className="date">{project.date}</div>
+            <div className="relative inline-block date">
+              {project.date}
+              <div
+                className="absolute inset-0 
+               bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100
+               mask-[radial-gradient(circle_at_center,rgba(255,255,255,0.7)_0%,rgba(255,255,255,0)_70%)]
+               opacity-10
+               pointer-events-none"
+              ></div>
+            </div>
             <p>{project.description}</p>
 
             <div className="project-links">

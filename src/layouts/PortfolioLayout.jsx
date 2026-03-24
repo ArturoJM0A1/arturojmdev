@@ -213,7 +213,11 @@ export default function PortfolioLayout() {
         </footer>
 
         <div className="footeradios">
-          <img src={avatarfooter} alt="Avatar de despedida" className="avatar3" />
+          <img
+            src={avatarfooter}
+            alt="Avatar de despedida"
+            className="avatar3"
+          />
         </div>
       </div>
 
@@ -251,14 +255,28 @@ export default function PortfolioLayout() {
       )}
 
       {showWelcome && (
-        <div className={`welcome-overlay ${isWelcomeClosing ? "is-exiting" : ""}`}>
+        <div
+          className={`welcome-overlay ${isWelcomeClosing ? "is-exiting" : ""}`}
+        >
           <div className="welcome-ambient" aria-hidden="true">
             <span className="orb orb-1"></span>
             <span className="orb orb-2"></span>
             <span className="orb orb-3"></span>
           </div>
+
+          <div
+            className="absolute inset-0
+               bg-gradient-to-r from-blue-900 via-green-900 to-blue-900
+               opacity-40
+               blur-3xl
+               rounded-lg
+               pointer-events-none
+               animate-gradient-x"
+          ></div>
           <div className="welcome-screen">
-            <p className="welcome-kicker">Curriculum y portafolio de proyectos</p>
+            <p className="welcome-kicker">
+              Curriculum y portafolio de proyectos
+            </p>
             <h1 className="welcome-title">Bienvenido</h1>
             <p className="welcome-text">Soy Arturo Juarez Monroy</p>
             <button className="btn welcome-cta" onClick={handleWelcomeClose}>
@@ -270,7 +288,11 @@ export default function PortfolioLayout() {
               </div>
             </button>
 
-            <img src={avatarwelcome} alt="Avatar de bienvenida" className="avatarwelcome" />
+            <img
+              src={avatarwelcome}
+              alt="Avatar de bienvenida"
+              className="avatarwelcome"
+            />
             <img
               src={avatarwelcomehover}
               alt="Avatar secundario de bienvenida"
@@ -286,7 +308,9 @@ export default function PortfolioLayout() {
           role="dialog"
           aria-modal="true"
           aria-label={
-            activeVideo.title ? `Video: ${activeVideo.title}` : "Video del proyecto"
+            activeVideo.title
+              ? `Video: ${activeVideo.title}`
+              : "Video del proyecto"
           }
           onClick={handleCloseVideo}
         >
