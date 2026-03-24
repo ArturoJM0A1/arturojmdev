@@ -90,10 +90,10 @@ export default function CommentSection() {
         </button>
       </form>
 
-      <div className="comment-list animate-swing animate-delay-[25ms]">
+      <div className="comment-list">
         {submittedComment ? (
           <>
-            <p className="comment-success">¡Comentario enviado! 😊</p>
+            <p className="comment-success animate-bounce animate-duration-700">¡Comentario enviado! 😊</p>
             <div className="comment-item">
               <div className="comment-header">
                 <strong>{submittedComment.name}</strong>

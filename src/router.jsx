@@ -8,6 +8,8 @@ import CertificationsPage from "./pages/CertificationsPage.jsx";
 import CommentsPage from "./pages/CommentsPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
+import 'tailwindcss';
+import 'tailwind-animations';
 
 export const router = createHashRouter([
   {
