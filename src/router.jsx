@@ -1,15 +1,26 @@
+﻿import { Suspense, lazy } from "react";
 import { createHashRouter } from "react-router-dom";
 import PortfolioLayout from "./layouts/PortfolioLayout.jsx";
-import HomePage from "./pages/HomePage.jsx";
-import AboutPage from "./pages/AboutPage.jsx";
-import SkillsPage from "./pages/SkillsPage.jsx";
-import ProjectsPage from "./pages/ProjectsPage.jsx";
-import CertificationsPage from "./pages/CertificationsPage.jsx";
-import CommentsPage from "./pages/CommentsPage.jsx";
-import ContactPage from "./pages/ContactPage.jsx";
-import NotFoundPage from "./pages/NotFoundPage.jsx";
-import 'tailwindcss';
-import 'tailwind-animations';
+import ContentLoader from "./components/ContentLoader.jsx";
+import "tailwindcss";
+import "tailwind-animations";
+
+const HomePage = lazy(() => import("./pages/HomePage.jsx"));
+const AboutPage = lazy(() => import("./pages/AboutPage.jsx"));
+const SkillsPage = lazy(() => import("./pages/SkillsPage.jsx"));
+const ProjectsPage = lazy(() => import("./pages/ProjectsPage.jsx"));
+const CertificationsPage = lazy(() => import("./pages/CertificationsPage.jsx"));
+const CommentsPage = lazy(() => import("./pages/CommentsPage.jsx"));
+const ContactPage = lazy(() => import("./pages/ContactPage.jsx"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage.jsx"));
+
+function withLoader(Component, label, caption) {
+  return (
+    <Suspense fallback={<ContentLoader label={label} caption={caption} />}>
+      <Component />
+    </Suspense>
+  );
+}
 
 export const router = createHashRouter([
   {
@@ -18,35 +29,67 @@ export const router = createHashRouter([
     children: [
       {
         index: true,
-        element: <HomePage />,
+        element: withLoader(
+          HomePage,
+          "Cargando inicio",
+          "Montando la vista principal del portafolio..."
+        ),
       },
       {
         path: "sobre-mi",
-        element: <AboutPage />,
+        element: withLoader(
+          AboutPage,
+          "Cargando perfil",
+          "Organizando la informacion personal y academica..."
+        ),
       },
       {
         path: "habilidades",
-        element: <SkillsPage />,
+        element: withLoader(
+          SkillsPage,
+          "Cargando habilidades",
+          "Sincronizando la seccion tecnica y profesional..."
+        ),
       },
       {
         path: "proyectos",
-        element: <ProjectsPage />,
+        element: withLoader(
+          ProjectsPage,
+          "Cargando proyectos",
+          "Preparando demos, enlaces y material destacado..."
+        ),
       },
       {
         path: "certificaciones",
-        element: <CertificationsPage />,
+        element: withLoader(
+          CertificationsPage,
+          "Cargando certificaciones",
+          "Reuniendo constancias y reconocimientos..."
+        ),
       },
       {
         path: "comentarios",
-        element: <CommentsPage />,
+        element: withLoader(
+          CommentsPage,
+          "Cargando comentarios",
+          "Abriendo el espacio de retroalimentacion..."
+        ),
       },
       {
         path: "contacto",
-        element: <ContactPage />,
+        element: withLoader(
+          ContactPage,
+          "Cargando contacto",
+          "Activando canales para conectar contigo..."
+        ),
       },
       {
         path: "*",
-        element: <NotFoundPage />,
+        element: withLoader(
+          NotFoundPage,
+          "Cargando pagina",
+          "Resolviendo la ruta solicitada..."
+        ),
       },
     ],
   },
