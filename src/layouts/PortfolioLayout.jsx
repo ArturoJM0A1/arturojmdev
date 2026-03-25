@@ -322,6 +322,60 @@ export default function PortfolioLayout() {
   const footerClockLabel = `${hours}:${minutes}:${seconds}`;
   const showSidebarSkills = location.pathname === "/";
 
+  if (showWelcome) {
+    return (
+      <>
+        <Particles theme={theme} />
+
+        <div
+          className={`welcome-overlay ${isWelcomeClosing ? "is-exiting" : ""}`}
+        >
+          <div className="welcome-ambient" aria-hidden="true">
+            <span className="orb orb-1"></span>
+            <span className="orb orb-2"></span>
+            <span className="orb orb-3"></span>
+          </div>
+
+          <div
+            className="absolute inset-0
+               bg-gradient-to-r from-blue-900 via-green-900 to-blue-900
+               opacity-40
+               blur-3xl
+               rounded-lg
+               pointer-events-none
+               animate-gradient-x"
+          ></div>
+          <div className="welcome-screen">
+            <p className="welcome-kicker">
+              Curriculum y portafolio de proyectos
+            </p>
+            <h1 className="welcome-title">Bienvenido</h1>
+            <p className="welcome-text">Soy Arturo Juárez Monroy</p>
+            <button className="btn welcome-cta" onClick={handleWelcomeClose}>
+              Entrar
+              <div className="face">
+                <div className="eye left"></div>
+                <div className="eye right"></div>
+                <div className="mouth"></div>
+              </div>
+            </button>
+
+            <img
+              src={avatarwelcome}
+              alt="Avatar de bienvenida"
+              className="avatarwelcome"
+            />
+            <img
+              src={avatarwelcomehover}
+              alt="Avatar secundario de bienvenida"
+              className="avatarwelcome avatarwelcomehover"
+            />
+          </div>
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       <Particles theme={theme} />
@@ -397,54 +451,6 @@ export default function PortfolioLayout() {
         </div>
       )}
 
-      {showWelcome && (
-        <div
-          className={`welcome-overlay ${isWelcomeClosing ? "is-exiting" : ""}`}
-        >
-          <div className="welcome-ambient" aria-hidden="true">
-            <span className="orb orb-1"></span>
-            <span className="orb orb-2"></span>
-            <span className="orb orb-3"></span>
-          </div>
-
-          <div
-            className="absolute inset-0
-               bg-gradient-to-r from-blue-900 via-green-900 to-blue-900
-               opacity-40
-               blur-3xl
-               rounded-lg
-               pointer-events-none
-               animate-gradient-x"
-          ></div>
-          <div className="welcome-screen">
-            <p className="welcome-kicker">
-              Curriculum y portafolio de proyectos
-            </p>
-            <h1 className="welcome-title">Bienvenido</h1>
-            <p className="welcome-text">Soy Arturo Juárez Monroy</p>
-            <button className="btn welcome-cta" onClick={handleWelcomeClose}>
-              Entrar
-              <div className="face">
-                <div className="eye left"></div>
-                <div className="eye right"></div>
-                <div className="mouth"></div>
-              </div>
-            </button>
-
-            <img
-              src={avatarwelcome}
-              alt="Avatar de bienvenida"
-              className="avatarwelcome"
-            />
-            <img
-              src={avatarwelcomehover}
-              alt="Avatar secundario de bienvenida"
-              className="avatarwelcome avatarwelcomehover"
-            />
-          </div>
-        </div>
-      )}
-
       {activeVideo && (
         <div
           className="video-modal"
@@ -484,3 +490,4 @@ export default function PortfolioLayout() {
     </>
   );
 }
+
