@@ -1,4 +1,4 @@
-﻿import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import "../App.css";
 import "../cohetegoup.css";
@@ -12,6 +12,7 @@ import SiteHeader from "../components/SiteHeader.jsx";
 const pageTitles = {
   "/": "Inicio",
   "/sobre-mi": "Sobre mi",
+  "/actualmente": "Actualmente",
   "/habilidades": "Habilidades",
   "/proyectos": "Proyectos",
   "/certificaciones": "Certificaciones",

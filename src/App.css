@@ -1,4 +1,4 @@
-﻿/* ===== App.css ===== */
+/* ===== App.css ===== */
 /* Versiï¿½n mejorada - Colorimetrï¿½a profesional y moderna */
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Tajawal:wght@300;400;500;600&display=swap');
@@ -2727,6 +2727,307 @@ body.dark-mode .page-intro__description {
   color: var(--text-dark-secondary);
 }
 
+.currently-page {
+  gap: 30px;
+}
+
+.current-focus {
+  --current-parallax-y: 0px;
+  --current-parallax-scale: 1.08;
+  position: relative;
+  min-height: min(76vh, 780px);
+  border-radius: 32px;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.72), rgba(226, 232, 240, 0.26));
+  box-shadow:
+    0 28px 48px rgba(15, 23, 42, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.current-focus__visual,
+.current-focus__image,
+.current-focus__mesh,
+.current-focus__grid {
+  position: absolute;
+  inset: 0;
+}
+
+.current-focus__image {
+  background-image:
+    linear-gradient(180deg, rgba(6, 23, 54, 0.1) 0%, rgba(6, 23, 54, 0.58) 100%),
+    var(--current-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: translate3d(0, var(--current-parallax-y), 0) scale(var(--current-parallax-scale));
+  transform-origin: center center;
+  filter: saturate(1.14) contrast(1.04);
+  will-change: transform;
+}
+
+.current-focus__mesh {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34) 0%, transparent 24%),
+    radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.28) 0%, transparent 28%),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.06) 0%, rgba(15, 23, 42, 0.48) 100%);
+}
+
+.current-focus__grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 24%, #000 100%);
+  opacity: 0.54;
+}
+
+.current-focus::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(15, 23, 42, 0.08) 32%, rgba(15, 23, 42, 0.72) 100%);
+  pointer-events: none;
+}
+
+.current-focus__content {
+  position: relative;
+  z-index: 1;
+  min-height: inherit;
+  display: grid;
+  align-content: end;
+  gap: 22px;
+  padding: clamp(1.35rem, 3.8vw, 2.3rem);
+}
+
+.current-focus__lead,
+.current-focus__card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 26px;
+  backdrop-filter: blur(16px);
+}
+
+.current-focus__lead {
+  max-width: min(100%, 44rem);
+  padding: clamp(1.2rem, 2.8vw, 2rem);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(226, 232, 240, 0.22));
+  box-shadow:
+    0 22px 40px rgba(15, 23, 42, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+}
+
+.current-focus__lead::before,
+.current-focus__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.18) 42%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.current-focus:hover .current-focus__lead::before,
+.current-focus:hover .current-focus__card::before {
+  opacity: 1;
+}
+
+.current-focus__label,
+.current-focus__card-tag {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  font-family: var(--font-code);
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.18);
+  color: #f8fbff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.current-focus__lead h3 {
+  display: block;
+  margin: 0.8rem 0 0.95rem;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-tech);
+  font-size: clamp(1.7rem, 4.2vw, 3.15rem);
+  line-height: 1.02;
+  letter-spacing: 0.04em;
+  color: #f9fdff;
+  text-shadow: 0 12px 26px rgba(2, 6, 23, 0.24);
+}
+
+.current-focus__lead h3::after {
+  content: none;
+}
+
+.current-focus__lead p {
+  max-width: 40rem;
+  color: rgba(239, 248, 255, 0.88);
+  font-size: clamp(1rem, 2vw, 1.1rem);
+}
+
+.current-focus__cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.current-focus__card {
+  display: grid;
+  gap: 0.9rem;
+  padding: clamp(1.15rem, 2.4vw, 1.6rem);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background:
+    linear-gradient(155deg, rgba(8, 15, 33, 0.58), rgba(8, 15, 33, 0.22));
+  box-shadow:
+    0 20px 36px rgba(15, 23, 42, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.current-focus__card h4 {
+  font-family: var(--font-tech);
+  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+  line-height: 1.15;
+  color: #ffffff;
+}
+
+.current-focus__card p {
+  color: rgba(230, 240, 249, 0.82);
+  font-size: 1rem;
+}
+
+body:not(.dark-mode) .current-focus {
+  border-color: rgba(37, 99, 235, 0.16);
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.76), rgba(226, 232, 240, 0.34));
+  box-shadow:
+    0 28px 48px rgba(15, 23, 42, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72);
+}
+
+body:not(.dark-mode) .current-focus__image {
+  background-image:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.06) 0%, rgba(15, 23, 42, 0.44) 100%),
+    var(--current-image);
+}
+
+body:not(.dark-mode) .current-focus__lead {
+  border-color: rgba(255, 255, 255, 0.42);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.54), rgba(219, 234, 254, 0.18));
+}
+
+body:not(.dark-mode) .current-focus__label,
+body:not(.dark-mode) .current-focus__card-tag {
+  color: #e8f8ff;
+  background: rgba(15, 23, 42, 0.18);
+}
+
+body.dark-mode .current-focus {
+  border-color: rgba(0, 255, 136, 0.16);
+  background:
+    linear-gradient(155deg, rgba(5, 8, 16, 0.94), rgba(10, 14, 26, 0.68));
+  box-shadow:
+    0 30px 56px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .current-focus__mesh {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(0, 255, 136, 0.18) 0%, transparent 26%),
+    radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.2) 0%, transparent 28%),
+    linear-gradient(135deg, rgba(0, 0, 0, 0.04) 0%, rgba(3, 7, 18, 0.56) 100%);
+}
+
+body.dark-mode .current-focus__grid {
+  background-image:
+    linear-gradient(rgba(0, 255, 136, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.12) 1px, transparent 1px);
+  opacity: 0.46;
+}
+
+body.dark-mode .current-focus::after {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.06) 0%, rgba(2, 6, 23, 0.22) 28%, rgba(2, 6, 23, 0.78) 100%);
+}
+
+body.dark-mode .current-focus__lead {
+  border-color: rgba(0, 255, 136, 0.18);
+  background:
+    linear-gradient(145deg, rgba(7, 16, 28, 0.66), rgba(7, 16, 28, 0.24));
+  box-shadow:
+    0 24px 46px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+body.dark-mode .current-focus__card {
+  border-color: rgba(0, 255, 136, 0.14);
+  background:
+    linear-gradient(155deg, rgba(5, 12, 24, 0.72), rgba(5, 12, 24, 0.3));
+}
+
+body.dark-mode .current-focus__label,
+body.dark-mode .current-focus__card-tag {
+  color: #cbffe8;
+  background: rgba(0, 255, 136, 0.12);
+  border-color: rgba(0, 255, 136, 0.12);
+}
+
+@media (max-width: 900px) {
+  .current-focus {
+    min-height: 680px;
+  }
+
+  .current-focus__cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .current-focus {
+    min-height: auto;
+    border-radius: 24px;
+  }
+
+  .current-focus__content {
+    min-height: auto;
+    align-content: stretch;
+    padding: 1rem;
+  }
+
+  .current-focus__lead,
+  .current-focus__card {
+    border-radius: 22px;
+  }
+
+  .current-focus__grid {
+    background-size: 30px 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .current-focus__image {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .current-focus__lead::before,
+  .current-focus__card::before {
+    transition: none !important;
+  }
+}
 .quick-links-grid,
 .contact-grid {
   display: grid;
