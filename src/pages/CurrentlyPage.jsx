@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import PageIntro from "../components/PageIntro.jsx";
 
-const CURRENT_BACKGROUND_IMAGE = "https://picsum.photos/1800/1200";
+const CURRENT_BACKGROUND_IMAGE = "../public/22.jpg";
 
 export default function CurrentlyPage() {
   const parallaxRef = useRef(null);
