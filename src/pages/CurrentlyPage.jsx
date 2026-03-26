@@ -1,69 +1,6 @@
-import { useEffect, useRef } from "react";
 import PageIntro from "../components/PageIntro.jsx";
-import currentBackgroundImage from "../assets/22.jpg";
-
-const CURRENT_BACKGROUND_IMAGE = currentBackgroundImage;
 
 export default function CurrentlyPage() {
-  const parallaxRef = useRef(null);
-
-  useEffect(() => {
-    const section = parallaxRef.current;
-
-    if (!section) {
-      return undefined;
-    }
-
-    const reducedMotionQuery = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    );
-
-    if (reducedMotionQuery.matches) {
-      section.style.setProperty("--current-parallax-y", "0px");
-      section.style.setProperty("--current-parallax-scale", "1.08");
-      return undefined;
-    }
-
-    let frameId = 0;
-
-    const updateParallax = () => {
-      frameId = 0;
-
-      const rect = section.getBoundingClientRect();
-      const viewportHeight = window.innerHeight || 1;
-      const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height);
-      const clampedProgress = Math.min(Math.max(progress, 0), 1);
-      const offset = (0.5 - clampedProgress) * 84;
-      const scale = 1.14 - clampedProgress * 0.06;
-
-      section.style.setProperty("--current-parallax-y", `${offset.toFixed(2)}px`);
-      section.style.setProperty(
-        "--current-parallax-scale",
-        scale.toFixed(3)
-      );
-    };
-
-    const requestParallaxUpdate = () => {
-      if (!frameId) {
-        frameId = window.requestAnimationFrame(updateParallax);
-      }
-    };
-
-    requestParallaxUpdate();
-
-    window.addEventListener("scroll", requestParallaxUpdate, { passive: true });
-    window.addEventListener("resize", requestParallaxUpdate);
-
-    return () => {
-      window.removeEventListener("scroll", requestParallaxUpdate);
-      window.removeEventListener("resize", requestParallaxUpdate);
-
-      if (frameId) {
-        window.cancelAnimationFrame(frameId);
-      }
-    };
-  }, []);
-
   return (
     <div className="page-stack currently-page">
       <PageIntro
@@ -72,18 +9,7 @@ export default function CurrentlyPage() {
         description="Una vista rapida de las areas en las que estoy invirtiendo tiempo y energia en esta etapa."
       />
 
-      <section
-        className="current-focus"
-        ref={parallaxRef}
-        style={{ "--current-image": `url("${CURRENT_BACKGROUND_IMAGE}")` }}
-        aria-labelledby="current-focus-title"
-      >
-        <div className="current-focus__visual" aria-hidden="true">
-          <div className="current-focus__image"></div>
-          <div className="current-focus__mesh"></div>
-          <div className="current-focus__grid"></div>
-        </div>
-
+      <section className="current-focus" aria-labelledby="current-focus-title">
         <div className="current-focus__content">
           <div className="current-focus__lead">
             <span className="current-focus__label">En construccion</span>
@@ -121,5 +47,3 @@ export default function CurrentlyPage() {
     </div>
   );
 }
-
-

@@ -2734,17 +2734,62 @@ body.dark-mode .page-intro__description {
 .current-focus {
   --current-parallax-y: 0px;
   --current-parallax-scale: 1.08;
+  --current-shell-border: rgba(96, 165, 250, 0.22);
+  --current-shell-bg:
+    linear-gradient(150deg, rgba(245, 250, 255, 0.94), rgba(227, 237, 246, 0.78));
+  --current-shell-shadow:
+    0 28px 48px rgba(71, 85, 105, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.74);
+  --current-tint: rgba(219, 234, 254, 0.36);
+  --current-image-overlay:
+    linear-gradient(180deg, rgba(226, 232, 240, 0.06) 0%, rgba(51, 65, 85, 0.3) 100%);
+  --current-image-filter: saturate(0.96) contrast(1.02) brightness(1.03);
+  --current-mesh:
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.4) 0%, transparent 24%),
+    radial-gradient(circle at 82% 18%, rgba(96, 165, 250, 0.22) 0%, transparent 28%),
+    radial-gradient(circle at 72% 74%, rgba(148, 163, 184, 0.18) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(148, 163, 184, 0.08) 0%, rgba(51, 65, 85, 0.32) 100%);
+  --current-grid-line-a: rgba(255, 255, 255, 0.28);
+  --current-grid-line-b: rgba(96, 165, 250, 0.18);
+  --current-grid-opacity: 0.46;
+  --current-depth-overlay:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(148, 163, 184, 0.1) 34%, rgba(51, 65, 85, 0.56) 100%);
+  --current-panel-border: rgba(255, 255, 255, 0.6);
+  --current-panel-bg:
+    linear-gradient(145deg, rgba(248, 252, 255, 0.8), rgba(226, 232, 240, 0.52));
+  --current-panel-shadow:
+    0 22px 40px rgba(71, 85, 105, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.34);
+  --current-card-border: rgba(148, 163, 184, 0.2);
+  --current-card-bg:
+    linear-gradient(155deg, rgba(239, 246, 255, 0.76), rgba(226, 232, 240, 0.54));
+  --current-card-shadow:
+    0 20px 36px rgba(71, 85, 105, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  --current-badge-color: #1d4ed8;
+  --current-badge-bg: rgba(239, 246, 255, 0.78);
+  --current-badge-border: rgba(96, 165, 250, 0.26);
+  --current-title-color: #1e3a8a;
+  --current-title-shadow: 0 10px 22px rgba(148, 163, 184, 0.24);
+  --current-body-color: #334155;
+  --current-card-title-color: #1e40af;
+  --current-card-text-color: #292f37;
   position: relative;
-  min-height: min(76vh, 780px);
+  min-height: auto;
   border-radius: 32px;
   overflow: hidden;
   isolation: isolate;
-  border: 1px solid rgba(37, 99, 235, 0.18);
-  background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.72), rgba(226, 232, 240, 0.26));
-  box-shadow:
-    0 28px 48px rgba(15, 23, 42, 0.14),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+}
+
+.current-focus::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* reemplaza top/left/width/height */
+  width: 100%;
+  height: 100%;
+  z-index: 2;
 }
 
 .current-focus__visual,
@@ -2756,51 +2801,46 @@ body.dark-mode .page-intro__description {
 }
 
 .current-focus__image {
-  background-image:
-    linear-gradient(180deg, rgba(6, 23, 54, 0.1) 0%, rgba(6, 23, 54, 0.58) 100%),
-    var(--current-image);
+  background-image: var(--current-image-overlay), var(--current-image);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   transform: translate3d(0, var(--current-parallax-y), 0) scale(var(--current-parallax-scale));
   transform-origin: center center;
-  filter: saturate(1.14) contrast(1.04);
+  filter: var(--current-image-filter);
   will-change: transform;
 }
 
 .current-focus__mesh {
-  background:
-    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.34) 0%, transparent 24%),
-    radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.28) 0%, transparent 28%),
-    linear-gradient(135deg, rgba(15, 23, 42, 0.06) 0%, rgba(15, 23, 42, 0.48) 100%);
+  background: var(--current-mesh);
 }
 
 .current-focus__grid {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+    linear-gradient(var(--current-grid-line-a) 1px, transparent 1px),
+    linear-gradient(90deg, var(--current-grid-line-b) 1px, transparent 1px);
   background-size: 42px 42px;
   mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 24%, #000 100%);
-  opacity: 0.54;
+  opacity: var(--current-grid-opacity);
 }
 
 .current-focus::after {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(15, 23, 42, 0.08) 32%, rgba(15, 23, 42, 0.72) 100%);
   pointer-events: none;
 }
 
 .current-focus__content {
   position: relative;
   z-index: 1;
-  min-height: inherit;
+  min-height: auto;
   display: grid;
-  align-content: end;
+  align-content: stretch;
   gap: 22px;
   padding: clamp(1.35rem, 3.8vw, 2.3rem);
+  z-index: 3;
+
 }
 
 .current-focus__lead,
@@ -2814,28 +2854,9 @@ body.dark-mode .page-intro__description {
 .current-focus__lead {
   max-width: min(100%, 44rem);
   padding: clamp(1.2rem, 2.8vw, 2rem);
-  border: 1px solid rgba(255, 255, 255, 0.34);
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(226, 232, 240, 0.22));
-  box-shadow:
-    0 22px 40px rgba(15, 23, 42, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.24);
-}
-
-.current-focus__lead::before,
-.current-focus__card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.18) 42%, transparent 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.current-focus:hover .current-focus__lead::before,
-.current-focus:hover .current-focus__card::before {
-  opacity: 1;
+  border: 1px solid var(--current-panel-border);
+  background: var(--current-panel-bg);
+  box-shadow: var(--current-panel-shadow);
 }
 
 .current-focus__label,
@@ -2850,9 +2871,9 @@ body.dark-mode .page-intro__description {
   font-size: 0.76rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  background: rgba(255, 255, 255, 0.18);
-  color: #f8fbff;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--current-badge-bg);
+  color: var(--current-badge-color);
+  border: 1px solid var(--current-badge-border);
 }
 
 .current-focus__lead h3 {
@@ -2864,8 +2885,8 @@ body.dark-mode .page-intro__description {
   font-size: clamp(1.7rem, 4.2vw, 3.15rem);
   line-height: 1.02;
   letter-spacing: 0.04em;
-  color: #f9fdff;
-  text-shadow: 0 12px 26px rgba(2, 6, 23, 0.24);
+  color: var(--current-title-color);
+  text-shadow: var(--current-title-shadow);
 }
 
 .current-focus__lead h3::after {
@@ -2874,7 +2895,7 @@ body.dark-mode .page-intro__description {
 
 .current-focus__lead p {
   max-width: 40rem;
-  color: rgba(239, 248, 255, 0.88);
+  color: var(--current-body-color);
   font-size: clamp(1rem, 2vw, 1.1rem);
 }
 
@@ -2888,106 +2909,69 @@ body.dark-mode .page-intro__description {
   display: grid;
   gap: 0.9rem;
   padding: clamp(1.15rem, 2.4vw, 1.6rem);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background:
-    linear-gradient(155deg, rgba(8, 15, 33, 0.58), rgba(8, 15, 33, 0.22));
-  box-shadow:
-    0 20px 36px rgba(15, 23, 42, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--current-card-border);
+  background: var(--current-card-bg);
+  box-shadow: var(--current-card-shadow);
 }
 
 .current-focus__card h4 {
   font-family: var(--font-tech);
   font-size: clamp(1.1rem, 2.2vw, 1.45rem);
   line-height: 1.15;
-  color: #ffffff;
+  color: var(--current-card-title-color);
 }
 
 .current-focus__card p {
-  color: rgba(230, 240, 249, 0.82);
+  color: var(--current-card-text-color);
   font-size: 1rem;
 }
 
-body:not(.dark-mode) .current-focus {
-  border-color: rgba(37, 99, 235, 0.16);
-  background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.76), rgba(226, 232, 240, 0.34));
-  box-shadow:
-    0 28px 48px rgba(15, 23, 42, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.72);
-}
-
-body:not(.dark-mode) .current-focus__image {
-  background-image:
-    linear-gradient(180deg, rgba(15, 23, 42, 0.06) 0%, rgba(15, 23, 42, 0.44) 100%),
-    var(--current-image);
-}
-
-body:not(.dark-mode) .current-focus__lead {
-  border-color: rgba(255, 255, 255, 0.42);
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.54), rgba(219, 234, 254, 0.18));
-}
-
-body:not(.dark-mode) .current-focus__label,
-body:not(.dark-mode) .current-focus__card-tag {
-  color: #e8f8ff;
-  background: rgba(15, 23, 42, 0.18);
-}
-
 body.dark-mode .current-focus {
-  border-color: rgba(0, 255, 136, 0.16);
-  background:
-    linear-gradient(155deg, rgba(5, 8, 16, 0.94), rgba(10, 14, 26, 0.68));
-  box-shadow:
-    0 30px 56px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-}
-
-body.dark-mode .current-focus__mesh {
-  background:
-    radial-gradient(circle at 18% 18%, rgba(0, 255, 136, 0.18) 0%, transparent 26%),
-    radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.2) 0%, transparent 28%),
-    linear-gradient(135deg, rgba(0, 0, 0, 0.04) 0%, rgba(3, 7, 18, 0.56) 100%);
-}
-
-body.dark-mode .current-focus__grid {
-  background-image:
-    linear-gradient(rgba(0, 255, 136, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 212, 255, 0.12) 1px, transparent 1px);
-  opacity: 0.46;
-}
-
-body.dark-mode .current-focus::after {
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.06) 0%, rgba(2, 6, 23, 0.22) 28%, rgba(2, 6, 23, 0.78) 100%);
-}
-
-body.dark-mode .current-focus__lead {
-  border-color: rgba(0, 255, 136, 0.18);
-  background:
-    linear-gradient(145deg, rgba(7, 16, 28, 0.66), rgba(7, 16, 28, 0.24));
-  box-shadow:
-    0 24px 46px rgba(0, 0, 0, 0.26),
+  --current-shell-border: rgba(34, 197, 94, 0.2);
+  --current-shell-bg:
+    linear-gradient(155deg, rgba(6, 23, 43, 0.96), rgba(8, 52, 46, 0.82));
+  --current-shell-shadow:
+    0 30px 56px rgba(0, 0, 0, 0.34),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
-}
-
-body.dark-mode .current-focus__card {
-  border-color: rgba(0, 255, 136, 0.14);
-  background:
-    linear-gradient(155deg, rgba(5, 12, 24, 0.72), rgba(5, 12, 24, 0.3));
-}
-
-body.dark-mode .current-focus__label,
-body.dark-mode .current-focus__card-tag {
-  color: #cbffe8;
-  background: rgba(0, 255, 136, 0.12);
-  border-color: rgba(0, 255, 136, 0.12);
+  --current-tint: rgba(3, 17, 31, 0.52);
+  --current-image-overlay:
+    linear-gradient(180deg, rgba(3, 17, 31, 0.14) 0%, rgba(5, 31, 39, 0.68) 100%);
+  --current-image-filter: saturate(0.88) contrast(1.08) brightness(0.56);
+  --current-mesh:
+    radial-gradient(circle at 18% 18%, rgba(59, 130, 246, 0.16) 0%, transparent 24%),
+    radial-gradient(circle at 82% 18%, rgba(34, 197, 94, 0.16) 0%, transparent 28%),
+    radial-gradient(circle at 68% 76%, rgba(16, 185, 129, 0.12) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(4, 16, 30, 0.08) 0%, rgba(7, 34, 34, 0.62) 100%);
+  --current-grid-line-a: rgba(147, 197, 253, 0.12);
+  --current-grid-line-b: rgba(52, 211, 153, 0.12);
+  --current-grid-opacity: 0.42;
+  --current-depth-overlay:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.06) 0%, rgba(4, 26, 33, 0.32) 30%, rgba(3, 12, 24, 0.82) 100%);
+  --current-panel-border: rgba(147, 197, 253, 0.16);
+  --current-panel-bg:
+    linear-gradient(145deg, rgba(8, 32, 57, 0.78), rgba(7, 49, 43, 0.46));
+  --current-panel-shadow:
+    0 24px 46px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --current-card-border: rgba(52, 211, 153, 0.12);
+  --current-card-bg:
+    linear-gradient(155deg, rgba(8, 30, 52, 0.82), rgba(8, 50, 44, 0.48));
+  --current-card-shadow:
+    0 20px 38px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --current-badge-color: #ffffff;
+  --current-badge-bg: rgba(16, 185, 129, 0.14);
+  --current-badge-border: rgba(52, 211, 153, 0.16);
+  --current-title-color: #ffffff;
+  --current-title-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  --current-body-color: rgba(255, 255, 255, 0.88);
+  --current-card-title-color: #ffffff;
+  --current-card-text-color: rgba(255, 255, 255, 0.78);
 }
 
 @media (max-width: 900px) {
   .current-focus {
-    min-height: 680px;
+    min-height: auto;
   }
 
   .current-focus__cards {
@@ -3022,12 +3006,8 @@ body.dark-mode .current-focus__card-tag {
     transform: none !important;
     transition: none !important;
   }
-
-  .current-focus__lead::before,
-  .current-focus__card::before {
-    transition: none !important;
-  }
 }
+
 .quick-links-grid,
 .contact-grid {
   display: grid;
@@ -3096,11 +3076,7 @@ body.dark-mode .contact-card {
   border-color: rgba(0, 255, 136, 0.14);
 }
 
-body.dark-mode .route-card:hover,
-body.dark-mode .contact-card:hover {
-  border-color: var(--primary-dark);
-  box-shadow: var(--shadow-glow-dark);
-}
+
 
 .route-card__kicker,
 .contact-card__label {
@@ -3598,3 +3574,4 @@ body.dark-mode .content-loader__caption {
     letter-spacing: 0.18em;
   }
 }
+
