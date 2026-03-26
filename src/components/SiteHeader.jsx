@@ -128,7 +128,7 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme }) {
 
       <div className="hero-content">
         <div className="hero-text">
-          <h1>Arturo Juarez Monroy</h1>
+          <h1>Arturo Juárez Monroy</h1>
           <h2>{displayText}</h2>
           <div className="divider"></div>
         </div>
