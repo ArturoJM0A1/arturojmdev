@@ -206,9 +206,57 @@ const projects = [
     title: "Sistema de gestion de gastos",
     year: 2026,
     date: "Aplicacion Web 2026",
-    description: "Usando Astro y PostgreSQL, en desarrollo...",
+    description: "Desarollo en Astro y PostgreSQL, en proceso...",
     inDevelopment: true,
     links: [],
+  },
+  {
+    id: "excelweb",
+    title: "Catálogos de Excel a elementos Web",
+    year: 2026,
+    date: "Aplicacion Web 2026",
+    description:
+      "Desarrollado con el MVC en Laravel (php) y React (Front), SQLite (BD). Aplicación para convertir archivos de Excel en catálogos de productos visibles en la web. Permite editar la información de forma reactiva.",
+    links: [
+      {
+        type: "external",
+        href: "https://github.com/ArturoJM0A1/ExcelLaravel",
+        label: "Repo",
+        icon: "fab fa-github",
+        title: "Ver repositorio",
+      },
+      {
+        type: "video",
+        href: "https://youtu.be/I7IWkHEwJ5A?si=x7_PwceT9u8CR8PR",
+        label: "Video",
+        icon: "fas fa-video",
+        title: "Ver video",
+      },
+    ],
+  },
+  {
+    id: "reservacionesserviciostecnicos",
+    title: "Sistema de Reservaciones de Servicios Técnicos",
+    year: 2026,
+    date: "Aplicacion Web 2026",
+    description:
+      "Usando Java, Spring Boot, Angular, PostgreSQL. Implementé reglas de negocio complejas; el sistema permite crear, consultar y cancelar reservas con actualización dinámica.",
+    links: [
+      {
+        type: "external",
+        href: "https://github.com/ArturoJM0A1/reservations-and-services",
+        label: "Repo",
+        icon: "fab fa-github",
+        title: "Ver repositorio",
+      },
+      {
+        type: "video",
+        href: "https://youtu.be/TWyHqzNirAM?si=MtqPv8z5X2XfB53p",
+        label: "Video",
+        icon: "fas fa-video",
+        title: "Ver video",
+      },
+    ],
   },
 ];
 
