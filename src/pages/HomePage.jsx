@@ -9,6 +9,11 @@ const quickLinks = [
     description: "Habilidades tecnicas y personales reunidas en una pagina dedicada.",
   },
   {
+    to: "/actualmente",
+    title: "Ver actualmente",
+    description: "Vista del enfoque actual, aprendizaje en curso y objetivos presentes.",
+  },
+  {
     to: "/proyectos",
     title: "Explorar proyectos",
     description: "Repositorios, demos y videos de trabajo academico e independiente.",
@@ -52,3 +57,4 @@ export default function HomePage() {
     </div>
   );
 }
+

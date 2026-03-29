@@ -5,8 +5,11 @@ const basePath = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
 
+const stripImageExtensions = (fileName) =>
+  fileName.replace(/(?:\.(?:png|jpe?g|webp|avif|gif|svg))+$/i, "");
+
 const formatAltText = (fileName, index) => {
-  const nameWithoutExtension = fileName.replace(/\.[^.]+$/, "");
+  const nameWithoutExtension = stripImageExtensions(fileName);
   const normalizedName = nameWithoutExtension
     .replace(/[_-]+/g, " ")
     .replace(/\s+/g, " ")
@@ -17,6 +20,8 @@ const formatAltText = (fileName, index) => {
 
 const certificationSlides = certificationFiles.map((fileName, index) => ({
   id: `${fileName}-${index}`,
+  fileName,
+  displayName: stripImageExtensions(fileName),
   image: `${basePath}certificadosyreconocimientos/${encodeURIComponent(fileName)}`,
   alt: formatAltText(fileName, index),
 }));
@@ -105,7 +110,7 @@ export default function CertificationsCarousel() {
 
         <div className="certifications-track mask-luminance mask-r-from-white mask-r-from-80% mask-r-to-black" ref={trackRef}>
           {certificationSlides.length > 0 ? (
-            certificationSlides.map(({ id, image, alt }) => (
+            certificationSlides.map(({ id, fileName, displayName, image, alt }) => (
               <article className="certifications-slide" key={id}>
                 <div className="certifications-frame">
                   <button
@@ -123,6 +128,9 @@ export default function CertificationsCarousel() {
                     loading="lazy"
                   />
                 </div>
+                <p className="certifications-filename" title={displayName}>
+                  {displayName}
+                </p>
               </article>
             ))
           ) : (

@@ -270,6 +270,9 @@ body.dark-mode .certifications-section h3 {
   flex: 0 0 clamp(230px, 31vw, 340px);
   scroll-snap-align: start;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .certifications-frame {
@@ -307,6 +310,20 @@ body.dark-mode .certifications-section h3 {
   object-fit: contain;
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.9);
+}
+
+.certifications-filename {
+  margin: 0;
+  padding: 0 8px;
+  color: #15304f;
+  font-family: var(--font-tech);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  letter-spacing: 0.03em;
+  text-align: center;
+  text-wrap: pretty;
+  overflow-wrap: anywhere;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .certifications-expand {
@@ -560,6 +577,11 @@ body.dark-mode .certifications-expand:hover {
   box-shadow: 0 18px 34px rgba(0, 255, 136, 0.12);
 }
 
+body.dark-mode .certifications-filename {
+  color: rgba(229, 243, 255, 0.9);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+}
+
 body.dark-mode .certifications-media {
   border-color: rgba(0, 255, 136, 0.24);
   background:
@@ -695,6 +717,12 @@ body.dark-mode .certifications-nav:hover:not(:disabled) {
 
   .certifications-slide {
     flex-basis: min(78vw, 300px);
+  }
+
+  .certifications-filename {
+    padding-inline: 4px;
+    font-size: 0.8rem;
+    line-height: 1.4;
   }
 
   .certifications-nav {
@@ -1116,4 +1144,3 @@ body .graciasxv {
 body.dark-mode .graciasxv {
   color: var(--primary-dark);
 }
-
