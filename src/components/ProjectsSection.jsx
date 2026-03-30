@@ -234,24 +234,25 @@ const projects = [
       },
     ],
   },
-   {
+  {
     id: "detectorobjetosangular",
-    title: "Detector de Objetos",
+    title: "Detector de Objetos PWA en tiempo real",
     year: 2026,
     date: "Aplicacion Web 2026",
     description:
-      "Reconocimiento Inteligente de Objetos desde Imágenes",
+      "Aplicación web para detectar objetos en tiempo real desde el navegador. Funciona con Angular 19, TensorFlow.js y MobileNet, permitiendo usar la cámara o imágenes. Muestra predicciones con porcentaje de confianza y puede instalarse como PWA.",
+    favorite: true,
     links: [
       {
         type: "external",
-        href: "",
+        href: "https://github.com/ArturoJM0A1/detectarobjetostiemporealArturo",
         label: "Repo",
         icon: "fab fa-github",
         title: "Ver repositorio",
       },
       {
         type: "video",
-        href: "",
+        href: "https://youtu.be/Y5zaSOqqMcM?si=ulJLBx6V0a6ay61m",
         label: "Video",
         icon: "fas fa-video",
         title: "Ver video",
