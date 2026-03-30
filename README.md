@@ -1,4 +1,4 @@
-# Portafolio y CV Web de Arturo Juárez Monroy
+# Portafolio y CV de Arturo Juárez Monroy
 
 Aplicacion web desarrollada con React y Vite para presentar de forma visual, navegable y profesional el perfil de Arturo Juárez Monroy como ingeniero de software. El proyecto funciona como curriculum interactivo, portafolio de proyectos, escaparate de certificaciones y punto de contacto, todo dentro de una sola experiencia responsive con modos claro y oscuro.
 
@@ -35,7 +35,7 @@ La idea principal es que cualquier persona pueda recorrer el perfil de manera cl
 - Persistencia local del ultimo comentario enviado mediante `localStorage`.
 - Version web y posibilidad de empaquetado de escritorio con Electron.
 
-## Stack tecnologico
+## Stack tecnologico de este proyecto
 
 ### Frontend
 
@@ -152,25 +152,18 @@ La estructura del repositorio sigue una organizacion clara por paginas, componen
 
 - `src/router.jsx`
   Define las rutas principales del portafolio.
-
 - `src/layouts/PortfolioLayout.jsx`
   Centraliza el layout base, el cambio de tema, la pantalla de bienvenida, el modal de video y elementos globales de la interfaz.
-
 - `src/components/ProjectsSection.jsx`
   Contiene la lista de proyectos, el ordenamiento y el filtro de favoritos.
-
 - `src/CertificationsCarousel.jsx`
   Construye el carrusel de certificados y su modal de vista ampliada.
-
 - `src/CommentSection.jsx`
   Gestiona el formulario de comentarios y su escritura en Firestore.
-
 - `src/firebase.js`
   Inicializa Firebase y exporta la instancia de Firestore.
-
 - `vite.config.js`
   Agrega un plugin personalizado para detectar automaticamente certificaciones desde el directorio publico.
-
 - `main.cjs`
   Permite abrir la aplicacion como ventana de Electron.
 
