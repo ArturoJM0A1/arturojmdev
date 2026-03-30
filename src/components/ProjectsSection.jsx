@@ -212,11 +212,11 @@ const projects = [
   },
   {
     id: "excelweb",
-    title: "CatÃ¡logos de Excel a elementos Web",
+    title: "Catalogos de Excel a elementos Web",
     year: 2026,
     date: "Aplicacion Web 2026",
     description:
-      "Desarrollado con el MVC en Laravel (php) y React (Front), SQLite (BD). AplicaciÃ³n para convertir archivos de Excel en catÃ¡logos de productos visibles en la web. Permite editar la informaciÃ³n de forma reactiva.",
+      "Desarrollado con el MVC en Laravel (php) y React (Front), SQLite (BD). Aplicación para convertir archivos de Excel en catalogos de productos visibles en la web. Permite editar la información de forma reactiva.",
     links: [
       {
         type: "external",
@@ -240,7 +240,7 @@ const projects = [
     year: 2026,
     date: "Aplicacion Web 2026",
     description:
-      "AplicaciÃ³n web para detectar objetos en tiempo real desde el navegador. Funciona con Angular 19, TensorFlow.js y MobileNet, permitiendo usar la cÃ¡mara o imÃ¡genes. Muestra predicciones con porcentaje de confianza y puede instalarse como PWA.",
+      "Aplicación web para detectar objetos en tiempo real desde el navegador. Funciona con Angular 19, TensorFlow.js y MobileNet, permitiendo usar la cÃ¡mara o imÃ¡genes. Muestra predicciones con porcentaje de confianza y puede instalarse como PWA.",
     favorite: true,
     links: [
       {
@@ -261,11 +261,11 @@ const projects = [
   },
   {
     id: "reservacionesserviciostecnicos",
-    title: "Sistema de Reservaciones de Servicios TÃ©cnicos",
+    title: "Sistema de Reservaciones de Servicios Tecnicos",
     year: 2026,
     date: "Aplicacion Web 2026",
     description:
-      "Usando Java, Spring Boot, Angular, PostgreSQL. ImplementÃ© reglas de negocio complejas; el sistema permite crear, consultar y cancelar reservas con actualizaciÃ³n dinÃ¡mica.",
+      "Usando Java, Spring Boot, Angular, PostgreSQL. Implementación reglas de negocio como reservaciones por tiempo y tipo, ademas el sistema permite crear, consultar y cancelar reservas con actualización dinamica.",
     links: [
       {
         type: "external",
@@ -329,9 +329,9 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
               previousOrder === "asc" ? "desc" : "asc",
             )
           }
-          title="Ordenar proyectos por aÃ±o"
+          title="Ordenar proyectos por Año"
         >
-          {projectOrder === "asc" ? "AÃ±o ascendente " : "AÃ±o descendente "}
+          {projectOrder === "asc" ? "Año ascendente " : "Año descendente "}
           <i
             className={`fas fa-arrow-${projectOrder === "asc" ? "up" : "down"}`}
           ></i>
