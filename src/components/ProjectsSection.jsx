@@ -234,6 +234,30 @@ const projects = [
       },
     ],
   },
+   {
+    id: "detectorobjetosangular",
+    title: "Detector de Objetos",
+    year: 2026,
+    date: "Aplicacion Web 2026",
+    description:
+      "Reconocimiento Inteligente de Objetos desde Imágenes",
+    links: [
+      {
+        type: "external",
+        href: "",
+        label: "Repo",
+        icon: "fab fa-github",
+        title: "Ver repositorio",
+      },
+      {
+        type: "video",
+        href: "",
+        label: "Video",
+        icon: "fas fa-video",
+        title: "Ver video",
+      },
+    ],
+  },
   {
     id: "reservacionesserviciostecnicos",
     title: "Sistema de Reservaciones de Servicios Técnicos",
