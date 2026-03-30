@@ -81,7 +81,26 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme }) {
                 : "Abrir menu de navegacion"
             }
           >
-            <span className="hero-nav-toggle__label">Menu</span>
+            <span className="hero-nav-toggle__content">
+              <span className="hero-nav-toggle__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M5 7.5h7.5M5 12h14M5 16.5h10"
+                    stroke="currentColor"
+                    strokeWidth="1.9"
+                    strokeLinecap="round"
+                  />
+                  <circle
+                    cx="17.5"
+                    cy="7.5"
+                    r="2.2"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                  />
+                </svg>
+              </span>
+              <span className="hero-nav-toggle__label">Menu</span>
+            </span>
             <span
               className="hero-nav-toggle__chevron"
               aria-hidden="true"

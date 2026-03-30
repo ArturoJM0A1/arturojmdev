@@ -2491,12 +2491,50 @@ body.dark-mode .welcome-cta {
 
 }
 
+.hero-nav-toggle__content {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.hero-nav-toggle__icon {
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(37, 99, 235, 0.16);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(219, 234, 254, 0.72));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.82),
+    0 10px 18px rgba(37, 99, 235, 0.14);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  flex: 0 0 auto;
+}
+
+.hero-nav-toggle__icon svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  display: block;
+}
+
 .hero-nav-toggle:hover {
   transform: translateY(-1px);
   border-color: var(--primary-light);
   box-shadow:
     0 16px 30px rgba(37, 99, 235, 0.14),
     inset 0 1px 0 rgba(255, 255, 255, 0.84);
+}
+
+.hero-nav-toggle:hover .hero-nav-toggle__icon {
+  transform: translateY(-1px) scale(1.03);
+  border-color: rgba(37, 99, 235, 0.28);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.86),
+    0 14px 24px rgba(37, 99, 235, 0.18);
 }
 
 .hero-nav-toggle:focus-visible {
@@ -2514,11 +2552,27 @@ body.dark-mode .hero-nav-toggle {
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
+body.dark-mode .hero-nav-toggle__icon {
+  border-color: rgba(0, 255, 136, 0.16);
+  background:
+    linear-gradient(145deg, rgba(15, 20, 25, 0.88), rgba(10, 14, 26, 0.7));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 10px 18px rgba(0, 255, 136, 0.12);
+}
+
 body.dark-mode .hero-nav-toggle:hover {
   border-color: var(--primary-dark);
   box-shadow:
     0 16px 30px rgba(0, 255, 136, 0.14),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+body.dark-mode .hero-nav-toggle:hover .hero-nav-toggle__icon {
+  border-color: rgba(0, 255, 136, 0.28);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 14px 24px rgba(0, 255, 136, 0.18);
 }
 
 .hero-nav-toggle__label {
@@ -2688,6 +2742,10 @@ body.dark-mode .hero-nav__link.is-active {
 .page-stack {
   display: grid;
   gap: 28px;
+}
+
+[data-menu-section="true"] {
+  scroll-margin-top: 120px;
 }
 
 [data-menu-section="true"] {

@@ -38,7 +38,7 @@ function ThemeGlyph({ theme }) {
         aria-hidden="true"
       >
         <defs>
-          {/* Base ligeramente cÃƒÆ’Ã‚Â¡lida */}
+          {/* Base ligeramente c?lida */}
           <radialGradient id="moon-base" cx="38%" cy="32%" r="65%">
             <stop offset="0%" stopColor="#fffdf4" />
             <stop offset="55%" stopColor="#e8e3c8" />
@@ -90,7 +90,7 @@ function ThemeGlyph({ theme }) {
           />
         </g>
 
-        {/* CrÃƒÆ’Ã‚Â¡teres con volumen */}
+        {/* Cr?teres con volumen */}
         <g>
           <circle cx="265" cy="230" r="24" fill="#6f6e66" />
           <circle cx="258" cy="223" r="24" fill="#d8d2b5" opacity="0.55" />
@@ -124,7 +124,7 @@ function ThemeGlyph({ theme }) {
   return (
     <svg className="theme-icon__svg" viewBox="0 0 200 200" aria-hidden="true">
       <defs>
-        {/* NÃƒÆ’Ã‚Âºcleo del sol */}
+        {/* N?cleo del sol */}
         <radialGradient id="sun-core" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="#ffffff" />
           <stop offset="25%" stopColor="#fff4a3" />
@@ -151,10 +151,10 @@ function ThemeGlyph({ theme }) {
         </filter>
       </defs>
 
-      {/* Glow mÃƒÆ’Ã‚Â¡s grande */}
+      {/* Glow m?s grande */}
       <circle cx="100" cy="100" r="95" fill="url(#sun-glow)" />
 
-      {/* Sol principal (MUCHO mÃƒÆ’Ã‚Â¡s grande) */}
+      {/* Sol principal (MUCHO m?s grande) */}
       <circle
         cx="100"
         cy="100"
@@ -185,7 +185,7 @@ export default function PortfolioLayout() {
 
   useEffect(() => {
     const sectionTitle = pageTitles[location.pathname] ?? "Portafolio";
-    document.title = `Arturo Juarez Monroy | ${sectionTitle}`;
+    document.title = `Arturo Juárez Monroy | ${sectionTitle}`;
   }, [location.pathname]);
 
   useEffect(() => {
@@ -383,7 +383,7 @@ export default function PortfolioLayout() {
               Curriculum y portafolio de proyectos
             </p>
             <h1 className="welcome-title">Bienvenido</h1>
-            <p className="welcome-text">Soy Arturo JuÃƒÆ’Ã‚Â¡rez Monroy</p>
+            <p className="welcome-text">Soy Arturo Juárez Monroy</p>
             <button className="btn welcome-cta" onClick={handleWelcomeClose}>
               Entrar
               <div className="face">
@@ -438,7 +438,7 @@ export default function PortfolioLayout() {
           <div className="footer-copy">
             <b className="graciasxv">Gracias por visitarme</b>
             <br />
-            <b>(c) Arturo JuÃƒÆ’Ã‚Â¡rez Monroy - Hecho con React, Vue y Firebase</b>
+            <b>(c) Arturo Juárez Monroy - Hecho con React, Vue y Firebase</b>
           </div>
         </footer>
 

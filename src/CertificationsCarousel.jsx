@@ -106,50 +106,7 @@ export default function CertificationsCarousel() {
             className="certifications-nav certifications-nav--prev"
             onClick={() => handleScroll(-1)}
             disabled={!canScrollPrev}
-            aria-label="Mostrar certificaciones anteriores"
-          />
-        )}
-
-        <div className="certifications-track mask-luminance mask-r-from-white mask-r-from-80% mask-r-to-black" ref={trackRef}>
-          {certificationSlides.length > 0 ? (
-            certificationSlides.map(({ id, fileName, displayName, image, alt }) => (
-              <article className="certifications-slide" key={id}>
-                <div className="certifications-frame">
-                  <button
-                    type="button"
-                    className="certifications-expand"
-                    onClick={() => setActiveCertification({ image, alt })}
-                    aria-label={`Abrir ${alt} en pantalla completa`}
-                  >
-                    <i className="fa-solid fa-maximize" aria-hidden="true"></i>
-                  </button>
-                  <img
-                    className="certifications-image"
-                    src={image}
-                    alt={alt}
-                    loading="lazy"
-                  />
-                </div>
-                <p className="certifications-filename" title={displayName}>
-                  {displayName}
-                </p>
-              </article>
-            ))
-          ) : (
-            <article className="certifications-empty" aria-live="polite">
-              Agrega imÃ¡genes a `public/certificadosyreconocimientos` para
-              mostrarlas aquÃ­.
-            </article>
-          )}
-        </div>
-
-        {certificationSlides.length > 0 && (
-          <button
-            type="button"
-            className="certifications-nav certifications-nav--next"
-            onClick={() => handleScroll(1)}
-            disabled={!canScrollNext}
-            aria-label="Mostrar mÃ¡s certificaciones"
+            aria-label="Mostrar más certificaciones"
           />
         )}
       </div>

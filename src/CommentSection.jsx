@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { db } from "./firebase.js";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import "./App.css"; // Puedes mantener estilos aquÃ­ o moverlos a otro CSS especÃ­fico
+import "./App.css"; // Puedes mantener estilos aqu? o moverlos a otro CSS espec?fico
 import 'tailwindcss';
 import 'tailwind-animations';
 
@@ -72,7 +72,7 @@ export default function CommentSection() {
         <input
           type="email"
           name="email"
-          placeholder="Correo electrÃ³nico (opcional)"
+          placeholder="Correo electrónico (opcional)"
           value={formData.email}
           onChange={handleChange}
         />
@@ -93,7 +93,7 @@ export default function CommentSection() {
       <div className="comment-list">
         {submittedComment ? (
           <>
-            <p className="comment-success animate-bounce animate-duration-700">Â¡Comentario enviado! ðŸ˜Š</p>
+            <p className="comment-success animate-bounce animate-duration-700">¡Comentario enviado! 😊</p>
             <div className="comment-item">
               <div className="comment-header">
                 <strong>{submittedComment.name}</strong>
@@ -106,7 +106,7 @@ export default function CommentSection() {
             </div>
           </>
         ) : (
-          <p className="no-comments">AÃºn no has enviado ningÃºn comentario.</p>
+          <p className="no-comments">Aún no has enviado ningún comentario.</p>
         )}
       </div>
     </section>
