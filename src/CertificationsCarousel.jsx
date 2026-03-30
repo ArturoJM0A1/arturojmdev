@@ -92,6 +92,8 @@ export default function CertificationsCarousel() {
 
   return (
     <section
+      id="certifications-section"
+      data-menu-section="true"
       className="certifications-section"
       aria-labelledby="certifications-title"
     >
@@ -135,8 +137,8 @@ export default function CertificationsCarousel() {
             ))
           ) : (
             <article className="certifications-empty" aria-live="polite">
-              Agrega imágenes a `public/certificadosyreconocimientos` para
-              mostrarlas aquí.
+              Agrega imÃ¡genes a `public/certificadosyreconocimientos` para
+              mostrarlas aquÃ­.
             </article>
           )}
         </div>
@@ -147,7 +149,7 @@ export default function CertificationsCarousel() {
             className="certifications-nav certifications-nav--next"
             onClick={() => handleScroll(1)}
             disabled={!canScrollNext}
-            aria-label="Mostrar más certificaciones"
+            aria-label="Mostrar mÃ¡s certificaciones"
           />
         )}
       </div>

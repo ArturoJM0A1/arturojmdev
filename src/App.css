@@ -1,5 +1,5 @@
 /* ===== App.css ===== */
-/* Versiï¿½n mejorada - Colorimetrï¿½a profesional y moderna */
+/* VersiÃ¯Â¿Â½n mejorada - ColorimetrÃ¯Â¿Â½a profesional y moderna */
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Tajawal:wght@300;400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap');
@@ -209,7 +209,7 @@ body.dark-mode::-webkit-scrollbar-thumb {
 
 
 
-/* Canvas de partï¿½culas */
+/* Canvas de partÃ¯Â¿Â½culas */
 .particles-canvas {
   position: fixed;
   top: 0;
@@ -221,7 +221,7 @@ body.dark-mode::-webkit-scrollbar-thumb {
   opacity: 0.76;
 }
 
-/* ï¿½cono de tema (sol/luna) con animaciï¿½n */
+/* Ã¯Â¿Â½cono de tema (sol/luna) con animaciÃ¯Â¿Â½n */
 .theme-icon {
   position: fixed;
   top: 108px;
@@ -289,7 +289,7 @@ body:not(.dark-mode) .theme-icon__svg {
 
 }
 
-/* Rotación suave */
+/* RotaciÃ³n suave */
 @keyframes sun-rotate {
   from {
     transform: rotate(0deg);
@@ -300,7 +300,7 @@ body:not(.dark-mode) .theme-icon__svg {
   }
 }
 
-/* Pulso de energía */
+/* Pulso de energÃ­a */
 @keyframes sun-pulse {
 
   0%,
@@ -326,7 +326,7 @@ body.dark-mode .theme-icon__svg {
   /* tono ligeramente amarillo */
   filter: sepia(40%) saturate(140%) hue-rotate(15deg) brightness(110%);
 
-  /* animación */
+  /* animaciÃ³n */
   animation: moonGlow 3s ease-in-out infinite;
 }
 
@@ -715,7 +715,7 @@ body.dark-mode .botonhero span .animacionDCV2 {
 }
 
 
-/* Botï¿½n principal */
+/* BotÃ¯Â¿Â½n principal */
 .btn {
   display: inline-block;
   text-decoration: none;
@@ -866,7 +866,7 @@ body.dark-mode .photo-placeholder:hover {
 
 }
 
-/* Para telÃ©fonos */
+/* Para telÃƒÂ©fonos */
 @media (max-width: 768px) {
   .photolaptop {
     font-size: 28px;
@@ -1006,7 +1006,7 @@ body.dark-mode .skills li::before {
   color: var(--secondary-dark);
 }
 
-/* Contenedor de habilidades tï¿½cnicas en dos columnas flexibles */
+/* Contenedor de habilidades tÃ¯Â¿Â½cnicas en dos columnas flexibles */
 .skills-row {
   display: flex;
   gap: 30px;
@@ -1391,7 +1391,7 @@ body.dark-mode .card .date {
   background: rgba(0, 255, 136, 0.15);
 }
 
-/* Educaciï¿½n */
+/* EducaciÃ¯Â¿Â½n */
 .education-item {
   margin-bottom: 20px;
   padding: 15px 20px;
@@ -1480,7 +1480,7 @@ footer {
   margin-bottom: 4vh;
 
   grid-template-columns: 1fr;
-  /* ðŸ‘ˆ una sola columna */
+  /* Ã°Å¸â€˜Ë† una sola columna */
 
   transition: transform 0.3s ease, border-radius 0.3s ease;
 
@@ -1857,7 +1857,7 @@ body.dark-mode .video-modal__close:hover {
 }
 
 
-/* ===== Responsive para mï¿½viles ===== */
+/* ===== Responsive para mÃ¯Â¿Â½viles ===== */
 @media (max-width: 768px) {
   .video-modal {
     padding: 12px;
@@ -1886,7 +1886,7 @@ body.dark-mode .video-modal__close:hover {
 
   body {
     font-size: 1rem;
-    /* Reducir tamaï¿½o base */
+    /* Reducir tamaÃ¯Â¿Â½o base */
   }
 
   .hero-text h1 {
@@ -1908,7 +1908,7 @@ body.dark-mode .video-modal__close:hover {
     height: 160px;
   }
 
-  /* Ajustar la fila de habilidades tï¿½cnicas */
+  /* Ajustar la fila de habilidades tÃ¯Â¿Â½cnicas */
   .skills-row {
     flex-direction: column;
     gap: 20px;
@@ -1961,7 +1961,7 @@ body.dark-mode .video-modal__close:hover {
   }
 }
 
-/* Ajuste extra para pantallas muy pequeï¿½as (menos de 480px) */
+/* Ajuste extra para pantallas muy pequeÃ¯Â¿Â½as (menos de 480px) */
 @media (max-width: 480px) {
   .hero-text h1 {
     font-size: 2rem;
@@ -1996,7 +1996,7 @@ body.dark-mode .video-modal__close:hover {
     gap: 6px;
     padding-right: 0;
     grid-template-columns: 1fr;
-    /* ðŸ‘ˆ una sola columna */
+    /* Ã°Å¸â€˜Ë† una sola columna */
 
   }
 
@@ -2688,6 +2688,10 @@ body.dark-mode .hero-nav__link.is-active {
 .page-stack {
   display: grid;
   gap: 28px;
+}
+
+[data-menu-section="true"] {
+  scroll-margin-top: 120px;
 }
 
 .page-intro {

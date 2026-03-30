@@ -212,11 +212,11 @@ const projects = [
   },
   {
     id: "excelweb",
-    title: "Catálogos de Excel a elementos Web",
+    title: "CatÃ¡logos de Excel a elementos Web",
     year: 2026,
     date: "Aplicacion Web 2026",
     description:
-      "Desarrollado con el MVC en Laravel (php) y React (Front), SQLite (BD). Aplicación para convertir archivos de Excel en catálogos de productos visibles en la web. Permite editar la información de forma reactiva.",
+      "Desarrollado con el MVC en Laravel (php) y React (Front), SQLite (BD). AplicaciÃ³n para convertir archivos de Excel en catÃ¡logos de productos visibles en la web. Permite editar la informaciÃ³n de forma reactiva.",
     links: [
       {
         type: "external",
@@ -240,7 +240,7 @@ const projects = [
     year: 2026,
     date: "Aplicacion Web 2026",
     description:
-      "Aplicación web para detectar objetos en tiempo real desde el navegador. Funciona con Angular 19, TensorFlow.js y MobileNet, permitiendo usar la cámara o imágenes. Muestra predicciones con porcentaje de confianza y puede instalarse como PWA.",
+      "AplicaciÃ³n web para detectar objetos en tiempo real desde el navegador. Funciona con Angular 19, TensorFlow.js y MobileNet, permitiendo usar la cÃ¡mara o imÃ¡genes. Muestra predicciones con porcentaje de confianza y puede instalarse como PWA.",
     favorite: true,
     links: [
       {
@@ -261,11 +261,11 @@ const projects = [
   },
   {
     id: "reservacionesserviciostecnicos",
-    title: "Sistema de Reservaciones de Servicios Técnicos",
+    title: "Sistema de Reservaciones de Servicios TÃ©cnicos",
     year: 2026,
     date: "Aplicacion Web 2026",
     description:
-      "Usando Java, Spring Boot, Angular, PostgreSQL. Implementé reglas de negocio complejas; el sistema permite crear, consultar y cancelar reservas con actualización dinámica.",
+      "Usando Java, Spring Boot, Angular, PostgreSQL. ImplementÃ© reglas de negocio complejas; el sistema permite crear, consultar y cancelar reservas con actualizaciÃ³n dinÃ¡mica.",
     links: [
       {
         type: "external",
@@ -313,7 +313,11 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
   );
 
   return (
-    <section className="projects">
+    <section
+      id="projects-section"
+      data-menu-section="true"
+      className="projects"
+    >
       <h3>Mis proyectos</h3>
 
       <div className="projects-controls">
@@ -325,9 +329,9 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
               previousOrder === "asc" ? "desc" : "asc",
             )
           }
-          title="Ordenar proyectos por año"
+          title="Ordenar proyectos por aÃ±o"
         >
-          {projectOrder === "asc" ? "Año ascendente " : "Año descendente "}
+          {projectOrder === "asc" ? "AÃ±o ascendente " : "AÃ±o descendente "}
           <i
             className={`fas fa-arrow-${projectOrder === "asc" ? "up" : "down"}`}
           ></i>

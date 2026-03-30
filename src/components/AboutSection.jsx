@@ -1,6 +1,6 @@
 export default function AboutSection() {
   return (
-    <section className="about">
+    <section id="about-section" data-menu-section="true" className="about">
   
       <h3>Acerca de mi</h3>
       <p>

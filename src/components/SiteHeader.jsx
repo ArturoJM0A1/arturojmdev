@@ -1,19 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
-
-const navigationItems = [
-  { to: "/", label: "Inicio", end: true },
-  { to: "/sobre-mi", label: "Sobre mi" },
-  { to: "/actualmente", label: "Actualmente" },
-  { to: "/habilidades", label: "Habilidades" },
-  { to: "/proyectos", label: "Proyectos" },
-  { to: "/certificaciones", label: "Certificaciones" },
-  { to: "/comentarios", label: "Comentarios" },
-  { to: "/contacto", label: "Contacto" },
-];
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { navigationItems, scrollToSection } from "../menuNavigation.js";
 
 export default function SiteHeader({ cvHref, displayText, theme, setTheme }) {
   const location = useLocation();
+  const navigate = useNavigate();
   const menuRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -46,6 +37,32 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme }) {
     window.addEventListener("pointerdown", handlePointerDown);
     return () => window.removeEventListener("pointerdown", handlePointerDown);
   }, [isMenuOpen]);
+
+  const handleNavigationClick = (event, { to, scrollTarget }) => {
+    if (
+      event.button !== 0 ||
+      event.metaKey ||
+      event.altKey ||
+      event.ctrlKey ||
+      event.shiftKey
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+    setIsMenuOpen(false);
+
+    if (location.pathname === to) {
+      if (!scrollToSection(scrollTarget)) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      return;
+    }
+
+    navigate(to, {
+      state: { scrollTarget, fromMenuNavigation: true },
+    });
+  };
 
   return (
     <header className="hero">
@@ -80,12 +97,14 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme }) {
               aria-label="Navegacion principal"
               id="site-navigation"
             >
-              {navigationItems.map(({ to, label, end }) => (
+              {navigationItems.map(({ to, label, end, scrollTarget }) => (
                 <NavLink
                   key={to}
                   to={to}
                   end={end}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(event) =>
+                    handleNavigationClick(event, { to, scrollTarget })
+                  }
                   className={({ isActive }) =>
                     `hero-nav__link${isActive ? " is-active" : ""}`
                   }

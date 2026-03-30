@@ -33,7 +33,11 @@ const contactItems = [
 
 export default function ContactPanel() {
   return (
-    <section className="contact-page animate-rotate-3d infinite">
+    <section
+      id="contact-section"
+      data-menu-section="true"
+      className="contact-page animate-rotate-3d infinite"
+    >
       <h3>Contacto directo</h3>
       <p className="contact-page__lead">
         Si te interesa colaborar, revisar un proyecto o conversar sobre

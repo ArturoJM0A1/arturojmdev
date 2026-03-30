@@ -9,7 +9,12 @@ export default function CurrentlyPage() {
         description="Una vista rapida de las areas en las que estoy invirtiendo tiempo y energia en esta etapa."
       />
 
-      <section className="current-focus" aria-labelledby="current-focus-title">
+      <section
+        id="currently-section"
+        data-menu-section="true"
+        className="current-focus"
+        aria-labelledby="current-focus-title"
+      >
         <div className="current-focus__content">
           <div className="current-focus__lead">
             <span className="current-focus__label">En construccion</span>

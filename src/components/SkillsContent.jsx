@@ -114,7 +114,11 @@ export default function SkillsContent({ variant = "sidebar" }) {
   if (variant === "page") {
     return (
       <div className="skills-page">
-        <section className="skills-spotlight">
+        <section
+          id="skills-section"
+          data-menu-section="true"
+          className="skills-spotlight"
+        >
           <div className="skills-spotlight__copy">
             <span className="skills-spotlight__eyebrow">Stack principal</span>
             <h3>Habilidades Tecnicas</h3>
