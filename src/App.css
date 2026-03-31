@@ -221,6 +221,23 @@ body.dark-mode::-webkit-scrollbar-thumb {
   opacity: 0.76;
 }
 
+.ghost-cursor-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .ghost-cursor-canvas {
+    display: none;
+  }
+}
+
 /* Ã¯Â¿Â½cono de tema (sol/luna) con animaciÃ¯Â¿Â½n */
 .theme-icon {
   position: fixed;

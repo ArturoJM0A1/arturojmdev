@@ -6,6 +6,7 @@ import avatarwelcome from "../../public/avatar2.png";
 import avatarwelcomehover from "../../public/avatar5.png";
 import avatarfooter from "../../public/avatar5.png";
 import Particles from "../particulasfondo.jsx";
+import GhostCursor from "../components/GhostCursor.jsx";
 import SidebarInfo from "../components/SidebarInfo.jsx";
 import SiteHeader from "../components/SiteHeader.jsx";
 import { scrollToSection } from "../menuNavigation.js";
@@ -356,6 +357,7 @@ export default function PortfolioLayout() {
     return (
       <>
         <Particles theme={theme} />
+        <GhostCursor />
 
         <div
           className={`welcome-overlay ${isWelcomeClosing ? "is-exiting" : ""}`}
@@ -412,6 +414,7 @@ export default function PortfolioLayout() {
   return (
     <>
       <Particles theme={theme} />
+      <GhostCursor />
 
       <div
         className={`theme-icon ${theme} icon-style-aesthetic-adjustment`}
