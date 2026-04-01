@@ -273,8 +273,8 @@
   {
     "id": "controlporvoz",
     "title": "Experiencia VR con Control por Voz",
-    "year": 2024,
-    "date": "Videojuego - 2024",
+    "year": 2023,
+    "date": "Videojuego - 2023",
     "description": "Videojuego  en realidad virtual utilizando Next.js, React y A-Frame, integrando reconocimiento de voz mediante la Web Speech API para controlar la interacción del usuario en tiempo real.",
     "favorite": true,
     "links": [
