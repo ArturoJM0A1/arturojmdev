@@ -269,5 +269,29 @@
         "title": "Ver video"
       }
     ]
+  },
+  {
+    "id": "controlporvoz",
+    "title": "Experiencia VR con Control por Voz",
+    "year": 2024,
+    "date": "Videojuego - 2024",
+    "description": "Videojuego  en realidad virtual utilizando Next.js, React y A-Frame, integrando reconocimiento de voz mediante la Web Speech API para controlar la interacción del usuario en tiempo real.",
+    "favorite": true,
+    "links": [
+      {
+        "type": "external",
+        "href": "https://github.com/ArturoJM0A1/moverObjetoporVoz",
+        "label": "Repo",
+        "icon": "fab fa-github",
+        "title": "Ver repositorio"
+      },
+      {
+        "type": "video",
+        "href": "",
+        "label": "Video",
+        "icon": "fas fa-video",
+        "title": "Ver video"
+      }
+    ]
   }
 ]
