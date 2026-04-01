@@ -1,4 +1,5 @@
 import profileImg from "../../public/artsearch2removebgpreview.png";
+import ProfileLetterRain from "./ProfileLetterRain.jsx";
 import SkillsContent from "./SkillsContent.jsx";
 
 export default function SidebarInfo({ showSkills = true }) {
@@ -13,6 +14,7 @@ export default function SidebarInfo({ showSkills = true }) {
             <span>{"\uD83D\uDE09"}</span>
           </div>
         </div>
+        <ProfileLetterRain />
       </div>
 
       <section className="contact">

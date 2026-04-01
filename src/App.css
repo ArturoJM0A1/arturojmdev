@@ -813,9 +813,67 @@ body.dark-mode .right-column h3::after {
 
 /* Foto de perfil con blob animado */
 .profile-photo {
+  position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin-bottom: 40px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.profile-rain {
+  position: relative;
+  width: 220px;
+  height: 170px;
+  margin-top: 6px;
+  margin-bottom: -72px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.profile-rain__drop {
+  position: absolute;
+  top: 0;
+  line-height: 1;
+  color: #2685ff;
+  opacity: 0.95;
+  transform-origin: top;
+  text-shadow: 0 0 8px rgba(38, 133, 255, 0.35);
+  animation: profileRainDrop linear forwards;
+}
+
+.left-column .contact {
+  position: relative;
+  z-index: 1;
+  margin-top: -66px;
+}
+
+body.dark-mode .profile-rain__drop {
+  color: #00ff88;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.34);
+}
+
+@keyframes profileRainDrop {
+  0% {
+    transform: translateY(0) scaleY(0);
+    opacity: 0;
+  }
+
+  12% {
+    transform: translateY(0) scaleY(1);
+    opacity: 0.95;
+  }
+
+  80% {
+    transform: translateY(145px) scaleY(1);
+    opacity: 0.95;
+  }
+
+  100% {
+    transform: translateY(165px) scaleY(0);
+    opacity: 0;
+  }
 }
 
 .photo-placeholder {
@@ -889,6 +947,35 @@ body.dark-mode .photo-placeholder:hover {
     font-size: 28px;
     margin-top: 40px;
     margin-right: -20px;
+  }
+
+  .profile-rain {
+    width: 165px;
+    height: 130px;
+    margin-top: 4px;
+    margin-bottom: -54px;
+  }
+
+  @keyframes profileRainDrop {
+    0% {
+      transform: translateY(0) scaleY(0);
+      opacity: 0;
+    }
+
+    12% {
+      transform: translateY(0) scaleY(1);
+      opacity: 0.92;
+    }
+
+    80% {
+      transform: translateY(105px) scaleY(1);
+      opacity: 0.9;
+    }
+
+    100% {
+      transform: translateY(125px) scaleY(0);
+      opacity: 0;
+    }
   }
 }
 
