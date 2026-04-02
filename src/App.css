@@ -2029,6 +2029,14 @@ body.dark-mode .video-modal__close:hover {
     grid-template-columns: 1fr;
   }
 
+  .devstack-pulse {
+    margin: 0 -4%;
+  }
+
+  .devstack-pulse__widget {
+    border-radius: 24px;
+  }
+
   /* Tarjetas de proyecto */
   .card {
     padding: 20px;

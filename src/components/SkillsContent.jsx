@@ -1,7 +1,8 @@
 import skillsSpriteUrl from "../assets/sprite.svg?url";
 import 'tailwindcss';
 import 'tailwind-animations';
-import "./../App.css"; 
+import "./../App.css";
+import DevStackPulse from "./DevStackPulse.jsx"; 
 
 const technicalSkillGroups = [
   {
@@ -157,6 +158,8 @@ export default function SkillsContent({ variant = "sidebar" }) {
             </article>
           ))}
         </div>
+
+        <DevStackPulse />
 
         <section className="skills-soft-panel">
           <div className="skills-soft-panel__header">
