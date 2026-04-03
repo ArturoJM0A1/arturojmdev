@@ -112,9 +112,10 @@ export default function CertificationsCarousel() {
 
         <div className="certifications-track mask-luminance mask-r-from-white mask-r-from-80% mask-r-to-black" ref={trackRef}>
           {certificationSlides.length > 0 ? (
-            certificationSlides.map(({ id, fileName, displayName, image, alt }) => (
+            certificationSlides.map(({ id, fileName, displayName, image, alt }, index) => (
               <article className="certifications-slide" key={id}>
                 <div className="certifications-frame">
+                  <span className="certifications-number">{String(index + 1).padStart(2, "0")}</span>
                   <button
                     type="button"
                     className="certifications-expand"
