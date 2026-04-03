@@ -364,7 +364,7 @@ body.dark-mode .certifications-section h3 {
 .cert-badge {
   position: absolute;
   top: 8px;
-  right: 10px;
+  left: 8px;
   font-family: var(--font-tech);
   font-size: 0.65rem;
   font-weight: 700;
