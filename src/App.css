@@ -2029,7 +2029,16 @@ body.dark-mode .video-modal__close:hover {
     padding: 18px;
   }
 
-  .skills-page__columns,
+  .skills-page__columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .skill-card--full {
+    grid-column: 1 / -1;
+  }
+
   .soft-skills-list {
     grid-template-columns: 1fr;
   }

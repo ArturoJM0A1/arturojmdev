@@ -143,8 +143,11 @@ export default function SkillsContent({ variant = "sidebar" }) {
         </section>
 
         <div className="skills-page__columns">
-          {technicalSkillGroups.map((group) => (
-            <article key={group.title} className="skill-card">
+          {technicalSkillGroups.map((group, index) => (
+            <article 
+              key={group.title} 
+              className={`skill-card ${index < 2 ? 'skill-card--wide' : 'skill-card--full'}`}
+            >
               <div className="skill-card__header">
                 <span className="skill-card__label">Area</span>
                 <h4 className="mb-[20px]">{group.title}</h4>
