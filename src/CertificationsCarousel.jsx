@@ -115,7 +115,7 @@ export default function CertificationsCarousel() {
             certificationSlides.map(({ id, fileName, displayName, image, alt }, index) => (
               <article className="certifications-slide" key={id}>
                 <div className="certifications-frame">
-                  <span className="certifications-number">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="cert-badge">{String(index + 1).padStart(2, "0")}</span>
                   <button
                     type="button"
                     className="certifications-expand"
