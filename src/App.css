@@ -230,6 +230,11 @@ body.dark-mode::-webkit-scrollbar-thumb {
   height: 100%;
   z-index: 10000;
   pointer-events: none;
+  transition: z-index 0s;
+}
+
+.ghost-cursor-canvas--behind {
+  z-index: 999;
 }
 
 @media (pointer: coarse), (prefers-reduced-motion: reduce) {

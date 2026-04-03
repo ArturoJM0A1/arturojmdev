@@ -138,8 +138,8 @@ const TAIL = {
   gravity: 0,
 };
 const ROCKET_HIDE_PADDING = 90;
-const LIGHT_MAIN_COLOR = [0.58, 0.81, 1.0];
-const LIGHT_BORDER_COLOR = [0.34, 0.62, 0.96];
+const LIGHT_MAIN_COLOR = [0.82, 0.84, 0.86];
+const LIGHT_BORDER_COLOR = [0.75, 0.86, 1.0];
 const DARK_MAIN_COLOR = [0.98, 0.96, 0.96];
 const DARK_BORDER_COLOR = [0.2, 0.5, 0.7];
 
@@ -349,9 +349,14 @@ export default function GhostCursor() {
         gl.uniform3f(uniforms.u_border_color, state.borderColor[0], state.borderColor[1], state.borderColor[2]);
       }
 
-      const shouldHide = isNearRocketButton(mouse.tX, mouse.tY);
-      const targetVisibility = shouldHide ? 0 : 1;
-      state.visibility += (targetVisibility - state.visibility) * 0.25;
+      state.visibility = 1;
+
+      const nearRocket = isNearRocketButton(mouse.tX, mouse.tY);
+      if (nearRocket) {
+        canvas.classList.add("ghost-cursor-canvas--behind");
+      } else {
+        canvas.classList.remove("ghost-cursor-canvas--behind");
+      }
 
       if (mouse.moving) {
         state.smile = Math.max(state.smile - 0.05, -0.1);
@@ -393,6 +398,7 @@ export default function GhostCursor() {
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("touchmove", onTouchMove);
       window.removeEventListener("click", onClick);
+      canvas.classList.remove("ghost-cursor-canvas--behind");
       gl.deleteTexture(canvasTexture);
       gl.deleteBuffer(vertexBuffer);
       gl.deleteProgram(program);
