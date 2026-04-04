@@ -1382,12 +1382,12 @@ body.dark-mode .skill-chip {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 1;
+  z-index: -1;
 }
 
 .project-action__stars i {
   position: absolute;
-  width: 12px;
+  width: 13px;
   aspect-ratio: 1;
   opacity: 0;
   transform: rotate(-38deg) scale(0.55);

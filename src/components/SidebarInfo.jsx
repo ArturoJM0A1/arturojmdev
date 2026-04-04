@@ -11,7 +11,7 @@ export default function SidebarInfo({ showSkills = true }) {
           style={{ backgroundImage: `url(${profileImg})` }}
         >
           <div className="photolaptop">
-            <span>{"\uD83D\uDE09"}</span>
+            <span>{"\uD83E\uDDD9"}</span>{" "}
           </div>
         </div>
         <ProfileLetterRain />
@@ -37,7 +37,11 @@ export default function SidebarInfo({ showSkills = true }) {
         </p>
         <p>
           <i className="fab fa-github" aria-hidden="true"></i>
-          <a href="https://github.com/ArturoJM0A1" target="_blank" rel="noreferrer">
+          <a
+            href="https://github.com/ArturoJM0A1"
+            target="_blank"
+            rel="noreferrer"
+          >
             ArturoJM0A1
           </a>
         </p>
@@ -53,7 +57,11 @@ export default function SidebarInfo({ showSkills = true }) {
         </p>
         <p>
           <i className="fab fa-whatsapp" aria-hidden="true"></i>
-          <a href="https://wa.me/5217736802105" target="_blank" rel="noreferrer">
+          <a
+            href="https://wa.me/5217736802105"
+            target="_blank"
+            rel="noreferrer"
+          >
             +52 1 773 680 2105
           </a>
         </p>
