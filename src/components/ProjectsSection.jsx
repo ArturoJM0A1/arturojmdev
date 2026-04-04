@@ -1,11 +1,27 @@
 import { useState, useEffect } from "react";
 
+function ProjectActionChrome({ children }) {
+  return (
+    <>
+      <span className="project-action__inner">
+        <span className="project-action__content">{children}</span>
+      </span>
+      <span className="project-action__stars" aria-hidden="true">
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+      </span>
+    </>
+  );
+}
+
 export default function ProjectsSection({ onOpenVideo, theme }) {
   const [projects, setProjects] = useState([]);
   const [projectOrder, setProjectOrder] = useState("asc");
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
 
-  // 🔥 Cargar JSON desde /public
+  // Load the portfolio data from /public.
   useEffect(() => {
     fetch("/projects.json")
       .then((res) => res.json())
@@ -53,11 +69,12 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
               previousOrder === "asc" ? "desc" : "asc"
             )
           }
-          title="Ordenar proyectos por Año"
+          title="Ordenar proyectos por a\u00f1o"
         >
-          {projectOrder === "asc" ? "Año ascendente " : "Año descendente "}
+          {projectOrder === "asc" ? "A\u00f1o ascendente" : "A\u00f1o descendente"}
           <i
             className={`fas fa-arrow-${projectOrder === "asc" ? "up" : "down"}`}
+            aria-hidden="true"
           ></i>
         </button>
 
@@ -73,7 +90,7 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
               : "Mostrar solo favoritos"
           }
         >
-          Favoritos <div className="verFav"></div>
+          Favoritos <span className="verFav"></span>
         </button>
       </div>
 
@@ -109,7 +126,10 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
                     title={link.title}
                     aria-haspopup="dialog"
                   >
-                    <i className={link.icon}></i> {link.label}
+                    <ProjectActionChrome>
+                      <i className={link.icon} aria-hidden="true"></i>
+                      <span>{link.label}</span>
+                    </ProjectActionChrome>
                   </button>
                 ) : (
                   <a
@@ -120,7 +140,10 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
                     rel="noreferrer"
                     title={link.title}
                   >
-                    <i className={link.icon}></i> {link.label}
+                    <ProjectActionChrome>
+                      <i className={link.icon} aria-hidden="true"></i>
+                      <span>{link.label}</span>
+                    </ProjectActionChrome>
                   </a>
                 )
               )}
