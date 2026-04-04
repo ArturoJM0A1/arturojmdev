@@ -1,7 +1,8 @@
+import CodeEditor from "./CodeEditor";
+
 export default function AboutSection() {
   return (
     <section id="about-section" data-menu-section="true" className="about">
-  
       <h3>Acerca de mi</h3>
       <p>
         Ingeniero de software con experiencia en desarrollo web de principio a
@@ -11,6 +12,7 @@ export default function AboutSection() {
         desarrollo frontend, las aplicaciones interactivas y las soluciones
         basadas en datos.
       </p>
+      <CodeEditor />
     </section>
   );
 }
