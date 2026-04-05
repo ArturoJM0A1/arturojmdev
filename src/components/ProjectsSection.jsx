@@ -21,7 +21,6 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
   const [projectOrder, setProjectOrder] = useState("asc");
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
 
-  // Load the portfolio data from /public.
   useEffect(() => {
     fetch("/projects.json")
       .then((res) => res.json())
@@ -51,6 +50,8 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
       });
     }
   );
+
+
 
   return (
     <section

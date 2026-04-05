@@ -33,6 +33,8 @@ export default function CertificationsCarousel() {
   const [activeCertification, setActiveCertification] = useState(null);
 
   useEffect(() => {
+    console.log("Certificaciones:", certificationSlides.map(c => c.displayName));
+
     const track = trackRef.current;
     if (!track) return undefined;
 
