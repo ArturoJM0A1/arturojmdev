@@ -883,6 +883,14 @@ body.dark-mode .profile-rain__drop {
 }
 
 .photo-placeholder {
+  --wizard-hat-body: #2563eb;
+  --wizard-hat-highlight: #7dd3fc;
+  --wizard-hat-brim: #1e3a8a;
+  --wizard-hat-band: #0f172a;
+  --wizard-hat-buckle: #fbbf24;
+  --wizard-hat-star: #dbeafe;
+  --wizard-hat-orb: #fde68a;
+  --wizard-hat-shadow: rgba(15, 23, 42, 0.22);
   width: 210px;
   height: 210px;
   border-radius: 81% 19% 86% 14% / 14% 72% 28% 86%;
@@ -898,6 +906,8 @@ body.dark-mode .profile-rain__drop {
   transition: var(--transition);
   cursor: default;
   overflow: visible;
+  position: relative;
+  isolation: isolate;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -910,6 +920,14 @@ body.dark-mode .profile-rain__drop {
 }
 
 body.dark-mode .photo-placeholder {
+  --wizard-hat-body: #16a34a;
+  --wizard-hat-highlight: #86efac;
+  --wizard-hat-brim: #14532d;
+  --wizard-hat-band: #052e16;
+  --wizard-hat-buckle: #facc15;
+  --wizard-hat-star: #dcfce7;
+  --wizard-hat-orb: #fef08a;
+  --wizard-hat-shadow: rgba(0, 0, 0, 0.32);
   border-color: var(--primary-dark);
   color: var(--primary-dark);
   background-color: rgba(0, 195, 19, 0.07);
@@ -933,6 +951,71 @@ body.dark-mode .photo-placeholder:hover {
   border-color: var(--secondary-dark);
 }
 
+.photo-wizard-hat {
+  position: absolute;
+  top: -28%;
+  left: 14%;
+  width: 74%;
+  height: auto;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(-8px, 18px, 0) rotate(-18deg) scale(0.72);
+  transform-origin: 34% 82%;
+  transition:
+    opacity 0.35s ease,
+    transform 0.55s cubic-bezier(0.18, 0.84, 0.28, 1.12),
+    filter 0.45s ease;
+  filter: drop-shadow(0 8px 14px rgba(15, 23, 42, 0.12));
+}
+
+.photo-wizard-hat__shadow {
+  fill: var(--wizard-hat-shadow);
+}
+
+.photo-wizard-hat__brim {
+  fill: var(--wizard-hat-brim);
+}
+
+.photo-wizard-hat__body {
+  fill: var(--wizard-hat-body);
+}
+
+.photo-wizard-hat__highlight {
+  fill: var(--wizard-hat-highlight);
+  opacity: 0.82;
+}
+
+.photo-wizard-hat__band {
+  fill: var(--wizard-hat-band);
+}
+
+.photo-wizard-hat__buckle {
+  fill: var(--wizard-hat-buckle);
+}
+
+.photo-wizard-hat__star {
+  fill: var(--wizard-hat-star);
+}
+
+.photo-wizard-hat__orb {
+  fill: var(--wizard-hat-orb);
+}
+
+.photo-placeholder:hover .photo-wizard-hat {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotate(-12deg) scale(1);
+  filter:
+    drop-shadow(0 14px 20px rgba(15, 23, 42, 0.18))
+    drop-shadow(0 0 18px rgba(125, 211, 252, 0.18));
+}
+
+body.dark-mode .photo-placeholder:hover .photo-wizard-hat {
+  filter:
+    drop-shadow(0 14px 20px rgba(0, 0, 0, 0.28))
+    drop-shadow(0 0 22px rgba(56, 189, 248, 0.18));
+}
+
 .photolaptop {
   padding: 0;
   height: 0;
@@ -948,6 +1031,12 @@ body.dark-mode .photo-placeholder:hover {
 }
 
 /* Para telÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©fonos */
+@media (prefers-reduced-motion: reduce) {
+  .photo-wizard-hat {
+    transition: none;
+  }
+}
+
 @media (max-width: 768px) {
   .photolaptop {
     font-size: 28px;
@@ -2279,6 +2368,12 @@ body.dark-mode .video-modal__close:hover {
     height: 160px;
   }
 
+  .photo-wizard-hat {
+    top: -30%;
+    left: 12%;
+    width: 78%;
+  }
+
   /* Ajustar la fila de habilidades tÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¿ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â½cnicas */
   .skills-row {
     flex-direction: column;
@@ -2371,6 +2466,12 @@ body.dark-mode .video-modal__close:hover {
   .photo-placeholder {
     width: 140px;
     height: 140px;
+  }
+
+  .photo-wizard-hat {
+    top: -32%;
+    left: 11%;
+    width: 82%;
   }
 
   .footer-clock {
@@ -4042,3 +4143,7 @@ body.dark-mode .content-loader__caption {
     letter-spacing: 0.18em;
   }
 }
+
+
+
+
