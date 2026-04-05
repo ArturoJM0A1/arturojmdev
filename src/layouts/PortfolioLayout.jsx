@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+﻿import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import "../App.css";
 import "../cohetegoup.css";
@@ -22,13 +22,14 @@ const pageTitles = {
   "/contacto": "Contacto",
 };
 
-const fullText = "Ingenieria en Software";
+const fullText = "Ingeniería en Software";
 
 const basePath = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
 
 const cvHref = `${basePath}${encodeURIComponent("JuarezMonroyArturo CV.pdf")}`;
+const portfolioTrackHref = `${basePath}${encodeURIComponent("music.mp3")}`;
 
 function ThemeGlyph({ theme }) {
   if (theme === "dark") {
@@ -177,6 +178,8 @@ export default function PortfolioLayout() {
   const [isWelcomeClosing, setIsWelcomeClosing] = useState(false);
   const [displayText, setDisplayText] = useState("");
   const [currentTime, setCurrentTime] = useState(() => new Date());
+  const audioRef = useRef(null);
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [showRocket, setShowRocket] = useState(false);
   const [activeVideo, setActiveVideo] = useState(null);
 
@@ -186,7 +189,7 @@ export default function PortfolioLayout() {
 
   useEffect(() => {
     const sectionTitle = pageTitles[location.pathname] ?? "Portafolio";
-    document.title = `Arturo Juárez Monroy | ${sectionTitle}`;
+    document.title = `Arturo JuÃ¡rez Monroy | ${sectionTitle}`;
   }, [location.pathname]);
 
   useEffect(() => {
@@ -234,6 +237,36 @@ export default function PortfolioLayout() {
       document.body.style.overflow = "";
     };
   }, [activeVideo, showWelcome]);
+
+  useEffect(() => {
+    if (typeof Audio === "undefined") {
+      return undefined;
+    }
+
+    const portfolioAudio = new Audio(portfolioTrackHref);
+    portfolioAudio.preload = "auto";
+    audioRef.current = portfolioAudio;
+
+    const syncAudioState = () => {
+      setIsAudioPlaying(!portfolioAudio.paused && !portfolioAudio.ended);
+    };
+
+    portfolioAudio.addEventListener("play", syncAudioState);
+    portfolioAudio.addEventListener("pause", syncAudioState);
+    portfolioAudio.addEventListener("ended", syncAudioState);
+
+    return () => {
+      portfolioAudio.pause();
+      portfolioAudio.currentTime = 0;
+      portfolioAudio.removeEventListener("play", syncAudioState);
+      portfolioAudio.removeEventListener("pause", syncAudioState);
+      portfolioAudio.removeEventListener("ended", syncAudioState);
+
+      if (audioRef.current === portfolioAudio) {
+        audioRef.current = null;
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -288,6 +321,34 @@ export default function PortfolioLayout() {
     return () => window.clearInterval(interval);
   }, []);
 
+  const playPortfolioTrack = async () => {
+    const portfolioAudio = audioRef.current;
+
+    if (!portfolioAudio) {
+      return;
+    }
+
+    if (portfolioAudio.ended) {
+      portfolioAudio.currentTime = 0;
+    }
+
+    try {
+      await portfolioAudio.play();
+    } catch {
+      // If autoplay is blocked, the visible Play button still lets the user start it manually.
+    }
+  };
+
+  const pausePortfolioTrack = () => {
+    const portfolioAudio = audioRef.current;
+
+    if (!portfolioAudio) {
+      return;
+    }
+
+    portfolioAudio.pause();
+  };
+
   const getYouTubeEmbedUrl = (url) => {
     try {
       const parsed = new URL(url);
@@ -323,6 +384,7 @@ export default function PortfolioLayout() {
       return;
     }
 
+    pausePortfolioTrack();
     setActiveVideo({ url: embedUrl, title });
   };
 
@@ -331,6 +393,7 @@ export default function PortfolioLayout() {
   };
 
   const handleWelcomeClose = () => {
+    void playPortfolioTrack();
     setIsWelcomeClosing(true);
     window.setTimeout(() => {
       setShowWelcome(false);
@@ -431,7 +494,14 @@ export default function PortfolioLayout() {
           setTheme={setTheme}
         />
 
-        <SidebarInfo showSkills={showSidebarSkills} />
+        <SidebarInfo
+          showSkills={showSidebarSkills}
+          isAudioPlaying={isAudioPlaying}
+          onPlayAudio={() => {
+            void playPortfolioTrack();
+          }}
+          onPauseAudio={pausePortfolioTrack}
+        />
 
         <div className="right-column">
           <Outlet context={{ theme, handleOpenVideo }} />
@@ -441,7 +511,7 @@ export default function PortfolioLayout() {
           <div className="footer-copy">
             <b className="graciasxv">Gracias por visitarme</b>
             <br />
-            <b>(c) Arturo Juárez Monroy - Hecho con React, Vue y Firebase</b>
+            <b>(c) Arturo JuÃ¡rez Monroy - Hecho con React, Vue y Firebase</b>
           </div>
         </footer>
 
@@ -526,3 +596,4 @@ export default function PortfolioLayout() {
     </>
   );
 }
+
