@@ -1,6 +1,6 @@
 ﻿import { Suspense, lazy } from "react";
 import { createHashRouter } from "react-router-dom";
-import PortfolioLayout from "./layouts/PortfolioLayout.jsx";
+import PortfolioLayoutScrollFx from "./PortfolioLayoutScrollFx.jsx";
 import ContentLoader from "./components/ContentLoader.jsx";
 import "tailwindcss";
 import "tailwind-animations";
@@ -26,7 +26,7 @@ function withLoader(Component, label, caption) {
 export const router = createHashRouter([
   {
     path: "/",
-    element: <PortfolioLayout />,
+    element: <PortfolioLayoutScrollFx />,
     children: [
       {
         index: true,
