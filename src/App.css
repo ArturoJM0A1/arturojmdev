@@ -843,7 +843,7 @@ body.dark-mode .right-column h3::after {
   top: 0;
   line-height: 1;
   color: #2685ff;
-  opacity: 0.95;
+  opacity: 0.68;
   transform-origin: top;
   text-shadow: 0 0 8px rgba(38, 133, 255, 0.35);
   animation: profileRainDrop linear forwards;
@@ -868,12 +868,12 @@ body.dark-mode .profile-rain__drop {
 
   12% {
     transform: translateY(0) scaleY(1);
-    opacity: 0.95;
+    opacity: 0.68;
   }
 
   80% {
     transform: translateY(145px) scaleY(1);
-    opacity: 0.95;
+    opacity: 0.68;
   }
 
   100% {
@@ -1702,8 +1702,8 @@ body.dark-mode .education-item:hover {
   --education-spark: #f59e0b;
   --education-surface: rgba(255, 255, 255, 0.96);
   --education-surface-2: rgba(218, 239, 255, 0.95);
-  --education-glow: rgba(37, 99, 235, 0.36);
-  --education-shell: rgba(37, 99, 235, 0.24);
+  --education-glow: rgba(37, 99, 235, 0.22);
+  --education-shell: rgba(37, 99, 235, 0.16);
   --education-outline: rgba(15, 23, 42, 0.28);
   width: clamp(92px, 11vw, 122px);
   aspect-ratio: 1;
@@ -1721,12 +1721,12 @@ body.dark-mode .education-item:hover {
 .education-icon-shell::before {
   content: "";
   position: absolute;
-  inset: 18%;
+  inset: 20%;
   z-index: -1;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.24) 0%, rgba(37, 99, 235, 0) 74%);
-  filter: blur(12px);
-  opacity: 0.95;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.16) 0%, rgba(37, 99, 235, 0) 72%);
+  filter: blur(10px);
+  opacity: 0.68;
 }
 
 body.dark-mode .education-icon-shell {
@@ -1736,13 +1736,13 @@ body.dark-mode .education-icon-shell {
   --education-spark: #ffd43b;
   --education-surface: rgba(12, 19, 31, 0.96);
   --education-surface-2: rgba(21, 36, 52, 0.96);
-  --education-glow: rgba(0, 255, 136, 0.24);
-  --education-shell: rgba(0, 255, 136, 0.22);
+  --education-glow: rgba(0, 255, 136, 0.18);
+  --education-shell: rgba(0, 255, 136, 0.15);
   --education-outline: rgba(226, 232, 240, 0.38);
 }
 
 body.dark-mode .education-icon-shell::before {
-  background: radial-gradient(circle, rgba(0, 255, 136, 0.2) 0%, rgba(0, 255, 136, 0) 74%);
+  background: radial-gradient(circle, rgba(0, 255, 136, 0.14) 0%, rgba(0, 255, 136, 0) 72%);
 }
 
 .education-icon {
@@ -1751,23 +1751,23 @@ body.dark-mode .education-icon-shell::before {
   display: block;
   overflow: visible;
   filter:
-    drop-shadow(0 0 10px rgba(193, 230, 255, 0.78)) drop-shadow(0 8px 20px rgba(37, 99, 235, 0.16));
+    drop-shadow(0 0 8px rgba(193, 230, 255, 0.42)) drop-shadow(0 6px 16px rgba(37, 99, 235, 0.12));
   transition: filter 0.35s ease;
 }
 
 body.dark-mode .education-icon {
   filter:
-    drop-shadow(0 0 12px rgba(0, 255, 136, 0.2)) drop-shadow(0 8px 22px rgba(0, 212, 255, 0.08));
+    drop-shadow(0 0 9px rgba(0, 255, 136, 0.14)) drop-shadow(0 6px 16px rgba(0, 212, 255, 0.06));
 }
 
 .education-item:hover .education-icon {
   filter:
-    drop-shadow(0 0 18px rgba(37, 99, 235, 0.42)) drop-shadow(0 14px 28px rgba(6, 182, 212, 0.2));
+    drop-shadow(0 0 11px rgba(37, 99, 235, 0.24)) drop-shadow(0 10px 20px rgba(6, 182, 212, 0.12));
 }
 
 body.dark-mode .education-item:hover .education-icon {
   filter:
-    drop-shadow(0 0 18px rgba(0, 255, 136, 0.32)) drop-shadow(0 14px 28px rgba(0, 212, 255, 0.14));
+    drop-shadow(0 0 11px rgba(0, 255, 136, 0.2)) drop-shadow(0 10px 20px rgba(0, 212, 255, 0.1));
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3835,7 +3835,7 @@ body.dark-mode .content-loader-shell::before {
 }
 
 .content-loader__ring--middle {
-  inset: 18%;
+  inset: 20%;
   border-color: rgba(6, 182, 212, 0.42);
   animation: loaderRotateReverse 4.8s linear infinite;
 }

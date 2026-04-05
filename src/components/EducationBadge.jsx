@@ -10,7 +10,7 @@ export default function EducationBadge() {
   const coreGlowRef = useRef(null);
   const capRef = useRef(null);
   const tasselRef = useRef(null);
-  const diplomaRef = useRef(null);
+
   const sparkRefs = useRef([]);
 
   sparkRefs.current = [];
@@ -18,7 +18,7 @@ export default function EducationBadge() {
   const iconId = useId().replace(/:/g, "");
   const ringGradientId = `${iconId}-ring-gradient`;
   const capGradientId = `${iconId}-cap-gradient`;
-  const scrollGradientId = `${iconId}-scroll-gradient`;
+
   const auraGradientId = `${iconId}-aura-gradient`;
   const coreGradientId = `${iconId}-core-gradient`;
   const glowFilterId = `${iconId}-glow-filter`;
@@ -43,19 +43,19 @@ export default function EducationBadge() {
     }
 
     const ctx = gsap.context(() => {
-      // Separate loops keep the emblem feeling alive without looking mechanical.
+      // Gentle loops keep the emblem alive without pulling too much attention.
       gsap.to(floatRef.current, {
-        y: -4,
-        duration: 2.8,
+        y: -2.4,
+        duration: 3.6,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
       });
 
       gsap.to(haloRef.current, {
-        scale: 1.08,
-        opacity: 0.92,
-        duration: 2.4,
+        scale: 1.03,
+        opacity: 0.68,
+        duration: 3.4,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
@@ -63,9 +63,9 @@ export default function EducationBadge() {
       });
 
       gsap.to(coreGlowRef.current, {
-        scale: 1.12,
-        opacity: 0.88,
-        duration: 2,
+        scale: 1.04,
+        opacity: 0.7,
+        duration: 3.1,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
@@ -74,7 +74,7 @@ export default function EducationBadge() {
 
       gsap.to(outerRingRef.current, {
         rotation: 360,
-        duration: 24,
+        duration: 40,
         repeat: -1,
         ease: "none",
         transformOrigin: "50% 50%",
@@ -82,48 +82,38 @@ export default function EducationBadge() {
 
       gsap.to(innerRingRef.current, {
         rotation: -360,
-        duration: 16,
+        duration: 28,
         repeat: -1,
         ease: "none",
         transformOrigin: "50% 50%",
       });
 
       gsap.to(capRef.current, {
-        y: -3,
-        rotation: -2.4,
+        y: -1.6,
+        rotation: -1.2,
         transformOrigin: "50% 58%",
-        duration: 1.85,
+        duration: 2.8,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
       });
 
       gsap.to(tasselRef.current, {
-        rotation: 14,
+        rotation: 7,
         transformOrigin: "82px 46px",
-        duration: 1.15,
+        duration: 1.9,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
       });
 
-      gsap.to(diplomaRef.current, {
-        x: -1.4,
-        y: 2.6,
-        rotation: 1.5,
-        transformOrigin: "60px 79px",
-        duration: 2.1,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
 
       sparkRefs.current.forEach((spark, index) => {
         gsap.to(spark, {
-          opacity: index % 2 === 0 ? 0.34 : 1,
-          scale: index % 2 === 0 ? 0.78 : 1.18,
-          duration: 1.1 + index * 0.14,
-          delay: index * 0.18,
+          opacity: index % 2 === 0 ? 0.18 : 0.52,
+          scale: index % 2 === 0 ? 0.9 : 1.05,
+          duration: 1.8 + index * 0.22,
+          delay: index * 0.24,
           repeat: -1,
           yoyo: true,
           ease: "sine.inOut",
@@ -169,17 +159,6 @@ export default function EducationBadge() {
             <stop offset="100%" stopColor="var(--education-secondary)" />
           </linearGradient>
 
-          <linearGradient
-            id={scrollGradientId}
-            x1="39"
-            y1="72"
-            x2="82"
-            y2="87"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop offset="0%" stopColor="var(--education-surface)" />
-            <stop offset="100%" stopColor="var(--education-surface-2)" />
-          </linearGradient>
 
           <radialGradient
             id={auraGradientId}
@@ -189,7 +168,7 @@ export default function EducationBadge() {
             fx="50%"
             fy="50%"
           >
-            <stop offset="0%" stopColor="var(--education-glow)" stopOpacity="0.9" />
+            <stop offset="0%" stopColor="var(--education-glow)" stopOpacity="0.7" />
             <stop
               offset="68%"
               stopColor="var(--education-secondary)"
@@ -214,12 +193,12 @@ export default function EducationBadge() {
             <stop
               offset="100%"
               stopColor="var(--education-primary)"
-              stopOpacity="0.14"
+              stopOpacity="0.1"
             />
           </radialGradient>
 
           <filter id={glowFilterId} x="-40%" y="-40%" width="180%" height="180%">
-            <feGaussianBlur stdDeviation="4.5" result="blurred" />
+            <feGaussianBlur stdDeviation="3.2" result="blurred" />
             <feMerge>
               <feMergeNode in="blurred" />
               <feMergeNode in="SourceGraphic" />
@@ -227,7 +206,7 @@ export default function EducationBadge() {
           </filter>
         </defs>
 
-        <g ref={haloRef} opacity="0.78" filter={`url(#${glowFilterId})`}>
+        <g ref={haloRef} opacity="0.56" filter={`url(#${glowFilterId})`}>
           <circle cx="60" cy="60" r="40" fill={`url(#${auraGradientId})`} />
         </g>
 
@@ -259,7 +238,7 @@ export default function EducationBadge() {
           <circle cx="18" cy="60" r="2.8" fill="var(--education-secondary)" />
         </g>
 
-        <g ref={innerRingRef} opacity="0.9">
+        <g ref={innerRingRef} opacity="0.76">
           <circle
             cx="60"
             cy="60"
@@ -291,90 +270,60 @@ export default function EducationBadge() {
           <ellipse
             ref={coreGlowRef}
             cx="60"
-            cy="60"
-            rx="20"
-            ry="18"
+            cy="63"
+            rx="21"
+            ry="19"
             fill={`url(#${coreGradientId})`}
-            opacity="0.65"
+            opacity="0.54"
             filter={`url(#${glowFilterId})`}
           />
 
-          <g ref={capRef}>
-            <path
-              d="M60 28L92 41.5L60 55L28 41.5L60 28Z"
-              fill={`url(#${capGradientId})`}
-              stroke="var(--education-outline)"
-              strokeWidth="2.3"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M43 49.5v10.5c0 4.8 8.1 9.1 17 9.1s17 -4.3 17 -9.1V49.5"
-              fill={`url(#${coreGradientId})`}
-              stroke="var(--education-outline)"
-              strokeWidth="2.3"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M82 45v14"
-              fill="none"
-              stroke="var(--education-accent)"
-              strokeWidth="2.4"
-              strokeLinecap="round"
-            />
+          <g transform="translate(0 8)">
+            <g ref={capRef}>
+              <path
+                d="M60 28L92 41.5L60 55L28 41.5L60 28Z"
+                fill={`url(#${capGradientId})`}
+                stroke="var(--education-outline)"
+                strokeWidth="2.3"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M43 49.5v10.5c0 4.8 8.1 9.1 17 9.1s17 -4.3 17 -9.1V49.5"
+                fill={`url(#${coreGradientId})`}
+                stroke="var(--education-outline)"
+                strokeWidth="2.3"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M82 45v14"
+                fill="none"
+                stroke="var(--education-accent)"
+                strokeWidth="2.4"
+                strokeLinecap="round"
+              />
 
-            <g ref={tasselRef}>
-              <circle cx="82" cy="46.5" r="2.5" fill="var(--education-accent)" />
-              <path
-                d="M82 48.5c2.5 3 4.8 6.1 4.8 10.8"
-                fill="none"
-                stroke="var(--education-accent)"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-              />
-              <path
-                d="M84.8 59.7h4.6"
-                fill="none"
-                stroke="var(--education-accent)"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-              />
+              <g ref={tasselRef}>
+                <circle cx="82" cy="46.5" r="2.5" fill="var(--education-accent)" />
+                <path
+                  d="M82 48.5c2.5 3 4.8 6.1 4.8 10.8"
+                  fill="none"
+                  stroke="var(--education-accent)"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M84.8 59.7h4.6"
+                  fill="none"
+                  stroke="var(--education-accent)"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                />
+              </g>
             </g>
-          </g>
-
-          <g ref={diplomaRef}>
-            <rect
-              x="39"
-              y="71.5"
-              width="42"
-              height="14.5"
-              rx="7.25"
-              fill={`url(#${scrollGradientId})`}
-              stroke="var(--education-outline)"
-              strokeWidth="2.3"
-            />
-            <path
-              d="M48 78.7h24"
-              fill="none"
-              stroke="rgba(15, 23, 42, 0.2)"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-            <path
-              d="M60 71.5v14.5"
-              fill="none"
-              stroke="var(--education-accent)"
-              strokeWidth="3"
-              strokeLinecap="round"
-            />
-            <path
-              d="M60 74l5.8 4.75L60 83.5l-5.8 -4.75L60 74Z"
-              fill="var(--education-spark)"
-              opacity="0.92"
-            />
           </g>
         </g>
 
-        <g filter={`url(#${glowFilterId})`}>
+        <g filter={`url(#${glowFilterId})`} opacity="0.72">
           <path
             ref={registerSpark}
             d="M23 28l2.2 5.1L30.3 35l-5.1 2.1L23 42.2l-2.1 -5.1L15.8 35l5.1 -1.9L23 28Z"
@@ -400,3 +349,4 @@ export default function EducationBadge() {
     </div>
   );
 }
+
