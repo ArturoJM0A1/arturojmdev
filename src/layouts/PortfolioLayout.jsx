@@ -189,7 +189,7 @@ export default function PortfolioLayout() {
 
   useEffect(() => {
     const sectionTitle = pageTitles[location.pathname] ?? "Portafolio";
-    document.title = `Arturo JuÃ¡rez Monroy | ${sectionTitle}`;
+    document.title = `Arturo Juárez Monroy | ${sectionTitle}`;
   }, [location.pathname]);
 
   useEffect(() => {
@@ -511,7 +511,7 @@ export default function PortfolioLayout() {
           <div className="footer-copy">
             <b className="graciasxv">Gracias por visitarme</b>
             <br />
-            <b>(c) Arturo JuÃ¡rez Monroy - Hecho con React, Vue y Firebase</b>
+            <b>(c) Arturo Juárez Monroy - Hecho con React, Vue y Firebase</b>
           </div>
         </footer>
 

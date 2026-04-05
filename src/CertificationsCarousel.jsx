@@ -138,8 +138,8 @@ export default function CertificationsCarousel() {
             ))
           ) : (
             <article className="certifications-empty" aria-live="polite">
-              Agrega imÃ¡genes a `public/certificadosyreconocimientos` para
-              mostrarlas aquÃ­.
+              Agrega imagenes a `public/certificadosyreconocimientos` para
+              mostrarlas aqui.
             </article>
           )}
         </div>
@@ -150,7 +150,7 @@ export default function CertificationsCarousel() {
             className="certifications-nav certifications-nav--next"
             onClick={() => handleScroll(1)}
             disabled={!canScrollNext}
-            aria-label="Mostrar mÃ¡s certificaciones"
+            aria-label="Mostrar más certificaciones"
           />
         )}
       </div>
