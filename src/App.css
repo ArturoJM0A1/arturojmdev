@@ -2784,6 +2784,22 @@ body.dark-mode .video-modal__close:hover {
   }
 }
 
+/* Teléfonos (vertical) */
+@media (max-width: 768px) and (orientation: portrait) {
+  .footer-clock-stack {
+    transform: scale(0.45);
+    margin-bottom: 32px;
+  }
+}
+
+/* Teléfonos (horizontal) */
+@media (max-width: 768px) and (orientation: landscape) {
+  .footer-clock-stack {
+    transform: scale(0.5);
+  }
+}
+
+
 /* ===== Pantalla de bienvenida ===== */
 .welcome-overlay {
   position: fixed;
