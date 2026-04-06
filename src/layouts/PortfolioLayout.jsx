@@ -30,7 +30,8 @@ const basePath = import.meta.env.BASE_URL.endsWith("/")
 
 const cvHref = `${basePath}${encodeURIComponent("JuarezMonroyArturo CV.pdf")}`;
 const portfolioTrackHref = `${basePath}${encodeURIComponent("music.mp3")}`;
-const bladerunnerGifHref = `${basePath}${encodeURIComponent("blade runner joi.gif")}`;
+const dancedarkmodeGifHref = `${basePath}${encodeURIComponent("dancedarktmode.gif")}`;
+const dancelightmodeGifHref = `${basePath}${encodeURIComponent("dancelightmode.gif")}`;
 
 function ThemeGlyph({ theme }) {
   if (theme === "dark") {
@@ -415,6 +416,8 @@ export default function PortfolioLayout() {
     month: "short",
   });
   const footerClockLabel = `${hours}:${minutes}:${seconds}`;
+  const footerClockGifHref =
+    theme === "dark" ? dancedarkmodeGifHref : dancelightmodeGifHref;
   const showSidebarSkills = location.pathname === "/";
 
   if (showWelcome) {
@@ -528,7 +531,7 @@ export default function PortfolioLayout() {
       <div className="footer-clock-stack">
         <div className="footer-clock__visual" aria-hidden="true">
           <img
-            src={bladerunnerGifHref}
+            src={footerClockGifHref}
             alt=""
             className="footer-clock__gif"
           />
@@ -606,6 +609,7 @@ export default function PortfolioLayout() {
     </>
   );
 }
+
 
 
 
