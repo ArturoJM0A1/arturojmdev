@@ -65,7 +65,7 @@
   --clock-text: var(--text-light-secondary);
   --clock-media-frame: linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(191, 219, 254, 0.14) 100%);
   --clock-media-shadow: rgba(37, 99, 235, 0.3);
---clock-media-filter: invert(-1.8) hue-rotate(210deg) contrast(1.05);
+--clock-media-filter: none;
 --hero-toolbar-reserved-width: 368px;
 
   /* Typography & Other */
