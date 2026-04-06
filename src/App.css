@@ -52,7 +52,7 @@
   --shadow-glow-light: 0 0 20px rgba(37, 99, 235, 0.2);
   --shadow-glow-dark: 0 0 30px rgba(0, 255, 136, 0.3);
   --shadow-glow-strong-dark: 0 0 50px rgba(0, 255, 136, 0.5);
-  --clock-shell: linear-gradient(145deg, rgba(238, 255, 254, 0.92) 0%, rgba(240, 241, 255, 0.7) 100%);
+  --clock-shell: linear-gradient(145deg, rgba(238, 255, 254, 0.92) 0%, rgba(240, 241, 255, 0.72) 100%);
   --clock-digit-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.96) 0%, rgba(226, 232, 240, 0.85) 100%);
   --clock-border: rgba(0, 81, 255, 0.4);
   --clock-shadow-a: rgba(255, 255, 255, 0.72);
@@ -150,7 +150,7 @@ body.dark-mode {
   background-color: var(--bg-dark);
   color: var(--text-dark-primary);
   background-image: radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.08) 0%, transparent 35%);
-  --clock-shell: linear-gradient(145deg, rgba(17, 18, 20, 0.7) 0%, rgba(9, 65, 29, 0.2) 100%);
+  --clock-shell: linear-gradient(145deg, rgba(18, 18, 19, 0.86) 0%, rgba(9, 65, 29, 0.36) 100%);
   --clock-digit-bg: linear-gradient(145deg, rgba(26, 31, 46, 0.98) 0%, rgba(10, 14, 26, 0.9) 100%);
   --clock-border: rgba(0, 255, 136, 0.4);
   --clock-shadow-a: rgba(18, 24, 36, 0.78);
@@ -2089,7 +2089,7 @@ footer {
   backdrop-filter: blur(140px);
   transition: border-radius 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
   background: var(--clock-shell);
-  z-index: -1;
+  z-index: 2;
 }
 
 .footer-clock,
@@ -2108,7 +2108,6 @@ footer {
   border-radius: 33px;
   margin-bottom: -44px;
   overflow: hidden;
-  isolation: isolate;
   backface-visibility: hidden;
   image-rendering: crisp-edges;
   background:
@@ -2226,7 +2225,7 @@ footer {
 .footer-clock__party-lights {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
   mix-blend-mode: screen;
 }
@@ -2241,8 +2240,7 @@ footer {
   filter: blur(6px);
   opacity: 0.72;
   transform-origin: top center;
-    z-index: -1;
-
+  z-index: 0;
 }
 
 .footer-clock__party-beam--left {
@@ -2306,7 +2304,7 @@ footer {
     0 0 22px var(--clock-party-shadow);
   opacity: 0.95;
   pointer-events: none;
-  z-index: 3;
+  z-index: 0;
   animation: footerClockMirrorSpin 7.8s linear infinite;
 
     left: 20px!important;
@@ -2338,7 +2336,7 @@ footer {
   mix-blend-mode: screen;
   opacity: 0.78;
   pointer-events: none;
-  z-index: 4;
+  z-index: 0;
   animation: footerClockSparkle 4.6s steps(2) infinite;
 }
 
@@ -2346,7 +2344,7 @@ footer {
 
 .footer-clock__gif {
   position: relative;
-  z-index: 5;
+  z-index: 3;
   display: block;
   width: 100%;
   height: auto;
