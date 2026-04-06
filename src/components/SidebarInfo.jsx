@@ -57,7 +57,13 @@ export default function SidebarInfo({
                 focusable="false"
                 aria-hidden="true"
               >
-                <ellipse className="photo-wizard-hat__shadow" cx="92" cy="118" rx="58" ry="10" />
+                <ellipse
+                  className="photo-wizard-hat__shadow"
+                  cx="92"
+                  cy="118"
+                  rx="58"
+                  ry="10"
+                />
                 <path
                   className="photo-wizard-hat__brim"
                   d="M22 104c17-12 43-18 69-18c30 0 54 7 67 18c-15 11-41 17-68 17s-53-6-68-17Z"
@@ -82,10 +88,15 @@ export default function SidebarInfo({
                   className="photo-wizard-hat__star"
                   d="M116.4 60.2l2.6 6.1 6.6.6-5 4.1 1.5 6.4-5.7-3.5-5.7 3.5 1.5-6.4-5-4.1 6.6-.6 2.6-6.1Z"
                 />
-                <circle className="photo-wizard-hat__orb" cx="93.5" cy="23.5" r="5.4" />
+                <circle
+                  className="photo-wizard-hat__orb"
+                  cx="93.5"
+                  cy="23.5"
+                  r="5.4"
+                />
               </svg>
               <div className="photolaptop">
-                <span>{"\uD83E\uDDD9"}</span>{" "}
+                <span>{"\u{1F9E9}"}</span>
               </div>
             </div>
 
