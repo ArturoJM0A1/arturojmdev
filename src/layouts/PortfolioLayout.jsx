@@ -1,4 +1,4 @@
-﻿import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import "../App.css";
 import "../cohetegoup.css";
@@ -30,6 +30,7 @@ const basePath = import.meta.env.BASE_URL.endsWith("/")
 
 const cvHref = `${basePath}${encodeURIComponent("JuarezMonroyArturo CV.pdf")}`;
 const portfolioTrackHref = `${basePath}${encodeURIComponent("music.mp3")}`;
+const bladerunnerGifHref = `${basePath}${encodeURIComponent("bladerunner.gif")}`;
 
 function ThemeGlyph({ theme }) {
   if (theme === "dark") {
@@ -524,19 +525,28 @@ export default function PortfolioLayout() {
         </div>
       </div>
 
-      <div
-        className="footer-clock"
-        aria-label={`Hora local del usuario: ${footerClockLabel}`}
-      >
-        <span className="footer-clock__label">Hora</span>
-        <div className="footer-clock__display" aria-hidden="true">
-          <span className="footer-clock__segment">{hours}</span>
-          <span className="footer-clock__separator">:</span>
-          <span className="footer-clock__segment">{minutes}</span>
-          <span className="footer-clock__separator">:</span>
-          <span className="footer-clock__segment">{seconds}</span>
+      <div className="footer-clock-stack">
+        <div className="footer-clock__visual" aria-hidden="true">
+          <img
+            src={bladerunnerGifHref}
+            alt=""
+            className="footer-clock__gif"
+          />
         </div>
-        <span className="footer-clock__meta">{footerDate}</span>
+        <div
+          className="footer-clock"
+          aria-label={`Hora local del usuario: ${footerClockLabel}`}
+        >
+          <span className="footer-clock__label">Hora</span>
+          <div className="footer-clock__display" aria-hidden="true">
+            <span className="footer-clock__segment">{hours}</span>
+            <span className="footer-clock__separator">:</span>
+            <span className="footer-clock__segment">{minutes}</span>
+            <span className="footer-clock__separator">:</span>
+            <span className="footer-clock__segment">{seconds}</span>
+          </div>
+          <span className="footer-clock__meta">{footerDate}</span>
+        </div>
       </div>
 
       {showRocket && (
@@ -596,4 +606,6 @@ export default function PortfolioLayout() {
     </>
   );
 }
+
+
 
