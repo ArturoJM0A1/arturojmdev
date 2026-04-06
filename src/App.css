@@ -2047,7 +2047,7 @@ footer {
   color: var(--clock-muted);
   animation: fadeIn 1s ease-out;
   font-family: var(--font-tech);
-  margin-bottom: 23px;
+  margin-bottom: 76px;
 }
 
 .footer-copy {
@@ -2266,7 +2266,6 @@ footer {
 .footer-clock__mirrorball {
   position: absolute;
   top: 10px;
-  left: 50%;
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -2316,9 +2315,10 @@ footer {
   position: absolute;
   left: 50%;
   width: 2px;
-  height: 120px;
-  transform: translateX(-50%);
-  background: linear-gradient(180deg, rgba(218, 219, 132, 0.7) 0%, transparent 100%);
+  height: 146px;
+  background: linear-gradient(180deg, rgba(254, 255, 193, 0.7) 0%, transparent 100%);
+
+  overflow: hidden;
 }
 
 .footer-clock__party-glitter {
