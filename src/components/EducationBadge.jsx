@@ -211,17 +211,7 @@ export default function EducationBadge() {
         </g>
 
         <g ref={outerRingRef}>
-          <circle
-            cx="60"
-            cy="60"
-            r="45"
-            fill="none"
-            stroke={`url(#${ringGradientId})`}
-            strokeWidth="2.8"
-            strokeDasharray="6 10"
-            strokeLinecap="round"
-            opacity="0.98"
-          />
+      
           <circle
             cx="60"
             cy="60"
@@ -238,25 +228,7 @@ export default function EducationBadge() {
           <circle cx="18" cy="60" r="2.8" fill="var(--education-secondary)" />
         </g>
 
-        <g ref={innerRingRef} opacity="0.76">
-          <circle
-            cx="60"
-            cy="60"
-            r="34"
-            fill="none"
-            stroke="var(--education-shell)"
-            strokeWidth="1.2"
-          />
-          <circle
-            cx="60"
-            cy="60"
-            r="34"
-            fill="none"
-            stroke={`url(#${ringGradientId})`}
-            strokeWidth="1.8"
-            strokeDasharray="17 7 4 10"
-            strokeLinecap="round"
-          />
+        <g ref={innerRingRef} opacity="0.1">
           <path
             d="M33 44.5c7.4 -8.7 16.7 -13 27 -13s19.6 4.3 27 13"
             fill="none"
@@ -303,7 +275,6 @@ export default function EducationBadge() {
               />
 
               <g ref={tasselRef}>
-                <circle cx="82" cy="46.5" r="2.5" fill="var(--education-accent)" />
                 <path
                   d="M82 48.5c2.5 3 4.8 6.1 4.8 10.8"
                   fill="none"
