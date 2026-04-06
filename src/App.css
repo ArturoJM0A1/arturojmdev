@@ -65,7 +65,7 @@
   --clock-text: var(--text-light-secondary);
   --clock-media-frame: linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(191, 219, 254, 0.14) 100%);
   --clock-media-shadow: rgba(37, 99, 235, 0.3);
-  --clock-media-filter:invert(1.5) hue-rotate(180deg) brightness(1.1) contrast(0.9);
+  --clock-media-filter: invert(1.5) hue-rotate(180deg) brightness(1.1) contrast(0.9);
   --hero-toolbar-reserved-width: 368px;
 
   /* Typography & Other */
@@ -2005,7 +2005,7 @@ footer {
   color: var(--clock-muted);
   animation: fadeIn 1s ease-out;
   font-family: var(--font-tech);
-  margin-bottom: 110px;
+  margin-bottom: 23px;
 }
 
 .footer-copy {
@@ -2020,7 +2020,6 @@ footer {
   z-index: 60;
   display: flex;
   flex-direction: column;
-  gap: 10px;
   align-items: stretch;
   width: min(320px, calc(100vw - 32px));
   max-width: calc(100vw - 32px);
@@ -2056,6 +2055,13 @@ footer {
   max-width: 100%;
 }
 
+.footer-clock__visual {
+  border-radius: 33px;
+  margin-bottom: -44px;
+  backface-visibility: hidden;
+  image-rendering: crisp-edges;
+}
+
 .footer-clock:hover {
   transform: translateY(-2px);
   border-radius: 38px;
@@ -2077,7 +2083,6 @@ footer {
 
   .footer-clock__visual {
     min-height: 128px;
-    padding: 8px 10px;
     border-radius: 18px;
   }
 }
@@ -2101,36 +2106,8 @@ footer {
   pointer-events: none;
 }
 
-.footer-clock__visual {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 148px;
-  padding: 10px 12px;
-  overflow: hidden;
-  border-radius: 24px;
-  border: 2px solid var(--clock-border);
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0%, transparent 58%),
-    var(--clock-media-frame);
-  box-shadow:
-    0 18px 34px -24px var(--clock-media-shadow),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18);
-}
 
-.footer-clock__visual::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, transparent 34%, rgba(2, 6, 23, 0.2) 100%),
-    radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 22%);
-  opacity: 0.9;
-  pointer-events: none;
-}
+
 
 .footer-clock__gif {
   position: relative;
@@ -2143,6 +2120,7 @@ footer {
   object-position: center;
   filter: var(--clock-media-filter);
 }
+
 .footer-clock__label,
 .footer-clock__meta {
   position: relative;
@@ -2710,7 +2688,6 @@ body.dark-mode .video-modal__close:hover {
 
   .footer-clock__visual {
     min-height: 112px;
-    padding: 6px 8px;
     border-radius: 16px;
   }
 
@@ -2762,7 +2739,6 @@ body.dark-mode .video-modal__close:hover {
 
   .footer-clock__visual {
     min-height: 104px;
-    padding: 6px 10px;
     border-radius: 16px;
   }
 
@@ -4431,4 +4407,3 @@ body.dark-mode .content-loader__caption {
     letter-spacing: 0.18em;
   }
 }
-
