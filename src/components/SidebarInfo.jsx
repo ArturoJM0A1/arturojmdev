@@ -25,7 +25,7 @@ export default function SidebarInfo({
               title="Reproducir cancion"
             >
               <span className="photo-audio-btn__emoji" aria-hidden="true">
-                ▶️
+                <i class="fa-solid fa-play"></i>
               </span>
             </button>
 
@@ -40,7 +40,7 @@ export default function SidebarInfo({
               title="Pausar cancion"
             >
               <span className="photo-audio-btn__emoji" aria-hidden="true">
-                ⏸️
+                <i class="fa-solid fa-pause"></i>
               </span>
             </button>
           </div>
