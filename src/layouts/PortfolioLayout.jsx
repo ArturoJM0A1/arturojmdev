@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+﻿import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import "../App.css";
 import "../cohetegoup.css";
@@ -530,6 +530,13 @@ export default function PortfolioLayout() {
 
       <div className="footer-clock-stack">
         <div className="footer-clock__visual" aria-hidden="true">
+          <div className="footer-clock__party-lights">
+            <span className="footer-clock__party-beam footer-clock__party-beam--left" />
+            <span className="footer-clock__party-beam footer-clock__party-beam--center" />
+            <span className="footer-clock__party-beam footer-clock__party-beam--right" />
+          </div>
+          <span className="footer-clock__mirrorball" />
+          <span className="footer-clock__party-glitter" />
           <img
             src={footerClockGifHref}
             alt=""
@@ -609,6 +616,7 @@ export default function PortfolioLayout() {
     </>
   );
 }
+
 
 
 
