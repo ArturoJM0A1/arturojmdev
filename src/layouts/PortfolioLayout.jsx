@@ -30,7 +30,7 @@ const basePath = import.meta.env.BASE_URL.endsWith("/")
 
 const cvHref = `${basePath}${encodeURIComponent("JuarezMonroyArturo CV.pdf")}`;
 const portfolioTrackHref = `${basePath}${encodeURIComponent("music.mp3")}`;
-const bladerunnerGifHref = `${basePath}${encodeURIComponent("bladerunner.gif")}`;
+const bladerunnerGifHref = `${basePath}${encodeURIComponent("blade runner joi.gif")}`;
 
 function ThemeGlyph({ theme }) {
   if (theme === "dark") {

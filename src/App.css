@@ -2005,6 +2005,7 @@ footer {
   color: var(--clock-muted);
   animation: fadeIn 1s ease-out;
   font-family: var(--font-tech);
+  margin-bottom: 140px;
 }
 
 .footer-copy {
@@ -2047,6 +2048,12 @@ footer {
   backdrop-filter: blur(140px);
   transition: border-radius 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
   background: var(--clock-shell);
+}
+
+.footer-clock,
+.footer-clock__visual {
+  align-self: stretch;
+  max-width: 100%;
 }
 
 .footer-clock:hover {
@@ -2617,20 +2624,22 @@ body.dark-mode .video-modal__close:hover {
   .footer-clock-stack {
     left: max(12px, env(safe-area-inset-left));
     bottom: max(12px, env(safe-area-inset-bottom));
-    width: min(300px, calc(100vw - 18px));
-    max-width: calc(100vw - 18px);
+    width: min(300px, calc(100vw - 24px));
+    max-width: calc(100vw - 24px);
     min-width: 0;
     gap: 10px;
-    scale: 0.7;
+    --stack-scale: 1;
+    scale: 1;
   }
 
-  .footer-clock__gif .footer-clock-stack {
-    scale: 0.7;
+  .footer-clock,
+  .footer-clock__visual {
+    width: 100%;
   }
 
   .footer-clock {
     padding: 12px 12px 14px;
-    scale: 0.8;
+    scale: 1;
     transform-origin: left bottom;
   }
 }
@@ -2681,17 +2690,23 @@ body.dark-mode .video-modal__close:hover {
   }
 
   .footer-clock-stack {
-    width: min(260px, calc(100vw - 14px));
-    max-width: calc(100vw - 14px);
+    width: min(260px, calc(100vw - 20px));
+    max-width: calc(100vw - 20px);
     min-width: 0;
     gap: 8px;
     --stack-scale: 1;
+    scale: 1;
+  }
+
+  .footer-clock,
+  .footer-clock__visual {
+    width: 100%;
   }
 
   .footer-clock {
     padding: 8px 8px 10px;
     border-radius: 18px;
-    scale: 0.7;
+    scale: 1;
   }
 
   .footer-clock__visual {
@@ -2719,6 +2734,41 @@ body.dark-mode .video-modal__close:hover {
 
   .footer-clock__separator {
     font-size: 1.35rem;
+  }
+}
+
+@media (pointer: coarse) and (orientation: landscape) and (max-height: 500px) {
+  .footer-clock-stack {
+    left: max(12px, env(safe-area-inset-left));
+    bottom: max(12px, env(safe-area-inset-bottom));
+    width: min(300px, calc(100vw - 24px));
+    max-width: calc(100vw - 24px);
+    min-width: 0;
+    gap: 8px;
+    --stack-scale: 1;
+    scale: 1;
+    margin-bottom: 0;
+  }
+
+  .footer-clock,
+  .footer-clock__visual {
+    width: 100%;
+  }
+
+  .footer-clock {
+    padding: 10px 10px 12px;
+    border-radius: 20px;
+    scale: 1;
+  }
+
+  .footer-clock__visual {
+    min-height: 104px;
+    padding: 6px 10px;
+    border-radius: 16px;
+  }
+
+  .footer-clock__gif {
+    max-height: 96px;
   }
 }
 
@@ -4366,5 +4416,4 @@ body.dark-mode .content-loader__caption {
     letter-spacing: 0.18em;
   }
 }
-
 
