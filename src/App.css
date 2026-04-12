@@ -150,7 +150,7 @@ body.dark-mode {
   background-color: var(--bg-dark);
   color: var(--text-dark-primary);
   background-image: radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.08) 0%, transparent 35%);
-  --clock-shell: linear-gradient(145deg, rgba(18, 18, 19, 0.86) 0%, rgba(9, 65, 29, 0.36) 100%);
+  --clock-shell: linear-gradient(145deg, rgba(15, 15, 19,0.9) 56%, rgba(9, 65, 29, 0.3) 100%);
   --clock-digit-bg: linear-gradient(145deg, rgba(26, 31, 46, 0.98) 0%, rgba(10, 14, 26, 0.9) 100%);
   --clock-border: rgba(0, 255, 136, 0.4);
   --clock-shadow-a: rgba(18, 24, 36, 0.78);
@@ -2197,6 +2197,8 @@ footer {
 
   }
 
+
+
   .footer-clock__party-beam {
     height: 84%;
     opacity: 0.62;
@@ -2306,8 +2308,18 @@ footer {
   z-index: 0;
   animation: footerClockMirrorSpin 7.8s linear infinite;
 
-    left: 20px!important;
-    margin-left: 20px;
+  transition: all 0.3s ease;
+
+}
+
+.fcm1 {
+  left: 20px !important;
+  margin-left: 20px;
+}
+
+.fcm2 {
+  right: 20px !important;
+  margin-right: -20px;
 }
 
 .footer-clock__mirrorball::before {
@@ -2315,7 +2327,7 @@ footer {
   position: absolute;
   left: 50%;
   width: 2px;
-  height: 146px;
+  height: 156px;
   background: linear-gradient(180deg, rgba(254, 255, 193, 0.7) 0%, transparent 100%);
 
   overflow: hidden;

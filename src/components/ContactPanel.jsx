@@ -23,6 +23,12 @@ const contactItems = [
     value: "ArturoJM0A1",
     href: "https://github.com/ArturoJM0A1",
   },
+    {
+    icon: "fa-brands fa-youtube",
+    label: "YouTube",
+    value: "Arturo Juarez Monroy",
+    href: "https://www.youtube.com/@arturojuarezmonroy3951",
+  },
   {
     icon: "fab fa-whatsapp",
     label: "WhatsApp",

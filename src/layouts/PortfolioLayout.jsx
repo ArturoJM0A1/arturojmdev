@@ -535,13 +535,11 @@ export default function PortfolioLayout() {
             <span className="footer-clock__party-beam footer-clock__party-beam--center" />
             <span className="footer-clock__party-beam footer-clock__party-beam--right" />
           </div>
-          <span className="footer-clock__mirrorball" />
+          <span className="footer-clock__mirrorball fcm1" />
+          <span className="footer-clock__mirrorball fcm2" />
+
           <span className="footer-clock__party-glitter" />
-          <img
-            src={footerClockGifHref}
-            alt=""
-            className="footer-clock__gif"
-          />
+          <img src={footerClockGifHref} alt="" className="footer-clock__gif" />
         </div>
         <div
           className="footer-clock"
@@ -616,8 +614,3 @@ export default function PortfolioLayout() {
     </>
   );
 }
-
-
-
-
-
