@@ -293,5 +293,31 @@
         "title": "Ver video"
       }
     ]
+  },
+
+
+    {
+    "id": "3DCityGenerator",
+    "title": "Generador de Ciudades 3D con Three.js",
+    "year": 2026,
+    "date": "Aplicación Web 2026",
+    "description": "Desarrollé un sistema de generación procedimental de ciudades 3D interactivas en navegador utilizando Three.js y datos geoespaciales de OpenStreetMap a través de la Overpass API. La solución permite explorar entornos urbanos reales con navegación dinámica y selección de edificios.",
+    "favorite": true,
+    "links": [
+      {
+        "type": "external",
+        "href": "https://github.com/ArturoJM0A1/3d-city-generator",
+        "label": "Repo",
+        "icon": "fab fa-github",
+        "title": "Ver repositorio"
+      },
+      {
+        "type": "video",
+        "href": "https://youtu.be/78MMn7zBylk?si=--3szffn504Pu48A",
+        "label": "Video",
+        "icon": "fas fa-video",
+        "title": "Ver video"
+      }
+    ]
   }
 ]
