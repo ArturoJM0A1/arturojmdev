@@ -33,8 +33,8 @@ const PartyLights = ({ isDarkMode = true }) => {
     scene.background = null;
     scene.fog = null;
 
-    const roomColor = isDarkMode ? 0x080810 : 0x1e3a5f;
-    const roomOpacity = isDarkMode ? 0.15 : 0.08;
+    const roomColor = isDarkMode ? 0x080810 : 0x93c5fd;
+    const roomOpacity = isDarkMode ? 0.2 : 0.06;
     const roomMat = new THREE.MeshBasicMaterial({ 
       color: roomColor, 
       side: THREE.BackSide,

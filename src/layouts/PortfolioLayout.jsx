@@ -183,6 +183,8 @@ export default function PortfolioLayout() {
   const [currentTime, setCurrentTime] = useState(() => new Date());
   const audioRef = useRef(null);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const [audioProgress, setAudioProgress] = useState(0);
+  const [audioDuration, setAudioDuration] = useState(0);
   const [showRocket, setShowRocket] = useState(false);
   const [activeVideo, setActiveVideo] = useState(null);
 
@@ -254,9 +256,16 @@ export default function PortfolioLayout() {
       setIsAudioPlaying(!portfolioAudio.paused && !portfolioAudio.ended);
     };
 
+    const updateProgress = () => {
+      setAudioProgress(portfolioAudio.currentTime);
+      setAudioDuration(portfolioAudio.duration || 0);
+    };
+
     portfolioAudio.addEventListener("play", syncAudioState);
     portfolioAudio.addEventListener("pause", syncAudioState);
     portfolioAudio.addEventListener("ended", syncAudioState);
+    portfolioAudio.addEventListener("timeupdate", updateProgress);
+    portfolioAudio.addEventListener("loadedmetadata", updateProgress);
 
     return () => {
       portfolioAudio.pause();
@@ -264,6 +273,8 @@ export default function PortfolioLayout() {
       portfolioAudio.removeEventListener("play", syncAudioState);
       portfolioAudio.removeEventListener("pause", syncAudioState);
       portfolioAudio.removeEventListener("ended", syncAudioState);
+      portfolioAudio.removeEventListener("timeupdate", updateProgress);
+      portfolioAudio.removeEventListener("loadedmetadata", updateProgress);
 
       if (audioRef.current === portfolioAudio) {
         audioRef.current = null;
@@ -506,6 +517,9 @@ export default function PortfolioLayout() {
             void playPortfolioTrack();
           }}
           onPauseAudio={pausePortfolioTrack}
+          audioRef={audioRef}
+          audioProgress={audioProgress}
+          audioDuration={audioDuration}
         />
 
         <div className="right-column">

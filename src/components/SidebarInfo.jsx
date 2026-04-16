@@ -7,7 +7,20 @@ export default function SidebarInfo({
   isAudioPlaying = false,
   onPlayAudio,
   onPauseAudio,
+  audioRef,
+  audioProgress = 0,
+  audioDuration = 0,
 }) {
+  const progressPercent = audioDuration > 0 ? (audioProgress / audioDuration) * 100 : 0;
+
+  const handleSeek = (e) => {
+    if (!audioRef?.current || !audioDuration) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const percent = Math.max(0, Math.min(1, x / rect.width));
+    audioRef.current.currentTime = percent * audioDuration;
+  };
+
   return (
     <div className="left-column">
       <div className="profile-photo">
@@ -98,6 +111,22 @@ export default function SidebarInfo({
               <div className="photolaptop">
                 <span>{"\u{1F9E9}"}</span>
               </div>
+            </div>
+
+            <div 
+              className="photo-audio-progress" 
+              onClick={handleSeek}
+              role="slider"
+              aria-label="Progreso de la musica"
+              aria-valuenow={Math.round(progressPercent)}
+              aria-valuemin="0"
+              aria-valuemax="100"
+              tabIndex={0}
+            >
+              <div 
+                className="photo-audio-progress__fill" 
+                style={{ width: `${progressPercent}%` }}
+              />
             </div>
 
             <ProfileLetterRain />

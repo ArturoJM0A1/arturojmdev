@@ -1103,6 +1103,44 @@ body.dark-mode .photo-placeholder:hover {
   border-color: var(--secondary-dark);
 }
 
+.photo-audio-progress {
+  width: 216px;
+  height: 7px;
+  background: rgba(37, 99, 235, 0.2);
+  border-radius: 3px;
+  margin-top: 32px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: background 0.2s ease;
+}
+
+.photo-audio-progress:hover {
+  background: rgba(37, 99, 235, 0.35);
+  height: 8px;
+}
+
+.photo-audio-progress__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-light), var(--secondary-light));
+  border-radius: 3px;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 8px var(--primary-light);
+}
+
+body.dark-mode .photo-audio-progress {
+  background: rgba(0, 255, 136, 0.2);
+}
+
+body.dark-mode .photo-audio-progress:hover {
+  background: rgba(0, 255, 136, 0.35);
+}
+
+body.dark-mode .photo-audio-progress__fill {
+  background: linear-gradient(90deg, var(--primary-dark), var(--secondary-dark));
+  box-shadow: 0 0 8px var(--primary-dark);
+}
+
 .photo-wizard-hat {
   position: absolute;
   top: -28%;
