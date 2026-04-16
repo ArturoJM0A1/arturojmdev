@@ -533,7 +533,6 @@ export default function PortfolioLayout() {
         <div className="footer-clock__visual" aria-hidden="true">
           <div className="footer-clock__party-lights">
             <PartyLights isDarkMode={theme === "dark"} />
-            <span className="footer-clock__la-fiesta">La Fiesta</span>
           </div>
           <span className="footer-clock__mirrorball fcm1" />
           <span className="footer-clock__mirrorball fcm2" />

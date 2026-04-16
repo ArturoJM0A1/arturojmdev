@@ -30,16 +30,16 @@ const PartyLights = ({ isDarkMode = true }) => {
     camera.position.set(0, 0, 6);
     camera.lookAt(0, 0, 0);
 
-    const bgColor = isDarkMode ? 0x0a0a12 : 0xf0f0f8;
-    scene.background = new THREE.Color(bgColor);
-    scene.fog = new THREE.Fog(bgColor, 6, 12);
+    scene.background = null;
+    scene.fog = null;
 
-    const roomColor = isDarkMode ? 0x080810 : 0xe8e8f0;
+    const roomColor = isDarkMode ? 0x080810 : 0x1e3a5f;
+    const roomOpacity = isDarkMode ? 0.15 : 0.08;
     const roomMat = new THREE.MeshBasicMaterial({ 
       color: roomColor, 
       side: THREE.BackSide,
       transparent: true,
-      opacity: 0.6
+      opacity: roomOpacity
     });
     const room = new THREE.Mesh(new THREE.BoxGeometry(14, 10, 14), roomMat);
     room.position.y = 0;
@@ -65,6 +65,8 @@ const PartyLights = ({ isDarkMode = true }) => {
       uniform float uTime;
       uniform vec3  uSpots[8];
       uniform vec3  uSpotCols[8];
+      uniform vec3  uBallColor;
+      uniform float uBrightness;
       varying vec3 vNorm;
       varying vec3 vObj;
       varying vec3 vWorld;
@@ -103,24 +105,24 @@ const PartyLights = ({ isDarkMode = true }) => {
         vec3 V    = normalize(uCam - vWorld);
         vec3 R    = reflect(-V, tN);
 
-        vec3 col = vec3(0.15); 
+        vec3 col = uBallColor * uBrightness; 
         for(int i=0;i<8;i++){
           vec3 L    = normalize(uSpots[i]);
           float refl = max(dot(R, L), 0.0);
-          float flash = pow(refl, 180.0) * 6.0;
+          float flash = pow(refl, 180.0) * 6.0 * uBrightness;
           col += uSpotCols[i] * flash;
         }
 
         float d = max(dot(tN, normalize(vec3(0.9,8,0.9))), 0.);
-        col += vec3(0.8,0.15,0.10) * d * 0.3;
+        col += uBallColor * d * 0.5;
 
         vec3 H = normalize(normalize(vec3(-0.4,1.5,0.5)) + V);
         float sp = pow(max(dot(tN,H),0.),200.)*9.5;
-        col += vec3(0.6, 0.5, 0.2) * d * 0.2;
+        col += uBallColor * d * 0.3;
 
-        col = mix(col, vec3(0.005), edge);
+        col = mix(col, uBallColor * uBrightness * 0.3, edge);
         float rim = pow(1.-max(dot(N,V),0.), 2.5)*0.15;
-        col += vec3(0.1,0.15,0.25)*rim;
+        col += uBallColor * rim * 0.5;
 
         gl_FragColor = vec4(col, 1.);
       }
@@ -138,6 +140,12 @@ const PartyLights = ({ isDarkMode = true }) => {
       spotDirs.push(new THREE.Vector3());
     }
 
+    const ballColor = isDarkMode 
+      ? new THREE.Vector3(0.1, 0.5, 0.85)
+      : new THREE.Vector3(0.75, 0.88, 1.0);
+    
+    const brightness = isDarkMode ? 0.15 : 0.7;
+
     const ballMat = new THREE.ShaderMaterial({
       vertexShader: ballVert,
       fragmentShader: ballFrag,
@@ -146,6 +154,8 @@ const PartyLights = ({ isDarkMode = true }) => {
         uTime: { value: 0.0 },
         uSpots: { value: spotDirs },
         uSpotCols: { value: spotCols },
+        uBallColor: { value: ballColor },
+        uBrightness: { value: brightness },
       },
     });
 

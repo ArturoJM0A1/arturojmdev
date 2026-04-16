@@ -66,24 +66,25 @@
   --clock-media-frame: linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(191, 219, 254, 0.14) 100%);
   --clock-media-shadow: rgba(37, 99, 235, 0.3);
   --clock-party-stage:
-    radial-gradient(circle at 16% 20%, rgba(6, 182, 212, 0.34) 0%, transparent 32%),
-    radial-gradient(circle at 84% 18%, rgba(37, 99, 235, 0.3) 0%, transparent 34%),
-    radial-gradient(circle at 50% 96%, rgba(255, 107, 53, 0.16) 0%, transparent 46%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.26) 0%, rgba(226, 240, 255, 0.06) 45%, rgba(194, 228, 255, 0.34) 100%);
+    radial-gradient(circle at 16% 20%, rgba(99, 179, 237, 0.45) 0%, transparent 32%),
+    radial-gradient(circle at 84% 18%, rgba(147, 197, 253, 0.4) 0%, transparent 34%),
+    radial-gradient(circle at 50% 96%, rgba(186, 230, 253, 0.3) 0%, transparent 46%),
+    radial-gradient(circle at 50% 50%, rgba(219, 234, 254, 0.2) 0%, transparent 50%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(226, 240, 255, 0.12) 45%, rgba(186, 230, 253, 0.4) 100%);
   --clock-party-floor:
-    linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.12) 100%),
+    linear-gradient(180deg, rgba(186, 230, 253, 0) 0%, rgba(147, 197, 253, 0.2) 100%),
     repeating-linear-gradient(90deg,
-      rgba(255, 255, 255, 0.04) 0 14px,
-      rgba(37, 99, 235, 0.16) 14px 28px,
-      rgba(6, 182, 212, 0.16) 28px 42px,
-      rgba(255, 107, 53, 0.12) 42px 56px);
-  --clock-party-beam-1: rgba(37, 99, 235, 0.34);
-  --clock-party-beam-2: rgba(6, 182, 212, 0.32);
-  --clock-party-beam-3: rgba(255, 107, 53, 0.24);
-  --clock-party-spark: rgba(255, 255, 255, 0.84);
-  --clock-party-shadow: rgba(37, 99, 235, 0.28);
-  --clock-party-ball-core: rgba(255, 255, 255, 0.92);
-  --clock-party-ball-ring: rgba(37, 99, 235, 0.28);
+      rgba(186, 230, 253, 0.1) 0 14px,
+      rgba(99, 179, 237, 0.2) 14px 28px,
+      rgba(147, 197, 253, 0.25) 28px 42px,
+      rgba(186, 230, 253, 0.15) 42px 56px);
+  --clock-party-beam-1: rgba(99, 179, 237, 0.5);
+  --clock-party-beam-2: rgba(147, 197, 253, 0.45);
+  --clock-party-beam-3: rgba(186, 230, 253, 0.4);
+  --clock-party-spark: rgba(219, 234, 254, 0.9);
+  --clock-party-shadow: rgba(59, 130, 246, 0.35);
+  --clock-party-ball-core: rgba(219, 234, 254, 0.95);
+  --clock-party-ball-ring: rgba(99, 179, 237, 0.4);
 
   --clock-media-filter:
     brightness(0.9) hue-rotate(-20deg) blur(0.3px);
@@ -2124,14 +2125,14 @@ footer {
   position: absolute;
   inset: -12% -18% 24%;
   background:
-    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.3) 0%, transparent 42%),
+    radial-gradient(circle at 50% 0%, rgba(219, 234, 254, 0.5) 0%, transparent 42%),
     conic-gradient(from 210deg at 50% 0%,
       transparent 0deg 28deg,
-      var(--clock-party-beam-1) 28deg 52deg,
+      rgba(99, 179, 237, 0.6) 28deg 52deg,
       transparent 52deg 136deg,
-      var(--clock-party-beam-2) 136deg 164deg,
+      rgba(147, 197, 253, 0.55) 136deg 164deg,
       transparent 164deg 226deg,
-      var(--clock-party-beam-3) 226deg 252deg,
+      rgba(186, 230, 253, 0.5) 226deg 252deg,
       transparent 252deg 360deg);
   filter: blur(12px);
   mix-blend-mode: screen;
@@ -2388,13 +2389,13 @@ footer {
 [data-theme="light"] .footer-clock__la-fiesta {
   background: linear-gradient(
     135deg,
-    var(--clock-party-beam-1) 0%,
-    var(--clock-party-beam-2) 50%,
-    var(--clock-party-beam-3) 100%
+    rgba(99, 179, 237, 0.9) 0%,
+    rgba(147, 197, 253, 0.9) 50%,
+    rgba(186, 230, 253, 0.9) 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
-  filter: drop-shadow(0 0 12px rgba(37, 99, 235, 0.4)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.5)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 @keyframes laFiestaShimmer {
