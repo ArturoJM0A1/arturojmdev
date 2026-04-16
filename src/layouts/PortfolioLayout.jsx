@@ -9,6 +9,7 @@ import Particles from "../particulasfondo.jsx";
 import GhostCursor from "../components/GhostCursor.jsx";
 import SidebarInfo from "../components/SidebarInfo.jsx";
 import SiteHeader from "../components/SiteHeader.jsx";
+import PartyLights from "../components/PartyLights.jsx";
 import { scrollToSection } from "../menuNavigation.js";
 
 const pageTitles = {
@@ -531,9 +532,8 @@ export default function PortfolioLayout() {
       <div className="footer-clock-stack">
         <div className="footer-clock__visual" aria-hidden="true">
           <div className="footer-clock__party-lights">
-            <span className="footer-clock__party-beam footer-clock__party-beam--left" />
-            <span className="footer-clock__party-beam footer-clock__party-beam--center" />
-            <span className="footer-clock__party-beam footer-clock__party-beam--right" />
+            <PartyLights isDarkMode={theme === "dark"} />
+            <span className="footer-clock__la-fiesta">La Fiesta</span>
           </div>
           <span className="footer-clock__mirrorball fcm1" />
           <span className="footer-clock__mirrorball fcm2" />
