@@ -4577,6 +4577,7 @@ body.dark-mode .comment-item {
   white-space: pre-wrap;
   word-break: break-word;
   overflow-wrap: anywhere;
+  opacity: 0;
 }
 
 .comment-inline-code {

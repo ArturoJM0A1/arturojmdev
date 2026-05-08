@@ -1,0 +1,260 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+
+<html>
+<head>
+
+    <title>Catálogo Créditos</title>
+
+    <!-- ExtJS Viejo -->
+    <link rel="stylesheet" type="text/css" href="ext/resources/css/ext-all.css"/>
+
+    <script type="text/javascript" src="ext/ext-base.js"></script>
+    <script type="text/javascript" src="ext/ext-all.js"></script>
+
+    <!-- JS del módulo -->
+    <script type="text/javascript" src="js/credito.js"></script>
+
+</head>
+
+<body>
+
+    <div id="gridCreditos"></div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+Ext.onReady(function(){
+
+    Ext.QuickTips.init();
+
+    /*
+        STORE
+    */
+
+    var storeCreditos = new Ext.data.JsonStore({
+
+        url : 'creditoDwr/listarCreditos.dwr',
+
+        root : 'data',
+
+        fields : [
+            'NUM_CREDITO',
+            'FEC_INICIO',
+            'FEC_VENCIMIENTO',
+            'NUM_MONTO_CARTERA'
+        ],
+
+        autoLoad : true
+    });
+
+    /*
+        FORMULARIO
+    */
+
+    var formCredito = new Ext.form.FormPanel({
+
+        labelWidth : 140,
+
+        frame : true,
+
+        width : 400,
+
+        bodyStyle : 'padding:10px',
+
+        defaultType : 'textfield',
+
+        items : [
+
+            {
+                fieldLabel : 'Número Crédito',
+                name : 'NUM_CREDITO',
+                id : 'NUM_CREDITO',
+                width : 200
+            },
+
+            {
+                fieldLabel : 'Monto Cartera',
+                name : 'NUM_MONTO_CARTERA',
+                id : 'NUM_MONTO_CARTERA',
+                width : 200
+            }
+
+        ],
+
+        buttons : [
+
+            /*
+                INSERT
+            */
+
+            {
+                text : 'Guardar',
+
+                handler : function(){
+
+                    var numCredito =
+                        Ext.getCmp('NUM_CREDITO').getValue();
+
+                    /*
+                        DWR
+                    */
+
+                    CreditoService.insertarCredito(
+                        numCredito,
+
+                        function(response){
+
+                            Ext.Msg.alert(
+                                'Mensaje',
+                                'Crédito insertado correctamente'
+                            );
+
+                            storeCreditos.reload();
+                        }
+                    );
+                }
+            },
+
+            /*
+                UPDATE
+            */
+
+            {
+                text : 'Actualizar Monto',
+
+                handler : function(){
+
+                    var numCredito =
+                        Ext.getCmp('NUM_CREDITO').getValue();
+
+                    var monto =
+                        Ext.getCmp('NUM_MONTO_CARTERA').getValue();
+
+                    CreditoService.actualizarMonto(
+                        numCredito,
+                        monto,
+
+                        function(response){
+
+                            Ext.Msg.alert(
+                                'Mensaje',
+                                'Monto actualizado'
+                            );
+
+                            storeCreditos.reload();
+                        }
+                    );
+                }
+            },
+
+            /*
+                DELETE
+            */
+
+            {
+                text : 'Eliminar Monto',
+
+                handler : function(){
+
+                    var numCredito =
+                        Ext.getCmp('NUM_CREDITO').getValue();
+
+                    CreditoService.eliminarMonto(
+                        numCredito,
+
+                        function(response){
+
+                            Ext.Msg.alert(
+                                'Mensaje',
+                                'Monto eliminado'
+                            );
+
+                            storeCreditos.reload();
+                        }
+                    );
+                }
+            }
+
+        ]
+    });
+
+    /*
+        GRID
+    */
+
+    var gridCreditos = new Ext.grid.GridPanel({
+
+        renderTo : 'gridCreditos',
+
+        store : storeCreditos,
+
+        width : 900,
+
+        height : 400,
+
+        frame : true,
+
+        title : 'Catálogo Créditos',
+
+        columns : [
+
+            {
+                header : 'Número Crédito',
+                dataIndex : 'NUM_CREDITO',
+                width : 150
+            },
+
+            {
+                header : 'Fecha Inicio',
+                dataIndex : 'FEC_INICIO',
+                width : 180
+            },
+
+            {
+                header : 'Fecha Vencimiento',
+                dataIndex : 'FEC_VENCIMIENTO',
+                width : 180
+            },
+
+            {
+                header : 'Monto Cartera',
+                dataIndex : 'NUM_MONTO_CARTERA',
+                width : 180
+            }
+
+        ],
+
+        tbar : [
+
+            {
+                text : 'Nuevo Crédito',
+
+                handler : function(){
+
+                    var ventana = new Ext.Window({
+
+                        title : 'Nuevo Crédito',
+
+                        width : 450,
+
+                        height : 220,
+
+                        modal : true,
+
+                        items : [formCredito]
+                    });
+
+                    ventana.show();
+                }
+            }
+
+        ]
+    });
+
+});
