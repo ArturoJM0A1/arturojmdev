@@ -258,3 +258,84 @@ Ext.onReady(function(){
     });
 
 });
+
+
+
+
+
+
+dwr.xml
+
+<dwr>
+
+    <allow>
+
+        <create creator="new"
+                javascript="CreditoService">
+
+            <param name="class"
+                   value="com.inbursa.credito.CreditoService"/>
+
+        </create>
+
+    </allow>
+
+</dwr>
+
+
+
+
+
+
+
+CreditoService.java
+
+public class CreditoService {
+
+    private CreditoDAO dao;
+
+    public List listarCreditos(){
+
+        return dao.listarCreditos();
+    }
+
+    public void insertarCredito(String numCredito){
+
+        dao.insertarCredito(numCredito);
+    }
+
+    public void actualizarMonto(
+            String numCredito,
+            Double monto){
+
+        dao.actualizarMonto(numCredito, monto);
+    }
+
+    public void eliminarMonto(String numCredito){
+
+        dao.eliminarMonto(numCredito);
+    }
+}
+
+
+
+
+CreditoDAO.java
+
+public class CreditoDAO {
+
+    public List listarCreditos(){
+
+        Session session =
+            HibernateUtil.getSessionFactory()
+            .openSession();
+
+        Query query =
+            session.createQuery(
+                "FROM Credito"
+            );
+
+        return query.list();
+    }
+}
+
