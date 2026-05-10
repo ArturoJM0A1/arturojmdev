@@ -1,341 +1,358 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+# Módulo CRUD Completo - CRE_CAT_CENTRO_COSTOS_OPM
 
+## 1. `CentroCostosOPM.java` (Entity)
+
+```java
+package com.inbursa.creditos.persistence.entity;
+
+import java.io.Serializable;
+
+public class CentroCostosOPM implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    private String cveCentroCostos;
+    private Integer numOrden;
+    private Double numCuentaMaxima;
+    private String cuentaOperativa;
+    private Boolean bolActivo;
+    private String codigo;
+
+    public CentroCostosOPM() {}
+
+    public String getCveCentroCostos() {
+        return cveCentroCostos;
+    }
+
+    public void setCveCentroCostos(String cveCentroCostos) {
+        this.cveCentroCostos = cveCentroCostos;
+    }
+
+    public Integer getNumOrden() {
+        return numOrden;
+    }
+
+    public void setNumOrden(Integer numOrden) {
+        this.numOrden = numOrden;
+    }
+
+    public Double getNumCuentaMaxima() {
+        return numCuentaMaxima;
+    }
+
+    public void setNumCuentaMaxima(Double numCuentaMaxima) {
+        this.numCuentaMaxima = numCuentaMaxima;
+    }
+
+    public String getCuentaOperativa() {
+        return cuentaOperativa;
+    }
+
+    public void setCuentaOperativa(String cuentaOperativa) {
+        this.cuentaOperativa = cuentaOperativa;
+    }
+
+    public Boolean getBolActivo() {
+        return bolActivo;
+    }
+
+    public void setBolActivo(Boolean bolActivo) {
+        this.bolActivo = bolActivo;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+}
+```
+
+---
+
+## 2. `CentroCostosOPMDAO.java`
+
+```java
+package com.inbursa.creditos.persistence.dao;
+
+import java.util.List;
+import com.inbursa.creditos.persistence.entity.CentroCostosOPM;
+
+public interface CentroCostosOPMDAO {
+
+    void guardar(CentroCostosOPM entity);
+
+    void actualizar(CentroCostosOPM entity);
+
+    void eliminar(CentroCostosOPM entity);
+
+    CentroCostosOPM obtenerPorClave(String cveCentroCostos);
+
+    List<CentroCostosOPM> consultarTodos();
+
+    List<CentroCostosOPM> consultarPorFiltro(String codigo, Boolean activo);
+}
+```
+
+---
+
+## 3. `CentroCostosOPMBI.java`
+
+```java
+package com.inbursa.creditos.business;
+
+import java.util.List;
+import com.inbursa.creditos.persistence.entity.CentroCostosOPM;
+
+public interface CentroCostosOPMBI {
+
+    void altaCentroCostos(CentroCostosOPM dto) throws Exception;
+
+    void actualizarCentroCostos(CentroCostosOPM dto) throws Exception;
+
+    void eliminarCentroCostos(String clave) throws Exception;
+
+    CentroCostosOPM consultarPorClave(String clave) throws Exception;
+
+    List<CentroCostosOPM> consultarTodos() throws Exception;
+
+    List<CentroCostosOPM> consultarPorFiltro(String codigo, Boolean activo) throws Exception;
+}
+```
+
+---
+
+## 4. `CentroCostosOPMBIImpl.java`
+
+```java
+package com.inbursa.creditos.business.impl;
+
+import java.util.List;
+
+import com.inbursa.creditos.business.CentroCostosOPMBI;
+import com.inbursa.creditos.persistence.dao.CentroCostosOPMDAO;
+import com.inbursa.creditos.persistence.entity.CentroCostosOPM;
+
+public class CentroCostosOPMBIImpl implements CentroCostosOPMBI {
+
+    private CentroCostosOPMDAO centroCostosOPMDAO;
+
+    public void altaCentroCostos(CentroCostosOPM dto) throws Exception {
+        validar(dto);
+        dto.setBolActivo(true);
+        centroCostosOPMDAO.guardar(dto);
+    }
+
+    public void actualizarCentroCostos(CentroCostosOPM dto) throws Exception {
+        validar(dto);
+        centroCostosOPMDAO.actualizar(dto);
+    }
+
+    public void eliminarCentroCostos(String clave) throws Exception {
+        CentroCostosOPM entity = centroCostosOPMDAO.obtenerPorClave(clave);
+        if(entity != null){
+            entity.setBolActivo(false);
+            centroCostosOPMDAO.actualizar(entity);
+        }
+    }
+
+    public CentroCostosOPM consultarPorClave(String clave) throws Exception {
+        return centroCostosOPMDAO.obtenerPorClave(clave);
+    }
+
+    public List<CentroCostosOPM> consultarTodos() throws Exception {
+        return centroCostosOPMDAO.consultarTodos();
+    }
+
+    public List<CentroCostosOPM> consultarPorFiltro(String codigo, Boolean activo) throws Exception {
+        return centroCostosOPMDAO.consultarPorFiltro(codigo, activo);
+    }
+
+    private void validar(CentroCostosOPM dto) throws Exception {
+        if(dto == null){
+            throw new Exception("El objeto CentroCostosOPM es requerido");
+        }
+        if(dto.getCveCentroCostos() == null || dto.getCveCentroCostos().trim().equals("")){
+            throw new Exception("La clave de centro de costos es obligatoria");
+        }
+    }
+
+    public void setCentroCostosOPMDAO(CentroCostosOPMDAO centroCostosOPMDAO) {
+        this.centroCostosOPMDAO = centroCostosOPMDAO;
+    }
+}
+```
+
+---
+
+## 5. `CentroCostosOPMAppl.java`
+
+```java
+package com.inbursa.creditos.application;
+
+import java.util.List;
+import com.inbursa.creditos.persistence.entity.CentroCostosOPM;
+
+public interface CentroCostosOPMAppl {
+
+    void guardarCentroCostos(CentroCostosOPM dto) throws Exception;
+
+    void actualizarCentroCostos(CentroCostosOPM dto) throws Exception;
+
+    void eliminarCentroCostos(String clave) throws Exception;
+
+    List<CentroCostosOPM> obtenerTodos() throws Exception;
+
+    List<CentroCostosOPM> buscarPorFiltro(String codigo, Boolean activo) throws Exception;
+}
+```
+
+---
+
+## 6. `CentroCostosOPMApplImpl.java`
+
+```java
+package com.inbursa.creditos.application.impl;
+
+import java.util.List;
+
+import com.inbursa.creditos.application.CentroCostosOPMAppl;
+import com.inbursa.creditos.business.CentroCostosOPMBI;
+import com.inbursa.creditos.persistence.entity.CentroCostosOPM;
+
+public class CentroCostosOPMApplImpl implements CentroCostosOPMAppl {
+
+    private CentroCostosOPMBI centroCostosOPMBI;
+
+    public void guardarCentroCostos(CentroCostosOPM dto) throws Exception {
+        centroCostosOPMBI.altaCentroCostos(dto);
+    }
+
+    public void actualizarCentroCostos(CentroCostosOPM dto) throws Exception {
+        centroCostosOPMBI.actualizarCentroCostos(dto);
+    }
+
+    public void eliminarCentroCostos(String clave) throws Exception {
+        centroCostosOPMBI.eliminarCentroCostos(clave);
+    }
+
+    public List<CentroCostosOPM> obtenerTodos() throws Exception {
+        return centroCostosOPMBI.consultarTodos();
+    }
+
+    public List<CentroCostosOPM> buscarPorFiltro(String codigo, Boolean activo) throws Exception {
+        return centroCostosOPMBI.consultarPorFiltro(codigo, activo);
+    }
+
+    public void setCentroCostosOPMBI(CentroCostosOPMBI centroCostosOPMBI) {
+        this.centroCostosOPMBI = centroCostosOPMBI;
+    }
+}
+```
+
+---
+
+## 7. `CentroCostosOPM.jsp`
+
+```jsp
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-
-    <title>Catálogo Créditos</title>
-
-    <!-- ExtJS Viejo -->
-    <link rel="stylesheet" type="text/css" href="ext/resources/css/ext-all.css"/>
-
-    <script type="text/javascript" src="ext/ext-base.js"></script>
-    <script type="text/javascript" src="ext/ext-all.js"></script>
-
-    <!-- JS del módulo -->
-    <script type="text/javascript" src="js/credito.js"></script>
-
+    <title>Catálogo Centro Costos OPM</title>
+    <script type="text/javascript" src="js/extjs/ext-all.js"></script>
+    <script type="text/javascript" src="dwr/interface/CentroCostosOPMDWR.js"></script>
+    <script type="text/javascript" src="js/CentroCostosOPM.js"></script>
 </head>
-
 <body>
-
-    <div id="gridCreditos"></div>
-
+    <div id="gridCentroCostos"></div>
 </body>
 </html>
+```
 
+---
 
+## 8. `CentroCostosOPM.js`
 
-
-
-
-
+```javascript
 Ext.onReady(function(){
 
-    Ext.QuickTips.init();
-
-    /*
-        STORE
-    */
-
-    var storeCreditos = new Ext.data.JsonStore({
-
-        url : 'creditoDwr/listarCreditos.dwr',
-
-        root : 'data',
-
-        fields : [
-            'NUM_CREDITO',
-            'FEC_INICIO',
-            'FEC_VENCIMIENTO',
-            'NUM_MONTO_CARTERA'
+    var storeCentroCostos = new Ext.data.JsonStore({
+        fields:[
+            'cveCentroCostos',
+            'numOrden',
+            'numCuentaMaxima',
+            'cuentaOperativa',
+            'bolActivo',
+            'codigo'
         ],
-
-        autoLoad : true
+        data:[]
     });
 
-    /*
-        FORMULARIO
-    */
+    function cargarDatos(){
+        CentroCostosOPMDWR.obtenerTodos(function(response){
+            storeCentroCostos.loadData(response);
+        });
+    }
 
-    var formCredito = new Ext.form.FormPanel({
-
-        labelWidth : 140,
-
-        frame : true,
-
-        width : 400,
-
-        bodyStyle : 'padding:10px',
-
-        defaultType : 'textfield',
-
-        items : [
-
-            {
-                fieldLabel : 'Número Crédito',
-                name : 'NUM_CREDITO',
-                id : 'NUM_CREDITO',
-                width : 200
-            },
-
-            {
-                fieldLabel : 'Monto Cartera',
-                name : 'NUM_MONTO_CARTERA',
-                id : 'NUM_MONTO_CARTERA',
-                width : 200
-            }
-
+    var formCentroCostos = new Ext.form.FormPanel({
+        title:'Centro Costos OPM',
+        items:[
+            {xtype:'textfield', fieldLabel:'Clave', name:'cveCentroCostos'},
+            {xtype:'textfield', fieldLabel:'Código', name:'codigo'},
+            {xtype:'textfield', fieldLabel:'Cuenta Operativa', name:'cuentaOperativa'}
         ],
-
-        buttons : [
-
-            /*
-                INSERT
-            */
-
+        buttons:[
             {
-                text : 'Guardar',
-
-                handler : function(){
-
-                    var numCredito =
-                        Ext.getCmp('NUM_CREDITO').getValue();
-
-                    /*
-                        DWR
-                    */
-
-                    CreditoService.insertarCredito(
-                        numCredito,
-
-                        function(response){
-
-                            Ext.Msg.alert(
-                                'Mensaje',
-                                'Crédito insertado correctamente'
-                            );
-
-                            storeCreditos.reload();
-                        }
-                    );
-                }
-            },
-
-            /*
-                UPDATE
-            */
-
-            {
-                text : 'Actualizar Monto',
-
-                handler : function(){
-
-                    var numCredito =
-                        Ext.getCmp('NUM_CREDITO').getValue();
-
-                    var monto =
-                        Ext.getCmp('NUM_MONTO_CARTERA').getValue();
-
-                    CreditoService.actualizarMonto(
-                        numCredito,
-                        monto,
-
-                        function(response){
-
-                            Ext.Msg.alert(
-                                'Mensaje',
-                                'Monto actualizado'
-                            );
-
-                            storeCreditos.reload();
-                        }
-                    );
-                }
-            },
-
-            /*
-                DELETE
-            */
-
-            {
-                text : 'Eliminar Monto',
-
-                handler : function(){
-
-                    var numCredito =
-                        Ext.getCmp('NUM_CREDITO').getValue();
-
-                    CreditoService.eliminarMonto(
-                        numCredito,
-
-                        function(response){
-
-                            Ext.Msg.alert(
-                                'Mensaje',
-                                'Monto eliminado'
-                            );
-
-                            storeCreditos.reload();
-                        }
-                    );
-                }
-            }
-
-        ]
-    });
-
-    /*
-        GRID
-    */
-
-    var gridCreditos = new Ext.grid.GridPanel({
-
-        renderTo : 'gridCreditos',
-
-        store : storeCreditos,
-
-        width : 900,
-
-        height : 400,
-
-        frame : true,
-
-        title : 'Catálogo Créditos',
-
-        columns : [
-
-            {
-                header : 'Número Crédito',
-                dataIndex : 'NUM_CREDITO',
-                width : 150
-            },
-
-            {
-                header : 'Fecha Inicio',
-                dataIndex : 'FEC_INICIO',
-                width : 180
-            },
-
-            {
-                header : 'Fecha Vencimiento',
-                dataIndex : 'FEC_VENCIMIENTO',
-                width : 180
-            },
-
-            {
-                header : 'Monto Cartera',
-                dataIndex : 'NUM_MONTO_CARTERA',
-                width : 180
-            }
-
-        ],
-
-        tbar : [
-
-            {
-                text : 'Nuevo Crédito',
-
-                handler : function(){
-
-                    var ventana = new Ext.Window({
-
-                        title : 'Nuevo Crédito',
-
-                        width : 450,
-
-                        height : 220,
-
-                        modal : true,
-
-                        items : [formCredito]
+                text:'Guardar',
+                handler:function(){
+                    var values = formCentroCostos.getForm().getValues();
+                    CentroCostosOPMDWR.guardarCentroCostos(values, function(){
+                        cargarDatos();
                     });
-
-                    ventana.show();
+                }
+            },
+            {
+                text:'Actualizar',
+                handler:function(){
+                    var values = formCentroCostos.getForm().getValues();
+                    CentroCostosOPMDWR.actualizarCentroCostos(values, function(){
+                        cargarDatos();
+                    });
                 }
             }
-
         ]
     });
 
+    var gridCentroCostos = new Ext.grid.GridPanel({
+        renderTo:'gridCentroCostos',
+        store:storeCentroCostos,
+        columns:[
+            {header:'Clave', dataIndex:'cveCentroCostos'},
+            {header:'Código', dataIndex:'codigo'},
+            {header:'Cuenta Operativa', dataIndex:'cuentaOperativa'},
+            {header:'Activo', dataIndex:'bolActivo'}
+        ],
+        height:300,
+        width:800,
+        tbar:[
+            {
+                text:'Eliminar',
+                handler:function(){
+                    var record = gridCentroCostos.getSelectionModel().getSelected();
+                    if(record){
+                        CentroCostosOPMDWR.eliminarCentroCostos(record.data.cveCentroCostos, function(){
+                            cargarDatos();
+                        });
+                    }
+                }
+            }
+        ]
+    });
+
+    formCentroCostos.render(document.body);
+    cargarDatos();
 });
-
-
-
-
-
-
-dwr.xml
-
-<dwr>
-
-    <allow>
-
-        <create creator="new"
-                javascript="CreditoService">
-
-            <param name="class"
-                   value="com.inbursa.credito.CreditoService"/>
-
-        </create>
-
-    </allow>
-
-</dwr>
-
-
-
-
-
-
-
-CreditoService.java
-
-public class CreditoService {
-
-    private CreditoDAO dao;
-
-    public List listarCreditos(){
-
-        return dao.listarCreditos();
-    }
-
-    public void insertarCredito(String numCredito){
-
-        dao.insertarCredito(numCredito);
-    }
-
-    public void actualizarMonto(
-            String numCredito,
-            Double monto){
-
-        dao.actualizarMonto(numCredito, monto);
-    }
-
-    public void eliminarMonto(String numCredito){
-
-        dao.eliminarMonto(numCredito);
-    }
-}
-
-
-
-
-CreditoDAO.java
-
-public class CreditoDAO {
-
-    public List listarCreditos(){
-
-        Session session =
-            HibernateUtil.getSessionFactory()
-            .openSession();
-
-        Query query =
-            session.createQuery(
-                "FROM Credito"
-            );
-
-        return query.list();
-    }
-}
+```
 
