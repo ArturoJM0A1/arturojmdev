@@ -1,23 +1,193 @@
-# Módulo CRUD Completo - CRE_CAT_CENTRO_COSTOS_OPM
 
-## 1. `CentroCostosOPM.java` (Entity)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1 CentroCostosOPM.java (Entity)
+Representa la entidad de negocio y el mapeo de la tabla CRE_CAT_CENTRO_COSTOS_OPM.
+Cada atributo Java corresponde a una columna de la tabla. 
+
+
+2 CentroCostosOPMDAO.java (DAO / Persistencia)
+Define las operaciones de acceso a datos hacia la base de datos.
+Ejemplos:
+guardar, 
+actualizar, 
+eliminar, 
+consultar. 
+Aquí NO va lógica de negocio, solo persistencia.
+
+3 CentroCostosOPMBI.java (Business Interface)
+Define los métodos de lógica de negocio que el sistema puede ejecutar.
+Ejemplos:
+alta de centro de costos, 
+consulta general, 
+actualización, 
+eliminación lógica. 
+Es el contrato de negocio.
+
+4 CentroCostosOPMBIImpl.java (Business Implementation)
+Implementa la lógica de negocio real y las validaciones del sistema.
+Ejemplos:
+validar datos obligatorios, 
+activar/desactivar registros, 
+decidir reglas del negocio, 
+llamar al DAO para persistencia. 
+Ejemplo:
+"La clave de centro de costos es obligatoria".
+
+
+5 CentroCostosOPMAppl.java (Application Interface)
+Define la comunicación entre frontend y lógica de negocio.
+Funciona como capa intermedia entre presentación y negocio. 
+
+
+6 CentroCostosOPMApplImpl.java (Application Implementation)
+Implementa la capa aplicación y delega las operaciones hacia la capa de negocio (BI).
+Su función principal es:
+recibir solicitudes del frontend, 
+enviar la petición a negocio, 
+regresar la respuesta. 
+No contiene lógica pesada; actúa como coordinador/intermediario.
+
+
+7 CentroCostosOPM.jsp (Vista / Presentación)
+Página JSP que carga la interfaz frontend.
+Se encarga de: 
+cargar scripts, 
+renderizar componentes, 
+preparar el contenedor visual. 
+
+
+8 CentroCostosOPM.js (Frontend / ExtJS)
+Contiene la lógica visual y comportamiento frontend.
+Maneja: 
+botones CRUD, 
+formularios, 
+grids, 
+eventos, 
+llamadas DWR al backend, 
+carga de datos en pantalla. 
+
+
+
+
+
+
+
+# 1. `CentroCostosOPM.java` (Entity)
 
 ```java
 package com.inbursa.creditos.persistence.entity;
 
 import java.io.Serializable;
 
+/*
+ * Entity que representa el catálogo CRE_CAT_CENTRO_COSTOS_OPM.
+ * Contiene los atributos del modelo de datos utilizados por el sistema.
+ */
 public class CentroCostosOPM implements Serializable {
 
+    /*
+     * Identificador de serialización para la entidad.
+     */
     private static final long serialVersionUID = 1L;
 
+    /*
+     * Clave principal del centro de costos.
+     */
     private String cveCentroCostos;
+
+    /*
+     * Número de orden utilizado para clasificación.
+     */
     private Integer numOrden;
+
+    /*
+     * Monto máximo permitido para la cuenta.
+     */
     private Double numCuentaMaxima;
+
+    /*
+     * Cuenta operativa asociada.
+     */
     private String cuentaOperativa;
+
+    /*
+     * Indicador lógico de estatus activo/inactivo.
+     */
     private Boolean bolActivo;
+
+    /*
+     * Código interno del registro.
+     */
     private String codigo;
 
+    /*
+     * Constructor vacío requerido para instanciación del objeto.
+     */
     public CentroCostosOPM() {}
 
     public String getCveCentroCostos() {
@@ -72,7 +242,7 @@ public class CentroCostosOPM implements Serializable {
 
 ---
 
-## 2. `CentroCostosOPMDAO.java`
+# 2. `CentroCostosOPMDAO.java`
 
 ```java
 package com.inbursa.creditos.persistence.dao;
@@ -80,25 +250,47 @@ package com.inbursa.creditos.persistence.dao;
 import java.util.List;
 import com.inbursa.creditos.persistence.entity.CentroCostosOPM;
 
+/*
+ * DAO encargado de las operaciones de persistencia
+ * para la entidad CentroCostosOPM.
+ */
 public interface CentroCostosOPMDAO {
 
+    /*
+     * Inserta un nuevo registro en base de datos.
+     */
     void guardar(CentroCostosOPM entity);
 
+    /*
+     * Actualiza un registro existente.
+     */
     void actualizar(CentroCostosOPM entity);
 
+    /*
+     * Elimina un registro de base de datos.
+     */
     void eliminar(CentroCostosOPM entity);
 
+    /*
+     * Consulta un registro por su clave principal.
+     */
     CentroCostosOPM obtenerPorClave(String cveCentroCostos);
 
+    /*
+     * Obtiene todos los registros disponibles.
+     */
     List<CentroCostosOPM> consultarTodos();
 
+    /*
+     * Consulta registros utilizando filtros dinámicos.
+     */
     List<CentroCostosOPM> consultarPorFiltro(String codigo, Boolean activo);
 }
 ```
 
 ---
 
-## 3. `CentroCostosOPMBI.java`
+# 3. `CentroCostosOPMBI.java`
 
 ```java
 package com.inbursa.creditos.business;
@@ -106,25 +298,47 @@ package com.inbursa.creditos.business;
 import java.util.List;
 import com.inbursa.creditos.persistence.entity.CentroCostosOPM;
 
+/*
+ * Interface de negocio que define las operaciones
+ * funcionales del módulo CentroCostosOPM.
+ */
 public interface CentroCostosOPMBI {
 
+    /*
+     * Ejecuta el alta de un nuevo centro de costos.
+     */
     void altaCentroCostos(CentroCostosOPM dto) throws Exception;
 
+    /*
+     * Ejecuta la actualización de un centro de costos.
+     */
     void actualizarCentroCostos(CentroCostosOPM dto) throws Exception;
 
+    /*
+     * Ejecuta la eliminación lógica del registro.
+     */
     void eliminarCentroCostos(String clave) throws Exception;
 
+    /*
+     * Consulta un registro utilizando la clave.
+     */
     CentroCostosOPM consultarPorClave(String clave) throws Exception;
 
+    /*
+     * Obtiene todos los registros del catálogo.
+     */
     List<CentroCostosOPM> consultarTodos() throws Exception;
 
+    /*
+     * Consulta registros aplicando filtros.
+     */
     List<CentroCostosOPM> consultarPorFiltro(String codigo, Boolean activo) throws Exception;
 }
 ```
 
 ---
 
-## 4. `CentroCostosOPMBIImpl.java`
+# 4. `CentroCostosOPMBIImpl.java`
 
 ```java
 package com.inbursa.creditos.business.impl;
@@ -135,21 +349,38 @@ import com.inbursa.creditos.business.CentroCostosOPMBI;
 import com.inbursa.creditos.persistence.dao.CentroCostosOPMDAO;
 import com.inbursa.creditos.persistence.entity.CentroCostosOPM;
 
+/*
+ * Implementación de la lógica de negocio
+ * para el módulo CentroCostosOPM.
+ */
 public class CentroCostosOPMBIImpl implements CentroCostosOPMBI {
 
+    /*
+     * DAO utilizado para operaciones de persistencia.
+     */
     private CentroCostosOPMDAO centroCostosOPMDAO;
 
+    /*
+     * Realiza el alta de un centro de costos.
+     * Valida información y activa el registro.
+     */
     public void altaCentroCostos(CentroCostosOPM dto) throws Exception {
         validar(dto);
         dto.setBolActivo(true);
         centroCostosOPMDAO.guardar(dto);
     }
 
+    /*
+     * Actualiza la información del registro.
+     */
     public void actualizarCentroCostos(CentroCostosOPM dto) throws Exception {
         validar(dto);
         centroCostosOPMDAO.actualizar(dto);
     }
 
+    /*
+     * Ejecuta eliminación lógica cambiando el estatus a inactivo.
+     */
     public void eliminarCentroCostos(String clave) throws Exception {
         CentroCostosOPM entity = centroCostosOPMDAO.obtenerPorClave(clave);
         if(entity != null){
@@ -158,27 +389,50 @@ public class CentroCostosOPMBIImpl implements CentroCostosOPMBI {
         }
     }
 
+    /*
+     * Consulta un registro por clave.
+     */
     public CentroCostosOPM consultarPorClave(String clave) throws Exception {
         return centroCostosOPMDAO.obtenerPorClave(clave);
     }
 
+    /*
+     * Obtiene todos los registros disponibles.
+     */
     public List<CentroCostosOPM> consultarTodos() throws Exception {
         return centroCostosOPMDAO.consultarTodos();
     }
 
+    /*
+     * Consulta registros utilizando filtros.
+     */
     public List<CentroCostosOPM> consultarPorFiltro(String codigo, Boolean activo) throws Exception {
         return centroCostosOPMDAO.consultarPorFiltro(codigo, activo);
     }
 
+    /*
+     * Método central de validaciones de negocio.
+     */
     private void validar(CentroCostosOPM dto) throws Exception {
+
+        /*
+         * Valida que el objeto exista.
+         */
         if(dto == null){
             throw new Exception("El objeto CentroCostosOPM es requerido");
         }
+
+        /*
+         * Valida que la clave sea obligatoria.
+         */
         if(dto.getCveCentroCostos() == null || dto.getCveCentroCostos().trim().equals("")){
             throw new Exception("La clave de centro de costos es obligatoria");
         }
     }
 
+    /*
+     * Inyección del DAO.
+     */
     public void setCentroCostosOPMDAO(CentroCostosOPMDAO centroCostosOPMDAO) {
         this.centroCostosOPMDAO = centroCostosOPMDAO;
     }
@@ -187,7 +441,7 @@ public class CentroCostosOPMBIImpl implements CentroCostosOPMBI {
 
 ---
 
-## 5. `CentroCostosOPMAppl.java`
+# 5. `CentroCostosOPMAppl.java`
 
 ```java
 package com.inbursa.creditos.application;
@@ -195,23 +449,42 @@ package com.inbursa.creditos.application;
 import java.util.List;
 import com.inbursa.creditos.persistence.entity.CentroCostosOPM;
 
+/*
+ * Interface de aplicación utilizada como puente
+ * entre frontend y capa de negocio.
+ */
 public interface CentroCostosOPMAppl {
 
+    /*
+     * Solicita el guardado de un centro de costos.
+     */
     void guardarCentroCostos(CentroCostosOPM dto) throws Exception;
 
+    /*
+     * Solicita actualización de un registro.
+     */
     void actualizarCentroCostos(CentroCostosOPM dto) throws Exception;
 
+    /*
+     * Solicita eliminación lógica del registro.
+     */
     void eliminarCentroCostos(String clave) throws Exception;
 
+    /*
+     * Obtiene todos los registros del catálogo.
+     */
     List<CentroCostosOPM> obtenerTodos() throws Exception;
 
+    /*
+     * Realiza búsqueda aplicando filtros.
+     */
     List<CentroCostosOPM> buscarPorFiltro(String codigo, Boolean activo) throws Exception;
 }
 ```
 
 ---
 
-## 6. `CentroCostosOPMApplImpl.java`
+# 6. `CentroCostosOPMApplImpl.java`
 
 ```java
 package com.inbursa.creditos.application.impl;
@@ -222,30 +495,55 @@ import com.inbursa.creditos.application.CentroCostosOPMAppl;
 import com.inbursa.creditos.business.CentroCostosOPMBI;
 import com.inbursa.creditos.persistence.entity.CentroCostosOPM;
 
+/*
+ * Implementación de la capa aplicación.
+ * Coordina solicitudes entre frontend y negocio.
+ */
 public class CentroCostosOPMApplImpl implements CentroCostosOPMAppl {
 
+    /*
+     * Referencia a la capa de negocio.
+     */
     private CentroCostosOPMBI centroCostosOPMBI;
 
+    /*
+     * Delega el alta hacia la capa de negocio.
+     */
     public void guardarCentroCostos(CentroCostosOPM dto) throws Exception {
         centroCostosOPMBI.altaCentroCostos(dto);
     }
 
+    /*
+     * Delega la actualización hacia negocio.
+     */
     public void actualizarCentroCostos(CentroCostosOPM dto) throws Exception {
         centroCostosOPMBI.actualizarCentroCostos(dto);
     }
 
+    /*
+     * Delega eliminación lógica hacia negocio.
+     */
     public void eliminarCentroCostos(String clave) throws Exception {
         centroCostosOPMBI.eliminarCentroCostos(clave);
     }
 
+    /*
+     * Obtiene todos los registros.
+     */
     public List<CentroCostosOPM> obtenerTodos() throws Exception {
         return centroCostosOPMBI.consultarTodos();
     }
 
+    /*
+     * Ejecuta consulta filtrada.
+     */
     public List<CentroCostosOPM> buscarPorFiltro(String codigo, Boolean activo) throws Exception {
         return centroCostosOPMBI.consultarPorFiltro(codigo, activo);
     }
 
+    /*
+     * Inyección de dependencia de negocio.
+     */
     public void setCentroCostosOPMBI(CentroCostosOPMBI centroCostosOPMBI) {
         this.centroCostosOPMBI = centroCostosOPMBI;
     }
@@ -254,31 +552,59 @@ public class CentroCostosOPMApplImpl implements CentroCostosOPMAppl {
 
 ---
 
-## 7. `CentroCostosOPM.jsp`
+# 7. `CentroCostosOPM.jsp`
 
 ```jsp
 <%@ page contentType="text/html;charset=UTF-8" %>
+
+<!--
+    JSP principal del módulo Centro Costos OPM.
+    Se encarga de cargar recursos frontend y renderizar el contenedor visual.
+-->
+
 <html>
 <head>
+
+    <!-- Título mostrado en navegador -->
     <title>Catálogo Centro Costos OPM</title>
+
+    <!-- Librería principal ExtJS -->
     <script type="text/javascript" src="js/extjs/ext-all.js"></script>
+
+    <!-- Interface DWR para comunicación backend -->
     <script type="text/javascript" src="dwr/interface/CentroCostosOPMDWR.js"></script>
+
+    <!-- Archivo JS del módulo -->
     <script type="text/javascript" src="js/CentroCostosOPM.js"></script>
+
 </head>
 <body>
+
+    <!-- Contenedor principal del grid -->
     <div id="gridCentroCostos"></div>
+
 </body>
 </html>
 ```
 
 ---
 
-## 8. `CentroCostosOPM.js`
+# 8. `CentroCostosOPM.js`
 
 ```javascript
+/*
+ * Inicialización principal del módulo una vez cargado el DOM.
+ */
 Ext.onReady(function(){
 
+    /*
+     * Store utilizado para almacenar registros del grid.
+     */
     var storeCentroCostos = new Ext.data.JsonStore({
+
+        /*
+         * Definición de campos del modelo.
+         */
         fields:[
             'cveCentroCostos',
             'numOrden',
@@ -287,37 +613,78 @@ Ext.onReady(function(){
             'bolActivo',
             'codigo'
         ],
+
+        /*
+         * Inicialización vacía del store.
+         */
         data:[]
     });
 
+    /*
+     * Función encargada de consultar registros del backend.
+     */
     function cargarDatos(){
+
+        /*
+         * Llamada DWR para obtener registros.
+         */
         CentroCostosOPMDWR.obtenerTodos(function(response){
+
+            /*
+             * Carga de información en store.
+             */
             storeCentroCostos.loadData(response);
         });
     }
 
+    /*
+     * Formulario principal de captura.
+     */
     var formCentroCostos = new Ext.form.FormPanel({
+
         title:'Centro Costos OPM',
+
+        /*
+         * Campos del formulario.
+         */
         items:[
             {xtype:'textfield', fieldLabel:'Clave', name:'cveCentroCostos'},
             {xtype:'textfield', fieldLabel:'Código', name:'codigo'},
             {xtype:'textfield', fieldLabel:'Cuenta Operativa', name:'cuentaOperativa'}
         ],
+
+        /*
+         * Botones de operación CRUD.
+         */
         buttons:[
             {
                 text:'Guardar',
+
+                /*
+                 * Evento guardar registro.
+                 */
                 handler:function(){
+
                     var values = formCentroCostos.getForm().getValues();
+
                     CentroCostosOPMDWR.guardarCentroCostos(values, function(){
+
                         cargarDatos();
                     });
                 }
             },
             {
                 text:'Actualizar',
+
+                /*
+                 * Evento actualizar registro.
+                 */
                 handler:function(){
+
                     var values = formCentroCostos.getForm().getValues();
+
                     CentroCostosOPMDWR.actualizarCentroCostos(values, function(){
+
                         cargarDatos();
                     });
                 }
@@ -325,24 +692,52 @@ Ext.onReady(function(){
         ]
     });
 
+    /*
+     * Grid principal de visualización.
+     */
     var gridCentroCostos = new Ext.grid.GridPanel({
+
+        /*
+         * Renderizado sobre contenedor JSP.
+         */
         renderTo:'gridCentroCostos',
+
+        /*
+         * Fuente de datos del grid.
+         */
         store:storeCentroCostos,
+
+        /*
+         * Definición de columnas.
+         */
         columns:[
             {header:'Clave', dataIndex:'cveCentroCostos'},
             {header:'Código', dataIndex:'codigo'},
             {header:'Cuenta Operativa', dataIndex:'cuentaOperativa'},
             {header:'Activo', dataIndex:'bolActivo'}
         ],
+
         height:300,
         width:800,
+
+        /*
+         * Barra superior de acciones.
+         */
         tbar:[
             {
                 text:'Eliminar',
+
+                /*
+                 * Evento eliminación lógica.
+                 */
                 handler:function(){
+
                     var record = gridCentroCostos.getSelectionModel().getSelected();
+
                     if(record){
+
                         CentroCostosOPMDWR.eliminarCentroCostos(record.data.cveCentroCostos, function(){
+
                             cargarDatos();
                         });
                     }
@@ -351,8 +746,14 @@ Ext.onReady(function(){
         ]
     });
 
+    /*
+     * Renderizado del formulario.
+     */
     formCentroCostos.render(document.body);
+
+    /*
+     * Carga inicial de información.
+     */
     cargarDatos();
 });
 ```
-
