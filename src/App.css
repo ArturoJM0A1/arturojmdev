@@ -4462,7 +4462,8 @@ body.dark-mode .contact-card i {
 }
 
 .comment-form__textarea {
-  min-height: 18rem;
+  min-height: 15rem;
+  max-height: 18rem;
   resize: vertical;
   white-space: pre-wrap;
   font-family: var(--font-code);
@@ -4577,7 +4578,11 @@ body.dark-mode .comment-item {
   white-space: pre-wrap;
   word-break: break-word;
   overflow-wrap: anywhere;
-  opacity: 0;
+  max-height: 200px;
+  overflow: hidden;
+    -webkit-box-orient: vertical;
+
+  -webkit-line-clamp: 5; /* número de líneas visibles */
 }
 
 .comment-inline-code {
