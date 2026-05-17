@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { navigationItems, scrollToSection } from "../menuNavigation.js";
+import "./HeroCat.css";
 
 export default function SiteHeader({ cvHref, displayText, theme, setTheme }) {
   const location = useLocation();
@@ -183,6 +184,49 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme }) {
               <span class="relative inline-flex size-3 rounded-full animacionDCV2"></span>
             </span>
           </a>
+        </div>
+      </div>
+
+      <div className="herocat" aria-hidden="true">
+        <div className="hero-cat-art">
+          <div className="hero-cat">
+            <div className="hero-cat__body"></div>
+
+            <div className="hero-cat__head">
+              <div className="hero-cat__ear"></div>
+              <div className="hero-cat__ear"></div>
+            </div>
+
+            <div className="hero-cat__face">
+              <div className="hero-cat__nose"></div>
+
+              <div className="hero-cat__whisker-group">
+                <div className="hero-cat__whisker"></div>
+                <div className="hero-cat__whisker"></div>
+              </div>
+
+              <div className="hero-cat__whisker-group hero-cat__whisker-group--right">
+                <div className="hero-cat__whisker"></div>
+                <div className="hero-cat__whisker"></div>
+              </div>
+            </div>
+
+            <div className="hero-cat__tail-container">
+              <div className="hero-cat__tail">
+                <div className="hero-cat__tail">
+                  <div className="hero-cat__tail">
+                    <div className="hero-cat__tail">
+                      <div className="hero-cat__tail">
+                        <div className="hero-cat__tail">
+                          <div className="hero-cat__tail"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </header>
