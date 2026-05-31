@@ -16,6 +16,7 @@ const pageTitles = {
   "/": "Inicio",
   "/sobre-mi": "Sobre mi",
   "/actualmente": "Actualmente",
+  "/experiencia": "Experiencia",
   "/habilidades": "Habilidades",
   "/proyectos": "Proyectos",
   "/certificaciones": "Certificaciones",

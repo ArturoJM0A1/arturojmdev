@@ -2,6 +2,7 @@ export const navigationItems = [
   { to: "/", label: "Inicio", end: true, scrollTarget: "about-section" },
   { to: "/sobre-mi", label: "Sobre mi", scrollTarget: "about-section" },
   { to: "/actualmente", label: "Actualmente", scrollTarget: "currently-section" },
+  { to: "/experiencia", label: "Experiencia", scrollTarget: "experience" },
   { to: "/habilidades", label: "Habilidades", scrollTarget: "skills-section" },
   { to: "/proyectos", label: "Proyectos", scrollTarget: "projects-section" },
   {

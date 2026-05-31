@@ -14,6 +14,11 @@ const quickLinks = [
     description: "Vista del enfoque actual, aprendizaje en curso y objetivos presentes.",
   },
   {
+    to: "/experiencia",
+    title: "Revisar experiencia",
+    description: "Linea de tiempo con roles profesionales, empresas y tecnologias utilizadas.",
+  },
+  {
     to: "/proyectos",
     title: "Explorar proyectos",
     description: "Repositorios, demos y videos de trabajo academico e independiente.",

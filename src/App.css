@@ -4176,6 +4176,269 @@ body.dark-mode .page-intro__description {
   color: var(--text-dark-secondary);
 }
 
+.experience-page {
+  gap: 30px;
+}
+
+.experience-section {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  gap: 28px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid rgba(37, 99, 235, 0.16);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 16% 14%, rgba(37, 99, 235, 0.14) 0%, transparent 28%),
+    radial-gradient(circle at 86% 18%, rgba(6, 182, 212, 0.12) 0%, transparent 30%),
+    linear-gradient(155deg, rgba(255, 255, 255, 0.74), rgba(241, 245, 249, 0.62));
+  box-shadow:
+    0 24px 50px rgba(15, 23, 42, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+}
+
+.experience-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(circle at 50% 30%, #000 0%, transparent 72%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.experience-section__header,
+.experience-timeline {
+  position: relative;
+  z-index: 1;
+}
+
+.experience-section__header {
+  display: grid;
+  gap: 10px;
+  max-width: 64rem;
+}
+
+.experience-section__eyebrow,
+.experience-card__period {
+  font-family: var(--font-code);
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary-light);
+}
+
+.experience-section__header p,
+.experience-card__description {
+  color: var(--text-light-secondary);
+}
+
+.experience-timeline {
+  display: grid;
+  gap: 22px;
+  padding-left: clamp(2.4rem, 6vw, 4.2rem);
+}
+
+.experience-timeline::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: clamp(1.18rem, 3vw, 2rem);
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--primary-light), var(--secondary-light));
+  box-shadow: 0 0 24px rgba(37, 99, 235, 0.28);
+}
+
+.experience-card.card {
+  margin-bottom: 0;
+  overflow: visible;
+  display: grid;
+  gap: 18px;
+  padding: clamp(1.15rem, 2.5vw, 1.6rem);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(241, 245, 249, 0.84));
+}
+
+.experience-card__marker {
+  position: absolute;
+  top: 1.25rem;
+  left: calc(-1 * clamp(3.65rem, 6.8vw, 5.5rem));
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(37, 99, 235, 0.24);
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 38%),
+    linear-gradient(145deg, rgba(37, 99, 235, 0.95), rgba(6, 182, 212, 0.92));
+  color: #ffffff;
+  font-family: var(--font-code);
+  font-size: 0.78rem;
+  box-shadow:
+    0 14px 28px rgba(37, 99, 235, 0.2),
+    0 0 0 8px rgba(37, 99, 235, 0.08);
+}
+
+.experience-card__content,
+.experience-card__header {
+  display: grid;
+  gap: 12px;
+}
+
+.experience-card__header h4 {
+  margin: 0;
+}
+
+.experience-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--text-light-muted);
+  font-size: 0.98rem;
+}
+
+.experience-card__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.experience-card__meta span + span::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--secondary-light);
+  opacity: 0.7;
+}
+
+.experience-card__description {
+  margin: 0;
+  line-height: 1.75;
+}
+
+.experience-card__technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.experience-card__technologies .skill-chip {
+  font-family: var(--font-code);
+  font-size: 0.84rem;
+}
+
+body.dark-mode .experience-section {
+  border-color: rgba(0, 255, 136, 0.14);
+  background:
+    radial-gradient(circle at 16% 14%, rgba(0, 255, 136, 0.12) 0%, transparent 28%),
+    radial-gradient(circle at 86% 18%, rgba(0, 212, 255, 0.14) 0%, transparent 30%),
+    linear-gradient(155deg, rgba(12, 18, 30, 0.86), rgba(5, 8, 16, 0.9));
+  box-shadow:
+    0 28px 58px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .experience-section::before {
+  background-image:
+    linear-gradient(rgba(0, 255, 136, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.06) 1px, transparent 1px);
+}
+
+body.dark-mode .experience-section__eyebrow,
+body.dark-mode .experience-card__period {
+  color: var(--primary-dark);
+}
+
+body.dark-mode .experience-section__header p,
+body.dark-mode .experience-card__description {
+  color: var(--text-dark-secondary);
+}
+
+body.dark-mode .experience-timeline::before {
+  background: linear-gradient(180deg, var(--primary-dark), var(--secondary-dark));
+  box-shadow: 0 0 26px rgba(0, 255, 136, 0.2);
+}
+
+body.dark-mode .experience-card.card {
+  background:
+    linear-gradient(145deg, rgba(15, 20, 25, 0.94), rgba(10, 14, 26, 0.86));
+}
+
+body.dark-mode .experience-card__marker {
+  border-color: rgba(0, 255, 136, 0.25);
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0) 38%),
+    linear-gradient(145deg, rgba(0, 255, 136, 0.86), rgba(0, 212, 255, 0.8));
+  color: #03120c;
+  box-shadow:
+    0 14px 28px rgba(0, 255, 136, 0.14),
+    0 0 0 8px rgba(0, 255, 136, 0.08);
+}
+
+body.dark-mode .experience-card__meta {
+  color: var(--text-dark-muted);
+}
+
+body.dark-mode .experience-card__meta span + span::before {
+  background: var(--secondary-dark);
+}
+
+@media (max-width: 760px) {
+  .experience-section {
+    gap: 22px;
+    padding: 1rem;
+    border-radius: 22px;
+  }
+
+  .experience-timeline {
+    gap: 18px;
+    padding-left: 2.25rem;
+  }
+
+  .experience-timeline::before {
+    left: 1rem;
+  }
+
+  .experience-card.card {
+    padding: 1rem;
+  }
+
+  .experience-card__marker {
+    left: -2.75rem;
+    width: 36px;
+    height: 36px;
+    font-size: 0.72rem;
+    box-shadow:
+      0 10px 22px rgba(37, 99, 235, 0.16),
+      0 0 0 6px rgba(37, 99, 235, 0.07);
+  }
+
+  .experience-card__meta {
+    display: grid;
+    gap: 6px;
+    font-size: 0.92rem;
+  }
+
+  .experience-card__meta span + span::before {
+    content: none;
+  }
+
+  .experience-card__technologies .skill-chip {
+    font-size: 0.78rem;
+  }
+}
+
 .currently-page {
   gap: 30px;
 }

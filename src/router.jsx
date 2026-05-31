@@ -8,6 +8,7 @@ import "tailwind-animations";
 const HomePage = lazy(() => import("./pages/HomePage.jsx"));
 const AboutPage = lazy(() => import("./pages/AboutPage.jsx"));
 const CurrentlyPage = lazy(() => import("./pages/CurrentlyPage.jsx"));
+const ExperiencePage = lazy(() => import("./pages/ExperiencePage.jsx"));
 const SkillsPage = lazy(() => import("./pages/SkillsPage.jsx"));
 const ProjectsPage = lazy(() => import("./pages/ProjectsPage.jsx"));
 const CertificationsPage = lazy(() => import("./pages/CertificationsPage.jsx"));
@@ -58,6 +59,14 @@ export const router = createHashRouter([
           CurrentlyPage,
           "Cargando actualmente",
           "Preparando la bitacora visual de enfoque actual..."
+        ),
+      },
+      {
+        path: "experiencia",
+        element: withLoader(
+          ExperiencePage,
+          "Cargando experiencia",
+          "Ordenando la linea de tiempo profesional..."
         ),
       },
       {
