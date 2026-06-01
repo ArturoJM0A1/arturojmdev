@@ -3295,6 +3295,15 @@ body.dark-mode .welcome-overlay {
   fill: #127949;
 }
 
+.welcome-screen img{
+  z-index: 99999999999999999!important;
+}
+
+
+.welcome-screen .welcome-sphere {
+scale: 0.9;
+}
+
 @keyframes blinkOpacity {
   0% {
     opacity: 0.2;
@@ -3533,7 +3542,7 @@ body.dark-mode .orb-3 {
 
 .welcome-sphere {
   position: absolute;
-  left: 56%;
+  left: 48%;
   top: 50%;
   z-index: 1;
   width: clamp(220px, 42vw, 440px);
@@ -3553,7 +3562,7 @@ body.dark-mode .orb-3 {
   opacity: 0.64;
   filter: brightness(0.78) saturate(1.05);
   mix-blend-mode: screen;
-  animation: welcomeSpherePulse 6s ease-in-out infinite;
+  animation: welcomeSpherePulse 3s ease-in-out infinite;
 }
 
 .welcome-sphere::before,
@@ -3645,7 +3654,7 @@ body.dark-mode .welcome-sphere {
 (pointer: coarse),
 (prefers-reduced-motion: reduce) {
   .welcome-spline {
-    display: none;
+    display: flex;
   }
 }
 
