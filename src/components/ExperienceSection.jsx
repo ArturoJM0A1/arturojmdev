@@ -2,11 +2,11 @@ const experiences = [
   {
     role: "Desarrollador Backend",
     company: "INBURSA Grupo Financiero",
-    period: "Mayo 2026 - Actualidad",
+    period: "Mayo 2026 - Junio 2026",
     location: "Pachuca de Soto, Hidalgo, Mexico",
     description:
-      "Desarrollo y mantenimiento de aplicaciones empresariales del sector financiero utilizando Java y Oracle. Participacion en la evolucion de sistemas legacy desarrollados con Ext JS, implementando mejoras, correcciones y nuevas funcionalidades para procesos internos.",
-    technologies: ["Java", "Oracle", "Ext JS", "Software Legacy"],
+      "Uso de Java en entorno financiero, implementando operaciones mediante Hibernate, HQL y Criteria, desarrollo de servicios REST con Spring Boot, trabajo con Oracle y PL/SQL, análisis de código legacy y colaboración en una arquitectura por capas orientada a negocio y persistencia, siguiendo requerimientos funcionales, documentación técnica y metodología de Scrum.",
+    technologies: ["Java", "Hibernate", "HQL", "Criteria API", "Spring Boot", "Oracle", "PL/SQL", "Scrum"],
   },
   {
     role: "Desarrollador Full Stack React",
