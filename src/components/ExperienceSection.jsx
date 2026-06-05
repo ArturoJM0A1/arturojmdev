@@ -4,6 +4,8 @@ const experiences = [
     company: "INBURSA Grupo Financiero",
     period: "Mayo 2026 - Junio 2026",
     location: "Pachuca de Soto, Hidalgo, Mexico",
+    logo: "/experienciaempresas/inbursa.png",
+    logoAlt: "Logotipo de INBURSA",
     description:
       "Uso de Java en entorno financiero, implementando operaciones mediante Hibernate, HQL y Criteria, desarrollo de servicios REST con Spring Boot, trabajo con Oracle y PL/SQL, análisis de código legacy y colaboración en una arquitectura por capas orientada a negocio y persistencia, siguiendo requerimientos funcionales, documentación técnica y metodología de Scrum.",
     technologies: ["Java", "Hibernate", "HQL", "Criteria API", "Spring Boot", "Oracle", "PL/SQL", "Scrum"],
@@ -13,6 +15,8 @@ const experiences = [
     company: "Independent Developer",
     period: "Abril 2025 - Febrero 2026",
     location: "Ciudad de Mexico, Mexico",
+    logo: "/experienciaempresas/independiente.png",
+    logoAlt: "Logotipo de Independent Developer",
     description:
       "Desarrollo de aplicaciones web modernas utilizando React, TypeScript, JavaScript y Node.js. Diseno de interfaces responsivas, integracion de APIs REST y construccion de soluciones frontend y backend.",
     technologies: [
@@ -30,6 +34,8 @@ const experiences = [
     company: "Grupo Alternativas Solucione",
     period: "Julio 2024 - Diciembre 2024",
     location: "Mineral de la Reforma, Hidalgo, Mexico",
+    logo: "/experienciaempresas/alternativas.png",
+    logoAlt: "Logotipo de Grupo Alternativas Solucione",
     description:
       "Desarrollo web con PHP y WordPress, creacion de temas y funcionalidades personalizadas. Mantenimiento de APIs REST desarrolladas con Laravel y soporte a aplicaciones React mediante correccion de errores y actualizacion de componentes.",
     technologies: ["PHP", "WordPress", "Laravel", "React", "REST APIs"],
@@ -39,6 +45,8 @@ const experiences = [
     company: "Gobierno del Estado de Hidalgo",
     period: "Diciembre 2023 - Agosto 2024",
     location: "Pachuca de Soto, Hidalgo, Mexico",
+    logo: "/experienciaempresas/hidalgogob.png",
+    logoAlt: "Logotipo del Gobierno del Estado de Hidalgo",
     description:
       "Desarrollo de una plataforma web para promocion turistica del estado de Hidalgo. Implementacion de interfaces modernas, navegacion dinamica, optimizacion de rendimiento y mejoras en experiencia de usuario.",
     technologies: ["JavaScript", "Tailwind CSS", "PHP", "MySQL", "Git", "jQuery"],
@@ -73,14 +81,25 @@ export default function ExperienceSection() {
             </div>
 
             <div className="experience-card__content">
-              <div className="experience-card__header">
-                <span className="experience-card__period">
-                  {experience.period}
-                </span>
-                <h4>{experience.role}</h4>
-                <div className="experience-card__meta">
-                  <span>{experience.company}</span>
-                  <span>{experience.location}</span>
+              <div className="experience-card__top">
+                <div className="experience-card__logo">
+                  <img
+                    src={experience.logo}
+                    alt={experience.logoAlt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                <div className="experience-card__header">
+                  <span className="experience-card__period">
+                    {experience.period}
+                  </span>
+                  <h4>{experience.role}</h4>
+                  <div className="experience-card__meta">
+                    <span>{experience.company}</span>
+                    <span>{experience.location}</span>
+                  </div>
                 </div>
               </div>
 
