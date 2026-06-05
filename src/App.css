@@ -1153,7 +1153,7 @@ body.dark-mode .photo-audio-progress__fill {
 
 .photo-wizard-hat {
   position: absolute;
-  top: -28%;
+  top: -32%;
   left: 14%;
   width: 74%;
   height: auto;
@@ -2962,7 +2962,7 @@ body.dark-mode .video-modal__close:hover {
   }
 
   .photo-wizard-hat {
-    top: -30%;
+    top: -35%;
     left: 12%;
     width: 78%;
   }
@@ -3093,7 +3093,7 @@ body.dark-mode .video-modal__close:hover {
   }
 
   .photo-wizard-hat {
-    top: -32%;
+    top: -37%;
     left: 11%;
     width: 82%;
   }

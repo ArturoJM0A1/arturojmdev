@@ -1,0 +1,123 @@
+.photo-year-controls {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: 24px auto 24px;
+  align-items: center;
+  gap: 4px;
+  transform: translateX(-50%);
+  padding: 3px;
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  border-radius: 999px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.6), rgba(226, 240, 255, 0.6));
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(10px);
+  pointer-events: auto;
+  max-height: 25px;
+}
+
+.photo-year-btn {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(37, 99, 235, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--primary-light);
+  font-size: 0.58rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease;
+}
+
+.photo-year-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: var(--secondary-light);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 6px 12px rgba(37, 99, 235, 0.18);
+  color: var(--secondary-light);
+}
+
+.photo-year-btn:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.photo-year-btn:focus-visible {
+  outline: none;
+  border-color: var(--secondary-light);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.18);
+}
+
+.photo-year-label {
+  min-width: 36px;
+  color: var(--text-light-primary);
+  font-family: var(--font-code);
+  font-size: 0.66rem;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+}
+
+body.dark-mode .photo-year-controls {
+  border-color: rgba(0, 255, 136, 0.22);
+  background: linear-gradient(145deg, rgba(15, 20, 25, 0.6), rgba(10, 14, 26, 0.6));
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.32);
+}
+
+body.dark-mode .photo-year-btn {
+  border-color: rgba(0, 255, 136, 0.22);
+  background: rgba(15, 20, 25, 0.86);
+  color: var(--primary-dark);
+}
+
+body.dark-mode .photo-year-btn:hover:not(:disabled) {
+  border-color: var(--secondary-dark);
+  background: rgba(26, 31, 46, 0.94);
+  box-shadow: 0 6px 14px rgba(0, 255, 136, 0.2);
+  color: var(--secondary-dark);
+}
+
+body.dark-mode .photo-year-btn:focus-visible {
+  border-color: var(--secondary-dark);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.16);
+}
+
+body.dark-mode .photo-year-label {
+  color: var(--text-dark-primary);
+}
+
+@media (max-width: 768px) {
+  .photo-year-controls {
+    bottom: 16px;
+    grid-template-columns: 22px auto 22px;
+    gap: 3px;
+    padding: 2px;
+  }
+
+  .photo-year-btn {
+    width: 20px;
+    height: 20px;
+    font-size: 0.52rem;
+  }
+
+  .photo-year-label {
+    min-width: 32px;
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-year-controls {
+    bottom: 15px;
+  }
+}

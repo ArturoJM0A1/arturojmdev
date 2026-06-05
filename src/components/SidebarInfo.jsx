@@ -1,6 +1,25 @@
-﻿import profileImg from "../../public/artsearch2removebgpreview.png";
+import { useState } from "react";
+import profileImg2023 from "../../public/fotosanios/artsearch1removebgpreview.png";
+import profileImg2025 from "../../public/fotosanios/artsearch2removebgpreview.png";
+import profileImg2024 from "../../public/fotosanios/artsearch3removebgpreview.png";
 import ProfileLetterRain from "./ProfileLetterRain.jsx";
 import SkillsContent from "./SkillsContent.jsx";
+import "./SidebarInfo.css";
+
+const profilePhotos = [
+  {
+    year: 2025,
+    image: profileImg2025,
+  },
+  {
+    year: 2024,
+    image: profileImg2024,
+  },
+  {
+    year: 2023,
+    image: profileImg2023,
+  },
+];
 
 export default function SidebarInfo({
   showSkills = true,
@@ -11,7 +30,21 @@ export default function SidebarInfo({
   audioProgress = 0,
   audioDuration = 0,
 }) {
+  const [activePhotoIndex, setActivePhotoIndex] = useState(0);
   const progressPercent = audioDuration > 0 ? (audioProgress / audioDuration) * 100 : 0;
+  const activePhoto = profilePhotos[activePhotoIndex];
+  const isLatestPhoto = activePhotoIndex === 0;
+  const isOldestPhoto = activePhotoIndex === profilePhotos.length - 1;
+
+  const showPreviousPhoto = () => {
+    setActivePhotoIndex((currentIndex) =>
+      Math.min(profilePhotos.length - 1, currentIndex + 1)
+    );
+  };
+
+  const showNextPhoto = () => {
+    setActivePhotoIndex((currentIndex) => Math.max(0, currentIndex - 1));
+  };
 
   const handleSeek = (e) => {
     if (!audioRef?.current || !audioDuration) return;
@@ -38,7 +71,7 @@ export default function SidebarInfo({
               title="Reproducir cancion"
             >
               <span className="photo-audio-btn__emoji" aria-hidden="true">
-                <i class="fa-solid fa-play"></i>
+                <i className="fa-solid fa-play"></i>
               </span>
             </button>
 
@@ -53,7 +86,7 @@ export default function SidebarInfo({
               title="Pausar cancion"
             >
               <span className="photo-audio-btn__emoji" aria-hidden="true">
-                <i class="fa-solid fa-pause"></i>
+                <i className="fa-solid fa-pause"></i>
               </span>
             </button>
           </div>
@@ -61,8 +94,35 @@ export default function SidebarInfo({
           <div className="profile-photo-visual">
             <div
               className="photo-placeholder"
-              style={{ backgroundImage: `url(${profileImg})` }}
+              style={{ backgroundImage: `url(${activePhoto.image})` }}
+              aria-label={`Foto de perfil del año ${activePhoto.year}`}
             >
+              <div className="photo-year-controls" aria-label="Cambiar foto por año">
+                <button
+                  type="button"
+                  className="photo-year-btn"
+                  onClick={showPreviousPhoto}
+                  disabled={isOldestPhoto}
+                  title="Ir atras"
+                  aria-label="Ir atras al año anterior"
+                >
+                  <i className="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                </button>
+                <span className="photo-year-label" aria-live="polite">
+                  {activePhoto.year}
+                </span>
+                <button
+                  type="button"
+                  className="photo-year-btn"
+                  onClick={showNextPhoto}
+                  disabled={isLatestPhoto}
+                  title="Ir siguiente"
+                  aria-label="Ir siguiente al año mas reciente"
+                >
+                  <i className="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </button>
+              </div>
+
               <svg
                 className="photo-wizard-hat"
                 viewBox="0 0 180 140"
@@ -113,8 +173,8 @@ export default function SidebarInfo({
               </div>
             </div>
 
-            <div 
-              className="photo-audio-progress" 
+            <div
+              className="photo-audio-progress"
               onClick={handleSeek}
               role="slider"
               aria-label="Progreso de la musica"
@@ -123,8 +183,8 @@ export default function SidebarInfo({
               aria-valuemax="100"
               tabIndex={0}
             >
-              <div 
-                className="photo-audio-progress__fill" 
+              <div
+                className="photo-audio-progress__fill"
                 style={{ width: `${progressPercent}%` }}
               />
             </div>
