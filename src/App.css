@@ -2457,6 +2457,12 @@ footer {
   }
 }
 
+body:not(.dark-mode) .footer-clock__gif{
+    transform: scaleX(-1) scale(0.93);
+  filter: sepia(100%) hue-rotate(190deg) saturate(450%);
+
+}
+
 .footer-clock__gif {
   position: relative;
   z-index: 3;
