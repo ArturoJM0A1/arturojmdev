@@ -12,6 +12,11 @@ export const navigationItems = [
   },
   { to: "/comentarios", label: "Comentarios", scrollTarget: "comments-section" },
   { to: "/contacto", label: "Contacto", scrollTarget: "contact-section" },
+  {
+    to: "https://starlightnoreturn.vercel.app",
+    label: "Jugar",
+    external: true,
+  },
 ];
 
 function getScrollBehavior() {

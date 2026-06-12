@@ -38,6 +38,12 @@ const quickLinks = [
     title: "Canales de contacto",
     description: "Correo, GitHub, LinkedIn y WhatsApp.",
   },
+  {
+    to: "https://starlightnoreturn.vercel.app",
+    title: "Jugar",
+    description: "Un juego experimental desarrollado con tecnologias web.",
+    external: true,
+  },
 ];
 
 export default function HomePage() {
@@ -48,13 +54,27 @@ export default function HomePage() {
       <section className="route-overview">
         <h3>Recorridos del sitio</h3>
         <div className="quick-links-grid">
-          {quickLinks.map((item) => (
-            <Link key={item.to} to={item.to} className="route-card">
-              <span className="route-card__kicker">Ver</span>
-              <h4>{item.title}</h4>
-              <p>{item.description}</p>
-            </Link>
-          ))}
+          {quickLinks.map((item) =>
+            item.external ? (
+              <a
+                key={item.to}
+                href={item.to}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="route-card"
+              >
+                <span className="route-card__kicker">Ver</span>
+                <h4>{item.title}</h4>
+                <p>{item.description}</p>
+              </a>
+            ) : (
+              <Link key={item.to} to={item.to} className="route-card">
+                <span className="route-card__kicker">Ver</span>
+                <h4>{item.title}</h4>
+                <p>{item.description}</p>
+              </Link>
+            )
+          )}
         </div>
       </section>
 

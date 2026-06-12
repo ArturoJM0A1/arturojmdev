@@ -117,22 +117,36 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme }) {
               aria-label="Navegacion principal"
               id="site-navigation"
             >
-              {navigationItems.map(({ to, label, end, scrollTarget }) => (
-                <NavLink
-                  key={to}
-                  to={to}
-                  end={end}
-                  onClick={(event) =>
-                    handleNavigationClick(event, { to, scrollTarget })
-                  }
-                  className={({ isActive }) =>
-                    `hero-nav__link${isActive ? " is-active" : ""}`
-                  }
-                >
-                  <span>{label}</span>
-                  <span className="hero-nav__marker" aria-hidden="true"></span>
-                </NavLink>
-              ))}
+              {navigationItems.map(({ to, label, end, scrollTarget, external }) =>
+                external ? (
+                  <a
+                    key={to}
+                    href={to}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hero-nav__link"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <span>{label}</span>
+                    <span className="hero-nav__marker" aria-hidden="true"></span>
+                  </a>
+                ) : (
+                  <NavLink
+                    key={to}
+                    to={to}
+                    end={end}
+                    onClick={(event) =>
+                      handleNavigationClick(event, { to, scrollTarget })
+                    }
+                    className={({ isActive }) =>
+                      `hero-nav__link${isActive ? " is-active" : ""}`
+                    }
+                  >
+                    <span>{label}</span>
+                    <span className="hero-nav__marker" aria-hidden="true"></span>
+                  </NavLink>
+                )
+              )}
             </nav>
           </div>
         </div>
