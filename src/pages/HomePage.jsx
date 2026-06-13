@@ -41,7 +41,7 @@ const quickLinks = [
   {
     to: "https://starlightnoreturn.vercel.app",
     title: "Jugar",
-    description: "Un juego experimental desarrollado con tecnologias web.",
+    description: "Arcade espacial de supervivencia con obstáculos, enemigos y gestión de recursos.",
     external: true,
   },
 ];
