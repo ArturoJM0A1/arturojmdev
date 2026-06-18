@@ -192,15 +192,6 @@
     ]
   },
   {
-    "id": "gastos",
-    "title": "Sistema de gestión de gastos",
-    "year": 2026,
-    "date": "Aplicación Web 2026",
-    "description": "Desarrollo en Astro y PostgreSQL, en proceso...",
-    "inDevelopment": true,
-    "links": []
-  },
-  {
     "id": "excelweb",
     "title": "Catálogos de Excel a elementos Web",
     "year": 2026,
