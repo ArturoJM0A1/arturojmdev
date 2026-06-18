@@ -319,5 +319,36 @@
         "title": "Ver video"
       }
     ]
+  },
+  {
+    "id": "starlight-no-return",
+    "title": "Starlight: No Return",
+    "year": 2026,
+    "date": "Videojuego 2026",
+    "description": "Starlight: No Return es un juego arcade espacial desarrollado con React, Vite, Canvas, JavaScript y CSS. Controla un cohete, esquiva enemigos y obstáculos, y sobrevive para obtener la mayor puntuación posible.",
+    "favorite": true,
+    "links": [
+      {
+        "type": "external",
+        "href": "https://starlightnoreturn.vercel.app",
+        "label": "Jugar",
+        "icon": "fas fa-gamepad",
+        "title": "Jugar ahora"
+      },
+      {
+        "type": "external",
+        "href": "https://github.com/ArturoJM0A1/starlight-no-return",
+        "label": "Repo",
+        "icon": "fab fa-github",
+        "title": "Ver repositorio"
+      },
+      {
+        "type": "video",
+        "href": "https://youtu.be/oPBiMRVVBRw?si=-2uC4jp7milFqC54",
+        "label": "Video",
+        "icon": "fas fa-video",
+        "title": "Ver video"
+      }
+    ]
   }
 ]
