@@ -326,6 +326,7 @@
     "year": 2026,
     "date": "Videojuego 2026",
     "description": "Starlight: No Return es un juego arcade espacial desarrollado con React, Vite, Canvas, JavaScript y CSS. Controla un cohete, esquiva enemigos y obstáculos, y sobrevive para obtener la mayor puntuación posible.",
+    "inDevelopment": true,
     "favorite": true,
     "links": [
       {
