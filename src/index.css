@@ -508,7 +508,7 @@ body.dark-mode .certifications-section h3 {
   top: 50%;
   width: 52px;
   height: 52px;
-  border: 0;
+  border: 3px solid var(--primary-light);
   border-radius: 50%;
   transform: translateY(-50%);
   background: rgba(255, 255, 255, 0.9);
@@ -666,6 +666,7 @@ body.dark-mode .certifications-empty {
 
 body.dark-mode .certifications-nav {
   background: rgba(15, 20, 25, 0.92);
+  border-color: var(--primary-dark);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
 }
 
