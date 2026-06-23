@@ -2,11 +2,16 @@ import { useState } from "react";
 import profileImg2023 from "../../public/fotosanios/artsearch1removebgpreview.png";
 import profileImg2025 from "../../public/fotosanios/artsearch2removebgpreview.png";
 import profileImg2024 from "../../public/fotosanios/artsearch3removebgpreview.png";
+import profileImg2026 from "../../public/fotosanios/artsearch4removebgpreview.png";
 import ProfileLetterRain from "./ProfileLetterRain.jsx";
 import SkillsContent from "./SkillsContent.jsx";
 import "./SidebarInfo.css";
 
 const profilePhotos = [
+  {
+    year: 2026,
+    image: profileImg2026,
+  },
   {
     year: 2025,
     image: profileImg2025,
