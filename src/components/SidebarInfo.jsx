@@ -39,13 +39,10 @@ export default function SidebarInfo({
   const [showTooltip, setShowTooltip] = useState(true);
   const progressPercent = audioDuration > 0 ? (audioProgress / audioDuration) * 100 : 0;
 
-  useEffect(() => {
-    if (!isAudioPlaying) {
-      const timer = setTimeout(() => setShowTooltip(false), 3000);
-      return () => clearTimeout(timer);
-    }
+  const handlePlayClick = () => {
     setShowTooltip(false);
-  }, [isAudioPlaying]);
+    if (onPlayAudio) onPlayAudio();
+  };
   const activePhoto = profilePhotos[activePhotoIndex];
   const isLatestPhoto = activePhotoIndex === 0;
   const isOldestPhoto = activePhotoIndex === profilePhotos.length - 1;
@@ -80,7 +77,7 @@ export default function SidebarInfo({
               <button
                 type="button"
                 className={`photo-audio-btn ${isAudioPlaying ? "is-active" : ""}`}
-                onClick={onPlayAudio}
+                onClick={handlePlayClick}
                 disabled={!onPlayAudio || isAudioPlaying}
                 aria-pressed={isAudioPlaying}
                 title="Reproducir cancion"

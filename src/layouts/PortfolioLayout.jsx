@@ -26,7 +26,7 @@ const pageTitles = {
 
 const fullText = "Ingeniería en Software";
 const welcomeSplineMediaQuery =
-  "(min-width: 701px) and (pointer: fine) and (prefers-reduced-motion: no-preference)";
+  "(prefers-reduced-motion: no-preference)";
 const canRenderWelcomeSpline =
   typeof window !== "undefined" &&
   typeof window.matchMedia === "function" &&
