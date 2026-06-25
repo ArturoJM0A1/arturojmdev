@@ -41,7 +41,7 @@ const quickLinks = [
   {
     to: "https://starlightnoreturn.vercel.app",
     title: "Jugar",
-    description: "Arcade espacial de supervivencia con obstáculos, enemigos y gestión de recursos.",
+    description: "Controlas un cohete, evitas obstáculos, disparas, recoges mejoras y tratas de sobrevivir",
     external: true,
   },
 ];

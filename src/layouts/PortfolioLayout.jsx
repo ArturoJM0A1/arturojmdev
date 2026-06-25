@@ -414,7 +414,6 @@ export default function PortfolioLayout() {
   };
 
   const handleWelcomeClose = () => {
-    void playPortfolioTrack();
     setIsWelcomeClosing(true);
     window.setTimeout(() => {
       setShowWelcome(false);

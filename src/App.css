@@ -915,6 +915,7 @@ body.dark-mode .right-column h3::after {
   position: absolute;
   margin-left: -70px;
   scale: 0.8;
+  z-index: 100;
 }
 
 .photo-audio-btn {
@@ -2168,23 +2169,24 @@ footer {
     0 18px 38px -22px var(--clock-party-shadow);
 }
 
+
 .footer-clock__visual::before {
   content: "";
   position: absolute;
   inset: -12% -18% 24%;
   background:
-    radial-gradient(circle at 50% 0%, rgba(219, 234, 254, 0.5) 0%, transparent 42%),
+    radial-gradient(circle at 50% 0%, rgba(219, 234, 254, 0.2) 0%, transparent 42%),
     conic-gradient(from 210deg at 50% 0%,
       transparent 0deg 28deg,
-      rgba(99, 179, 237, 0.6) 28deg 52deg,
+      rgba(99, 179, 237, 0.25) 28deg 52deg,
       transparent 52deg 136deg,
-      rgba(147, 197, 253, 0.55) 136deg 164deg,
+      rgba(147, 197, 253, 0.2) 136deg 164deg,
       transparent 164deg 226deg,
-      rgba(186, 230, 253, 0.5) 226deg 252deg,
+      rgba(186, 230, 253, 0.2) 226deg 252deg,
       transparent 252deg 360deg);
   filter: blur(12px);
   mix-blend-mode: screen;
-  opacity: 0.92;
+  opacity: 0.6;
   transform-origin: 50% 0%;
   animation: footerClockClubSweep 9s ease-in-out infinite alternate;
   pointer-events: none;
@@ -2458,9 +2460,8 @@ footer {
 }
 
 body:not(.dark-mode) .footer-clock__gif{
-    transform: scaleX(-1) scale(0.93);
-  filter: sepia(100%) hue-rotate(190deg) saturate(450%);
-
+  transform: scaleX(-1) scale(0.93);
+  filter: brightness(1.12);
 }
 
 .footer-clock__gif {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import profileImg2023 from "../../public/fotosanios/artsearch1removebgpreview.png";
 import profileImg2025 from "../../public/fotosanios/artsearch2removebgpreview.png";
 import profileImg2024 from "../../public/fotosanios/artsearch3removebgpreview.png";
@@ -36,7 +36,16 @@ export default function SidebarInfo({
   audioDuration = 0,
 }) {
   const [activePhotoIndex, setActivePhotoIndex] = useState(0);
+  const [showTooltip, setShowTooltip] = useState(true);
   const progressPercent = audioDuration > 0 ? (audioProgress / audioDuration) * 100 : 0;
+
+  useEffect(() => {
+    if (!isAudioPlaying) {
+      const timer = setTimeout(() => setShowTooltip(false), 3000);
+      return () => clearTimeout(timer);
+    }
+    setShowTooltip(false);
+  }, [isAudioPlaying]);
   const activePhoto = profilePhotos[activePhotoIndex];
   const isLatestPhoto = activePhotoIndex === 0;
   const isOldestPhoto = activePhotoIndex === profilePhotos.length - 1;
@@ -67,18 +76,25 @@ export default function SidebarInfo({
             className="photo-audio-controls"
             aria-label="Controles de musica del portafolio"
           >
-            <button
-              type="button"
-              className={`photo-audio-btn ${isAudioPlaying ? "is-active" : ""}`}
-              onClick={onPlayAudio}
-              disabled={!onPlayAudio || isAudioPlaying}
-              aria-pressed={isAudioPlaying}
-              title="Reproducir cancion"
-            >
-              <span className="photo-audio-btn__emoji" aria-hidden="true">
-                <i className="fa-solid fa-play"></i>
-              </span>
-            </button>
+            <div className="photo-audio-btn-wrapper">
+              <button
+                type="button"
+                className={`photo-audio-btn ${isAudioPlaying ? "is-active" : ""}`}
+                onClick={onPlayAudio}
+                disabled={!onPlayAudio || isAudioPlaying}
+                aria-pressed={isAudioPlaying}
+                title="Reproducir cancion"
+              >
+                <span className="photo-audio-btn__emoji" aria-hidden="true">
+                  <i className="fa-solid fa-play"></i>
+                </span>
+              </button>
+              {showTooltip && !isAudioPlaying && (
+                <span className="photo-audio-tooltip" role="status">
+                  click aqui para reproducir
+                </span>
+              )}
+            </div>
 
             <button
               type="button"
