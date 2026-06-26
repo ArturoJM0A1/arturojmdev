@@ -241,16 +241,6 @@ export default function SidebarInfo({
           </a>
         </p>
         <p>
-          <i className="fa-brands fa-x-twitter" aria-hidden="true"></i>
-          <a
-            href="https://x.com/juarez_mon84035"
-            target="_blank"
-            rel="noreferrer"
-          >
-            @juarez_mon84035
-          </a>
-        </p>
-        <p>
           <i className="fab fa-youtube" aria-hidden="true"></i>
           <a
             href="https://www.youtube.com/@arturojuarezmonroy3951"

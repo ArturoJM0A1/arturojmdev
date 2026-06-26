@@ -177,7 +177,6 @@ Todas las rutas usan **hash router** (createHashRouter) para compatibilidad con 
 | Correo | juarezmonroyarturo574@gmail.com |
 | LinkedIn | linkedin.com/in/arturojuarezmonroy |
 | GitHub | ArturoJM0A1 |
-| Twitter | @juarez_mon84035 |
 | YouTube | Arturo Juarez Monroy |
 | WhatsApp | +52 1 773 680 2105 |
 
@@ -525,7 +524,6 @@ Lista completa de certificaciones en `public/certificadosyreconocimientos/`:
 |---|---|
 | GitHub | [ArturoJM0A1](https://github.com/ArturoJM0A1) |
 | LinkedIn | [arturojuarezmonroy](https://www.linkedin.com/in/arturojuarezmonroy) |
-| Twitter | [@juarez_mon84035](https://twitter.com/juarez_mon84035) |
 | YouTube | [Arturo Juarez Monroy](https://www.youtube.com/@arturojuarezmonroy3951) |
 | Correo | juarezmonroyarturo574@gmail.com |
 | WhatsApp | +52 1 773 680 2105 |
