@@ -425,7 +425,9 @@ export default function PortfolioLayout() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const hours = String(currentTime.getHours()).padStart(2, "0");
+  const rawHours = currentTime.getHours();
+  const amPm = rawHours >= 12 ? "PM" : "AM";
+  const hours12 = String(rawHours % 12 || 12).padStart(2, "0");
   const minutes = String(currentTime.getMinutes()).padStart(2, "0");
   const seconds = String(currentTime.getSeconds()).padStart(2, "0");
   const footerDate = currentTime.toLocaleDateString(undefined, {
@@ -433,7 +435,8 @@ export default function PortfolioLayout() {
     day: "2-digit",
     month: "short",
   });
-  const footerClockLabel = `${hours}:${minutes}:${seconds}`;
+  const footerClockLabel = `${hours12}:${minutes}:${seconds} ${amPm}`;
+  const a11yClockLabel = `${hours12}:${minutes}:${seconds} ${amPm}, ${footerDate}`;
   const footerClockGifHref =
     theme === "dark" ? dancedarkmodeGifHref : dancelightmodeGifHref;
   const showSidebarSkills = location.pathname === "/";
@@ -567,16 +570,17 @@ export default function PortfolioLayout() {
         </div>
         <div
           className="footer-clock"
-          aria-label={`Hora local del usuario: ${footerClockLabel}`}
+          aria-label={`Hora local del usuario: ${a11yClockLabel}`}
         >
           <span className="footer-clock__label">Hora</span>
           <div className="footer-clock__display" aria-hidden="true">
-            <span className="footer-clock__segment">{hours}</span>
+            <span className="footer-clock__segment">{hours12}</span>
             <span className="footer-clock__separator">:</span>
             <span className="footer-clock__segment">{minutes}</span>
             <span className="footer-clock__separator">:</span>
             <span className="footer-clock__segment">{seconds}</span>
           </div>
+          <span className="footer-clock__amPm">{amPm}</span>
           <span className="footer-clock__meta">{footerDate}</span>
         </div>
       </div>

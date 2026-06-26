@@ -1,17 +1,22 @@
 import { Link } from "react-router-dom";
-import AboutSection from "../components/AboutSection.jsx";
-import EducationSection from "../components/EducationSection.jsx";
+
 
 const quickLinks = [
+  {
+    to: "/",
+    title: "Recorrido",
+    description: "Pantalla principal con resumen del portafolio y acceso rapido a secciones.",
+    end: true,
+  },
+  {
+    to: "/sobre-mi",
+    title: "Ir a sobre mi",
+    description: "Informacion personal, formacion y perfil profesional.",
+  },
   {
     to: "/habilidades",
     title: "Ir a habilidades",
     description: "Habilidades tecnicas y personales reunidas en una pagina dedicada.",
-  },
-  {
-    to: "/actualmente",
-    title: "Ver actualmente",
-    description: "Vista del enfoque actual, aprendizaje en curso y objetivos presentes.",
   },
   {
     to: "/experiencia",
@@ -19,14 +24,19 @@ const quickLinks = [
     description: "Linea de tiempo con roles profesionales, empresas y tecnologias utilizadas.",
   },
   {
+    to: "/certificaciones",
+    title: "Ver certificaciones",
+    description: "Recorrido visual por reconocimientos y constancias del portafolio.",
+  },
+  {
     to: "/proyectos",
     title: "Explorar proyectos",
     description: "Repositorios, demos y videos de trabajo academico e independiente.",
   },
   {
-    to: "/certificaciones",
-    title: "Ver certificaciones",
-    description: "Recorrido visual por reconocimientos y constancias del portafolio.",
+    to: "/actualmente",
+    title: "Ver actualmente",
+    description: "Vista del enfoque actual, aprendizaje en curso y objetivos presentes.",
   },
   {
     to: "/comentarios",
@@ -49,8 +59,6 @@ const quickLinks = [
 export default function HomePage() {
   return (
     <div className="page-stack">
-      <AboutSection />
-
       <section className="route-overview">
         <h3>Recorridos del sitio</h3>
         <div className="quick-links-grid">
@@ -77,8 +85,6 @@ export default function HomePage() {
           )}
         </div>
       </section>
-
-      <EducationSection />
     </div>
   );
 }
