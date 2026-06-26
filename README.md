@@ -1,4 +1,4 @@
-# Arturo Juárez Monroy — Portafolio Interactivo
+# Arturo Juárez Monroy - Curriculum y portafolio de proyectos
 
 Aplicación web desarrollada con **React 19** + **Vite 7** que funciona como currículum interactivo, portafolio de proyectos, galería de certificaciones, gestor de comentarios y punto de contacto. Incluye modo claro/oscuro, animaciones GSAP, escenas 3D con Three.js/Spline, cursor con shader WebGL personalizado, reproductor de música y versión de escritorio con **Electron**.
 
@@ -446,14 +446,16 @@ import certificados from 'virtual:certifications';
 
 ## Firebase Config
 
+Ejemplo de configuración (reemplaza con tus propios datos):
+
 ```js
 const firebaseConfig = {
-  apiKey: "AIzaSyD8q4tw8ugcfCJI3hsz-rOwzZnM-BOUgCg",
-  authDomain: "comentarioscvajm.firebaseapp.com",
-  projectId: "comentarioscvajm",
-  storageBucket: "comentarioscvajm.firebasestorage.app",
-  messagingSenderId: "456154483789",
-  appId: "1:456154483789:web:49d0da60ee011558d5e004"
+  apiKey: "TU_API_KEY",
+  authDomain: "TU_PROYECTO.firebaseapp.com",
+  projectId: "TU_PROYECTO",
+  storageBucket: "TU_PROYECTO.firebasestorage.app",
+  messagingSenderId: "TU_SENDER_ID",
+  appId: "TU_APP_ID"
 };
 ```
 
@@ -524,7 +526,7 @@ Lista completa de certificaciones en `public/certificadosyreconocimientos/`:
 | GitHub | [ArturoJM0A1](https://github.com/ArturoJM0A1) |
 | LinkedIn | [arturojuarezmonroy](https://www.linkedin.com/in/arturojuarezmonroy) |
 | Twitter | [@juarez_mon84035](https://twitter.com/juarez_mon84035) |
-| YouTube | [Arturo Juarez Monroy](https://www.youtube.com/@arturojuarezmonroy) |
+| YouTube | [Arturo Juarez Monroy](https://www.youtube.com/@arturojuarezmonroy3951) |
 | Correo | juarezmonroyarturo574@gmail.com |
 | WhatsApp | +52 1 773 680 2105 |
-| Web | [https://arturojmdev.vercel.app](https://arturojmdev.vercel.app) |
+| Web | [https://arturojuarezmonroy.vercel.app](https://arturojuarezmonroy.vercel.app) |
