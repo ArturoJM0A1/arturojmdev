@@ -1,369 +1,530 @@
-# Portafolio y CV de Arturo Juárez Monroy
+# Arturo Juárez Monroy — Portafolio Interactivo
 
-Aplicacion web desarrollada con React y Vite para presentar de forma visual, navegable y profesional el perfil de Arturo Juárez Monroy como ingeniero de software. El proyecto funciona como curriculum interactivo, portafolio de proyectos, escaparate de certificaciones y punto de contacto, todo dentro de una sola experiencia responsive con modos claro y oscuro.
+Aplicación web desarrollada con **React 19** + **Vite 7** que funciona como currículum interactivo, portafolio de proyectos, galería de certificaciones, gestor de comentarios y punto de contacto. Incluye modo claro/oscuro, animaciones GSAP, escenas 3D con Three.js/Spline, cursor con shader WebGL personalizado, reproductor de música y versión de escritorio con **Electron**.
 
-Ademas de su version web, el repositorio incluye configuracion para ejecutarse como aplicacion de escritorio con Electron, lo que lo convierte en una base flexible para presentacion personal, demostraciones locales o distribucion empaquetada en Windows.
+**Hosting:** [https://arturojuarezmonroy.vercel.app](https://arturojuarezmonroy.vercel.app)
 
-## Objetivo del proyecto
+---
 
-Este portafolio esta pensado para reunir en un solo sitio los elementos mas importantes del perfil profesional:
-
-- Presentacion general y resumen del perfil.
-- Experiencia y enfoque en desarrollo de software.
-- Habilidades tecnicas y personales.
-- Proyectos academicos e independientes con enlaces y videos.
-- Certificaciones y reconocimientos en formato visual.
-- Formulario de comentarios con almacenamiento en Firebase.
-- Canales de contacto directos.
-
-La idea principal es que cualquier persona pueda recorrer el perfil de manera clara, rapida y atractiva sin depender de un PDF tradicional como unico medio de presentacion.
-
-## Caracteristicas principales
-
-- Interfaz construida con React 19 y Vite.
-- Navegacion por secciones mediante `react-router-dom`.
-- Tema claro y oscuro con selector visual en el encabezado.
-- Menu de navegacion desplegable y responsive.
-- Portada con pantalla de bienvenida, animaciones y particulas de fondo.
-- Pagina de habilidades separada entre habilidades tecnicas y personales.
-- Seccion de proyectos con orden ascendente o descendente.
-- Filtro de proyectos favoritos.
-- Apertura de videos de proyectos dentro de un modal.
-- Carrusel de certificaciones generado automaticamente a partir de imagenes dentro de `public/certificadosyreconocimientos`.
-- Vista ampliada de certificados en modal.
-- Seccion de comentarios conectada a Firebase Firestore.
-- Persistencia local del ultimo comentario enviado mediante `localStorage`.
-- Version web y posibilidad de empaquetado de escritorio con Electron.
-
-## Stack tecnologico de este proyecto
+## Stack Tecnológico
 
 ### Frontend
 
-- React 19
-- Vite 7
-- React Router DOM 7
-- CSS personalizado
+| Tecnología | Versión | Propósito |
+|---|---|---|
+| React | ^19.2.0 | UI framework |
+| React DOM | ^19.2.0 | Renderizado DOM |
+| React Router DOM | ^7.13.1 | Navegación hash-based (compatible con Electron) |
+| Vite | ^7.3.1 | Bundler / dev server |
+| Tailwind CSS v4 | ^4.2.2 | Utilidades CSS (uso mínimo; predomina CSS personalizado) |
+| GSAP + ScrollTrigger | ^3.14.2 | Animaciones con scroll |
+| Three.js | ^0.183.2 | Escena 3D PartyLights + GhostCursor |
+| Spline (@splinetool/react-spline) | ^4.1.0 | Escena 3D de bienvenida |
 
-### Servicios y utilidades
+### Servicios / Utilidades
 
-- Firebase / Firestore para comentarios
-- html2pdf.js como dependencia del proyecto
+| Tecnología | Propósito |
+|---|---|
+| Firebase Firestore | Almacenamiento de comentarios |
+| html2pdf.js | Descarga de CV en PDF |
+| Font Awesome 6.5.2 (CDN) | Iconos |
 
 ### Escritorio
 
-- Electron
-- electron-builder
+| Tecnología | Propósito |
+|---|---|
+| Electron ^41.0.3 | Desktop wrapper |
+| electron-builder ^26.8.1 | NSIS installer for Windows |
 
-## Estructura general del sitio
+### Calidad
 
-La aplicacion esta organizada por rutas dentro de un layout principal que comparte encabezado, sidebar, pie de pagina, reloj, particulas y logica comun de tema.
+| Herramienta | Propósito |
+|---|---|
+| ESLint ^9.39.1 | Linting |
+| PostCSS + Autoprefixer | Procesamiento CSS |
+| @vitejs/plugin-react | React Fast Refresh |
+| @tailwindcss/vite | Integración Tailwind v4 en Vite |
 
-### Rutas disponibles
+---
 
-- `/` -> Inicio
-- `/sobre-mi` -> Informacion general del perfil
-- `/habilidades` -> Habilidades tecnicas y personales
-- `/proyectos` -> Portafolio de proyectos
-- `/certificaciones` -> Certificaciones y reconocimientos
-- `/comentarios` -> Formulario de comentarios
-- `/contacto` -> Canales de contacto
+## Rutas
 
-### Secciones destacadas
+Todas las rutas usan **hash router** (createHashRouter) para compatibilidad con Electron. Cada página se carga con React.lazy + Suspense (componente ContentLoader animado).
 
-#### Inicio
+| Ruta | Componente | Descripción |
+|---|---|---|
+| `/` | HomePage | Página principal: tarjetas de acceso rápido + AboutSection |
+| `/sobre-mi` | AboutPage | Información personal, CodeEditor interactivo, EducationSection |
+| `/habilidades` | SkillsPage | Habilidades técnicas y personales, DevStackPulse |
+| `/experiencia` | ExperiencePage | Experiencia laboral (4 roles) |
+| `/certificaciones` | CertificationsPage | Galería de certificados |
+| `/proyectos` | ProjectsPage | Portafolio de proyectos con filtros |
+| `/actualmente` | CurrentlyPage | Actividades actuales (en construcción) |
+| `/comentarios` | CommentsPage | Módulo de comentarios con Firebase |
+| `/contacto` | ContactPage | Canales de contacto (6 vías) |
+| `*` | NotFoundPage | Página 404 |
 
-La pagina principal integra una vista general del perfil, accesos rapidos a las secciones del sitio y el bloque de educacion. Funciona como punto de entrada para explorar el resto del portafolio.
+**Menú de navegación** (10 items):
 
-#### Sobre mi
+1. Recorrido → `/` (end route)
+2. Sobre mí → `/sobre-mi`
+3. Habilidades → `/habilidades`
+4. Experiencia → `/experiencia`
+5. Certificaciones → `/certificaciones`
+6. Proyectos → `/proyectos`
+7. Actualmente → `/actualmente`
+8. Comentarios → `/comentarios`
+9. Contacto → `/contacto`
+10. Jugar → https://starlightnoreturn.vercel.app (externa, abre en nueva pestaña)
+---
 
-Presenta un resumen profesional centrado en desarrollo web full stack, interfaces dinamicas, APIs, paneles administrativos y soluciones basadas en datos.
+## Características Principales
 
-#### Habilidades
+### 1. Pantalla de Bienvenida (Welcome Overlay)
 
-Agrupa el stack principal en tres bloques:
+- Escena 3D con Spline (@splinetool/react-spline)
+- Título: "Arturo Juárez Monroy", subtítulo: "Ingeniería en Software"
+- Botón "Entrar" con animación de pulso
+- Avatares (avatar2.png, avatar5.png) que cambian al hacer hover
+- Respeta prefers-reduced-motion
 
-- Lenguajes: JavaScript, Python, PHP, Java, C++ / C, SQL y TypeScript.
-- Frameworks y librerias: React, React Native, Astro, Next.js, Node.js, Firebase, Vue, Tailwind CSS y Bootstrap.
-- Herramientas complementarias: MySQL Workbench, WordPress, Power BI, Canvas, 3ds Max, Unity, AutoCAD y Excel.
+### 2. Modo Oscuro / Claro
 
-Tambien incluye habilidades personales como creatividad, adaptabilidad, enfoque en el detalle, compromiso con la calidad y resiliencia.
+- Alternancia con botón ThemeGlyph (SVG inline 64x64)
+- Persistencia en localStorage
+- CSS custom properties para todos los colores
 
-#### Proyectos
+### 3. Partículas de Fondo (particulasfondo.jsx)
 
-Muestra proyectos academicos e independientes en tarjetas con descripcion, fecha, enlaces a repositorios, sitios o videos, y controles de orden y favoritos.
+- Canvas con sistema de partículas
+- Modo oscuro: 116 partículas con estela verde #00ff88
+- Modo claro: 22 partículas con estela azul #9ed8ff + capas de nubes
+- Interacción con el ratón (atracción/repulsión)
 
-Entre los proyectos incluidos se encuentran:
+### 4. PartyLights (Three.js 3D)
 
-- Piramides de Tula con A-Frame
-- Sitio web del bar El Mezcalito
-- Portal Turistico de Hidalgo
-- IEEE Student Web Hub
-- Recetario
-- Aplicacion de Mapas Personalizados (SIG Hidalgo)
-- Chat con IA Local (Ollama + Next.js)
-- Aplicacion de Venta de Refrescos
-- Sistema de gestion de gastos personales
+- Escena 3D con esferas flotantes en hilos (luces de fiesta)
+- Shaders personalizados (vertex + fragment) para brillo pulsante
+- Modo oscuro: ambiente #080810, acento #00ff88
+- Modo claro: ambiente #93c5fd, acento #2563eb
+- Responsive: calidad reducida en móvil
 
-#### Certificaciones
+### 5. GhostCursor (Cursor WebGL)
 
-La seccion de certificaciones no esta hardcodeada manualmente una por una. El proyecto usa un modulo virtual de Vite que lee automaticamente los archivos de imagen en `public/certificadosyreconocimientos`, los ordena y los transforma en un carrusel navegable.
+- Reemplaza el cursor del ratón por un orbe fantasmal
+- Shaders con ruido Simplex, glow, distorsión ondulada
+- Uniformes: u_time, u_ratio, u_pointer, u_smile, u_main_color, u_border_color, u_flat_color
+- Respeta prefers-reduced-motion
 
-Cada certificacion puede abrirse en pantalla completa dentro de un modal para facilitar su consulta.
+### 6. Perfil con Fotos por Año
 
-#### Comentarios
+- Carrusel de 4 fotos (2023–2026) en public/fotosanios/
+- Navegación anterior/siguiente con indicador de año
+- Efecto ProfileLetterRain (Matrix rain) sobre la foto
 
-La pagina de comentarios permite que una persona deje su nombre, correo opcional y mensaje. La informacion se envia a la coleccion `comments` de Firestore y, ademas, se guarda localmente el ultimo comentario enviado para mostrarlo de inmediato en la interfaz.
+### 7. Reproductor de Música
 
-#### Contacto
+- Pista: public/music.mp3
+- Botón play/pause con barra de progreso y duración
+- Tooltip informativo en el primer uso: "Quieres escuchar la musica del portafolio?"
 
-Incluye accesos directos a:
+### 8. CodeEditor Interactivo
 
-- Correo
-- LinkedIn
-- GitHub
-- WhatsApp
+- Editor simulado tipo VS Code con 3 pestañas de archivo:
+  - about.js — Objeto developer con nombre, edad, país, rol, email, LinkedIn
+  - skills.json — 8 habilidades con nombre, nivel (0–100) y keywords
+  - info.ts — Objeto con escuela, carrera, año de egreso, número de certificaciones
+- Barra lateral, números de línea, coloreado de sintaxis
 
-## Arquitectura del proyecto
+### 9. Sección "Acerca de" (AboutSection)
 
-La estructura del repositorio sigue una organizacion clara por paginas, componentes y layout:
+- Texto dividido en 60 palabras con animación GSAP (stagger con blur desde abajo)
+- Integra el CodeEditor
 
-```text
-.
-|-- public/
-|   |-- certificadosyreconocimientos/
-|   |-- avatar*.png
-|   |-- Curriculum Arturo JM.pdf
-|-- src/
-|   |-- components/
-|   |-- layouts/
-|   |-- pages/
-|   |-- App.css
-|   |-- index.css
-|   |-- router.jsx
-|   |-- firebase.js
-|   |-- CommentSection.jsx
-|   |-- particulasfondo.jsx
-|-- main.cjs
-|-- vite.config.js
-|-- package.json
-```
+### 10. Proyectos
 
-### Archivos clave
+- Cargados desde public/projects.json (14 proyectos)
+- Orden ascendente/descendente por año
+- Filtro de favoritos (★)
+- Enlaces a: repositorio GitHub, video YouTube, sitio externo
+- Modal de video con iframe (YouTube embed)
+- Componente ProjectActionChrome con decoraciones de estrellas
 
-- `src/router.jsx`
-  Define las rutas principales del portafolio.
-- `src/layouts/PortfolioLayout.jsx`
-  Centraliza el layout base, el cambio de tema, la pantalla de bienvenida, el modal de video y elementos globales de la interfaz.
-- `src/components/ProjectsSection.jsx`
-  Contiene la lista de proyectos, el ordenamiento y el filtro de favoritos.
-- `src/CertificationsCarousel.jsx`
-  Construye el carrusel de certificados y su modal de vista ampliada.
-- `src/CommentSection.jsx`
-  Gestiona el formulario de comentarios y su escritura en Firestore.
-- `src/firebase.js`
-  Inicializa Firebase y exporta la instancia de Firestore.
-- `vite.config.js`
-  Agrega un plugin personalizado para detectar automaticamente certificaciones desde el directorio publico.
-- `main.cjs`
-  Permite abrir la aplicacion como ventana de Electron.
+### 11. Certificaciones Dinámicas
 
-## Requisitos previos
+- Plugin Vite personalizado (certifications-plugin) crea el módulo virtual virtual:certifications
+- Escanea public/certificadosyreconocimientos/ en busca de imágenes
+- Formatos soportados: PNG, JPG, JPEG, WebP, AVIF, GIF, SVG
+- Carrusel horizontal con botones anterior/siguiente
+- Modal para vista completa
+- Alt text generado automáticamente del nombre del archivo
+- 25 certificaciones actualmente
 
-Para ejecutar este proyecto de manera local se recomienda contar con:
+### 12. Comentarios con Firebase
 
-- Node.js 20 o superior
-- npm
+- Conexión a Firebase Firestore (colección comments)
+- Formulario: nombre, email (opcional), comentario
+- Soporte para bloques de código con triple backtick + lenguaje
+- Inline code resaltado
+- Último comentario guardado en localStorage para visualización inmediata
 
-## Instalacion
+### 13. Contacto
 
-Clona el repositorio e instala dependencias:
+6 canales de contacto con iconos Font Awesome:
+
+| Canal | Valor |
+|---|---|
+| Correo | juarezmonroyarturo574@gmail.com |
+| LinkedIn | linkedin.com/in/arturojuarezmonroy |
+| GitHub | ArturoJM0A1 |
+| Twitter | @juarez_mon84035 |
+| YouTube | Arturo Juarez Monroy |
+| WhatsApp | +52 1 773 680 2105 |
+
+### 14. Experiencia Laboral
+
+4 roles documentados:
+
+| Puesto | Empresa | Periodo | Tecnologías |
+|---|---|---|---|
+| Desarrollador Backend | INBURSA Grupo Financiero | May 2026 – Jun 2026 | Java, Hibernate, HQL, Spring Boot, Oracle, PL/SQL |
+| Desarrollador Full Stack React | Independiente | Abr 2025 – Feb 2026 | React, TypeScript, Node.js, PostgreSQL, REST APIs |
+| Desarrollo PHP y WordPress | Grupo Alternativas Solucione | Jul 2024 – Dic 2024 | PHP, WordPress, MySQL, APIs |
+| Desarrollador de Software | Gobierno del Estado de Hidalgo | Ene 2023 – Ago 2023 | PHP, CSS, JavaScript, MySQL |
+
+### 15. Habilidades
+
+Técnicas (3 grupos):
+
+- Lenguajes: JavaScript, Python, PHP, Java, C, C++, SQL, TypeScript (8)
+- Frameworks / Librerías: React, React Native, Astro, Next.js, Node.js, Firebase, Vue, Tailwind CSS, Bootstrap (9)
+- Otros: MySQL Workbench, WordPress, Power BI, Canvas, 3ds Max, Unity, AutoCAD, Excel (8)
+
+Personales (3): Creatividad, Comunicación, Adaptabilidad
+
+DevStackPulse: Widget de experiencia con 6 lenguajes en barras:
+
+| Lenguaje | % |
+|---|---|
+| JavaScript | 73 |
+| React | 70 |
+| SQL | 64 |
+| Tailwind | 60 |
+| Java | 56 |
+| Python | 42 |
+
+### 16. Educación
+
+- Ingeniería en Software — Universidad Autónoma del Estado de Hidalgo (2020–2024)
+- EducationBadge: SVG animado con GSAP (graduación, halo, chispas, anillos)
+
+### 17. HeroCat
+
+- Gato decorativo hecho completamente con CSS (pseudo-elementos)
+- Cuerpo, cabeza, orejas, ojos, bigotes, cola
+- Animación de respiración
+- Colores adaptables a modo claro/oscuro
+
+### 18. Botón Cohete (Scroll-to-Top)
+
+- Botón fijo abajo a la derecha
+- Emoji 🚀 con rotación en hover
+- Gradiente animado
+- window.scrollTo({ top: 0, behavior: 'smooth' })
+
+### 19. Loader Animado (ContentLoader)
+
+- Anillos concéntricos con haz rotatorio
+- Texto "Sistema activo", label y caption
+- Accesible: role="status", aria-live="polite", aria-busy="true"
+
+### 20. Efectos de Scroll (PortfolioLayoutScrollFx)
+
+- GSAP ScrollTrigger anima el icono de tema (se mueve, rota, escala al hacer scroll)
+
+---
+
+## Proyectos (14 en total)
+
+Los datos se definen en `public/projects.json`. Cada proyecto puede incluir:
+
+- favorite: true — marcado como favorito
+- inDevelopment: true — muestra indicador de desarrollo
+- links[] — array de enlaces (repo, video, sitio externo)
+
+| # | Proyecto | Año | Favorito |
+|---|---|---|---|
+| 1 | Pirámides de Tula con A-Frame | 2023 | |
+| 2 | Sitio Web del bar "El Mezcalito" | 2023 | |
+| 3 | Portal Turístico de Hidalgo | 2024 | |
+| 4 | Sitio web IEEE Student Web Hub | 2024 | |
+| 5 | Recetario | 2024 | |
+| 6 | Aplicación de Mapas Personalizados (SIG Hidalgo) | 2025 | ★ |
+| 7 | Chat con IA Local (Ollama + Next.js) | 2026 | |
+| 8 | Aplicación de Venta de Refrescos | 2026 | |
+| 9 | Catálogos de Excel a elementos Web | 2026 | |
+| 10 | Detector de Objetos PWA en tiempo real | 2026 | ★ |
+| 11 | Sistema de Reservaciones de Servicios Técnicos | 2026 | |
+| 12 | Experiencia VR con Control por Voz | 2023 | ★ |
+| 13 | Generador de Ciudades 3D con Three.js | 2026 | ★ |
+| 14 | Starlight: No Return (videojuego arcade) | 2026 | ★ (en desarrollo) |
+
+---
+
+## Instalación y Uso
 
 ```bash
+# Clonar repositorio
+git clone <repo-url>
+cd arturojmdev
+
+# Instalar dependencias
 npm install
-```
 
-## Ejecucion en desarrollo
+# Desarrollo
+npm run dev        # http://localhost:5173
 
-Para iniciar el servidor de desarrollo:
+# Build producción
+npm run build      # Salida en dist/
 
-```bash
-npm run dev
-```
-
-Vite levantara la aplicacion en la direccion local que indique la terminal, normalmente:
-
-```bash
-http://localhost:5173
-```
-
-## Compilacion para produccion
-
-Para generar la carpeta `dist`:
-
-```bash
-npm run build
-```
-
-Para previsualizar la build:
-
-```bash
+# Vista previa del build
 npm run preview
 ```
 
-## Ejecutar como aplicacion de escritorio
-
-El proyecto tambien puede abrirse con Electron.
-
-### En desarrollo
-
-Electron carga la URL local de Vite cuando la aplicacion no esta empaquetada, por lo que normalmente se trabaja con dos procesos:
-
-1. Levantar Vite con `npm run dev`
-2. En otra terminal, abrir Electron con `npm run start`
-
-### Empaquetado
-
-Para generar una build de escritorio:
+### Escritorio (Electron)
 
 ```bash
+# Abrir en ventana de Electron
+npm run start
+
+# Empaquetar instalador NSIS para Windows
 npm run dist
 ```
 
-La configuracion actual de `electron-builder` define:
+---
 
-- `appId`: `com.arturo.cv`
-- `productName`: `CV Arturo`
-- destino de Windows: `nsis`
+## Estructura del Proyecto
 
-## Scripts disponibles
-
-```bash
-npm run dev      # Inicia Vite en modo desarrollo
-npm run build    # Genera la build de produccion
-npm run preview  # Sirve la build generada localmente
-npm run lint     # Ejecuta ESLint
-npm run start    # Abre la app con Electron
-npm run dist     # Empaqueta la app con electron-builder
+```
+arturojmdev/
+├── index.html                 # Entry HTML (meta tags, JSON-LD Schema, Font Awesome CDN)
+├── main.cjs                   # Electron main process (BrowserWindow 1000x700)
+├── package.json               # Scripts, dependencias, configuración
+├── vite.config.js             # Vite + plugins React/Tailwind/certifications-plugin
+├── eslint.config.js           # Configuración ESLint
+├── postcss.config.js          # PostCSS + Autoprefixer
+├── tailwind.config.js         # Tailwind v4 config
+│
+├── public/                    # Archivos estáticos
+│   ├── projects.json                   # Datos de proyectos
+│   ├── music.mp3                       # Pista de audio
+│   ├── JuarezMonroyArturo CV.pdf       # CV descargable
+│   ├── JuarezMonroyArturo CV.docx
+│   ├── artsearch2.png                  # Favicon
+│   ├── avatar1.png                     # Avatar
+│   ├── avatar2.png                     # Avatar (hover en welcome)
+│   ├── avatar3.png                     # Avatar
+│   ├── avatar4.png                     # Avatar
+│   ├── avatar5.png                     # Avatar (hover en welcome + footer)
+│   ├── dancedarktmode.gif              # GIF modo oscuro
+│   ├── dancelightmode.gif              # GIF modo claro
+│   ├── iampixelimage.jpg
+│   ├── Songs.png
+│   ├── vprevia.png
+│   ├── vite.svg
+│   ├── robots.txt
+│   ├── fotosanios/                     # Fotos de perfil por año
+│   ├── experienciaempresas/           # Logos de empresas
+│   └── certificadosyreconocimientos/  # 25 imágenes de certificados
+│
+├── src/
+│   ├── main.jsx                     # Entry point React (StrictMode)
+│   ├── App.jsx                      # RouterProvider
+│   ├── router.jsx                   # HashRouter con 10 rutas lazy-loaded
+│   ├── menuNavigation.js            # Items de navegación + scrollToSection()
+│   ├── firebase.js                  # Configuración Firebase
+│   │
+│   ├── layouts/
+│   │   └── PortfolioLayout.jsx      # Layout principal (tema, audio, modales, botón cohete)
+│   │
+│   ├── pages/
+│   │   ├── HomePage.jsx             # QuickLinks + AboutSection
+│   │   ├── AboutPage.jsx            # AboutSection + EducationSection
+│   │   ├── SkillsPage.jsx           # SkillsContent (variant=page)
+│   │   ├── ExperiencePage.jsx       # ExperienceSection (4 roles)
+│   │   ├── CertificationsPage.jsx   # CertificationsCarousel
+│   │   ├── ProjectsPage.jsx         # ProjectsSection
+│   │   ├── CurrentlyPage.jsx        # Sección "En construcción"
+│   │   ├── CommentsPage.jsx         # CommentSection
+│   │   ├── ContactPage.jsx          # ContactPanel
+│   │   └── NotFoundPage.jsx         # 404
+│   │
+│   ├── components/
+│   │   ├── SiteHeader.jsx           # Barra de navegación + HeroCat
+│   │   ├── SidebarInfo.jsx          # Foto por año, audio, skills compacto, CV
+│   │   ├── AboutSection.jsx         # Texto animado + CodeEditor
+│   │   ├── CodeEditor.jsx           # Editor VS Code simulado
+│   │   ├── CodeEditor.css           # Estilos del editor
+│   │   ├── EducationSection.jsx     # Información académica
+│   │   ├── EducationBadge.jsx       # SVG animado de graduación
+│   │   ├── ExperienceSection.jsx    # 4 experiencias laborales
+│   │   ├── SkillsContent.jsx        # Grupos de habilidades + DevStackPulse
+│   │   ├── DevStackPulse.jsx        # Widget de experiencia en barras
+│   │   ├── DevStackPulse.css        # Estilos del widget
+│   │   ├── ProjectsSection.jsx      # Lista de proyectos con filtros
+│   │   ├── ContactPanel.jsx         # 6 tarjetas de contacto
+│   │   ├── PageIntro.jsx            # Encabezado reutilizable
+│   │   ├── ContentLoader.jsx        # Loader animado
+│   │   ├── GhostCursor.jsx          # Cursor WebGL con shaders
+│   │   ├── PartyLights.jsx          # Escena Three.js 3D
+│   │   ├── ProfileLetterRain.jsx    # Lluvia Matrix sobre la foto
+│   │   ├── HeroCat.css              # Gato decorativo CSS
+│   │   └── SidebarInfo.css          # Estilos del sidebar
+│   │
+│   ├── CertificationsCarousel.jsx   # Carrusel de certificados
+│   ├── CommentSection.jsx           # Comentarios con Firebase
+│   ├── particulasfondo.jsx          # Partículas de fondo
+│   ├── PortfolioLayoutScrollFx.jsx  # ScrollTrigger en layout
+│   │
+│   ├── assets/
+│   │   ├── sprite.svg               # Iconos SVG para habilidades
+│   │   ├── react.svg
+│   │   └── 22.jpg
+│   │
+│   ├── App.css                      # ~10,000+ líneas — estilos globales
+│   ├── index.css                    # Tailwind v4 imports + base styles
+│   └── cohetegoup.css               # Botón cohete scroll-to-top
+│
+├── dist/                            # Build de producción
+├── node_modules/
+├── tools/
+├── vscode/
+├── .git/
+├── .gitattributes
+├── .gitignore
+└── .vscode/
 ```
 
-## Certificaciones dinamicas
+---
 
-Una de las partes mas practicas del proyecto es la carga automatica de certificados.
+## CSS Architecture
 
-Si deseas agregar nuevas certificaciones, solo coloca imagenes validas dentro de:
+- **App.css** (~10,000+ líneas): Contiene todas las variables CSS (:root y .dark-mode), estilos de componentes, keyframes de animación, modales, formularios, botones, layout responsivo. Es el archivo de estilos principal.
+- **index.css**: Importa Tailwind v4, define el variant dark personalizado, estilos base y footer.
+- **cohetegoup.css**: Botón cohete fijo.
+- **HeroCat.css**: Gato CSS-only.
+- **SidebarInfo.css**: Controles de foto y audio.
+- **DevStackPulse.css**: Widget de experiencia.
+- **CodeEditor.css**: Editor VS Code simulado.
 
-```text
-public/certificadosyreconocimientos
+**Custom Properties** (temas claro/oscuro):
+
+- `--primary-{light,dark}`, `--secondary-{light,dark}`, `--accent-{light,dark}`
+- `--bg-{light,dark}`, `--surface-{light,dark}`, `--text-{light,dark}`
+- `--border-{light,dark}`, `--shadow-glow`, `--gradient-1`, `--gradient-2`
+- `--font-primary: 'Orbitron'`, `--font-body: 'Tajawal'`, `--font-code: 'Fira Code'`
+
+**Google Fonts:**
+
+- Orbitron (400, 600, 700)
+- Tajawal (300, 400, 500, 600)
+- Fira Code (300, 400, 500)
+- Share Tech Mono, Exo 2 (para DevStackPulse)
+
+---
+
+## Módulo Virtual: Certificaciones
+
+El plugin `certifications-plugin` en `vite.config.js` crea el módulo virtual `virtual:certifications` que exporta un array con los nombres de archivo de imagen en `public/certificadosyreconocimientos/`. Soporta HMR: al agregar o quitar imágenes, el carrusel se actualiza automáticamente.
+
+```js
+import certificados from 'virtual:certifications';
+// certificados = ['Crea experiencias 3D increíbles con Vue.png', ...]
 ```
 
-El plugin configurado en `vite.config.js`:
+---
 
-- detecta archivos de imagen compatibles
-- ignora archivos ocultos
-- los ordena alfabeticamente
-- fuerza recarga completa cuando detecta cambios
+## Firebase Config
 
-Formatos admitidos:
-
-- `.png`
-- `.jpg`
-- `.jpeg`
-- `.webp`
-- `.avif`
-- `.gif`
-- `.svg`
-
-## Comentarios con Firebase
-
-La seccion de comentarios utiliza Firestore para registrar mensajes enviados desde el formulario.
-
-Actualmente el proyecto inicializa Firebase directamente desde `src/firebase.js`. La coleccion usada es:
-
-```text
-comments
+```js
+const firebaseConfig = {
+  apiKey: "AIzaSyD8q4tw8ugcfCJI3hsz-rOwzZnM-BOUgCg",
+  authDomain: "comentarioscvajm.firebaseapp.com",
+  projectId: "comentarioscvajm",
+  storageBucket: "comentarioscvajm.firebasestorage.app",
+  messagingSenderId: "456154483789",
+  appId: "1:456154483789:web:49d0da60ee011558d5e004"
+};
 ```
 
-Cada comentario guarda:
+Colección Firestore: `comments`.
 
-- nombre
-- correo electronico opcional
-- comentario
-- marca de tiempo del servidor
+---
 
-Adicionalmente, el ultimo comentario enviado se guarda en `localStorage` para mostrarse inmediatamente al usuario incluso despues de un refresco local.
+## Certificados (25)
 
-## Personalizacion del contenido
+Lista completa de certificaciones en `public/certificadosyreconocimientos/`:
 
-Este proyecto puede actualizarse facilmente sin reestructurarlo desde cero.
+1. Crea experiencias 3D increíbles con Vue.png
+2. Crea una PWA de Detección de Objetos con Angular 19 y TensorFlow js.png
+3. Curso de Astro y Headless CMS.png
+4. Curso de Tailwind desde Cero.png
+5. Curso Intensivo de Model Context Protocol.png
+6. Desarrollo Web con IA.png
+7. Enterprise Full Stack with Spring Boot 4 and Angular 21.png
+8. Figma para Devs.png
+9. Frontend Developer (React).png
+10. Fullstack Application Dev.png
+11. Fundamentos de ChatGPT.png
+12. Fundamentos de Scrum.png
+13. GSAP desde Cero.png
+14. Introducción a los Sistemas de Diseño.png
+15. Introducción a la IA para Developers.png
+16. Introducción a la ingeniería en AI.png
+17. Introduction to Modern AI.png
+18. JavaScript.png
+19. Partner NDG Linux Unhatched.png
+20. Prompting responsable maximiza la IA en tu negocio.png
+21. Python Essentials 1.png
+22. Qué hacemos realmente cuando hacemos Data Science.png
+23. Spring Boot 4 y Java 25 Desarrolla APIs REST Profesionales.jpg
+24. Taller GIT y GITHUB.jpeg
+25. Utility Types en TypeScript.png
 
-### Para cambiar proyectos
+---
 
-Edita la lista declarada en:
+## Accesibilidad
 
-```text
-src/components/ProjectsSection.jsx
-```
+- `prefers-reduced-motion` respetado en: GhostCursor, PartyLights, Particles, ProfileLetterRain, WelcomeOverlay, EducationBadge, AboutSection
+- `role="status"`, `aria-live="polite"`, `aria-busy="true"` en ContentLoader
+- Navegación por teclado en menú hamburguesa (Escape para cerrar)
+- Modales con `<dialog>` (Escape para cerrar)
 
-Desde ahi puedes:
+---
 
-- agregar nuevas tarjetas
-- cambiar descripciones
-- actualizar enlaces
-- marcar proyectos como favoritos
-- indicar si un proyecto sigue en desarrollo
+## Scripts Disponibles
 
-### Para cambiar habilidades
+| Script | Comando | Descripción |
+|---|---|---|
+| dev | `vite` | Servidor de desarrollo |
+| build | `vite build` | Build producción |
+| preview | `vite preview` | Vista previa del build |
+| start | `electron main.cjs` | Abrir en Electron |
+| dist | `electron-builder` | Empaquetar instalador Windows |
+| lint | `eslint .` | Análisis de código |
 
-Edita:
-
-```text
-src/components/SkillsContent.jsx
-```
-
-### Para cambiar datos de contacto
-
-Edita:
-
-```text
-src/components/ContactPanel.jsx
-```
-
-### Para cambiar textos generales del perfil
-
-Revisa principalmente:
-
-- `src/components/AboutSection.jsx`
-- `src/components/EducationSection.jsx`
-- `src/pages/*`
-- `src/layouts/PortfolioLayout.jsx`
-
-## Decisiones tecnicas relevantes
-
-- Se usa `createHashRouter` para facilitar compatibilidad en entornos donde no siempre hay configuracion de servidor para rutas limpias.
-- La propiedad `base: "./"` en Vite ayuda a que la build funcione correctamente en escenarios locales y de escritorio.
-- El layout centraliza la mayor parte del comportamiento global para mantener paginas mas simples.
-- La carga de certificaciones por plugin evita mantener listas manuales dentro del codigo.
-- El proyecto esta orientado a presentacion visual, por lo que CSS tiene un papel importante en la experiencia final.
-
-## Posibles mejoras futuras
-
-Estas no son obligatorias para usar el proyecto, pero pueden ser buenas siguientes iteraciones:
-
-- mover configuracion sensible a variables de entorno
-- agregar pruebas para componentes clave
-- consumir comentarios existentes desde Firestore y listarlos en tiempo real
-- incorporar seccion de experiencia profesional mas detallada
-- agregar internacionalizacion
-- optimizar el peso del bundle principal
+---
 
 ## Autor
 
 **Arturo Juárez Monroy**
 
-- GitHub: [ArturoJM0A1](https://github.com/ArturoJM0A1)
-- LinkedIn: [arturojuarezmonroy](https://www.linkedin.com/in/arturojuarezmonroy)
-- Correo: `juarezmonroyarturo574@gmail.com`
-
-## Licencia y uso
-
-Este repositorio funciona como portafolio personal. Si deseas reutilizar la base para tu propio sitio, lo recomendable es adaptar contenido, estilos, imagenes, enlaces y configuraciones antes de publicarlo como proyecto propio.
+| Canal | Enlace |
+|---|---|
+| GitHub | [ArturoJM0A1](https://github.com/ArturoJM0A1) |
+| LinkedIn | [arturojuarezmonroy](https://www.linkedin.com/in/arturojuarezmonroy) |
+| Twitter | [@juarez_mon84035](https://twitter.com/juarez_mon84035) |
+| YouTube | [Arturo Juarez Monroy](https://www.youtube.com/@arturojuarezmonroy) |
+| Correo | juarezmonroyarturo574@gmail.com |
+| WhatsApp | +52 1 773 680 2105 |
+| Web | [https://arturojmdev.vercel.app](https://arturojmdev.vercel.app) |

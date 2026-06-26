@@ -60,7 +60,7 @@ export default function HomePage() {
   return (
     <div className="page-stack">
       <section className="route-overview">
-        <h3>Recorridos del sitio</h3>
+        <h3>Recorrido del sitio</h3>
         <div className="quick-links-grid">
           {quickLinks.map((item) =>
             item.external ? (

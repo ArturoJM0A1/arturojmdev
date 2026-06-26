@@ -542,7 +542,7 @@ export default function PortfolioLayout() {
 
         <footer>
           <div className="footer-copy">
-            <b className="graciasxv">Gracias por visitarme</b>
+            <b className="graciasxv">Gracias por visitarme</b> <span aria-label="corazon">{"\u2764\uFE0F"}</span>
             <br />
             <b>(c) Arturo Juárez Monroy - Hecho con React, Vue y Firebase</b>
           </div>
