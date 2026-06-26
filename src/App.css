@@ -4961,6 +4961,42 @@ body.dark-mode .contact-card i {
   color: var(--primary-dark);
 }
 
+.copy-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 8px 18px;
+  border-radius: 12px;
+  background: #1e293b;
+  color: #f1f5f9;
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  animation: copyToastIn 0.2s ease-out;
+}
+
+body.dark-mode .copy-toast {
+  background: #e2e8f0;
+  color: #0f172a;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes copyToastIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
 .contact-page {
   display: grid;
   gap: 22px;

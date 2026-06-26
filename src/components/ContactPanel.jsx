@@ -1,8 +1,7 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import 'tailwindcss';
 import 'tailwind-animations';
-
-
 
 const contactItems = [
   {
@@ -24,12 +23,6 @@ const contactItems = [
     href: "https://github.com/ArturoJM0A1",
   },
   {
-    icon: "fa-brands fa-x-twitter",
-    label: "Twitter",
-    value: "@juarez_mon84035",
-    href: "https://x.com/juarez_mon84035",
-  },
-  {
     icon: "fa-brands fa-youtube",
     label: "YouTube",
     value: "Arturo Juarez Monroy",
@@ -44,6 +37,16 @@ const contactItems = [
 ];
 
 export default function ContactPanel() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = (e, email) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(email).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1000);
+    });
+  };
+
   return (
     <section
       id="contact-section"
@@ -64,6 +67,7 @@ export default function ContactPanel() {
             href={item.href}
             target={item.href.startsWith("mailto:") ? undefined : "_blank"}
             rel={item.href.startsWith("mailto:") ? undefined : "noreferrer"}
+            onClick={item.href.startsWith("mailto:") ? (e) => handleCopyEmail(e, item.value) : undefined}
           >
             <i className={item.icon} aria-hidden="true"></i>
             <span className="contact-card__label">{item.label}</span>
@@ -71,6 +75,7 @@ export default function ContactPanel() {
           </a>
         ))}
       </div>
+      {copied && <span className="copy-toast">Listo correo copiado</span>}
 
       <div className="contact-cta">
         <p>Tambien puedes dejarme un comentario directo dentro del portafolio.</p>

@@ -37,6 +37,7 @@ export default function SidebarInfo({
 }) {
   const [activePhotoIndex, setActivePhotoIndex] = useState(0);
   const [showTooltip, setShowTooltip] = useState(true);
+  const [copied, setCopied] = useState(false);
   const progressPercent = audioDuration > 0 ? (audioProgress / audioDuration) * 100 : 0;
 
   const handlePlayClick = () => {
@@ -216,9 +217,18 @@ export default function SidebarInfo({
         <h3>Conecta conmigo</h3>
         <p>
           <i className="fas fa-envelope" aria-hidden="true"></i>
-          <a href="mailto:juarezmonroyarturo574@gmail.com">
+          <a href="mailto:juarezmonroyarturo574@gmail.com"
+            onClick={(e) => {
+              e.preventDefault();
+              navigator.clipboard.writeText("juarezmonroyarturo574@gmail.com").then(() => {
+                setCopied(true);
+                setTimeout(() => setCopied(false), 1000);
+              });
+            }}
+          >
             juarezmonroyarturo574@gmail.com
           </a>
+          {copied && <span className="copy-toast">Listo correo copiado</span>}
         </p>
         <p>
           <i className="fab fa-linkedin" aria-hidden="true"></i>
