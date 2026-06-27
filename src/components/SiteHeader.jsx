@@ -8,6 +8,7 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme }) {
   const navigate = useNavigate();
   const menuRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showCP, setShowCP] = useState(false);
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -198,8 +199,34 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme }) {
               <span class="relative inline-flex size-3 rounded-full animacionDCV2"></span>
             </span>
           </a>
+          <button
+            type="button"
+            className="btn botonhero"
+            onClick={() => setShowCP(true)}
+          >
+            Ver CP
+          </button>
         </div>
       </div>
+
+      {showCP && (
+        <div className="cp-overlay" onClick={() => setShowCP(false)}>
+          <div className="cp-overlay__content" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="cp-overlay__close"
+              onClick={() => setShowCP(false)}
+              aria-label="Cerrar"
+            >
+              &times;
+            </button>
+            <img
+              src="/Carta de Presentación.png"
+              alt="Carta de Presentación"
+              className="cp-overlay__image"
+            />
+          </div>
+        </div>
+      )}
 
       <div className="herocat" aria-hidden="true">
         <div className="hero-cat-art">
