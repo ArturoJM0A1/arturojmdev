@@ -25,7 +25,7 @@ const contactItems = [
   {
     icon: "fa-brands fa-youtube",
     label: "YouTube",
-    value: "Arturo Juarez Monroy",
+    value: "@arturojuarezmonroy3951",
     href: "https://www.youtube.com/@arturojuarezmonroy3951",
   },
   {
