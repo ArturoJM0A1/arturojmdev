@@ -89,7 +89,7 @@ export default function SidebarInfo({
               </button>
               {showTooltip && !isAudioPlaying && (
                 <span className="photo-audio-tooltip" role="status">
-                  click aqui para reproducir
+                  🎶🎵
                 </span>
               )}
             </div>
