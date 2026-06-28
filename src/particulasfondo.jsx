@@ -85,8 +85,8 @@ export default function Particles({ theme }) {
     const createDarkParticle = () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.2 + 0.1,
+      vx: (Math.random() - 0.5) * 1.2,
+      vy: (Math.random() - 0.5) * 0.8 + 0.4,
       size: Math.random() * 2.51 + 1,
       trail: [],
       color: `hsl(${120 + Math.random() * 60}, 100%, 60%)`,
