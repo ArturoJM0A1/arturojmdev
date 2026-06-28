@@ -14,7 +14,7 @@ const getScrollAccent = (icon) => {
       x: isCompactViewport ? -2 : -5,
       y: isCompactViewport ? -10 : -18,
       rotate: isCompactViewport ? -2.4 : -4.5,
-      scale: isCompactViewport ? 1.015 : 1.035,
+      scale: isCompactViewport ? 1.08 : 1.15,
     };
   }
 
@@ -22,7 +22,7 @@ const getScrollAccent = (icon) => {
     x: isCompactViewport ? 2 : 4,
     y: isCompactViewport ? -9 : -16,
     rotate: isCompactViewport ? 2.1 : 4,
-    scale: isCompactViewport ? 1.02 : 1.04,
+    scale: isCompactViewport ? 1.08 : 1.18,
   };
 };
 
