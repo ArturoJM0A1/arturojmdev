@@ -22,24 +22,54 @@ const allowedImageExtensions = new Set([
 
 function getCertificationFiles() {
   try {
-    return readdirSync(certificationDirectory, { withFileTypes: true })
-      .filter((entry) => {
-        const extension = path.extname(entry.name).toLowerCase();
-        return (
-          entry.isFile() &&
-          !entry.name.startsWith(".") &&
-          allowedImageExtensions.has(extension)
-        );
-      })
+    const entries = readdirSync(certificationDirectory, { withFileTypes: true });
+    const result = {};
+
+    const categoryOrder = [
+      "Frontend",
+      "Backend",
+      "DevOps y Herramientas",
+      "Metodologías",
+      "Inteligencia Artificial",
+      "Ciencia de Datos",
+      "Diseño UX-UI",
+      "Full Stack",
+      "Lenguajes",
+    ];
+
+    const subdirectories = entries
+      .filter((entry) => entry.isDirectory() && !entry.name.startsWith("."))
       .map((entry) => entry.name)
-      .sort((left, right) =>
-        left.localeCompare(right, "es", {
-          numeric: true,
-          sensitivity: "base",
-        }),
-      );
+      .sort((left, right) => {
+        const leftIdx = categoryOrder.indexOf(left);
+        const rightIdx = categoryOrder.indexOf(right);
+        return (leftIdx === -1 ? 999 : leftIdx) - (rightIdx === -1 ? 999 : rightIdx);
+      });
+
+    for (const dir of subdirectories) {
+      const dirPath = path.join(certificationDirectory, dir);
+      const files = readdirSync(dirPath, { withFileTypes: true })
+        .filter((entry) => {
+          const extension = path.extname(entry.name).toLowerCase();
+          return (
+            entry.isFile() &&
+            !entry.name.startsWith(".") &&
+            allowedImageExtensions.has(extension)
+          );
+        })
+        .map((entry) => entry.name)
+        .sort((left, right) =>
+          left.localeCompare(right, "es", { numeric: true, sensitivity: "base" }),
+        );
+
+      if (files.length > 0) {
+        result[dir] = files;
+      }
+    }
+
+    return result;
   } catch {
-    return [];
+    return {};
   }
 }
 

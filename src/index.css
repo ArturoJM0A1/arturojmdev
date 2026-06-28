@@ -238,6 +238,23 @@ body.dark-mode .certifications-section h3 {
   border-bottom-color: var(--primary-dark);
 }
 
+.certifications-category {
+  margin-bottom: 32px;
+}
+
+.certifications-category__title {
+  font-family: var(--font-primary);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--primary-light);
+  margin-bottom: 12px;
+  padding-left: 44px;
+}
+
+body.dark-mode .certifications-category__title {
+  color: var(--primary-dark);
+}
+
 .certifications-carousel {
   position: relative;
   padding-inline: 44px;
