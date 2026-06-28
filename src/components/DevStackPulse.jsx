@@ -2,11 +2,11 @@ import { useState, useEffect, useRef } from "react";
 import "./DevStackPulse.css";
 
 const LANG_SET = [
-  { id: "JS", name: "JavaScript", icon: "JS", bg: "#f7df1e", experience: 73 },
-  { id: "REACT", name: "React", icon: "R", bg: "#61dafb", experience: 70 },
+  { id: "JS", name: "JavaScript", icon: "JS", bg: "#f7df1e", experience: 70 },
+  { id: "REACT", name: "React", icon: "R", bg: "#61dafb", experience: 68 },
   { id: "SQL", name: "SQL", icon: "Q", bg: "#e38c2c", experience: 64 },
   { id: "TAILWIND", name: "Tailwind", icon: "T", bg: "#38bdf8", experience: 60 },
-  { id: "JAVA", name: "Java", icon: "J", bg: "#b07219", experience: 56 },
+  { id: "JAVA", name: "Java", icon: "J", bg: "#b07219", experience: 66 },
   { id: "PYTHON", name: "Python", icon: "Py", bg: "#3776ab", experience: 42 },
 ];
 
@@ -92,13 +92,6 @@ export default function DevStackPulse() {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="devstack-pulse__legend">
-          <span className="devstack-pulse__legend-item">
-            <span className="devstack-pulse__legend-dot" style={{ background: accentColor }} />
-            Escala: 0-100%
-          </span>
         </div>
       </div>
     </div>
