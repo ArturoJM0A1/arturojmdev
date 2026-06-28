@@ -129,9 +129,9 @@ body.dark-mode .photo-year-label {
 
 .photo-audio-tooltip {
   position: absolute;
-  top: 50%;
-  left: calc(100% + 12px);
-  transform: translateY(-50%);
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
   white-space: nowrap;
   padding: 4px 10px;
   border-radius: 8px;
@@ -151,21 +151,21 @@ body.dark-mode .photo-year-label {
 .photo-audio-tooltip::before {
   content: "";
   position: absolute;
-  top: 50%;
-  right: 100%;
-  transform: translateY(-50%);
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   border: 6px solid transparent;
-  border-right-color: var(--primary-light);
+  border-top-color: var(--primary-light);
 }
 
 .photo-audio-tooltip::after {
   content: "";
   position: absolute;
-  top: 50%;
-  right: 100%;
-  transform: translateY(-50%);
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   border: 5px solid transparent;
-  border-right-color: #ffffff;
+  border-top-color: #ffffff;
 }
 
 body.dark-mode .photo-audio-tooltip {
@@ -176,21 +176,21 @@ body.dark-mode .photo-audio-tooltip {
 }
 
 body.dark-mode .photo-audio-tooltip::before {
-  border-right-color: var(--primary-dark);
+  border-top-color: var(--primary-dark);
 }
 
 body.dark-mode .photo-audio-tooltip::after {
-  border-right-color: rgba(10, 14, 26, 0.96);
+  border-top-color: rgba(10, 14, 26, 0.96);
 }
 
 @keyframes photoAudioTooltipIn {
   from {
     opacity: 0;
-    transform: translateY(-50%) translateX(-6px);
+    transform: translateX(-50%) translateY(4px);
   }
   to {
     opacity: 1;
-    transform: translateY(-50%) translateX(0);
+    transform: translateX(-50%) translateY(0);
   }
 }
 
