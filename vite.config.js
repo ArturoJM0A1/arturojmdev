@@ -28,12 +28,12 @@ function getCertificationFiles() {
     const categoryOrder = [
       "Frontend",
       "Backend",
+      "Full Stack",
       "DevOps y Herramientas",
       "Metodologías",
       "Inteligencia Artificial",
       "Ciencia de Datos",
       "Diseño UX-UI",
-      "Full Stack",
       "Lenguajes",
     ];
 
