@@ -49,6 +49,7 @@ const technicalSkillGroups = [
       { label: "Excel", icons: ["excelexcel"] },
       { label: "A-Frame", icons: ["aframe"] },
       { label: "Oracle", icons: ["oracle"] },
+      { label: "Postman", icons: ["postman"] },
       { label: "Git", icons: ["git"] },
       { label: "Three", icons: ["three"] },
     ],
