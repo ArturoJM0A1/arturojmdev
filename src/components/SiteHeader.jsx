@@ -3,12 +3,11 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { navigationItems, scrollToSection } from "../menuNavigation.js";
 import "./HeroCat.css";
 
-export default function SiteHeader({ cvHref, displayText, theme, setTheme }) {
+export default function SiteHeader({ cvHref, displayText, theme, setTheme, showCP, onShowCP }) {
   const location = useLocation();
   const navigate = useNavigate();
   const menuRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showCP, setShowCP] = useState(false);
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -202,31 +201,12 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme }) {
           <button
             type="button"
             className="btn botonhero"
-            onClick={() => setShowCP(true)}
+            onClick={() => onShowCP(true)}
           >
             Ver CP
           </button>
         </div>
       </div>
-
-      {showCP && (
-        <div className="cp-overlay" onClick={() => setShowCP(false)}>
-          <div className="cp-overlay__content" onClick={(e) => e.stopPropagation()}>
-            <button
-              className="cp-overlay__close"
-              onClick={() => setShowCP(false)}
-              aria-label="Cerrar"
-            >
-              &times;
-            </button>
-            <img
-              src="/Carta de Presentación.png"
-              alt="Carta de Presentación"
-              className="cp-overlay__image"
-            />
-          </div>
-        </div>
-      )}
 
       <div className="herocat" aria-hidden="true">
         <div className="hero-cat-art">

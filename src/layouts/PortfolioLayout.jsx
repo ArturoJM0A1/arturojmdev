@@ -193,6 +193,7 @@ export default function PortfolioLayout() {
   const [audioProgress, setAudioProgress] = useState(0);
   const [audioDuration, setAudioDuration] = useState(0);
   const [showRocket, setShowRocket] = useState(false);
+  const [showCP, setShowCP] = useState(false);
   const [activeVideo, setActiveVideo] = useState(null);
 
   useEffect(() => {
@@ -522,6 +523,8 @@ export default function PortfolioLayout() {
           displayText={displayText}
           theme={theme}
           setTheme={setTheme}
+          showCP={showCP}
+          onShowCP={setShowCP}
         />
 
         <SidebarInfo
@@ -600,6 +603,25 @@ export default function PortfolioLayout() {
           aria-label="Volver arriba"
         >
           <span className="rocket">{"\u{1F680}"}</span>
+        </div>
+      )}
+
+      {showCP && (
+        <div className="cp-overlay" onClick={() => setShowCP(false)}>
+          <div className="cp-overlay__content" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="cp-overlay__close"
+              onClick={() => setShowCP(false)}
+              aria-label="Cerrar"
+            >
+              &times;
+            </button>
+            <img
+              src="/Carta de Presentación.png"
+              alt="Carta de Presentación"
+              className="cp-overlay__image"
+            />
+          </div>
         </div>
       )}
 
