@@ -9,7 +9,7 @@ export default function Particles({ theme }) {
     let animationFrameId;
     let particles = [];
     const isDarkMode = theme === 'dark';
-    const PARTICLE_COUNT = isDarkMode ? 116 : 22;
+    const PARTICLE_COUNT = isDarkMode ? 150 : 22;
     const TRAIL_LENGTH = 4;
     const BASE_COLOR = isDarkMode ? '#00ff88' : '#9ed8ff';
     const TRAIL_COLOR = '0, 255, 136';
