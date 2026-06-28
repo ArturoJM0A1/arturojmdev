@@ -50,6 +50,7 @@ const technicalSkillGroups = [
       { label: "A-Frame", icons: ["aframe"] },
       { label: "Oracle", icons: ["oracle"] },
       { label: "Git", icons: ["git"] },
+      { label: "Three", icons: ["three"] },
     ],
   },
 ];
