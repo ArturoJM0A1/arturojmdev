@@ -22,6 +22,7 @@ const technicalSkillGroups = [
     title: "Frameworks / Librerias",
     items: [
       { label: "React", icons: ["react"] },
+      { label: "Angular", icons: ["angular"] },
       { label: "React Native", icons: ["reactnative"] },
       { label: "Astro", icons: ["astro"] },
       { label: "Next.js", icons: ["nextdotjs"] },
@@ -30,6 +31,9 @@ const technicalSkillGroups = [
       { label: "Vue", icons: ["vuedotjs"] },
       { label: "Tailwind CSS", icons: ["tailwindcss"] },
       { label: "Bootstrap", icons: ["bootstrap"] },
+      { label: "Laravel", icons: ["laravel"] },
+      { label: "Spring Boot", icons: ["springboot"] },
+      { label: "ExtJS", icons: ["extjs"] },
     ],
   },
   {
@@ -43,6 +47,9 @@ const technicalSkillGroups = [
       { label: "Unity", icons: ["unity"] },
       { label: "AutoCAD", icons: ["autocad"] },
       { label: "Excel", icons: ["excelexcel"] },
+      { label: "A-Frame", icons: ["aframe"] },
+      { label: "Oracle", icons: ["oracle"] },
+      { label: "Git", icons: ["git"] },
     ],
   },
 ];
