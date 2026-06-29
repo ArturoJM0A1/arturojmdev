@@ -1040,13 +1040,13 @@ body.dark-mode .comment-success {
   position: absolute;
   top: 54px;
   right: 0;
-  margin: 14px;
+  margin-right: 14px;
   background: transparent;
   z-index: 10;
   padding: 0;
   overflow: hidden;
   animation: girarTuerca 6s ease-in-out infinite;
-
+margin-top: -6px;
 }
 
 

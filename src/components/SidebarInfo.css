@@ -1,6 +1,6 @@
 .photo-year-controls {
   position: absolute;
-  bottom: 18px;
+  bottom: -9px;
   left: 50%;
   z-index: 20;
   display: grid;
