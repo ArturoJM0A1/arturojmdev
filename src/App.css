@@ -865,7 +865,7 @@ body.dark-mode .botonhero span .animacionDCV2 {
   inset: 0;
   border-radius: 12px;
   pointer-events: none;
-  background: rgba(80, 200, 220, 0.15);
+  background: rgba(40, 150, 220, 0.7);
   mix-blend-mode: overlay;
 }
 
