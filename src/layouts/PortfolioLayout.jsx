@@ -616,11 +616,13 @@ export default function PortfolioLayout() {
             >
               &times;
             </button>
-            <img
-              src="/Carta de Presentación.png"
-              alt="Carta de Presentación"
-              className="cp-overlay__image"
-            />
+            <div className="cp-overlay__image-wrapper">
+              <img
+                src="/Carta de Presentación.png"
+                alt="Carta de Presentación"
+                className="cp-overlay__image"
+              />
+            </div>
           </div>
         </div>
       )}

@@ -158,7 +158,7 @@ Todas las rutas usan **hash router** (createHashRouter) para compatibilidad con 
 - Carrusel horizontal con botones anterior/siguiente
 - Modal para vista completa
 - Alt text generado automáticamente del nombre del archivo
-- 25 certificaciones actualmente
+- 25 certificaciones actualmente en 9 categorías
 
 ### 12. Comentarios con Firebase
 
@@ -464,33 +464,19 @@ Colección Firestore: `comments`.
 
 ## Certificados (25)
 
-Lista completa de certificaciones en `public/certificadosyreconocimientos/`:
+Las imágenes se almacenan en subdirectorios dentro de `public/certificadosyreconocimientos/`, organizadas por categoría. El plugin de Vite escanea automáticamente cada subdirectorio y agrupa los certificados por categoría.
 
-1. Crea experiencias 3D increíbles con Vue.png
-2. Crea una PWA de Detección de Objetos con Angular 19 y TensorFlow js.png
-3. Curso de Astro y Headless CMS.png
-4. Curso de Tailwind desde Cero.png
-5. Curso Intensivo de Model Context Protocol.png
-6. Desarrollo Web con IA.png
-7. Enterprise Full Stack with Spring Boot 4 and Angular 21.png
-8. Figma para Devs.png
-9. Frontend Developer (React).png
-10. Fullstack Application Dev.png
-11. Fundamentos de ChatGPT.png
-12. Fundamentos de Scrum.png
-13. GSAP desde Cero.png
-14. Introducción a los Sistemas de Diseño.png
-15. Introducción a la IA para Developers.png
-16. Introducción a la ingeniería en AI.png
-17. Introduction to Modern AI.png
-18. JavaScript.png
-19. Partner NDG Linux Unhatched.png
-20. Prompting responsable maximiza la IA en tu negocio.png
-21. Python Essentials 1.png
-22. Qué hacemos realmente cuando hacemos Data Science.png
-23. Spring Boot 4 y Java 25 Desarrolla APIs REST Profesionales.jpg
-24. Taller GIT y GITHUB.jpeg
-25. Utility Types en TypeScript.png
+**Categorías:**
+
+1. **Frontend** — GSAP desde Cero, Curso de Tailwind desde Cero, Curso de Astro y Headless CMS, Crea experiencias 3D increíbles con Vue, Utility Types en TypeScript, JavaScript, Frontend Developer (React)
+2. **Backend** — Spring Boot 4 y Java 25 Desarrolla APIs REST Profesionales
+3. **Full Stack** — Enterprise Full Stack with Spring Boot 4 and Angular 21, Fullstack Application Dev, Crea una PWA de Detección de Objetos con Angular 19 y TensorFlow js
+4. **DevOps y Herramientas** — Taller GIT y GITHUB, Partner NDG Linux Unhatched
+5. **Metodologías** — Fundamentos de Scrum
+6. **Inteligencia Artificial** — Curso Intensivo de Model Context Protocol, Desarrollo Web con IA, Introducción a la IA para Developers, Introducción a la ingeniería en AI, Introduction to Modern AI, Prompting responsable maximiza la IA en tu negocio, Fundamentos de ChatGPT
+7. **Ciencia de Datos** — Python Essentials 1, Qué hacemos realmente cuando hacemos Data Science
+8. **Diseño UX-UI** — Figma para Devs, Introducción a los Sistemas de Diseño
+9. **Lenguajes** — (sin certificados actualmente)
 
 ---
 
