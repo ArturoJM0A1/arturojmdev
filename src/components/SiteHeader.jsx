@@ -177,6 +177,9 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme, showC
             </span>
           </button>
         </div>
+      </div>
+
+      <div className="particles-toggle-wrapper">
         <button
           className={`theme-btn particles-btn${showParticles ? " is-active" : ""}`}
           type="button"

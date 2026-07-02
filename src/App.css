@@ -732,8 +732,25 @@ body.dark-mode .theme-btn[aria-pressed="true"] {
   box-shadow: 0 12px 26px rgba(0, 255, 136, 0.18);
 }
 
+.particles-toggle-wrapper {
+  position: fixed;
+  right: max(30px, env(safe-area-inset-right));
+  top: 90px;
+  z-index: 100;
+}
+
 .particles-btn {
   font-size: 1.1rem;
+  border: 1.5px solid rgba(37, 99, 235, 0.3);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+body.dark-mode .particles-btn {
+  border-color: rgba(0, 255, 136, 0.3);
+  box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.15);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .particles-btn.is-active {
