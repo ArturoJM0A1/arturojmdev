@@ -158,7 +158,7 @@ Todas las rutas usan **hash router** (createHashRouter) para compatibilidad con 
 - Carrusel horizontal con botones anterior/siguiente
 - Modal para vista completa
 - Alt text generado automáticamente del nombre del archivo
-- 25 certificaciones actualmente en 9 categorías
+- 27 certificaciones actualmente en 9 categorías
 
 ### 12. Comentarios con Firebase
 
@@ -334,7 +334,7 @@ arturojmdev/
 │   ├── robots.txt
 │   ├── fotosanios/                     # Fotos de perfil por año
 │   ├── experienciaempresas/           # Logos de empresas
-│   └── certificadosyreconocimientos/  # 25 imágenes de certificados
+│   └── certificadosyreconocimientos/  # 27 imágenes de certificados
 │
 ├── src/
 │   ├── main.jsx                     # Entry point React (StrictMode)
@@ -462,21 +462,21 @@ Colección Firestore: `comments`.
 
 ---
 
-## Certificados (25)
+## Certificados (27)
 
 Las imágenes se almacenan en subdirectorios dentro de `public/certificadosyreconocimientos/`, organizadas por categoría. El plugin de Vite escanea automáticamente cada subdirectorio y agrupa los certificados por categoría.
 
 **Categorías:**
 
-1. **Frontend** — GSAP desde Cero, Curso de Tailwind desde Cero, Curso de Astro y Headless CMS, Crea experiencias 3D increíbles con Vue, Utility Types en TypeScript, JavaScript, Frontend Developer (React)
-2. **Backend** — Spring Boot 4 y Java 25 Desarrolla APIs REST Profesionales
-3. **Full Stack** — Enterprise Full Stack with Spring Boot 4 and Angular 21, Fullstack Application Dev, Crea una PWA de Detección de Objetos con Angular 19 y TensorFlow js
-4. **DevOps y Herramientas** — Taller GIT y GITHUB, Partner NDG Linux Unhatched
-5. **Metodologías** — Fundamentos de Scrum
-6. **Inteligencia Artificial** — Curso Intensivo de Model Context Protocol, Desarrollo Web con IA, Introducción a la IA para Developers, Introducción a la ingeniería en AI, Introduction to Modern AI, Prompting responsable maximiza la IA en tu negocio, Fundamentos de ChatGPT
-7. **Ciencia de Datos** — Python Essentials 1, Qué hacemos realmente cuando hacemos Data Science
-8. **Diseño UX-UI** — Figma para Devs, Introducción a los Sistemas de Diseño
-9. **Lenguajes** — (sin certificados actualmente)
+1. **Frontend** (7) — Crea experiencias 3D increíbles con Vue, Curso de Astro y Headless CMS, Curso de Tailwind desde Cero, Frontend Developer (React), GSAP desde Cero, Utility Types en TypeScript, JavaScript
+2. **Backend** (2) — Spring Boot 4 y Java 25 Desarrolla APIs REST Profesionales, Curso de Fundamentos de .NET
+3. **Full Stack** (2) — Enterprise Full Stack with Spring Boot 4 and Angular 21, Fullstack Application Development with Node.js React y MySQL
+4. **DevOps y Herramientas** (2) — Taller GIT y GITHUB, Partner NDG Linux Unhatched
+5. **Metodologías** (1) — Fundamentos de Scrum
+6. **Inteligencia Artificial** (8) — Crea una PWA de Detección de Objetos con Angular 19 y TensorFlow js, Curso Intensivo de Model Context Protocol, Desarrollo Web con IA, Fundamentos de ChatGPT, Introducción a la IA para Developers, Introducción a la ingeniería en AI, Introduction to Modern AI, Prompting responsable maximiza la IA en tu negocio
+7. **Ciencia de Datos** (1) — Qué hacemos realmente cuando hacemos Data Science
+8. **Diseño UX-UI** (2) — Figma para Devs, Introducción a los Sistemas de Diseño
+9. **Lenguajes** (2) — JavaScript, Python Essentials 1
 
 ---
 

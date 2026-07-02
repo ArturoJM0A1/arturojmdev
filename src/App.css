@@ -732,6 +732,30 @@ body.dark-mode .theme-btn[aria-pressed="true"] {
   box-shadow: 0 12px 26px rgba(0, 255, 136, 0.18);
 }
 
+.particles-btn {
+  font-size: 1.1rem;
+}
+
+.particles-btn.is-active {
+  color: #ffffff;
+  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.2);
+}
+
+.particles-btn.is-active::before {
+  background: var(--gradient-light-1);
+  opacity: 1;
+  transform: scale(1);
+}
+
+body.dark-mode .particles-btn.is-active {
+  color: #03120c;
+  box-shadow: 0 12px 26px rgba(0, 255, 136, 0.18);
+}
+
+body.dark-mode .particles-btn.is-active::before {
+  background: rgba(0, 255, 136, 0.15);
+}
+
 body.dark-mode .theme-btn[aria-pressed="true"]::before {
   background: var(--gradient-dark-1);
 }
@@ -1425,11 +1449,11 @@ body.dark-mode .photo-placeholder:hover .photolaptop span {
   align-items: center;
   gap: 10px;
   font-size: 1.2rem;
-  color: var(--text-light-secondary);
+  color: var(--primary-light);
 }
 
 body.dark-mode .contact p {
-  color: var(--text-dark-secondary);
+  color: var(--primary-dark);
 }
 
 .contact a {

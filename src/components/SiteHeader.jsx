@@ -3,7 +3,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { navigationItems, scrollToSection } from "../menuNavigation.js";
 import "./HeroCat.css";
 
-export default function SiteHeader({ cvHref, displayText, theme, setTheme, showCP, onShowCP }) {
+export default function SiteHeader({ cvHref, displayText, theme, setTheme, showCP, onShowCP, showParticles, onToggleParticles }) {
   const location = useLocation();
   const navigate = useNavigate();
   const menuRef = useRef(null);
@@ -177,6 +177,18 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme, showC
             </span>
           </button>
         </div>
+        <button
+          className={`theme-btn particles-btn${showParticles ? " is-active" : ""}`}
+          type="button"
+          onClick={onToggleParticles}
+          aria-pressed={showParticles}
+          aria-label={showParticles ? "Desactivar partículas" : "Activar partículas"}
+          title={showParticles ? "Desactivar partículas" : "Activar partículas"}
+        >
+          <span className="theme-btn__emoji" aria-hidden="true">
+            {theme === "dark" ? "\u2728" : "\u2601\uFE0F"}
+          </span>
+        </button>
       </div>
 
       <div className="hero-content">

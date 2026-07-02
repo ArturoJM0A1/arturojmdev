@@ -194,6 +194,7 @@ export default function PortfolioLayout() {
   const [audioDuration, setAudioDuration] = useState(0);
   const [showRocket, setShowRocket] = useState(false);
   const [showCP, setShowCP] = useState(false);
+  const [showParticles, setShowParticles] = useState(true);
   const [activeVideo, setActiveVideo] = useState(null);
 
   useEffect(() => {
@@ -507,7 +508,7 @@ export default function PortfolioLayout() {
 
   return (
     <>
-      <Particles theme={theme} />
+      {showParticles && <Particles theme={theme} />}
       <GhostCursor />
 
       <div
@@ -525,6 +526,8 @@ export default function PortfolioLayout() {
           setTheme={setTheme}
           showCP={showCP}
           onShowCP={setShowCP}
+          showParticles={showParticles}
+          onToggleParticles={() => setShowParticles((p) => !p)}
         />
 
         <SidebarInfo
