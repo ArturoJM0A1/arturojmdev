@@ -4165,6 +4165,48 @@ body.dark-mode .hero-nav-toggle:hover .hero-nav-toggle__icon {
   transform: rotate(-135deg) translateX(-1px);
 }
 
+.hero-nav-toggle {
+  position: relative;
+}
+
+.hero-nav-toggle::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(37, 99, 235, 0.1) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  animation: hero-nav-shine 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body.dark-mode .hero-nav-toggle::after {
+  background-image: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 70%
+  );
+}
+
+@keyframes hero-nav-shine {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
 .hero-nav-panel {
   position: absolute;
   top: calc(100% + 10px);
