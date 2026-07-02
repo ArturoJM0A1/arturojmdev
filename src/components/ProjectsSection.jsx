@@ -24,7 +24,10 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
   useEffect(() => {
     fetch("/projects.json")
       .then((res) => res.json())
-      .then((data) => setProjects(data))
+      .then((data) => {
+        setProjects(data);
+        console.log("Proyectos:", data);
+      })
       .catch((error) => console.error("Error cargando proyectos:", error));
   }, []);
 
@@ -93,6 +96,15 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
         >
           Favoritos <span className="verFav"></span>
         </button>
+        <a
+          href="https://www.youtube.com/@arturojuarezmonroy3951"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="projects-youtube-btn"
+          title="Canal de YouTube"
+        >
+          <i className="fab fa-youtube" aria-hidden="true"></i>
+        </a>
       </div>
 
       <div className="projects-list">
