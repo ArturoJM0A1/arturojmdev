@@ -26,7 +26,7 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
       .then((res) => res.json())
       .then((data) => {
         setProjects(data);
-        console.log("Proyectos:", data);
+        data.forEach((p) => console.log(p.title, "-", p.description));
       })
       .catch((error) => console.error("Error cargando proyectos:", error));
   }, []);
@@ -96,15 +96,20 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
         >
           Favoritos <span className="verFav"></span>
         </button>
-        <a
-          href="https://www.youtube.com/@arturojuarezmonroy3951"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="projects-youtube-btn"
+        <button
+          type="button"
+          className={`projects-youtube-btn projects-sort-btn--${projectSortTheme}`}
+          onClick={() =>
+            window.open(
+              "https://www.youtube.com/@arturojuarezmonroy3951",
+              "_blank",
+              "noopener,noreferrer"
+            )
+          }
           title="Canal de YouTube"
         >
           <i className="fab fa-youtube" aria-hidden="true"></i>
-        </a>
+        </button>
       </div>
 
       <div className="projects-list">
