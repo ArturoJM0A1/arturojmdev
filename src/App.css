@@ -4193,7 +4193,7 @@ body.dark-mode .hero-nav-toggle::after {
   background-image: linear-gradient(
     105deg,
     transparent 30%,
-    rgba(255, 255, 255, 0.12) 50%,
+    rgba(0, 255, 136, 0.12) 50%,
     transparent 70%
   );
 }
