@@ -1482,17 +1482,15 @@ body.dark-mode .contact p {
 }
 
 body.dark-mode .contact a {
-  color: var(--secondary-dark);
+  color: var(--primary-dark);
 }
 
 .contact a:hover {
   color: var(--secondary-light);
-  border-bottom-color: var(--secondary-light);
 }
 
 body.dark-mode .contact a:hover {
-  color: var(--primary-dark);
-  border-bottom-color: var(--primary-dark);
+  color: #00cc6a;
 }
 
 /* Skills - nueva estructura flexible */
