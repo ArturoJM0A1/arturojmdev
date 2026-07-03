@@ -342,5 +342,28 @@
         "title": "Ver video"
       }
     ]
+  },
+  {
+    "id": "excel-to-mysql",
+    "title": "Excel a MySQL - Convertidor",
+    "year": 2026,
+    "date": "Aplicación Web 2026",
+    "description": "Convertidor cliente-side de Excel a MySQL script, construido con React + Vite. Subes archivos .xlsx/.xls y genera automáticamente sentencias CREATE TABLE + INSERT con inferencia de tipos. Todo el procesamiento ocurre en el navegador vía SheetJS.",
+    "links": [
+      {
+        "type": "external",
+        "href": "https://github.com/ArturoJM0A1/excel-to-mysql",
+        "label": "Repo",
+        "icon": "fab fa-github",
+        "title": "Ver repositorio"
+      },
+      {
+        "type": "video",
+        "href": "https://youtu.be/OyGTB1hHU4E?si=mtyKk6k33D45Tude",
+        "label": "Video",
+        "icon": "fas fa-video",
+        "title": "Ver video"
+      }
+    ]
   }
 ]
