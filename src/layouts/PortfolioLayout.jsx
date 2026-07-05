@@ -446,7 +446,7 @@ export default function PortfolioLayout() {
   if (showWelcome) {
     return (
       <>
-        <Particles theme={theme} />
+        {showParticles && <Particles theme={theme} />}
         <GhostCursor />
 
         <div
