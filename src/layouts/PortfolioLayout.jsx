@@ -194,7 +194,7 @@ export default function PortfolioLayout() {
   const [audioDuration, setAudioDuration] = useState(0);
   const [showRocket, setShowRocket] = useState(false);
   const [showCP, setShowCP] = useState(false);
-  const [showParticles, setShowParticles] = useState(true);
+  const [showParticles, setShowParticles] = useState(false);
   const [activeVideo, setActiveVideo] = useState(null);
 
   useEffect(() => {
