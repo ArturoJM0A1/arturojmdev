@@ -8,10 +8,16 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme, showC
   const navigate = useNavigate();
   const menuRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showZzz, setShowZzz] = useState(true);
 
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowZzz(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -225,6 +231,7 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme, showC
 
       <div className="herocat" aria-hidden="true">
         <div className="hero-cat-art">
+          {showZzz && <span className="hero-cat-zzz">zzzz</span>}
           <div className="hero-cat">
             <div className="hero-cat__body"></div>
 
