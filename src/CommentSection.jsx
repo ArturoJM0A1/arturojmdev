@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "./firebase.js";
+import RecommendationCard from "./RecommendationCard.jsx";
 import "./App.css";
 import "tailwindcss";
 import "tailwind-animations";
@@ -150,6 +151,7 @@ export default function CommentSection() {
   const [formData, setFormData] = useState(INITIAL_FORM_STATE);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [recommendations, setRecommendations] = useState([]);
 
   useEffect(() => {
     const saved = localStorage.getItem("myComment");
@@ -163,6 +165,16 @@ export default function CommentSection() {
     } catch (parseError) {
       console.error("Error al leer el comentario guardado:", parseError);
     }
+  }, []);
+
+  useEffect(() => {
+    fetch("/recommendations.json")
+      .then((res) => {
+        if (!res.ok) throw new Error("No se pudieron cargar las recomendaciones");
+        return res.json();
+      })
+      .then((data) => setRecommendations(data))
+      .catch((err) => console.error("Error al cargar recomendaciones:", err));
   }, []);
 
   const handleChange = (event) => {
@@ -265,6 +277,15 @@ export default function CommentSection() {
           {loading ? "Enviando..." : "Enviar comentario"}
         </button>
       </form>
+
+      {recommendations.length > 0 && (
+        <div className="recommendations-section">
+          <h4 className="recommendations-title">Recomendaciones</h4>
+          {recommendations.map((rec) => (
+            <RecommendationCard key={rec.id} recommendation={rec} />
+          ))}
+        </div>
+      )}
 
       <div className="comment-list">
         {submittedComment ? (
