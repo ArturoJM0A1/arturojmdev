@@ -2172,6 +2172,35 @@ body.dark-mode .education-item:hover {
   min-width: 0;
 }
 
+.education-item--no-badge {
+  grid-template-columns: 1fr;
+  opacity: 0.6;
+  padding: 10px 16px;
+  border-left-width: 2px;
+}
+
+.education-item--no-badge:hover {
+  opacity: 0.85;
+  border-left-width: 2px;
+  padding-left: 16px;
+}
+
+body.dark-mode .education-item--no-badge {
+  opacity: 0.55;
+}
+
+body.dark-mode .education-item--no-badge:hover {
+  opacity: 0.85;
+}
+
+.education-item--no-badge h4 {
+  font-size: 1rem;
+}
+
+.education-item--no-badge p {
+  font-size: 0.85rem;
+}
+
 .education-icon-shell {
   --education-primary: var(--primary-light);
   --education-secondary: var(--secondary-light);

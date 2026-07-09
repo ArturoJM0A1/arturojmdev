@@ -11,6 +11,12 @@ export default function EducationSection() {
         </div>
         <EducationBadge />
       </div>
+      <div className="education-item education-item--no-badge">
+        <div className="education-copy">
+          <h4>Técnico Programador</h4>
+          <p>Centro de Estudios Tecnológicos industrial y de servicios (2017 - 2020)</p>
+        </div>
+      </div>
     </section>
   );
 }
