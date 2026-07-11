@@ -1158,6 +1158,7 @@ body.dark-mode .photo-audio-btn:focus-visible {
   position: relative;
   z-index: 1;
   margin-top: -66px;
+  margin-bottom: 12px;
 }
 
 body.dark-mode .profile-rain__drop {
@@ -1460,36 +1461,37 @@ body.dark-mode .photo-placeholder:hover .photolaptop span {
 }
 
 /* Contacto */
-.contact p {
-  margin-bottom: 12px;
+.contact-icons {
   display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   align-items: center;
-  gap: 10px;
-  font-size: 1.2rem;
-  color: var(--primary-light);
+  justify-content: center;
 }
 
-body.dark-mode .contact p {
-  color: var(--primary-dark);
-}
-
-.contact a {
+.contact-icons a {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   color: var(--primary-light);
+  font-size: 1.1rem;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s;
-  border-bottom: 1px dotted transparent;
+  transition: background 0.2s, color 0.2s;
 }
 
-body.dark-mode .contact a {
-  color: var(--primary-dark);
-}
-
-.contact a:hover {
+.contact-icons a:hover {
+  background: rgba(37, 99, 235, 0.1);
   color: var(--secondary-light);
 }
 
-body.dark-mode .contact a:hover {
+body.dark-mode .contact-icons a {
+  color: var(--primary-dark);
+}
+
+body.dark-mode .contact-icons a:hover {
+  background: rgba(0, 255, 136, 0.1);
   color: #00cc6a;
 }
 

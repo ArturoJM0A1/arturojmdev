@@ -215,61 +215,59 @@ export default function SidebarInfo({
 
       <section className="contact">
         <h3>Conecta conmigo</h3>
-        <p>
-          <i className="fas fa-envelope" aria-hidden="true"></i>
+        <div className="contact-icons">
           <a href="mailto:juarezmonroyarturo574@gmail.com"
+            className="contact-icon-link"
             onClick={(e) => {
               e.preventDefault();
               navigator.clipboard.writeText("juarezmonroyarturo574@gmail.com").then(() => {
                 setCopied(true);
                 setTimeout(() => setCopied(false), 1000);
               });
+              window.open("https://www.google.com/search?q=juarezmonroyarturo574%40gmail.com", "_blank");
             }}
+            aria-label="Copiar correo electrónico"
           >
-            juarezmonroyarturo574@gmail.com
+            <i className="fas fa-envelope" aria-hidden="true"></i>
           </a>
-          {copied && <span className="copy-toast">Listo correo copiado</span>}
-        </p>
-        <p>
-          <i className="fab fa-linkedin" aria-hidden="true"></i>
           <a
             href="https://www.linkedin.com/in/arturojuarezmonroy"
             target="_blank"
             rel="noreferrer"
+            className="contact-icon-link"
+            aria-label="LinkedIn"
           >
-            linkedin.com/in/arturojuarezmonroy
+            <i className="fab fa-linkedin" aria-hidden="true"></i>
           </a>
-        </p>
-        <p>
-          <i className="fab fa-github" aria-hidden="true"></i>
           <a
             href="https://github.com/ArturoJM0A1"
             target="_blank"
             rel="noreferrer"
+            className="contact-icon-link"
+            aria-label="GitHub"
           >
-            ArturoJM0A1
+            <i className="fab fa-github" aria-hidden="true"></i>
           </a>
-        </p>
-        <p>
-          <i className="fab fa-youtube" aria-hidden="true"></i>
           <a
             href="https://www.youtube.com/@arturojuarezmonroy3951"
             target="_blank"
             rel="noreferrer"
+            className="contact-icon-link"
+            aria-label="YouTube"
           >
-            @arturojuarezmonroy3951
+            <i className="fab fa-youtube" aria-hidden="true"></i>
           </a>
-        </p>
-        <p>
-          <i className="fab fa-whatsapp" aria-hidden="true"></i>
           <a
             href="https://wa.me/5217736802105"
             target="_blank"
             rel="noreferrer"
+            className="contact-icon-link"
+            aria-label="WhatsApp"
           >
-            +52 1 773 680 2105
+            <i className="fab fa-whatsapp" aria-hidden="true"></i>
           </a>
-        </p>
+          {copied && <span className="copy-toast">Listo correo copiado</span>}
+        </div>
       </section>
 
       {showSkills ? <SkillsContent /> : null}
