@@ -4744,6 +4744,54 @@ body.dark-mode .experience-card__meta span + span::before {
   background: var(--secondary-dark);
 }
 
+.experience-card__volunteer-badge {
+  display: inline-block;
+  width: fit-content;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary-light);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+body.dark-mode .experience-card__volunteer-badge {
+  background: rgba(0, 255, 136, 0.1);
+  color: var(--primary-dark);
+  border-color: rgba(0, 255, 136, 0.2);
+}
+
+.experience-card--volunteer {
+  position: relative;
+  margin-top: 28px;
+  border-top: 1.5px solid rgba(37, 99, 235, 0.3);
+  padding-top: 24px;
+}
+
+body.dark-mode .experience-card--volunteer {
+  border-top-color: rgba(148, 163, 184, 0.3);
+}
+
+.experience-card--volunteer .experience-card__marker {
+  background: linear-gradient(145deg, rgba(245, 158, 11, 0.95), rgba(245, 158, 11, 0.7));
+  border-color: rgba(245, 158, 11, 0.3);
+  box-shadow:
+    0 14px 28px rgba(245, 158, 11, 0.16),
+    0 0 0 8px rgba(245, 158, 11, 0.06);
+}
+
+body.dark-mode .experience-card--volunteer .experience-card__marker {
+  background: linear-gradient(145deg, rgba(255, 212, 59, 0.9), rgba(245, 158, 11, 0.7));
+  border-color: rgba(255, 212, 59, 0.3);
+  color: #1a1a2e;
+  box-shadow:
+    0 14px 28px rgba(255, 212, 59, 0.12),
+    0 0 0 8px rgba(255, 212, 59, 0.06);
+}
+
 @media (max-width: 760px) {
   .experience-section {
     gap: 22px;
@@ -4784,6 +4832,18 @@ body.dark-mode .experience-card__meta span + span::before {
     box-shadow:
       0 10px 22px rgba(37, 99, 235, 0.16),
       0 0 0 6px rgba(37, 99, 235, 0.07);
+  }
+
+  .experience-card--volunteer .experience-card__marker {
+    box-shadow:
+      0 10px 22px rgba(245, 158, 11, 0.14),
+      0 0 0 6px rgba(245, 158, 11, 0.05);
+  }
+
+  body.dark-mode .experience-card--volunteer .experience-card__marker {
+    box-shadow:
+      0 10px 22px rgba(255, 212, 59, 0.1),
+      0 0 0 6px rgba(255, 212, 59, 0.05);
   }
 
   .experience-card__meta {

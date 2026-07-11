@@ -62,6 +62,18 @@ const experiences = [
       "Desarrollo de sitio web para un bar-restaurante, con funcionalidades de menú, galería, eventos, reservaciones de mesas, alimentos y bebidas, y promoción del negocio.",
     technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "Node.js", "PHP", "MySQL"],
   },
+  {
+    type: "volunteer",
+    role: "Desarrollo web",
+    company: "IEEE Student Branch, UAEH - ESTL",
+    period: "Febrero 2024 - Abril 2024",
+    location: "Tlahuelilpan, Hidalgo, Mexico",
+    logo: "/experienciaempresas/ieeeUAEHestl.png",
+    logoAlt: "Logotipo de IEEE Student Branch UAEH ESTL",
+    description:
+      "Colaboré en el desarrollo del sitio web de la rama estudiantil IEEE de la UAEH ESTL. Participación en proyectos de código abierto y tecnologías web modernas.",
+    technologies: ["Astro", "CSS", "React", "Tailwind CSS"],
+  },
 ];
 
 export default function ExperienceSection() {
@@ -85,8 +97,11 @@ export default function ExperienceSection() {
         {experiences.map((experience, index) => (
           <article
             key={`${experience.company}-${experience.period}`}
-            className="experience-card card"
+            className={`experience-card card${experience.type === "volunteer" ? " experience-card--volunteer" : ""}`}
           >
+            {experience.type === "volunteer" && (
+              <span className="experience-card__volunteer-badge">Voluntariado</span>
+            )}
             <div className="experience-card__marker" aria-hidden="true">
               {String(index + 1).padStart(2, "0")}
             </div>
