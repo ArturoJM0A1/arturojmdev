@@ -51,6 +51,17 @@ const experiences = [
       "Desarrollo de una plataforma web para promocion turistica del estado de Hidalgo. Implementacion de interfaces modernas, navegacion dinamica, optimizacion de rendimiento y mejoras en experiencia de usuario.",
     technologies: ["JavaScript", "Tailwind CSS", "PHP", "MySQL", "Git", "jQuery"],
   },
+  {
+    role: "Desarrollo Web Full Stack - El Mezcalito",
+    company: "El Mezcalito",
+    period: "Enero 2023 - Abril 2023",
+    location: "Tula de Allende, Hidalgo, Mexico",
+    logo: "/experienciaempresas/Mescalito.png",
+    logoAlt: "Logotipo de El Mezcalito",
+    description:
+      "Desarrollo de sitio web para un bar-restaurante, con funcionalidades de menú, galería, eventos, reservaciones de mesas, alimentos y bebidas, y promoción del negocio.",
+    technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "Node.js", "PHP", "MySQL"],
+  },
 ];
 
 export default function ExperienceSection() {
