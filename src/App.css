@@ -4870,6 +4870,55 @@ body.dark-mode .experience-card--volunteer .experience-card__marker {
   }
 }
 
+.experience-ready {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: rgba(37, 99, 235, 0.06);
+  border: 1px solid rgba(37, 99, 235, 0.12);
+}
+
+body.dark-mode .experience-ready {
+  background: rgba(0, 255, 136, 0.06);
+  border-color: rgba(0, 255, 136, 0.12);
+}
+
+.experience-ready__dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--primary-light);
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+body.dark-mode .experience-ready__dot {
+  background: var(--primary-dark);
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(0.7);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.experience-ready__text {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--primary-light);
+}
+
+body.dark-mode .experience-ready__text {
+  color: var(--primary-dark);
+}
+
 .currently-page {
   gap: 12px;
 }

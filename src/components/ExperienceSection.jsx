@@ -93,6 +93,11 @@ export default function ExperienceSection() {
         </p>
       </div>
 
+      <div className="experience-ready">
+        <span className="experience-ready__dot"></span>
+        <span className="experience-ready__text">Listo para el siguiente reto.</span>
+      </div>
+
       <div className="experience-timeline">
         {experiences.map((experience, index) => (
           <article
