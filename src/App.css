@@ -2329,7 +2329,7 @@ footer {
   position: absolute;
   left: max(18px, env(safe-area-inset-left));
   bottom: max(18px, env(safe-area-inset-bottom));
-  z-index: 60;
+  z-index: 0;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -5363,8 +5363,8 @@ body.dark-mode .copy-toast {
 }
 
 .comment-form__textarea {
-  min-height: 15rem;
-  max-height: 18rem;
+  min-height: 9rem;
+  max-height: 10rem;
   resize: vertical;
   white-space: pre-wrap;
   font-family: var(--font-code);
