@@ -162,6 +162,8 @@ export default function GhostCursor() {
     const gl = canvas.getContext("webgl", { alpha: true, antialias: true });
     if (!gl) return undefined;
 
+    document.body.classList.add("ghost-active");
+
     const devicePixelRatio = Math.min(window.devicePixelRatio || 1, 2);
     const textureCanvas = document.createElement("canvas");
     const textureCtx = textureCanvas.getContext("2d");
@@ -398,6 +400,7 @@ export default function GhostCursor() {
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("touchmove", onTouchMove);
       window.removeEventListener("click", onClick);
+      document.body.classList.remove("ghost-active");
       canvas.classList.remove("ghost-cursor-canvas--behind");
       gl.deleteTexture(canvasTexture);
       gl.deleteBuffer(vertexBuffer);

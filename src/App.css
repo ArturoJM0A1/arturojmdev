@@ -270,6 +270,14 @@ body.dark-mode::-webkit-scrollbar-thumb {
   opacity: 0.76;
 }
 
+body.ghost-active {
+  cursor: none;
+}
+
+.projects {
+  cursor: auto;
+}
+
 .ghost-cursor-canvas {
   position: fixed;
   top: 0;
@@ -277,9 +285,8 @@ body.dark-mode::-webkit-scrollbar-thumb {
   display: block;
   width: 100%;
   height: 100%;
-  z-index: 10000;
+  z-index: 2147483647;
   pointer-events: none;
-  transition: z-index 0s;
 }
 
 .ghost-cursor-canvas--behind {
