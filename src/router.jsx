@@ -1,5 +1,5 @@
 ﻿import { Suspense, lazy } from "react";
-import { createHashRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import PortfolioLayoutScrollFx from "./PortfolioLayoutScrollFx.jsx";
 import ContentLoader from "./components/ContentLoader.jsx";
 import "tailwindcss";
@@ -24,7 +24,7 @@ function withLoader(Component, label, caption) {
   );
 }
 
-export const router = createHashRouter([
+export const router = createBrowserRouter([
   {
     path: "/",
     element: <PortfolioLayoutScrollFx />,
