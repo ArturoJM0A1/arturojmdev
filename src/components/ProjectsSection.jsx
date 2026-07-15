@@ -149,6 +149,19 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
                       <span>{link.label}</span>
                     </ProjectActionChrome>
                   </button>
+                ) : link.type === "download" ? (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="project-link"
+                    download
+                    title={link.title}
+                  >
+                    <ProjectActionChrome>
+                      <i className={link.icon} aria-hidden="true"></i>
+                      <span>{link.label}</span>
+                    </ProjectActionChrome>
+                  </a>
                 ) : (
                   <a
                     key={link.href}

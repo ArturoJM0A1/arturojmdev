@@ -130,6 +130,13 @@
         "title": "Ver artículo"
       },
       {
+        "type": "download",
+        "href": "/Artículo SIG Hidalgo.pdf",
+        "label": "Descargar",
+        "icon": "fas fa-download",
+        "title": "Descargar artículo"
+      },
+      {
         "type": "external",
         "href": "https://github.com/ArturoJM0A1/HidalgoHorizon",
         "label": "Repo",
