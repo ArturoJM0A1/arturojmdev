@@ -45,6 +45,7 @@ export default function ContactPanel() {
       setCopied(true);
       setTimeout(() => setCopied(false), 1000);
     });
+    window.open(`https://www.google.com/search?q=${encodeURIComponent(email)}`, "_blank");
   };
 
   return (
