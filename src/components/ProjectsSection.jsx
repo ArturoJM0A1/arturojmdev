@@ -90,7 +90,7 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
           className={`projects-favorites-btn projects-sort-btn--${projectSortTheme} ${
             showFavoritesOnly ? "is-active" : ""
           }`}
-          onClick={() => setShowFavoritesOnly((previous) => !previous)}
+          onClick={() => { setShowFavoritesOnly((previous) => !previous); setShowInDevelopmentOnly(false); }}
           title={
             showFavoritesOnly
               ? "Mostrar todos los proyectos"
@@ -104,7 +104,7 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
           className={`projects-dev-btn projects-sort-btn--${projectSortTheme} ${
             showInDevelopmentOnly ? "is-active" : ""
           }`}
-          onClick={() => setShowInDevelopmentOnly((previous) => !previous)}
+          onClick={() => { setShowInDevelopmentOnly((previous) => !previous); setShowFavoritesOnly(false); }}
           title={
             showInDevelopmentOnly
               ? "Mostrar todos los proyectos"
