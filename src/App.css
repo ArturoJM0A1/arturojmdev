@@ -2016,6 +2016,77 @@ body.dark-mode .skill-chip {
   background-color: rgba(29, 23, 90, 0.5);
 }
 
+.projects-dev-btn {
+  border: 1.5px solid transparent;
+  border-radius: 999px;
+  padding: 10px 12px;
+  margin: 0;
+  font-family: var(--font-tech);
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: auto;
+}
+
+.projects-dev-btn i {
+  font-size: 1.1rem;
+  transition: transform 0.4s ease;
+}
+
+.projects-dev-btn.is-active i {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.projects-dev-btn.projects-sort-btn--claro {
+  background: rgba(37, 99, 235, 0.1);
+  color: #1d4ed8;
+  border-color: rgba(37, 99, 235, 0.38);
+}
+
+.projects-dev-btn.projects-sort-btn--claro:hover {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+}
+
+.projects-dev-btn.projects-sort-btn--claro.is-active {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.3);
+}
+
+.projects-dev-btn.projects-sort-btn--oscuro {
+  background: rgba(0, 255, 136, 0.12);
+  color: #00ff88;
+  border-color: rgba(0, 255, 136, 0.4);
+}
+
+.projects-dev-btn.projects-sort-btn--oscuro:hover {
+  background: #00ff88;
+  color: #03120c;
+  box-shadow: 0 8px 18px rgba(0, 255, 136, 0.25);
+}
+
+.projects-dev-btn.projects-sort-btn--oscuro.is-active {
+  background: #00ff88;
+  color: #03120c;
+  box-shadow: 0 8px 18px rgba(0, 255, 136, 0.3);
+}
+
 @media (hover: hover) and (pointer: fine) {
   .project-link:hover {
     transform: translateY(-2px) rotate(-0.85deg);

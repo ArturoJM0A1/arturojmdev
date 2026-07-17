@@ -20,6 +20,7 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
   const [projects, setProjects] = useState([]);
   const [projectOrder, setProjectOrder] = useState("asc");
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
+  const [showInDevelopmentOnly, setShowInDevelopmentOnly] = useState(false);
 
   useEffect(() => {
     fetch("/projects.json")
@@ -34,7 +35,9 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
   const projectSortTheme = theme === "dark" ? "oscuro" : "claro";
 
   const visibleProjects = projects.filter(
-    (project) => !showFavoritesOnly || project.favorite
+    (project) =>
+      (!showFavoritesOnly || project.favorite) &&
+      (!showInDevelopmentOnly || project.inDevelopment)
   );
 
   const orderedProjects = [...visibleProjects].sort(
@@ -73,9 +76,9 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
               previousOrder === "asc" ? "desc" : "asc"
             )
           }
-          title="Ordenar proyectos por a\u00f1o"
+          title="Ordenar proyectos por anio"
         >
-          {projectOrder === "asc" ? "A\u00f1o ascendente" : "A\u00f1o descendente"}
+          Año
           <i
             className={`fas fa-arrow-${projectOrder === "asc" ? "up" : "down"}`}
             aria-hidden="true"
@@ -95,6 +98,20 @@ export default function ProjectsSection({ onOpenVideo, theme }) {
           }
         >
           Favoritos <span className="verFav"></span>
+        </button>
+        <button
+          type="button"
+          className={`projects-dev-btn projects-sort-btn--${projectSortTheme} ${
+            showInDevelopmentOnly ? "is-active" : ""
+          }`}
+          onClick={() => setShowInDevelopmentOnly((previous) => !previous)}
+          title={
+            showInDevelopmentOnly
+              ? "Mostrar todos los proyectos"
+              : "Mostrar solo proyectos en desarrollo"
+          }
+        >
+          <i className="fa-solid fa-gear" aria-hidden="true"></i>
         </button>
         <button
           type="button"

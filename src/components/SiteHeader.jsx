@@ -210,7 +210,7 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme, showC
         <div className="hero-actions">
           <a
             href={cvHref}
-            download="JuarezMonroyArturo CV.pdf"
+            download="JuarezMonroy Arturo CV.pdf"
             className="btn botonhero"
           >
             Descargar CV

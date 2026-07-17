@@ -36,7 +36,7 @@ const basePath = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
 
-const cvHref = `${basePath}${encodeURIComponent("JuarezMonroyArturo CV.pdf")}`;
+const cvHref = `${basePath}${encodeURIComponent("JuarezMonroy Arturo CV.pdf")}`;
 const portfolioTrackHref = `${basePath}${encodeURIComponent("music.mp3")}`;
 const dancedarkmodeGifHref = `${basePath}${encodeURIComponent("dancedarktmode.gif")}`;
 const dancelightmodeGifHref = `${basePath}${encodeURIComponent("dancelightmode.gif")}`;
