@@ -274,7 +274,6 @@
     "year": 2023,
     "date": "Videojuego - 2023",
     "description": "Utilizando Next.js, React y A-Frame, integrando reconocimiento de voz mediante la Web Speech API para controlar la interacción del usuario al instante.",
-    "favorite": true,
     "links": [
       {
         "type": "external",
@@ -300,7 +299,6 @@
     "year": 2026,
     "date": "Aplicación Web 2026",
     "description": "Desarrollé un sistema de generación procedimental de ciudades 3D interactivas en navegador utilizando Three.js y datos geoespaciales de OpenStreetMap a través de la Overpass API. La solución permite explorar entornos urbanos reales con navegación dinámica y selección de edificios.",
-    "favorite": true,
     "links": [
       {
         "type": "external",
@@ -325,7 +323,6 @@
     "date": "Videojuego 2026",
     "description": "Starlight: No Return es un juego arcade espacial desarrollado con React, Vite, Canvas, JavaScript y CSS. Controla un cohete, esquiva enemigos y obstáculos, y sobrevive para obtener la mayor puntuación posible.",
     "inDevelopment": true,
-    "favorite": true,
     "links": [
       {
         "type": "external",
