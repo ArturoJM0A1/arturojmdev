@@ -4486,7 +4486,7 @@ body.dark-mode .page-intro__description {
   overflow: hidden;
   display: grid;
   gap: 28px;
-  padding: clamp(1.25rem, 3vw, 2rem);
+  padding: clamp(1.25rem, 3vw, 2rem) clamp(1.5rem, 4vw, 3rem);
   font-size: clamp(0.98rem, 1.35vw, 1.05rem);
   border: 1px solid rgba(37, 99, 235, 0.16);
   border-radius: 28px;
