@@ -4,7 +4,7 @@ const chatOptions = [
   {
     question: "Ubicación",
     answer:
-      "Actualmente resido en Pachuca de Soto, Hidalgo, México. Estoy disponible para cambiar de residencia a cualquier parte de México si la oportunidad lo requiere.",
+      "Actualmente resido en Pachuca de Soto, Hidalgo, México. Estoy disponible para cambio de residencia a Querétaro, Monterrey o León si la oportunidad lo requiere.",
   },
   {
     question: "Explícame ¿por qué crees que deberíamos contratarte?",
