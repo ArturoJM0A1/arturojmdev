@@ -3,7 +3,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { navigationItems, scrollToSection } from "../menuNavigation.js";
 import "./HeroCat.css";
 
-export default function SiteHeader({ cvHref, displayText, theme, setTheme, showCP, onShowCP, showParticles, onToggleParticles, onToggleChat }) {
+export default function SiteHeader({ cvHref, displayText, theme, setTheme, showCP, onShowCP, showParticles, onToggleParticles, onToggleChat, onViewCV }) {
   const location = useLocation();
   const navigate = useNavigate();
   const menuRef = useRef(null);
@@ -214,17 +214,17 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme, showC
         </div>
 
         <div className="hero-actions">
-          <a
-            href={cvHref}
-            download="JuarezMonroy Arturo CV.pdf"
+          <button
+            type="button"
             className="btn botonhero"
+            onClick={onViewCV}
           >
-            Descargar CV
+            Ver CV
             <span class="absolute flex size-3 top-0 right-0.5">
               <span class="absolute inline-flex h-full w-full animate-ping rounded-full animacionDCV1 opacity-75"></span>
               <span class="relative inline-flex size-3 rounded-full animacionDCV2"></span>
             </span>
-          </a>
+          </button>
           <button
             type="button"
             className="btn botonhero"

@@ -6249,6 +6249,67 @@ body.dark-mode .recommendation-card__linkedin:hover {
   }
 }
 
+/* ---- PDF Viewer ---- */
+.pdf-viewer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 0;
+  animation: cpFadeIn 0.2s ease-out;
+}
+
+.pdf-viewer-modal {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pdf-viewer-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100001;
+  transition: background 0.2s ease, transform 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.pdf-viewer-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+body.dark-mode .pdf-viewer-close {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .pdf-viewer-close:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.pdf-viewer-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 /* ---- Chat Panel ---- */
 .chat-overlay {
   position: fixed;

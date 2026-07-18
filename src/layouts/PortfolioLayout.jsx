@@ -197,6 +197,7 @@ export default function PortfolioLayout() {
   const [showCP, setShowCP] = useState(false);
   const [showParticles, setShowParticles] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [showPdfViewer, setShowPdfViewer] = useState(false);
   const [activeVideo, setActiveVideo] = useState(null);
 
   useEffect(() => {
@@ -531,6 +532,15 @@ export default function PortfolioLayout() {
           showParticles={showParticles}
           onToggleParticles={() => setShowParticles((p) => !p)}
           onToggleChat={() => setIsChatOpen((prev) => !prev)}
+          onViewCV={() => {
+            const a = document.createElement("a");
+            a.href = cvHref;
+            a.download = "JuarezMonroy Arturo CV.pdf";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            setShowPdfViewer(true);
+          }}
         />
 
         <SidebarInfo
@@ -671,6 +681,26 @@ export default function PortfolioLayout() {
       )}
 
       <ChatPanel isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
+
+      {showPdfViewer && (
+        <div className="pdf-viewer-overlay" onClick={() => setShowPdfViewer(false)}>
+          <div className="pdf-viewer-modal" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="pdf-viewer-close"
+              onClick={() => setShowPdfViewer(false)}
+              aria-label="Cerrar visor"
+            >
+              ✕
+            </button>
+            <iframe
+              src={cvHref}
+              title="Visor de CV"
+              className="pdf-viewer-frame"
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 }
