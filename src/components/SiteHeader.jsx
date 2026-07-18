@@ -3,7 +3,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { navigationItems, scrollToSection } from "../menuNavigation.js";
 import "./HeroCat.css";
 
-export default function SiteHeader({ cvHref, displayText, theme, setTheme, showCP, onShowCP, showParticles, onToggleParticles }) {
+export default function SiteHeader({ cvHref, displayText, theme, setTheme, showCP, onShowCP, showParticles, onToggleParticles, onToggleChat }) {
   const location = useLocation();
   const navigate = useNavigate();
   const menuRef = useRef(null);
@@ -230,6 +230,9 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme, showC
       </div>
 
       <div className="herocat" aria-hidden="true">
+        <div className="herocat-r2d2" onClick={onToggleChat} title="Abrir chat">
+          <img src="/r2d2.png" alt="R2-D2" draggable="false" />
+        </div>
         <div className="hero-cat-art">
           {showZzz && <span className="hero-cat-zzz">zzzz</span>}
           <div className="hero-cat">

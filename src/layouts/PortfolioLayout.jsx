@@ -10,6 +10,7 @@ import GhostCursor from "../components/GhostCursor.jsx";
 import SidebarInfo from "../components/SidebarInfo.jsx";
 import SiteHeader from "../components/SiteHeader.jsx";
 import PartyLights from "../components/PartyLights.jsx";
+import ChatPanel from "../components/ChatPanel.jsx";
 import { scrollToSection } from "../menuNavigation.js";
 
 const pageTitles = {
@@ -195,6 +196,7 @@ export default function PortfolioLayout() {
   const [showRocket, setShowRocket] = useState(false);
   const [showCP, setShowCP] = useState(false);
   const [showParticles, setShowParticles] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
   const [activeVideo, setActiveVideo] = useState(null);
 
   useEffect(() => {
@@ -528,6 +530,7 @@ export default function PortfolioLayout() {
           onShowCP={setShowCP}
           showParticles={showParticles}
           onToggleParticles={() => setShowParticles((p) => !p)}
+          onToggleChat={() => setIsChatOpen((prev) => !prev)}
         />
 
         <SidebarInfo
@@ -666,6 +669,8 @@ export default function PortfolioLayout() {
           </div>
         </div>
       )}
+
+      <ChatPanel isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
     </>
   );
 }

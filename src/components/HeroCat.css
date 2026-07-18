@@ -11,8 +11,50 @@
   height: 2px;
   background: transparent;
   overflow: visible;
-  pointer-events: none;
   z-index: 4;
+}
+
+.herocat-r2d2 {
+  position: absolute;
+  right: clamp(172px, 12vw, 228px);
+  bottom: 2px;
+  z-index: 5;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.herocat-r2d2 img {
+  width: clamp(44px, 5vw, 62px);
+  height: auto;
+  display: block;
+  image-rendering: pixelated;
+  background: transparent !important;
+  background-color: transparent !important;
+  mix-blend-mode: multiply;
+}
+
+.herocat-r2d2:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 760px) {
+  .herocat-r2d2 {
+    right: clamp(144px, 18vw, 170px);
+  }
+  .herocat-r2d2 img {
+    width: clamp(36px, 6vw, 44px);
+  }
+}
+
+@media (max-width: 560px) {
+  .herocat-r2d2 {
+    right: clamp(120px, 20vw, 142px);
+    bottom: 4px;
+  }
+  .herocat-r2d2 img {
+    width: 32px;
+  }
 }
 
 body.dark-mode .hero .herocat {
