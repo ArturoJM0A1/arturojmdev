@@ -89,6 +89,11 @@ body.dark-mode .herocat-r2d2-hola {
   .herocat-r2d2 img {
     width: 32px;
   }
+  .herocat-r2d2-hola {
+    font-size: 10px;
+    padding: 3px 7px 4px 7px;
+    border-radius: 8px;
+  }
 }
 
 body.dark-mode .hero .herocat {
@@ -554,5 +559,20 @@ body.dark-mode .hero-cat-zzz::before {
   93.3333333333%,
   100% {
     transform: rotate(-16deg);
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-cat-zzz {
+    font-size: 13px;
+    padding: 4px 8px 6px 8px;
+    border-radius: 9px;
+    right: 38px;
+  }
+  .hero-cat-zzz::after {
+    right: 10px;
+  }
+  .hero-cat-zzz::before {
+    right: 11px;
   }
 }
