@@ -34,6 +34,40 @@
   mix-blend-mode: multiply;
 }
 
+.herocat-r2d2-hola {
+  position: absolute;
+  right: calc(100% + 6px);
+  top: -6px;
+  font-family: var(--font-tech, 'Orbitron', monospace);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary-light);
+  background: #fff;
+  border: 2px solid var(--primary-light);
+  border-radius: 10px;
+  padding: 4px 10px 6px 10px;
+  line-height: 1;
+  opacity: 0;
+  z-index: 9999;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  animation: herocat-r2d2-hola-pop 3s ease-out forwards;
+}
+
+body.dark-mode .herocat-r2d2-hola {
+  color: var(--primary-dark);
+  background: var(--bg-card, #0f1419);
+  border-color: var(--primary-dark);
+}
+
+@keyframes herocat-r2d2-hola-pop {
+  0%   { opacity: 0; transform: translateY(4px) scale(0.9); }
+  12%  { opacity: 1; transform: translateY(0) scale(1); }
+  70%  { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-4px) scale(0.9); }
+}
+
 .herocat-r2d2:active {
   transform: scale(0.95);
 }

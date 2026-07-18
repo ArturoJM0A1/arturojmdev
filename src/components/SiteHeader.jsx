@@ -9,6 +9,7 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme, showC
   const menuRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showZzz, setShowZzz] = useState(true);
+  const [showR2d2Hola, setShowR2d2Hola] = useState(true);
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -16,6 +17,11 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme, showC
 
   useEffect(() => {
     const timer = setTimeout(() => setShowZzz(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowR2d2Hola(false), 3000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -231,6 +237,7 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme, showC
 
       <div className="herocat" aria-hidden="true">
         <div className="herocat-r2d2" onClick={onToggleChat} title="Abrir chat">
+          {showR2d2Hola && <span className="herocat-r2d2-hola">Hola</span>}
           <img src="/r2d2.png" alt="R2-D2" draggable="false" />
         </div>
         <div className="hero-cat-art">
