@@ -52,7 +52,7 @@
   pointer-events: none;
   user-select: none;
   white-space: nowrap;
-  animation: herocat-r2d2-hola-pop 3s ease-out forwards;
+  animation: herocat-r2d2-hola-pop 4s ease-out forwards;
 }
 
 body.dark-mode .herocat-r2d2-hola {

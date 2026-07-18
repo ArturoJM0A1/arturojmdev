@@ -21,7 +21,7 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme, showC
   }, []);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowR2d2Hola(false), 3000);
+    const timer = setTimeout(() => setShowR2d2Hola(false), 4000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -237,7 +237,7 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme, showC
 
       <div className="herocat" aria-hidden="true">
         <div className="herocat-r2d2" onClick={onToggleChat} title="Abrir chat">
-          {showR2d2Hola && <span className="herocat-r2d2-hola">Hola</span>}
+          {showR2d2Hola && <span className="herocat-r2d2-hola">¿Dudas?</span>}
           <img src="/r2d2.png" alt="R2-D2" draggable="false" />
         </div>
         <div className="hero-cat-art">
