@@ -6273,35 +6273,37 @@ body.dark-mode .recommendation-card__linkedin:hover {
 
 .pdf-viewer-close {
   position: absolute;
-  top: 16px;
+  top: 55px;
   right: 16px;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 8px;
   border: none;
-  background: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
   font-size: 1.3rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100001;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.15s ease;
   backdrop-filter: blur(4px);
 }
 
 .pdf-viewer-close:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: scale(1.1);
+  background: rgba(59, 130, 246, 0.25);
+  color: #1d4ed8;
 }
 
 body.dark-mode .pdf-viewer-close {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(30, 64, 175, 0.3);
+  color: #93c5fd;
 }
 
 body.dark-mode .pdf-viewer-close:hover {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(30, 64, 175, 0.5);
+  color: #bfdbfe;
 }
 
 .pdf-viewer-frame {
