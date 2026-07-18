@@ -74,7 +74,7 @@ body.dark-mode .herocat-r2d2-hola {
 
 @media (max-width: 760px) {
   .herocat-r2d2 {
-    right: clamp(144px, 18vw, 170px);
+    right: clamp(104px, 16vw, 120px);
   }
   .herocat-r2d2 img {
     width: clamp(36px, 6vw, 44px);
@@ -83,7 +83,7 @@ body.dark-mode .herocat-r2d2-hola {
 
 @media (max-width: 560px) {
   .herocat-r2d2 {
-    right: clamp(120px, 20vw, 142px);
+    right: clamp(74px, 18vw, 90px);
     bottom: 4px;
   }
   .herocat-r2d2 img {
