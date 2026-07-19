@@ -16,13 +16,18 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme, showC
   }, [location.pathname]);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowZzz(false), 2000);
+    const timer = setTimeout(() => setShowZzz(false), 7000);
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowR2d2Hola(false), 4000);
+    const timer = setTimeout(() => setShowR2d2Hola(false), 7000);
     return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = "/r2d2.png";
   }, []);
 
   useEffect(() => {
