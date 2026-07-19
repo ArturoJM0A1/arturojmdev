@@ -2,6 +2,11 @@ import { useState } from "react";
 
 const chatOptions = [
   {
+    question: "Principales habilidades técnicas",
+    answer:
+      "React, Java, Angular y PHP. Son las tecnologías con las que más cómodo me siento y mayor experiencia tengo.",
+  },
+  {
     question: "Ubicación",
     answer:
       "Actualmente resido en Pachuca de Soto, Hidalgo, México. Estoy disponible para cambio de residencia a Querétaro, Monterrey, León o CDMX si la oportunidad lo requiere.",

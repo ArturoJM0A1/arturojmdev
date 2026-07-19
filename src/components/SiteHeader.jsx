@@ -10,15 +10,18 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme, showC
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showZzz, setShowZzz] = useState(true);
   const [showR2d2Hola, setShowR2d2Hola] = useState(true);
+  const [catText, setCatText] = useState("zzzz");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCatText((prev) => (prev === "zzzz" ? "Miau" : "zzzz"));
+    }, 1500);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location.pathname]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShowZzz(false), 3000);
-    return () => clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     const img = new Image();
@@ -237,11 +240,11 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme, showC
 
       <div className="herocat" aria-hidden="true">
         <div className="herocat-r2d2" onClick={onToggleChat} title="Abrir chat">
-          {showR2d2Hola && <span className="herocat-r2d2-hola">¿Dudas?</span>}
+          {showR2d2Hola && <span className="herocat-r2d2-hola">ClickMe</span>}
           <img src="/r2d2.png" alt="R2-D2" draggable="false" />
         </div>
         <div className="hero-cat-art">
-          {showZzz && <span className="hero-cat-zzz">zzzz</span>}
+          {showZzz && <span className="hero-cat-zzz">{catText}</span>}
           <div className="hero-cat">
             <div className="hero-cat__body"></div>
 
