@@ -16,7 +16,7 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme, showC
   }, [location.pathname]);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowZzz(false), 10000);
+    const timer = setTimeout(() => setShowZzz(false), 3000);
     return () => clearTimeout(timer);
   }, []);
 

@@ -16,7 +16,7 @@
 
 .herocat-r2d2 {
   position: absolute;
-  right: clamp(172px, 12vw, 228px);
+  right: clamp(145px, 9vw, 185px);
   bottom: 2px;
   z-index: 5;
   cursor: pointer;
@@ -73,7 +73,7 @@ body.dark-mode .herocat-r2d2-hola {
 
 @media (max-width: 760px) {
   .herocat-r2d2 {
-    right: clamp(104px, 16vw, 120px);
+    right: clamp(85px, 13vw, 105px);
   }
   .herocat-r2d2 img {
     width: clamp(36px, 6vw, 44px);
@@ -82,7 +82,7 @@ body.dark-mode .herocat-r2d2-hola {
 
 @media (max-width: 560px) {
   .herocat-r2d2 {
-    right: clamp(74px, 18vw, 90px);
+    right: clamp(60px, 16vw, 80px);
     bottom: 4px;
   }
   .herocat-r2d2 img {
@@ -470,7 +470,7 @@ body.dark-mode .hero .herocat {
   user-select: none;
   white-space: nowrap;
   box-shadow: none;
-  animation: hero-cat-zzz-pop 10s ease-out forwards;
+  animation: hero-cat-zzz-pop 3s ease-out forwards;
 }
 
 .hero-cat-zzz::after {
