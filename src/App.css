@@ -6311,6 +6311,23 @@ body.dark-mode .pdf-viewer-close:hover {
   border: none;
 }
 
+/* ---- Cat GIF Overlay ---- */
+.cat-gif-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.cat-gif-overlay__gif {
+  max-width: 100vw;
+  max-height: 100vh;
+  object-fit: contain;
+}
+
 /* ---- Chat Panel ---- */
 .chat-overlay {
   position: fixed;

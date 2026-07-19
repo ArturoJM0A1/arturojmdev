@@ -11,6 +11,7 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme, showC
   const [showZzz, setShowZzz] = useState(true);
   const [showR2d2Hola, setShowR2d2Hola] = useState(true);
   const [catText, setCatText] = useState("zzzz");
+  const [showCatGif, setShowCatGif] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -243,8 +244,8 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme, showC
           {showR2d2Hola && <span className="herocat-r2d2-hola">ClickMe</span>}
           <img src="/r2d2.png" alt="R2-D2" draggable="false" />
         </div>
-        <div className="hero-cat-art">
-          {showZzz && <span className="hero-cat-zzz">{catText}</span>}
+        <div className="hero-cat-art" onClick={() => setShowCatGif(true)}>
+          {showZzz && <span className="hero-cat-zzz" onClick={() => setShowCatGif(true)}>{catText}</span>}
           <div className="hero-cat">
             <div className="hero-cat__body"></div>
 
@@ -285,6 +286,21 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme, showC
           </div>
         </div>
       </div>
+
+      {showCatGif && (
+        <div className="cat-gif-overlay">
+          <img
+            src="/clickgato.gif"
+            alt=""
+            className="cat-gif-overlay__gif"
+            onLoad={(e) => {
+              const img = e.target;
+              const duration = img.naturalWidth > 0 ? 3000 : 3000;
+              setTimeout(() => setShowCatGif(false), duration);
+            }}
+          />
+        </div>
+      )}
     </header>
   );
 }
