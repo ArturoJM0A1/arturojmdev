@@ -36,7 +36,7 @@
 
 .herocat-r2d2-hola {
   position: absolute;
-  right: calc(100% + 6px);
+  right: calc(100% - 8px);
   top: -6px;
   font-family: var(--font-tech, 'Orbitron', monospace);
   font-size: 12px;
@@ -52,7 +52,7 @@
   pointer-events: none;
   user-select: none;
   white-space: nowrap;
-  animation: herocat-r2d2-hola-pop 4s ease-out forwards;
+  animation: herocat-r2d2-hola-pop 0.5s ease-out forwards;
 }
 
 body.dark-mode .herocat-r2d2-hola {
@@ -64,8 +64,7 @@ body.dark-mode .herocat-r2d2-hola {
 @keyframes herocat-r2d2-hola-pop {
   0%   { opacity: 0; transform: translateY(4px) scale(0.9); }
   12%  { opacity: 1; transform: translateY(0) scale(1); }
-  70%  { opacity: 1; transform: translateY(0) scale(1); }
-  100% { opacity: 0; transform: translateY(-4px) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .herocat-r2d2:active {
@@ -471,7 +470,7 @@ body.dark-mode .hero .herocat {
   user-select: none;
   white-space: nowrap;
   box-shadow: none;
-  animation: hero-cat-zzz-pop 2s ease-out forwards;
+  animation: hero-cat-zzz-pop 10s ease-out forwards;
 }
 
 .hero-cat-zzz::after {
@@ -515,8 +514,8 @@ body.dark-mode .hero-cat-zzz::before {
 
 @keyframes hero-cat-zzz-pop {
   0%   { opacity: 0; }
-  15%  { opacity: 1; }
-  75%  { opacity: 1; }
+  8%   { opacity: 1; }
+  85%  { opacity: 1; }
   100% { opacity: 0; }
 }
 
