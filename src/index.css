@@ -14,6 +14,46 @@
   }
 }
 
+.r2d2welcome {
+    display: none;      /* Siempre flex */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  position: absolute;
+  max-width: 9vh;
+  min-width: auto;
+  left: 0;
+  bottom: 0;
+  z-index: 3;
+  /* transición */
+  opacity: 1;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  margin-right: 1px;
+  margin-bottom: 2px;
+  transition: all 0.5s ease;
+
+  margin-left: -7px;
+
+  bottom: 10px;
+
+}
+
+@media (max-width: 768px) {
+  .r2d2welcome  {
+      max-width: 6vh;
+  }
+
+
+}
+
+.welcome-cta:hover+.r2d2welcome {
+  display: flex;
+      opacity: 1;
+    visibility: visible;
+}
+
 .avatarwelcome {
   position: absolute;
   max-width: 138px;
@@ -1046,7 +1086,7 @@ body.dark-mode .comment-success {
   padding: 0;
   overflow: hidden;
   animation: girarTuerca 6s ease-in-out infinite;
-margin-top: -6px;
+  margin-top: -6px;
 }
 
 

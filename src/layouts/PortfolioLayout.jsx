@@ -2,6 +2,7 @@
 import { Outlet, useLocation } from "react-router-dom";
 import "../App.css";
 import "../cohetegoup.css";
+import r2d2welcome from "../../public/r2d2welcome.png";
 import avatarwelcome from "../../public/avatar2.png";
 import avatarwelcomehover from "../../public/avatar5.png";
 import avatarfooter from "../../public/avatar5.png";
@@ -492,6 +493,13 @@ export default function PortfolioLayout() {
                 <div className="mouth"></div>
               </div>
             </button>
+
+
+            <img
+              src={r2d2welcome}
+              alt="Asistente welcome"
+              className="r2d2welcome"
+            />
 
             <img
               src={avatarwelcome}
