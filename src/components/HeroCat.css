@@ -147,14 +147,14 @@ body.dark-mode .hero .herocat {
 .hero-cat-art {
   position: absolute;
   right: clamp(18px, 4vw, 64px);
-  bottom: 1px;
+  bottom: 2px;
   width: 200px;
   height: 96px;
   font-size: clamp(0.84px, 0.12vw + 0.5px, 1.08px);
   overflow: visible;
   transform: translateY(1px);
   transform-origin: bottom right;
-  filter: drop-shadow(0 8px 18px var(--hero-cat-shadow));
+  filter: drop-shadow(0 8px 18px var(--hero-cat-shadow)) drop-shadow(0 0 6px rgba(255, 255, 255, 0.15));
 
   scale: 0.55;
 }
@@ -498,7 +498,7 @@ body.dark-mode .hero .herocat {
 .hero-cat-zzz {
   position: fixed;
   right: 45px;
-  top: -18px;
+  top: -20px;
   font-family: var(--font-tech, 'Orbitron', monospace);
   font-size: 20px;
   font-weight: 700;
@@ -610,7 +610,7 @@ body.dark-mode .hero-cat-zzz::before {
     padding: 2px 6px 3px 6px;
     border-radius: 6px;
     right: 38px;
-    top: 10px;
+    top: 12px;
   }
   .hero-cat-zzz::after {
     right: 10px;
