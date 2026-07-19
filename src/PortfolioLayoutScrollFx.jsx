@@ -14,7 +14,7 @@ const getScrollAccent = (icon) => {
       x: isCompactViewport ? -2 : -5,
       y: isCompactViewport ? -10 : -18,
       rotate: isCompactViewport ? -2.4 : -4.5,
-      scale: isCompactViewport ? 1.08 : 1.15,
+      scale: isCompactViewport ? 1.4 : 1.7,
     };
   }
 
@@ -22,7 +22,7 @@ const getScrollAccent = (icon) => {
     x: isCompactViewport ? 2 : 4,
     y: isCompactViewport ? -9 : -16,
     rotate: isCompactViewport ? 2.1 : 4,
-    scale: isCompactViewport ? 1.08 : 1.18,
+    scale: isCompactViewport ? 1.4 : 1.8,
   };
 };
 
@@ -85,7 +85,7 @@ export default function PortfolioLayoutScrollFx() {
           x: 0,
           y: 0,
           rotate: 0,
-          scale: 1,
+          scale: 0.95,
           transformOrigin: "50% 50%",
           force3D: true,
         });
