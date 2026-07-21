@@ -20,6 +20,7 @@ export default function NotFoundPage() {
             Ir al recorrido
           </Link>
         </div>
+        <img src="/clickgato.gif" alt="" className="not-found-gif" />
       </section>
     </div>
   );

@@ -299,6 +299,7 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme, showC
               setTimeout(() => setShowCatGif(false), duration);
             }}
           />
+          <span className="cat-gif-overlay__text">Haz clic en el menú, no en mí</span>
         </div>
       )}
     </header>
