@@ -207,7 +207,7 @@ export default function PortfolioLayout() {
 
   useEffect(() => {
     const sectionTitle = pageTitles[location.pathname] ?? "Portafolio";
-    document.title = `Arturo Juárez Monroy | ${sectionTitle}`;
+    document.title = `Arturo Juárez Monroy ${sectionTitle}`;
   }, [location.pathname]);
 
   useEffect(() => {
