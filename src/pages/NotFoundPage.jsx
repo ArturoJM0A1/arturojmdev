@@ -13,11 +13,11 @@ export default function NotFoundPage() {
       <section className="not-found-panel">
         <h3>Busca otra seccion del sitio</h3>
         <p>
-          Puedes volver al inicio o abrir directamente la seccion de proyectos.
+          Puedes volver al recorrido o abrir directamente la seccion de proyectos.
         </p>
         <div className="not-found-actions">
           <Link to="/" className="btn">
-            Ir al inicio
+            Ir al recorrido
           </Link>
           <Link to="/proyectos" className="btn">
             Ver proyectos

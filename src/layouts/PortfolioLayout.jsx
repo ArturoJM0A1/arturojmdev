@@ -15,7 +15,7 @@ import ChatPanel from "../components/ChatPanel.jsx";
 import { scrollToSection } from "../menuNavigation.js";
 
 const pageTitles = {
-  "/": "Inicio",
+  "/": "",
   "/sobre-mi": "Sobre mi",
   "/actualmente": "Actualmente",
   "/experiencia": "Experiencia",
