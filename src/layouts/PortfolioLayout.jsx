@@ -16,14 +16,14 @@ import { scrollToSection } from "../menuNavigation.js";
 
 const pageTitles = {
   "/": "",
-  "/sobre-mi": "Sobre mi",
-  "/actualmente": "Actualmente",
-  "/experiencia": "Experiencia",
-  "/habilidades": "Habilidades",
-  "/proyectos": "Proyectos",
-  "/certificaciones": "Certificaciones",
-  "/comentarios": "Comentarios",
-  "/contacto": "Contacto",
+  "/sobre-mi": "| Sobre mi",
+  "/actualmente": "| Actualmente",
+  "/experiencia": "| Experiencia",
+  "/habilidades": "| Habilidades",
+  "/proyectos": "| Proyectos",
+  "/certificaciones": "| Certificaciones",
+  "/comentarios": "| Comentarios",
+  "/contacto": "| Contacto",
 };
 
 const fullText = "Ingeniería en Software";
@@ -207,7 +207,7 @@ export default function PortfolioLayout() {
 
   useEffect(() => {
     const sectionTitle = pageTitles[location.pathname] ?? "Portafolio";
-    document.title = `Arturo Juárez Monroy ${sectionTitle}`;
+    document.title = `Arturo Juárez Monroy${sectionTitle}`;
   }, [location.pathname]);
 
   useEffect(() => {

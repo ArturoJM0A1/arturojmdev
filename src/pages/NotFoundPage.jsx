@@ -19,9 +19,6 @@ export default function NotFoundPage() {
           <Link to="/" className="btn">
             Ir al recorrido
           </Link>
-          <Link to="/proyectos" className="btn">
-            Ver proyectos
-          </Link>
         </div>
       </section>
     </div>
