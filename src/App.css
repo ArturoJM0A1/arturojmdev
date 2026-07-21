@@ -816,7 +816,7 @@ body.dark-mode .divider {
 }
 
 .botonhero {
-  padding: 4px 14px !important;
+  padding: 7px 14px !important;
   margin-right: 5px !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
@@ -4409,12 +4409,12 @@ body.dark-mode .hero-nav-panel {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  padding: 10px 12px;
+  gap: 8px;
+  padding: 6px 10px;
   border: 1px solid transparent;
   color: var(--text-light-secondary);
   text-decoration: none;
-  border-radius: 14px;
+  border-radius: 10px;
   background: transparent;
   transition: var(--transition);
 }
@@ -4444,11 +4444,11 @@ body.dark-mode .hero-nav__link.is-active {
 }
 
 .hero-nav__marker {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 999px;
   background: currentColor;
-  opacity: 0.24;
+  opacity: 0.2;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
