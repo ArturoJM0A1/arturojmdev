@@ -3,6 +3,7 @@ export const navigationItems = [
   { to: "/sobre-mi", label: "Sobre mi", scrollTarget: "about-section" },
   { to: "/habilidades", label: "Habilidades", scrollTarget: "skills-section" },
   { to: "/experiencia", label: "Experiencia", scrollTarget: "experience" },
+  { to: null, label: "Servicios", action: "services" },
   {
     to: "/certificaciones",
     label: "Certificaciones",

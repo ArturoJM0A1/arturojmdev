@@ -34,6 +34,8 @@ export default function SidebarInfo({
   audioRef,
   audioProgress = 0,
   audioDuration = 0,
+  showServicesModal = false,
+  setShowServicesModal,
 }) {
   const [activePhotoIndex, setActivePhotoIndex] = useState(0);
   const [showTooltip, setShowTooltip] = useState(true);
@@ -266,9 +268,60 @@ export default function SidebarInfo({
           >
             <i className="fab fa-whatsapp" aria-hidden="true"></i>
           </a>
+          <div className="laptop-golden-wrapper">
+            <button
+              type="button"
+              className="contact-icon-link laptop-golden"
+              aria-label="Servicios"
+              onClick={() => setShowServicesModal(true)}
+            >
+              <i className="fas fa-rocket" aria-hidden="true"></i>
+            </button>
+            <span className="laptop-golden-label">Servicios</span>
+          </div>
           {copied && <span className="copy-toast">Listo correo copiado</span>}
         </div>
       </section>
+
+      {showServicesModal && (
+        <div className="services-modal-overlay" onClick={() => setShowServicesModal(false)}>
+          <div className="services-modal" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="services-modal__close"
+              onClick={() => setShowServicesModal(false)}
+              aria-label="Cerrar"
+            >
+              <i className="fas fa-times" aria-hidden="true"></i>
+            </button>
+            <h3 className="services-modal__title">Servicios</h3>
+            <p className="services-modal__text">
+              Hago sitios web que no solo se ven bonitas, hacen que te contacten.
+              Para gimnasios que quieren llenar clases, restaurantes que quieren más pedidos, ferreterías y cualquier negocio que quiera verse profesional
+              y aparecer en Google. Rápidas, con WhatsApp directo y listas para vender.
+              Desde $7,500 MXN. ¿La vemos para tu negocio?
+            </p>
+            <div className="services-modal__phone">
+              <i className="fas fa-phone-alt" aria-hidden="true"></i>
+              <a href="tel:+527736802105">+52 773 680 2105</a>
+            </div>
+            <a
+              href="https://wa.me/5217736802105?text=Hola%2C%20me%20interesa%20un%20sitio%20web%20para%20mi%20negocio"
+              target="_blank"
+              rel="noreferrer"
+              className="services-modal__whatsapp-btn"
+            >
+              <i className="fab fa-whatsapp" aria-hidden="true"></i>
+              Abrir en WhatsApp
+            </a>
+            <img
+              src="/r2d2services.png"
+              alt="R2D2 Servicios"
+              className="services-modal__image"
+            />
+          </div>
+        </div>
+      )}
 
       {showSkills ? <SkillsContent /> : null}
     </div>

@@ -200,6 +200,7 @@ export default function PortfolioLayout() {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [showPdfViewer, setShowPdfViewer] = useState(false);
   const [activeVideo, setActiveVideo] = useState(null);
+  const [showServicesModal, setShowServicesModal] = useState(false);
 
   useEffect(() => {
     document.documentElement.lang = "es";
@@ -549,6 +550,7 @@ export default function PortfolioLayout() {
             document.body.removeChild(a);
             setShowPdfViewer(true);
           }}
+          onOpenServices={() => setShowServicesModal(true)}
         />
 
         <SidebarInfo
@@ -561,10 +563,12 @@ export default function PortfolioLayout() {
           audioRef={audioRef}
           audioProgress={audioProgress}
           audioDuration={audioDuration}
+          showServicesModal={showServicesModal}
+          setShowServicesModal={setShowServicesModal}
         />
 
         <div className="right-column">
-          <Outlet context={{ theme, handleOpenVideo }} />
+          <Outlet context={{ theme, handleOpenVideo, openServicesModal: () => setShowServicesModal(true) }} />
         </div>
 
         <footer>

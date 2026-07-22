@@ -5296,6 +5296,11 @@ body.dark-mode .current-focus {
   box-shadow: var(--shadow-sm);
   transform-style: preserve-3d;
   perspective: 1000px;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .route-card:hover,

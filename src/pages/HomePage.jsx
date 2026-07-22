@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 
 
 const quickLinks = [
@@ -22,6 +22,11 @@ const quickLinks = [
     to: "/experiencia",
     title: "Revisar experiencia",
     description: "Linea de tiempo con roles profesionales, empresas y tecnologias utilizadas.",
+  },
+  {
+    action: "services",
+    title: "Servicios",
+    description: "Hago sitios web que multiplican tus clientes y ventas.",
   },
   {
     to: "/certificaciones",
@@ -57,13 +62,25 @@ const quickLinks = [
 ];
 
 export default function HomePage() {
+  const { openServicesModal } = useOutletContext();
   return (
     <div className="page-stack">
       <section className="route-overview">
         <h3>Recorrido del sitio</h3>
         <div className="quick-links-grid">
           {quickLinks.map((item) =>
-            item.external ? (
+            item.action ? (
+              <button
+                key={item.action}
+                type="button"
+                className="route-card"
+                onClick={openServicesModal}
+              >
+                <span className="route-card__kicker">Ver</span>
+                <h4>{item.title}</h4>
+                <p>{item.description}</p>
+              </button>
+            ) : item.external ? (
               <a
                 key={item.to}
                 href={item.to}

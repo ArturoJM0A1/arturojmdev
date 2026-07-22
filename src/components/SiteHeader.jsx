@@ -3,7 +3,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { navigationItems, scrollToSection } from "../menuNavigation.js";
 import "./HeroCat.css";
 
-export default function SiteHeader({ cvHref, displayText, theme, setTheme, showCP, onShowCP, showParticles, onToggleParticles, onToggleChat, onViewCV }) {
+export default function SiteHeader({ cvHref, displayText, theme, setTheme, showCP, onShowCP, showParticles, onToggleParticles, onToggleChat, onViewCV, onOpenServices }) {
   const location = useLocation();
   const navigate = useNavigate();
   const menuRef = useRef(null);
@@ -133,8 +133,21 @@ export default function SiteHeader({ cvHref, displayText, theme, setTheme, showC
               aria-label="Navegacion principal"
               id="site-navigation"
             >
-              {navigationItems.map(({ to, label, end, scrollTarget, external }) =>
-                external ? (
+              {navigationItems.map(({ to, label, end, scrollTarget, external, action }) =>
+                action ? (
+                  <button
+                    key={label}
+                    type="button"
+                    className="hero-nav__link"
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      if (action === "services" && onOpenServices) onOpenServices();
+                    }}
+                  >
+                    <span>{label}</span>
+                    <span className="hero-nav__marker" aria-hidden="true"></span>
+                  </button>
+                ) : external ? (
                   <a
                     key={to}
                     href={to}
