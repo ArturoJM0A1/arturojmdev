@@ -295,12 +295,7 @@ export default function SidebarInfo({
               <i className="fas fa-times" aria-hidden="true"></i>
             </button>
             <h3 className="services-modal__title">Servicios</h3>
-            <p className="services-modal__text">
-              Hago sitios web que no solo se ven bonitas, hacen que te contacten.
-              Para gimnasios que quieren llenar clases, restaurantes que quieren más pedidos, ferreterías y cualquier negocio que quiera verse profesional
-              y aparecer en Google. Rápidas, con WhatsApp directo y listas para vender.
-              Desde $7,500 MXN. ¿La vemos para tu negocio?
-            </p>
+            <p className="services-modal__text">Hago sitios web que no solo se ven bien… hacen que te contacten y vendan. Para gimnasios que quieren llenar sus clases, restaurantes que buscan más pedidos, barberías, talleres, ferreterías y cualquier negocio que quiera verse profesional 👔 y aparecer en Google. Rápidos, modernos, con WhatsApp directo y listos para vender desde el primer día. Desde $7,500 MXN. ¿La hacemos para tu negocio?</p>
             <div className="services-modal__phone">
               <i className="fas fa-phone-alt" aria-hidden="true"></i>
               <a href="tel:+527736802105">+52 773 680 2105</a>
