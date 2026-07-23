@@ -40,7 +40,16 @@ export default function SidebarInfo({
   const [activePhotoIndex, setActivePhotoIndex] = useState(0);
   const [showTooltip, setShowTooltip] = useState(true);
   const [copied, setCopied] = useState(false);
+  const [servicesLoading, setServicesLoading] = useState(false);
   const progressPercent = audioDuration > 0 ? (audioProgress / audioDuration) * 100 : 0;
+
+  useEffect(() => {
+    if (showServicesModal) {
+      setServicesLoading(true);
+      const timer = setTimeout(() => setServicesLoading(false), 1200);
+      return () => clearTimeout(timer);
+    }
+  }, [showServicesModal]);
 
   const handlePlayClick = () => {
     setShowTooltip(false);
@@ -294,26 +303,39 @@ export default function SidebarInfo({
             >
               <i className="fas fa-times" aria-hidden="true"></i>
             </button>
-            <h3 className="services-modal__title">Servicios</h3>
-            <p className="services-modal__text">Hago sitios web que no solo se ven bien… hacen que te contacten y vendan. Para gimnasios que quieren llenar sus clases, restaurantes que buscan más pedidos, barberías, talleres, ferreterías y cualquier negocio que quiera verse profesional 👔 y aparecer en Google. Rápidos, modernos, con WhatsApp directo y listos para vender desde el primer día. Desde $7,500 MXN. ¿La hacemos para tu negocio?</p>
-            <div className="services-modal__phone">
-              <i className="fas fa-phone-alt" aria-hidden="true"></i>
-              <a href="tel:+527736802105">+52 773 680 2105</a>
-            </div>
-            <a
-              href="https://wa.me/5217736802105?text=Hola%2C%20me%20interesa%20un%20sitio%20web%20para%20mi%20negocio"
-              target="_blank"
-              rel="noreferrer"
-              className="services-modal__whatsapp-btn"
-            >
-              <i className="fab fa-whatsapp" aria-hidden="true"></i>
-              Abrir en WhatsApp
-            </a>
-            <img
-              src="/r2d2services.png"
-              alt="R2D2 Servicios"
-              className="services-modal__image"
-            />
+            {servicesLoading ? (
+              <div className="services-modal__loading">
+                <img
+                  src="/experienciaempresas/independiente.png"
+                  alt="Servicios"
+                  className="services-modal__loading-img"
+                />
+                <p className="services-modal__loading-text">Cargando...</p>
+              </div>
+            ) : (
+              <>
+                <h3 className="services-modal__title">Servicios</h3>
+                <p className="services-modal__text">¡Transforma tu presencia en línea y atrae más clientes hoy! Con nuestro servicio de creación de sitios web, podrás aumentar tus contactos, potenciar tus ventas y destacar frente a la competencia. Diseños profesionales, optimizados para aparecer en Google, con WhatsApp directo para cerrar ventas al instante. Todo esto desde solo $7,500 MXN. No esperes más, lleva tu negocio al siguiente nivel. Contáctanos y crea tu sitio web ganador ahora.</p>
+                <div className="services-modal__phone">
+                  <i className="fas fa-phone-alt" aria-hidden="true"></i>
+                  <a href="tel:+527736802105">+52 773 680 2105</a>
+                </div>
+                <a
+                  href="https://wa.me/5217736802105?text=Hola%2C%20me%20interesa%20un%20sitio%20web%20para%20mi%20negocio"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="services-modal__whatsapp-btn"
+                >
+                  <i className="fab fa-whatsapp" aria-hidden="true"></i>
+                  Abrir en WhatsApp
+                </a>
+                <img
+                  src="/r2d2services.png"
+                  alt="R2D2 Servicios"
+                  className="services-modal__image"
+                />
+              </>
+            )}
           </div>
         </div>
       )}
