@@ -232,47 +232,31 @@ body.dark-mode .laptop-golden-label {
 
 .laptop-golden {
   all: unset;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   font-size: 1.1rem;
-  color: var(--primary-light) !important;
+  color: var(--primary-light);
   background: transparent;
-  border: none;
-  border-radius: 0;
-  padding: 0;
-  width: auto;
-  height: auto;
-  box-shadow: none;
-  animation: rocketPulse 2s ease-in-out infinite;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
   cursor: pointer;
 }
 
-@keyframes rocketPulse {
-  0%, 100% {
-    color: var(--primary-light);
-    text-shadow: 0 0 8px rgba(190, 195, 210, 0.8), 0 0 20px rgba(200, 205, 215, 0.5), 0 0 40px rgba(210, 215, 225, 0.2);
-  }
-  50% {
-    color: var(--secondary-light);
-    text-shadow: 0 0 12px rgba(190, 195, 210, 1), 0 0 30px rgba(210, 215, 225, 0.6), 0 0 50px rgba(220, 225, 235, 0.3);
-  }
+.laptop-golden:hover {
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--secondary-light);
 }
 
 body.dark-mode .laptop-golden {
-  color: var(--primary-dark) !important;
-  animation: rocketPulseDark 2s ease-in-out infinite;
+  color: var(--primary-dark);
 }
 
-@keyframes rocketPulseDark {
-  0%, 100% {
-    color: var(--primary-dark);
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.2);
-  }
-  50% {
-    color: var(--secondary-dark);
-    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.6), 0 0 50px rgba(255, 255, 255, 0.3);
-  }
+body.dark-mode .laptop-golden:hover {
+  background: rgba(0, 255, 136, 0.1);
+  color: #00cc6a;
 }
 
 /* ===== Services Modal ===== */
