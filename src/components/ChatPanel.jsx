@@ -64,7 +64,7 @@ export default function ChatPanel({ isOpen, onClose }) {
           {selectedQuestion === null ? (
             <div className="chat-panel__welcome">
               <p className="chat-panel__greeting">
-                ¡Hola! Soy el asistente de Arturo. Selecciona una pregunta para conocerme:
+                ¡Hola! Soy el asistente de Arturo. Selecciona una pregunta
               </p>
               <div className="chat-panel__options">
                 {chatOptions.map((option, index) => (
