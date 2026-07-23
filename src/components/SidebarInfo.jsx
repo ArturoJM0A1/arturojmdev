@@ -235,7 +235,6 @@ export default function SidebarInfo({
                 setCopied(true);
                 setTimeout(() => setCopied(false), 1000);
               });
-              window.open("https://www.google.com/search?q=juarezmonroyarturo574%40gmail.com", "_blank");
             }}
             aria-label="Copiar correo electrónico"
           >
@@ -288,7 +287,7 @@ export default function SidebarInfo({
             </button>
             <span className="laptop-golden-label">Servicios</span>
           </div>
-          {copied && <span className="copy-toast">Listo correo copiado</span>}
+          {copied && <span className="copy-toast">Correo copiado</span>}
         </div>
       </section>
 

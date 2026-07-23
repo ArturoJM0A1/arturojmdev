@@ -45,7 +45,6 @@ export default function ContactPanel() {
       setCopied(true);
       setTimeout(() => setCopied(false), 1000);
     });
-    window.open(`https://www.google.com/search?q=${encodeURIComponent(email)}`, "_blank");
   };
 
   return (
@@ -76,7 +75,7 @@ export default function ContactPanel() {
           </a>
         ))}
       </div>
-      {copied && <span className="copy-toast">Listo correo copiado</span>}
+      {copied && <span className="copy-toast">Correo copiado</span>}
 
       <div className="contact-cta">
         <p>Tambien puedes dejarme un comentario directo dentro del portafolio.</p>
