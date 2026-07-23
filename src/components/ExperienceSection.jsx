@@ -11,7 +11,7 @@ const experiences = [
     technologies: ["Java", "Hibernate", "HQL", "Criteria API", "Spring Boot", "Oracle", "PL/SQL", "ExtJS", "Sonar", "Scrum"],
   },
   {
-    role: "Desarrollador Full Stack React",
+    role: "Desarrollador Full Stack",
     company: "Independent Developer",
     period: "Julio 2025 - Febrero 2026",
     location: "Pachuca de Soto, Hidalgo",
